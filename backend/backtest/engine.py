@@ -108,20 +108,20 @@ def run(cfg=None, alpha_scorer=None):
                 if sym in port.positions:
                     continue
 
-                # 检查总仓位上限
-                mv = sum(
-                    pos.qty * prices.get(s, pos.cost)
-                    for s, pos in port.positions.items()
-                )
-                if total_val > 0 and (mv / total_val) >= rs.position_cap - 0.01:
+                # 检查总保证金上限（用原始成本，不用当前价格）
+                margin_used = sum(pos.qty * pos.cost for pos in port.positions.values())
+                if total_val > 0 and (margin_used / total_val) >= rs.position_cap - 0.01:
                     break
 
-                # ATR 定仓（知识库第15课）
-                atr_pct = sig.get("atr_pct", 0.03)
-                size_pct = min(
-                    cfg.risk_per_trade / max(atr_pct, 0.005),
-                    cfg.max_pos_pct
-                )
+                # 仓位 = 每槽均分（满仓理念：把资金用满）
+                # 杠杆放在 P&L 计算层，不放大占用资金（合约保证金模型）
+                atr_pct    = sig.get("atr_pct", 0.03)
+                regime_lev = rs.leverage   # 合约杠杆倍数（不影响保证金占用）
+
+                # 每槽保证金 = position_cap / slots（均分资金）
+                slots_used = len(port.positions)
+                n_slots    = max(rs.max_slots, 1)
+                size_pct   = min(rs.position_cap / n_slots, cfg.max_pos_pct)
 
                 # 风控审核
                 decision = risk.check_order(size_pct, total_val, level, now)
@@ -139,7 +139,7 @@ def run(cfg=None, alpha_scorer=None):
                 port.open_position(
                     sym, "long" if sig["direction"] > 0 else "short",
                     buy_price, decision.size, total_val, ts, sig["strategy"],
-                    atr_pct=atr_pct,
+                    atr_pct=atr_pct, leverage=regime_lev,
                 )
                 free_slots -= 1
 

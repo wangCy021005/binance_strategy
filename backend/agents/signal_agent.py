@@ -60,6 +60,14 @@ class SignalAgent:
 
         # ── AlphaGPT 二次评分（可选）──────────────────────────────────
         result = list(combined.values())
+
+        # Regime方向过滤：Bull只做多，Bear只做空，Ranging两者都允许
+        if regime.regime == "bull":
+            result = [s for s in result if s.get("direction", 1) > 0]
+        elif regime.regime == "bear":
+            result = [s for s in result if s.get("direction", 1) < 0]
+        # ranging/crisis: 不过滤方向
+
         if self.alpha_scorer and result:
             try:
                 result = self.alpha_scorer(result)

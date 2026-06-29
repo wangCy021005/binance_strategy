@@ -35,6 +35,7 @@ class RegimeState:
     def_weight:     float
     max_slots:      int
     position_cap:   float
+    leverage:       float = 1.0   # 该状态下的杠杆倍数
 
 
 class RegimeAgent:
@@ -116,10 +117,13 @@ class RegimeAgent:
 
         if regime not in self.cfg.regime_weights:
             raise KeyError(f"regime_weights 中缺少状态 '{regime}'")
-        mw, fw, rw, dw, slots, cap = self.cfg.regime_weights[regime]
+        entry = self.cfg.regime_weights[regime]
+        mw, fw, rw, dw, slots, cap = entry[:6]
+        lev = float(entry[6]) if len(entry) > 6 else 1.0
+        lev = min(lev, getattr(self.cfg, 'max_leverage', 10.0))
 
         return RegimeState(
             regime=regime, btc_ret_20d=ret_20d, vol_20d=vol_20d,
             mom_weight=mw, funding_weight=fw, mr_weight=rw, def_weight=dw,
-            max_slots=slots, position_cap=cap,
+            max_slots=slots, position_cap=cap, leverage=lev,
         )

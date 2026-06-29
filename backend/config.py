@@ -42,14 +42,19 @@ class Config:
     vol_crisis:         float = 0.80   # BTC 20日年化波动率 > 80% → 危机（加密市场正常波动高）
     regime_confirm_days: int  = 2
 
-    # ─── Regime → 策略权重 ──────────────────────────────────────────────────
-    # (momentum, funding_arb, mean_revert, defensive, max_slots, position_cap)
-    # 加密特点：动量IC为正（与A股相反）
+    # ─── Regime → 策略权重路由（含杠杆）────────────────────────────────────
+    # (momentum, funding_arb, mean_revert, defensive, max_slots, pos_cap, leverage)
+    # pos_cap: 实际仓位上限（资产%，不含杠杆）
+    # leverage: 该状态下允许的最大杠杆倍数（用户要求不超过10x）
     regime_weights: dict = field(default_factory=lambda: {
-        "bull":     (0.70, 0.20, 0.05, 0.05, 3, 0.80),  # 牛市：动量主导
-        "ranging":  (0.20, 0.50, 0.20, 0.10, 2, 0.50),  # 震荡：资金费率套利
-        "bear":     (0.10, 0.30, 0.00, 0.60, 1, 0.20),  # 熊市：谨慎，可做空
-        "crisis":   (0.00, 0.10, 0.00, 0.90, 0, 0.05),  # 危机：全防御
+        # 牛市：满仓+中等杠杆，动量策略主导
+        "bull":     (0.80, 0.15, 0.00, 0.05, 4, 0.90, 1.0),
+        # 震荡：半仓+低杠杆，资金费率套利为主
+        "ranging":  (0.30, 0.50, 0.10, 0.10, 3, 0.50, 1.0),
+        # 熊市：轻仓做空+中等杠杆
+        "bear":     (0.10, 0.30, 0.00, 0.60, 2, 0.30, 1.0),
+        # 危机：全防御，不开新仓
+        "crisis":   (0.00, 0.05, 0.00, 0.95, 0, 0.05, 1.0),
     })
 
     # ─── 动量策略参数 ────────────────────────────────────────────────────────
@@ -68,12 +73,14 @@ class Config:
     mr_zscore_exit:   float =  0.0  # Z-score 回归0附近止盈
     mr_window:        int   = 20    # 均值计算窗口
 
-    # ─── 仓位管理（第15课：半Kelly + ATR）──────────────────────────────────
+    # ─── 仓位管理（动态杠杆，用户要求：满仓+最高10x）────────────────────────
     max_positions:   int   = 4      # 最大同时持仓
-    max_pos_pct:     float = 0.25   # 单仓最大占总资产25%（初期保守）
+    max_pos_pct:     float = 0.30   # 单仓最大30%（等AlphaGPT验证后再满仓）
     risk_per_trade:  float = 0.02   # 单笔风险预算2%（知识库：Kelly下限）
-    leverage:        float = 1.0    # 默认不用杠杆（安全起见）
-    max_leverage:    float = 3.0    # 最高杠杆
+    max_leverage:    float = 10.0   # 全局杠杆上限（用户设定）
+    # 杠杆止损：杠杆越高止损越紧（防止爆仓）
+    # 实际止损 = hard_stop / leverage，保证损失不超过本金的 hard_stop%
+    leverage_liq_buffer: float = 0.80  # 强平缓冲（保留80%保证金时止损）
 
     # ─── Risk Agent 三层阈值 ─────────────────────────────────────────────────
     dd_warn:    float = 0.08   # 回撤8%警戒（加密波动大，比A股宽松）
