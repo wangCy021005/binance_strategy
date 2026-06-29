@@ -8,7 +8,9 @@ Regime Agent — 加密市场状态识别
   bear    = BTC 20日跌幅 > 10% → 谨慎，可小仓做空
   crisis  = 波动率极高（>80%年化）→ 全防御
 
-与A股不同：动量在加密市场IC为正，趋势跟随有效。
+注意（4h K线）：
+  - 20日 = 120根4h K线（20天 × 24h/天 ÷ 4h/根 = 120根）
+  - 年化波动率 = 日收益率标准差 × sqrt(2190)  （2190根/年）
 """
 from __future__ import annotations
 from collections import deque
@@ -16,18 +18,23 @@ from dataclasses import dataclass
 import numpy as np
 import pandas as pd
 
+# 4h K线参数
+_PERIODS_PER_DAY  = 6      # 24h / 4h = 6
+_PERIODS_PER_YEAR = 2190   # 6 * 365
+_20D_PERIODS      = 120    # 20天 × 6根/天
+
 
 @dataclass
 class RegimeState:
-    regime:       str    # bull | ranging | bear | crisis
-    btc_ret_20d:  float  # BTC 20日收益率
-    vol_20d:      float  # 20日年化波动率
-    mom_weight:   float
+    regime:         str
+    btc_ret_20d:    float
+    vol_20d:        float
+    mom_weight:     float
     funding_weight: float
-    mr_weight:    float
-    def_weight:   float
-    max_slots:    int
-    position_cap: float
+    mr_weight:      float
+    def_weight:     float
+    max_slots:      int
+    position_cap:   float
 
 
 class RegimeAgent:
@@ -48,16 +55,20 @@ class RegimeAgent:
         pos  = btc_df.index.tolist().index(timestamp)
         hist = btc_df["close"].iloc[:pos + 1].astype(float)
 
-        if len(hist) < 21:
+        if len(hist) < 30:
             return "ranging"
 
-        ret_20d = float((hist.iloc[-1] - hist.iloc[-21]) / hist.iloc[-21])
-        rets    = hist.pct_change().dropna().iloc[-20:]
-        vol_20d = float(rets.std() * np.sqrt(365 * 6))  # 4h K线，每天6根
+        # 20日收益率（120根4h K线）
+        lookback = min(_20D_PERIODS, len(hist) - 1)
+        ret_20d  = float((hist.iloc[-1] - hist.iloc[-lookback-1]) / hist.iloc[-lookback-1])
+
+        # 20日年化波动率
+        rets    = hist.pct_change().dropna().iloc[-_20D_PERIODS:]
+        vol_20d = float(rets.std() * np.sqrt(_PERIODS_PER_YEAR)) if len(rets) >= 10 else 0.15
 
         cfg = self.cfg
 
-        # 危机判断（波动率极高）
+        # 危机判断（年化波动率过高）
         if vol_20d > cfg.vol_crisis:
             return "crisis"
 
@@ -92,9 +103,13 @@ class RegimeAgent:
         if btc_df is not None and not btc_df.empty and timestamp in btc_df.index:
             pos  = btc_df.index.tolist().index(timestamp)
             hist = btc_df["close"].iloc[:pos + 1].astype(float)
-            ret_20d = float((hist.iloc[-1] - hist.iloc[-21]) / hist.iloc[-21]) if len(hist) >= 22 else 0.0
-            rets    = hist.pct_change().dropna().iloc[-20:]
-            vol_20d = float(rets.std() * np.sqrt(365 * 6)) if len(rets) >= 10 else 0.0
+
+            lookback = min(_20D_PERIODS, len(hist) - 1)
+            ret_20d  = float((hist.iloc[-1] - hist.iloc[-lookback-1]) / hist.iloc[-lookback-1]) \
+                       if len(hist) > 1 else 0.0
+
+            rets    = hist.pct_change().dropna().iloc[-_20D_PERIODS:]
+            vol_20d = float(rets.std() * np.sqrt(_PERIODS_PER_YEAR)) if len(rets) >= 10 else 0.0
         else:
             ret_20d = 0.0
             vol_20d = 0.0

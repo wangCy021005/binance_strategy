@@ -43,15 +43,15 @@ def score_symbol(symbol: str,
         return None
 
     hist = df[df.index <= as_of_ts].copy()
-    if len(hist) < 30:
+    if len(hist) < 260:
         return None
 
     close = hist["close"].astype(float)
 
     # ── 计算动量（20根4h K线 ≈ 3.3天）──────────────────────────────────────
-    mom_short = float(close.pct_change(10).iloc[-1])    # 短期（1.7天）
-    mom_mid   = float(close.pct_change(20).iloc[-1])    # 中期（3.3天）
-    mom_long  = float(close.pct_change(60).iloc[-1])    # 长期（10天）
+    mom_short = float(close.pct_change(42).iloc[-1])    # 短期（7天 = 42根4h）
+    mom_mid   = float(close.pct_change(126).iloc[-1])   # 中期（21天 = 126根4h）
+    mom_long  = float(close.pct_change(252).iloc[-1])   # 长期（42天 = 252根4h）
 
     # 趋势一致性（短中长同向得加分）
     direction = 1 if mom_mid > 0 else -1

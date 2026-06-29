@@ -55,7 +55,7 @@ def fetch_ohlcv(symbol: str, timeframe: str, start: str, end: str = None):
 
     while True:
         try:
-            bars = exchange.fetch_ohlcv(symbol, timeframe, since=since_ms, limit=1500)
+            bars = exchange.fetch_ohlcv(symbol, timeframe, since=since_ms, limit=1000)
         except Exception as e:
             logger.error("OHLCV 获取失败: %s", e)
             break
@@ -68,7 +68,7 @@ def fetch_ohlcv(symbol: str, timeframe: str, start: str, end: str = None):
 
         if end_ms and since_ms > end_ms:
             break
-        if len(bars) < 1500:
+        if len(bars) < 1000:
             break
         time.sleep(0.3)
 
