@@ -20,8 +20,10 @@ class _Vocab:
             "MA5","MA10",
         ]
 
-        self.token_names = list(FEATURE_NAMES) + self._ops
-        self.vocab_size  = len(self.token_names)
+        self.token_names    = list(FEATURE_NAMES) + self._ops
+        self.vocab_size     = len(self.token_names)
+        self.operator_names = self._ops    # alphagpt.py 用这个名字
+        self.size           = self.vocab_size  # alphagpt.py 用这个名字
 
     def __len__(self):
         return self.vocab_size

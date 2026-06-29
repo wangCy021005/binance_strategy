@@ -22,3 +22,6 @@ class AlphaConfig:
     # 加密回测参数
     COMM     = 0.0004   # taker 手续费
     BASE_FEE = COMM * 2  # 往返成本
+
+# 向前兼容：alphagpt.py 使用 ModelConfig 名称
+ModelConfig = AlphaConfig
