@@ -88,6 +88,9 @@ class CryptoAlphaEngine:
 
             for _ in range(AlphaConfig.MAX_FORMULA_LEN):
                 logits, _, _ = self.model(inp)
+                # NaN 防护：logits 中出现 NaN 时用均匀分布代替
+                if torch.isnan(logits).any():
+                    logits = torch.zeros_like(logits)
                 dist   = Categorical(logits=logits)
                 action = dist.sample()
                 log_probs.append(dist.log_prob(action))
@@ -122,9 +125,20 @@ class CryptoAlphaEngine:
                         }, f, indent=2)
 
             adv  = (rewards - rewards.mean()) / (rewards.std() + 1e-5)
+            adv  = torch.nan_to_num(adv, nan=0.0)   # rewards全相同时std=0防NaN
             loss = sum(-lp * adv for lp in log_probs)
             loss = loss.mean()
-            self.opt.zero_grad(); loss.backward(); self.opt.step()
+
+            # NaN 防护：loss出现NaN时跳过本步（不更新参数）
+            if torch.isnan(loss):
+                self.opt.zero_grad()
+                continue
+
+            self.opt.zero_grad()
+            loss.backward()
+            # 梯度裁剪，防止梯度爆炸导致NaN
+            torch.nn.utils.clip_grad_norm_(self.model.parameters(), max_norm=1.0)
+            self.opt.step()
 
             steps_since_best += 1
             pbar.set_postfix({"ICIR": f"{rewards.mean():.4f}",
