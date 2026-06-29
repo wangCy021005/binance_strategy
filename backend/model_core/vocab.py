@@ -1,41 +1,30 @@
-from dataclasses import dataclass
-
-from .ops import OPS_CONFIG
-
-
-FEATURE_NAMES = (
-    "RET",
-    "LIQ_SCORE",
-    "PRESSURE",
-    "FOMO",
-    "DEV",
-    "LOG_VOL",
-)
+"""
+AlphaGPT 加密版词汇表
+特征(8) + 算子(19) = 27 个 token
+"""
+from .factors import FEATURE_NAMES, NUM_FEATURES
 
 
-@dataclass(frozen=True)
-class FormulaVocab:
-    feature_names: tuple[str, ...]
-    operator_names: tuple[str, ...]
+class _Vocab:
+    def __init__(self):
+        self.feature_names   = FEATURE_NAMES
+        self.feature_count   = NUM_FEATURES
+        self.operator_offset = NUM_FEATURES
 
-    @property
-    def feature_count(self) -> int:
-        return len(self.feature_names)
+        self._ops = [
+            "ADD","SUB","MUL","DIV",
+            "NEG","ABS","SIGN","SQR",
+            "MAX3","MIN3","GATE",
+            "DELAY1","DELAY3","DELAY5",
+            "RANK","SCALE","DEMEAN",
+            "MA5","MA10",
+        ]
 
-    @property
-    def operator_offset(self) -> int:
-        return self.feature_count
+        self.token_names = list(FEATURE_NAMES) + self._ops
+        self.vocab_size  = len(self.token_names)
 
-    @property
-    def token_names(self) -> tuple[str, ...]:
-        return self.feature_names + self.operator_names
-
-    @property
-    def size(self) -> int:
-        return len(self.token_names)
+    def __len__(self):
+        return self.vocab_size
 
 
-FORMULA_VOCAB = FormulaVocab(
-    feature_names=FEATURE_NAMES,
-    operator_names=tuple(cfg[0] for cfg in OPS_CONFIG),
-)
+FORMULA_VOCAB = _Vocab()
