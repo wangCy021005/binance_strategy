@@ -24,8 +24,13 @@ class Config:
 
     # ─── 交易品种 ────────────────────────────────────────────────────────────
     symbols: list = field(default_factory=lambda: [
-        "BTC/USDT", "ETH/USDT", "BNB/USDT", "SOL/USDT",
-        "DOGE/USDT", "XRP/USDT", "ADA/USDT", "AVAX/USDT",
+        # 核心大盘：趋势清晰 + OI最大（资金费率套利主战场）
+        "BTC/USDT", "ETH/USDT",
+        # L1竞争者：独立行情 + 强动量周期
+        "SOL/USDT", "BNB/USDT", "AVAX/USDT",
+        # DeFi基础设施：走势独立于BTC
+        "LINK/USDT",
+        # 移除：DOGE（纯情绪）、XRP（法律不稳）、ADA（无动量）
     ])
     timeframe: str = "4h"      # K线周期：1h / 4h / 1d
     spot_or_futures: str = "futures"   # spot / futures
