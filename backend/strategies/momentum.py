@@ -116,15 +116,34 @@ def score_symbol(symbol: str,
     )
 
 
+def get_alpha_boosted_score(base_score: float, alpha_score: float,
+                             alpha_weight: float = 0.30) -> float:
+    """
+    用 AlphaGPT 因子增强原始动量得分。
+    alpha_weight=0.30: 原始动量70% + Alpha因子30%
+    """
+    return (1 - alpha_weight) * base_score + alpha_weight * alpha_score
+
+
 def get_signals(symbols: list[str],
                 all_ohlcv: dict[str, pd.DataFrame],
                 all_funding: dict[str, pd.Series],
                 cfg,
                 as_of_ts: str,
                 weight: float = 1.0) -> list[dict]:
-    """批量生成动量信号"""
+    """
+    批量生成动量信号，叠加 AlphaGPT 发现的 Alpha 因子。
+    Alpha 因子 = 放量大波动（ICIR=3.53，2022-2024验证）
+    """
     if weight <= 0:
         return []
+
+    # 预计算所有品种的 Alpha 因子得分（截面归一化）
+    from core.alpha_factor import rank_alpha_scores
+    alpha_weight = getattr(cfg, 'alpha_factor_weight', 0.30)
+    alpha_scores = {}
+    if alpha_weight > 0:
+        alpha_scores = rank_alpha_scores(symbols, all_ohlcv, as_of_ts)
 
     signals = []
     for symbol in symbols:
@@ -132,14 +151,23 @@ def get_signals(symbols: list[str],
         funding = all_funding.get(symbol)
         sig     = score_symbol(symbol, df, funding, cfg, as_of_ts)
         if sig is not None:
+            # 叠加 Alpha 因子
+            alpha_s   = alpha_scores.get(symbol, 0.0)
+            base_score = sig.score
+            if alpha_weight > 0 and alpha_s > 0:
+                final_score = get_alpha_boosted_score(base_score, alpha_s, alpha_weight)
+            else:
+                final_score = base_score
+
             signals.append({
-                "symbol":    sig.symbol,
-                "score":     sig.score * weight,
-                "direction": sig.direction,
-                "atr_pct":   sig.atr_pct,
-                "strategy":  "momentum",
-                "momentum":  sig.momentum,
-                "vol_ratio": sig.vol_ratio,
+                "symbol":       sig.symbol,
+                "score":        final_score * weight,
+                "direction":    sig.direction,
+                "atr_pct":      sig.atr_pct,
+                "strategy":     "momentum",
+                "momentum":     sig.momentum,
+                "vol_ratio":    sig.vol_ratio,
+                "alpha_score":  round(alpha_s, 3),
             })
 
     signals.sort(key=lambda x: -x["score"])

@@ -100,6 +100,11 @@ class Config:
     comm_taker:   float = 0.0004
     slippage_pct: float = 0.0005   # 滑点估计（流动性好的币种很低）
 
+    # ─── AlphaGPT 因子 ────────────────────────────────────────────────────
+    # 公式：HL_RANGE GATE MAX3 MIN3×4 ABS VOL_RATIO GATE MUL MAX3
+    # 含义：放量大波动因子（振幅×量比的门控乘积），ICIR=3.53
+    alpha_factor_weight: float = 0.30   # Alpha因子权重（0=不启用，0.30=推荐）
+
     # ─── AlphaGPT 强化学习 ─────────────────────────────────────────────────
     alpha_weight: float = 0.0    # 0=不启用，需先训练后再开启
 
