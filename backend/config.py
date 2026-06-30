@@ -24,13 +24,16 @@ class Config:
 
     # ─── 交易品种 ────────────────────────────────────────────────────────────
     symbols: list = field(default_factory=lambda: [
-        # 核心大盘：趋势清晰 + OI最大（资金费率套利主战场）
+        # 核心大盘
         "BTC/USDT", "ETH/USDT",
-        # L1竞争者：独立行情 + 强动量周期
-        "SOL/USDT", "BNB/USDT", "AVAX/USDT",
-        # DeFi基础设施：走势独立于BTC
-        "LINK/USDT",
-        # 移除：DOGE（纯情绪）、XRP（法律不稳）、ADA（无动量）
+        # 高Beta L1：牛市弹性最强
+        "SOL/USDT", "AVAX/USDT",
+        # L2代币：生态扩张期高Beta
+        "ARB/USDT", "OP/USDT",
+        # DeFi/基础设施
+        "LINK/USDT", "NEAR/USDT",
+        # 保留BNB（资金费率套利）
+        "BNB/USDT",
     ])
     timeframe: str = "4h"      # K线周期：1h / 4h / 1d
     spot_or_futures: str = "futures"   # spot / futures
@@ -48,7 +51,7 @@ class Config:
     # leverage: 该状态下允许的最大杠杆倍数（用户要求不超过10x）
     regime_weights: dict = field(default_factory=lambda: {
         # 牛市：满仓+中等杠杆，动量策略主导
-        "bull":     (0.80, 0.15, 0.00, 0.05, 4, 0.90, 1.0),
+        "bull":     (0.85, 0.10, 0.00, 0.05, 4, 0.90, 1.0),
         # 震荡：半仓+低杠杆，资金费率套利为主
         "ranging":  (0.30, 0.50, 0.10, 0.10, 3, 0.50, 1.0),
         # 熊市：轻仓做空+中等杠杆
