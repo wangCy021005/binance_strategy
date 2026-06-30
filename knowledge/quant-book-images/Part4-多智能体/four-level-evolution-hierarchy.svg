@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420">
+  <defs>
+    <style>
+      .label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; letter-spacing: 0.5px; }
+      .label-left { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: start; letter-spacing: 0.5px; }
+      .box-text { font: 600 13px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; }
+      .box-text-small { font: 500 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; }
+      .title { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; letter-spacing: 1px; }
+      .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; }
+      .level-num { font: 700 14px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #fff; text-anchor: middle; }
+      .freq-text { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: end; }
+    </style>
+
+    <!-- Patterns for different levels -->
+    <pattern id="dots-l4" width="8" height="8" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="4" r="1.2" fill="#7c3aed" opacity="0.4"/>
+    </pattern>
+    <pattern id="horizontal-l3" width="6" height="6" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="3" x2="6" y2="3" stroke="#0891b2" stroke-width="0.8" opacity="0.5"/>
+    </pattern>
+    <pattern id="diagonal-l2" width="6" height="6" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="6" x2="6" y2="0" stroke="#0d9488" stroke-width="0.8" opacity="0.5"/>
+    </pattern>
+    <pattern id="vertical-l1" width="5" height="5" patternUnits="userSpaceOnUse">
+      <line x1="2.5" y1="0" x2="2.5" y2="5" stroke="#ca8a04" stroke-width="0.8" opacity="0.5"/>
+    </pattern>
+  </defs>
+
+  <!-- White background -->
+  <rect width="680" height="420" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="340" y="28" class="title" text-anchor="middle">FOUR-LEVEL EVOLUTION HIERARCHY</text>
+  <text x="340" y="44" class="subtitle">策略进化的四个层次</text>
+
+  <!-- Frequency axis label -->
+  <text x="635" y="65" class="freq-text">FREQUENCY</text>
+  <text x="635" y="77" class="freq-text" style="fill: #999;">频率</text>
+
+  <!-- Level 4: Architecture Evolution - Purple (top, slowest) -->
+  <g transform="translate(60, 85)">
+    <!-- Level number circle -->
+    <circle cx="25" cy="35" r="18" fill="#7c3aed" stroke="#1a1a1a" stroke-width="1.5"/>
+    <text x="25" y="40" class="level-num">4</text>
+
+    <!-- Main box -->
+    <rect x="55" y="5" width="480" height="60" fill="#ddd6fe" stroke="#1a1a1a" stroke-width="1.5"/>
+    <rect x="55" y="5" width="480" height="60" fill="url(#dots-l4)"/>
+    <text x="295" y="30" class="box-text">架构进化 / ARCHITECTURE EVOLUTION</text>
+    <text x="295" y="48" class="label">整个系统结构的变化（如从单 Agent 到多 Agent）</text>
+
+    <!-- Frequency indicator -->
+    <text x="560" y="35" class="freq-text">年度</text>
+    <text x="560" y="48" class="freq-text" style="fill: #999;">YEARLY</text>
+  </g>
+
+  <!-- Level 3: Strategy Evolution - Cyan -->
+  <g transform="translate(60, 160)">
+    <circle cx="25" cy="35" r="18" fill="#0891b2" stroke="#1a1a1a" stroke-width="1.5"/>
+    <text x="25" y="40" class="level-num">3</text>
+
+    <rect x="55" y="5" width="480" height="60" fill="#a5f3fc" stroke="#1a1a1a" stroke-width="1.5"/>
+    <rect x="55" y="5" width="480" height="60" fill="url(#horizontal-l3)"/>
+    <text x="295" y="30" class="box-text">策略进化 / STRATEGY EVOLUTION</text>
+    <text x="295" y="48" class="label">新增/淘汰策略，策略权重重新分配</text>
+
+    <text x="560" y="35" class="freq-text">季度</text>
+    <text x="560" y="48" class="freq-text" style="fill: #999;">QUARTERLY</text>
+  </g>
+
+  <!-- Level 2: Model Evolution - Teal -->
+  <g transform="translate(60, 235)">
+    <circle cx="25" cy="35" r="18" fill="#0d9488" stroke="#1a1a1a" stroke-width="1.5"/>
+    <text x="25" y="40" class="level-num">2</text>
+
+    <rect x="55" y="5" width="480" height="60" fill="#99f6e4" stroke="#1a1a1a" stroke-width="1.5"/>
+    <rect x="55" y="5" width="480" height="60" fill="url(#diagonal-l2)"/>
+    <text x="295" y="30" class="box-text">模型进化 / MODEL EVOLUTION</text>
+    <text x="295" y="48" class="label">模型参数的增量更新，特征的增删</text>
+
+    <text x="560" y="35" class="freq-text">周/日</text>
+    <text x="560" y="48" class="freq-text" style="fill: #999;">WEEKLY/DAILY</text>
+  </g>
+
+  <!-- Level 1: Signal Adaptation - Yellow (bottom, fastest) -->
+  <g transform="translate(60, 310)">
+    <circle cx="25" cy="35" r="18" fill="#ca8a04" stroke="#1a1a1a" stroke-width="1.5"/>
+    <text x="25" y="40" class="level-num">1</text>
+
+    <rect x="55" y="5" width="480" height="60" fill="#fef08a" stroke="#1a1a1a" stroke-width="1.5"/>
+    <rect x="55" y="5" width="480" height="60" fill="url(#vertical-l1)"/>
+    <text x="295" y="30" class="box-text">信号适应 / SIGNAL ADAPTATION</text>
+    <text x="295" y="48" class="label">交易阈值、仓位大小的动态调整</text>
+
+    <text x="560" y="35" class="freq-text">实时</text>
+    <text x="560" y="48" class="freq-text" style="fill: #999;">REAL-TIME</text>
+  </g>
+
+  <!-- Speed gradient arrow on the left -->
+  <g transform="translate(30, 100)">
+    <line x1="0" y1="0" x2="0" y2="280" stroke="#ccc" stroke-width="2"/>
+    <polygon points="-6,280 0,295 6,280" fill="#ccc"/>
+    <text x="-5" y="140" class="label" style="writing-mode: vertical-rl; text-orientation: mixed; fill: #999;">FASTER</text>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(140, 395)">
+    <text x="0" y="10" class="label" text-anchor="start">SLOW (年)</text>
+    <rect x="70" y="0" width="100" height="12" fill="url(#gradient-speed)" stroke="#1a1a1a" stroke-width="0.5"/>
+    <text x="200" y="10" class="label" text-anchor="start">FAST (实时)</text>
+  </g>
+
+  <!-- Gradient definition for legend -->
+  <defs>
+    <linearGradient id="gradient-speed" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ddd6fe"/>
+      <stop offset="33%" style="stop-color:#a5f3fc"/>
+      <stop offset="66%" style="stop-color:#99f6e4"/>
+      <stop offset="100%" style="stop-color:#fef08a"/>
+    </linearGradient>
+  </defs>
+</svg>

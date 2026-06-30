@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 200">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#1a1a1a"/>
+    </marker>
+  </defs>
+
+  <rect width="720" height="200" fill="#fff"/>
+
+  <!-- Stage 1: Prediction Model -->
+  <rect x="20" y="60" width="110" height="80" fill="#f9a8d4" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="75" y="95" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="12" font-weight="600" fill="#1a1a1a" text-anchor="middle">预测模型</text>
+  <text x="75" y="115" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="9" fill="#666" text-anchor="middle" letter-spacing="0.5">PREDICTION</text>
+
+  <!-- Arrow 1 -->
+  <line x1="130" y1="100" x2="155" y2="100" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Stage 2: Signal Filter -->
+  <rect x="160" y="60" width="110" height="80" fill="#67e8f9" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="215" y="95" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="12" font-weight="600" fill="#1a1a1a" text-anchor="middle">信号过滤</text>
+  <text x="215" y="115" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="9" fill="#666" text-anchor="middle" letter-spacing="0.5">SIGNAL FILTER</text>
+
+  <!-- Arrow 2 -->
+  <line x1="270" y1="100" x2="295" y2="100" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Stage 3: Position Calculation -->
+  <rect x="300" y="60" width="110" height="80" fill="#5eead4" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="355" y="95" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="12" font-weight="600" fill="#1a1a1a" text-anchor="middle">仓位计算</text>
+  <text x="355" y="115" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="9" fill="#666" text-anchor="middle" letter-spacing="0.5">POSITION CALC</text>
+
+  <!-- Arrow 3 -->
+  <line x1="410" y1="100" x2="435" y2="100" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Stage 4: Risk Check -->
+  <rect x="440" y="60" width="110" height="80" fill="#fde047" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="495" y="95" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="12" font-weight="600" fill="#1a1a1a" text-anchor="middle">风险检查</text>
+  <text x="495" y="115" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="9" fill="#666" text-anchor="middle" letter-spacing="0.5">RISK CHECK</text>
+
+  <!-- Arrow 4 -->
+  <line x1="550" y1="100" x2="575" y2="100" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Stage 5: Execution Plan -->
+  <rect x="580" y="60" width="120" height="80" fill="#60a5fa" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="640" y="95" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="12" font-weight="600" fill="#1a1a1a" text-anchor="middle">执行计划</text>
+  <text x="640" y="115" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="9" fill="#666" text-anchor="middle" letter-spacing="0.5">EXECUTION PLAN</text>
+
+  <!-- Title -->
+  <text x="360" y="30" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="14" font-weight="600" fill="#1a1a1a" text-anchor="middle">AGENT 决策流水线 / DECISION PIPELINE</text>
+
+  <!-- Bottom labels -->
+  <text x="75" y="165" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="9" fill="#999" text-anchor="middle">收益预测</text>
+  <text x="215" y="165" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="9" fill="#999" text-anchor="middle">低置信度剔除</text>
+  <text x="355" y="165" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="9" fill="#999" text-anchor="middle">风险平价</text>
+  <text x="495" y="165" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="9" fill="#999" text-anchor="middle">集中度/杠杆</text>
+  <text x="640" y="165" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="9" fill="#999" text-anchor="middle">订单拆分</text>
+</svg>

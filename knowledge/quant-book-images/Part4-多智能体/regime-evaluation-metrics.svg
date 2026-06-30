@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340">
+  <style>
+    .title { font: 600 13px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; letter-spacing: 0.5px; }
+    .section-title { font: 600 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .item { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .desc { font: 400 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; }
+  </style>
+
+  <!-- Background -->
+  <rect width="600" height="340" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="300" y="25" text-anchor="middle" class="title">Regime 识别评估指标</text>
+  <text x="300" y="40" text-anchor="middle" class="subtitle">REGIME DETECTION EVALUATION METRICS</text>
+
+  <!-- Section 1: Detection Quality -->
+  <rect x="30" y="55" width="170" height="120" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5" rx="2"/>
+  <text x="115" y="75" text-anchor="middle" class="section-title">1. 检测质量</text>
+  <line x1="45" y1="85" x2="185" y2="85" stroke="#60a5fa" stroke-width="1"/>
+  <text x="40" y="105" class="item">状态持续时间</text>
+  <text x="40" y="118" class="desc">每个状态通常持续多久？</text>
+  <text x="40" y="131" class="desc">太短 = 过度切换</text>
+  <text x="40" y="150" class="item">状态分布</text>
+  <text x="40" y="163" class="desc">各状态占比是否合理？</text>
+
+  <!-- Section 2: Switching Quality -->
+  <rect x="215" y="55" width="170" height="120" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" rx="2"/>
+  <text x="300" y="75" text-anchor="middle" class="section-title">2. 切换质量</text>
+  <line x1="230" y1="85" x2="370" y2="85" stroke="#f59e0b" stroke-width="1"/>
+  <text x="225" y="105" class="item">切换滞后</text>
+  <text x="225" y="118" class="desc">从实际变化到识别</text>
+  <text x="225" y="131" class="desc">平均延迟天数</text>
+  <text x="225" y="150" class="item">误切换率</text>
+  <text x="225" y="163" class="desc">立即反转的切换占比</text>
+
+  <!-- Section 3: Economic Value -->
+  <rect x="400" y="55" width="170" height="120" fill="#d1fae5" stroke="#10b981" stroke-width="1.5" rx="2"/>
+  <text x="485" y="75" text-anchor="middle" class="section-title">3. 经济价值</text>
+  <line x1="415" y1="85" x2="555" y2="85" stroke="#10b981" stroke-width="1"/>
+  <text x="410" y="105" class="item">有无对比</text>
+  <text x="410" y="118" class="desc">加入识别后收益提升</text>
+  <text x="410" y="150" class="item">净增值</text>
+  <text x="410" y="163" class="desc">收益提升 - 切换成本</text>
+
+  <!-- Bottom insight box -->
+  <rect x="30" y="195" width="540" height="70" fill="#f3f4f6" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,2" rx="2"/>
+  <text x="300" y="220" text-anchor="middle" class="section-title">核心洞察</text>
+  <text x="300" y="240" text-anchor="middle" class="item">Regime 识别不是目的 — 提升策略收益才是。</text>
+  <text x="300" y="255" text-anchor="middle" class="desc">评估标准：它是否帮策略赚到更多钱？</text>
+
+  <!-- Arrow indicators -->
+  <rect x="30" y="280" width="540" height="45" fill="#fff" stroke="#1a1a1a" stroke-width="1" rx="2"/>
+  <text x="50" y="300" class="item">优质检测：</text>
+  <text x="50" y="315" class="desc">持续 > 10天 | 滞后 &lt; 3天 | 误切换 &lt; 20% | 净增值 > 0</text>
+</svg>

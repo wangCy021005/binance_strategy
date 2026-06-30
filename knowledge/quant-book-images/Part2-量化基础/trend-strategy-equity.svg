@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320">
+  <defs>
+    <style>
+      .label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; letter-spacing: 0.5px; }
+      .title { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; letter-spacing: 1px; }
+      .annotation { font: 600 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+      .annotation-sm { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; }
+      .desc { font: 400 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; }
+      .axis-label { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #999; }
+    </style>
+  </defs>
+
+  <!-- White background -->
+  <rect width="600" height="320" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="300" y="28" class="title" text-anchor="middle">TREND FOLLOWING EQUITY CURVE / 趋势跟随净值曲线</text>
+
+  <!-- Chart area -->
+  <rect x="60" y="50" width="500" height="200" fill="#fafafa" stroke="#e5e7eb" stroke-width="1"/>
+
+  <!-- Grid lines (horizontal) -->
+  <line x1="60" y1="100" x2="560" y2="100" stroke="#e5e7eb" stroke-width="0.5"/>
+  <line x1="60" y1="150" x2="560" y2="150" stroke="#e5e7eb" stroke-width="0.5"/>
+  <line x1="60" y1="200" x2="560" y2="200" stroke="#e5e7eb" stroke-width="0.5"/>
+
+  <!-- Y-axis labels -->
+  <text x="55" y="55" class="axis-label" text-anchor="end">+100%</text>
+  <text x="55" y="105" class="axis-label" text-anchor="end">+50%</text>
+  <text x="55" y="155" class="axis-label" text-anchor="end">0%</text>
+  <text x="55" y="205" class="axis-label" text-anchor="end">-50%</text>
+  <text x="55" y="255" class="axis-label" text-anchor="end">-100%</text>
+
+  <!-- Equity curve - trend following characteristic pattern -->
+  <!-- Flat → Big rise → Flat with small losses → Big rise → Drawdown period -->
+  <path d="M 60 200
+           L 90 195 L 100 200 L 110 198 L 120 202 L 130 199 L 140 195
+           L 160 180 L 175 160 L 185 130 L 200 100 L 210 90
+           L 230 92 L 245 98 L 255 102 L 265 105 L 280 108 L 290 115 L 305 112 L 315 118
+           L 330 100 L 345 85 L 360 65 L 375 55
+           L 395 60 L 410 75 L 420 90 L 435 100 L 450 95 L 465 105 L 480 120 L 495 130 L 510 140 L 525 135 L 540 145 L 555 150 L 560 148"
+        fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Annotation boxes -->
+  <!-- Big Trend 1 -->
+  <rect x="145" y="68" width="80" height="38" fill="#d1fae5" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="185" y="84" class="annotation" text-anchor="middle">BIG TREND</text>
+  <text x="185" y="98" class="annotation-sm" text-anchor="middle">大趋势</text>
+  <line x1="185" y1="106" x2="185" y2="130" stroke="#10b981" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <!-- Big Trend 2 -->
+  <rect x="315" y="30" width="80" height="38" fill="#d1fae5" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="355" y="46" class="annotation" text-anchor="middle">BIG TREND</text>
+  <text x="355" y="60" class="annotation-sm" text-anchor="middle">大趋势</text>
+  <line x1="355" y1="68" x2="355" y2="75" stroke="#10b981" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <!-- Drawdown period annotation -->
+  <rect x="420" y="165" width="110" height="38" fill="#fef3c7" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="475" y="181" class="annotation" text-anchor="middle">DRAWDOWN</text>
+  <text x="475" y="195" class="annotation-sm" text-anchor="middle">震荡期亏损</text>
+  <line x1="475" y1="160" x2="475" y2="145" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <!-- Small losses annotation (flat choppy period) -->
+  <rect x="240" y="130" width="75" height="30" fill="#fce7f3" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="277" y="143" class="annotation-sm" text-anchor="middle">FLAT/LOSS</text>
+  <text x="277" y="155" class="annotation-sm" text-anchor="middle">横盘小亏</text>
+
+  <!-- X-axis label -->
+  <text x="310" y="275" class="label">TIME / 时间</text>
+
+  <!-- Axes -->
+  <line x1="60" y1="250" x2="560" y2="250" stroke="#1a1a1a" stroke-width="1"/>
+  <line x1="60" y1="50" x2="60" y2="250" stroke="#1a1a1a" stroke-width="1"/>
+
+  <!-- Key insight box -->
+  <rect x="60" y="285" width="500" height="28" fill="#f0fdf4" stroke="#10b981" stroke-width="1"/>
+  <text x="310" y="303" class="desc">Low win rate (30-45%) but high profit/loss ratio - few big wins cover many small losses</text>
+</svg>

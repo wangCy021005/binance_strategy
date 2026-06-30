@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 380">
+  <style>
+    .title { font: 600 14px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; letter-spacing: 0.5px; }
+    .box-text { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; }
+    .box-sub { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; }
+    .label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; }
+    .warning { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #ef4444; }
+    .success { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #10b981; }
+    .section-label { font: 600 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+  </style>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ef4444"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#10b981"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="680" height="380" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="340" y="28" text-anchor="middle" class="title">单智能体 vs 多智能体架构</text>
+  <text x="340" y="44" text-anchor="middle" class="subtitle">SINGLE AGENT VS MULTI-AGENT ARCHITECTURE</text>
+
+  <!-- Left Section: Single Agent -->
+  <rect x="30" y="60" width="295" height="300" fill="#fce7f3" stroke="#1a1a1a" stroke-width="1" opacity="0.3"/>
+  <text x="178" y="80" text-anchor="middle" class="section-label">单智能体架构</text>
+  <text x="178" y="93" text-anchor="middle" class="subtitle">SINGLE AGENT</text>
+
+  <!-- Super Agent Box -->
+  <rect x="50" y="110" width="255" height="120" fill="#f9a8d4" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="178" y="135" class="box-text">超级 Agent</text>
+  <text x="178" y="150" class="box-sub">SUPER AGENT</text>
+
+  <!-- Internal flow -->
+  <rect x="65" y="165" width="225" height="50" fill="#fff" stroke="#1a1a1a" stroke-width="1" rx="2"/>
+  <text x="178" y="185" text-anchor="middle" class="box-sub">数据 → 特征 → 预测 → 风控 → 执行</text>
+  <text x="178" y="200" text-anchor="middle" class="box-sub" style="fill:#ef4444">串行处理，一步阻塞全停</text>
+
+  <!-- Problems -->
+  <rect x="50" y="245" width="255" height="100" fill="#fff" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,2" rx="2"/>
+  <text x="60" y="265" class="warning">✗ 无法并行处理</text>
+  <text x="60" y="283" class="warning">✗ 单点故障风险</text>
+  <text x="60" y="301" class="warning">✗ 难以专业化</text>
+  <text x="60" y="319" class="warning">✗ 调试困难</text>
+  <text x="60" y="337" class="warning">✗ 扩展性差</text>
+
+  <!-- Right Section: Multi-Agent -->
+  <rect x="355" y="60" width="295" height="300" fill="#d1fae5" stroke="#1a1a1a" stroke-width="1" opacity="0.3"/>
+  <text x="503" y="80" text-anchor="middle" class="section-label">多智能体架构</text>
+  <text x="503" y="93" text-anchor="middle" class="subtitle">MULTI-AGENT</text>
+
+  <!-- Signal Agent -->
+  <rect x="375" y="110" width="75" height="55" fill="#67e8f9" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="413" y="135" class="box-text">信号</text>
+  <text x="413" y="150" class="box-sub">SIGNAL</text>
+
+  <!-- Arrow to Risk -->
+  <line x1="450" y1="137" x2="475" y2="137" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Risk Agent -->
+  <rect x="485" y="110" width="75" height="55" fill="#fde047" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="523" y="135" class="box-text">风控</text>
+  <text x="523" y="150" class="box-sub">RISK</text>
+
+  <!-- Arrow to Execution -->
+  <line x1="560" y1="137" x2="585" y2="137" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Execution Agent -->
+  <rect x="595" y="110" width="75" height="55" fill="#5eead4" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="633" y="135" class="box-text">执行</text>
+  <text x="633" y="150" class="box-sub">EXEC</text>
+
+  <!-- Parallel indicator -->
+  <line x1="375" y1="180" x2="630" y2="180" stroke="#10b981" stroke-width="2" stroke-dasharray="6,3"/>
+  <text x="503" y="198" text-anchor="middle" class="success">并行执行 + 独立故障隔离</text>
+  <text x="503" y="212" text-anchor="middle" class="box-sub">PARALLEL + FAULT ISOLATION</text>
+
+  <!-- Benefits -->
+  <rect x="375" y="225" width="255" height="120" fill="#fff" stroke="#10b981" stroke-width="1.5" stroke-dasharray="4,2" rx="2"/>
+  <text x="385" y="248" class="success">✓ 并行处理，速度快</text>
+  <text x="385" y="268" class="success">✓ 故障隔离，风险可控</text>
+  <text x="385" y="288" class="success">✓ 专业分工，各司其职</text>
+  <text x="385" y="308" class="success">✓ 独立调试，定位精准</text>
+  <text x="385" y="328" class="success">✓ 灵活扩展，快速迭代</text>
+</svg>

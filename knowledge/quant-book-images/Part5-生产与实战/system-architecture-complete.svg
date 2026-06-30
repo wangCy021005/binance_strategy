@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560">
+  <defs>
+    <style>
+      .label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; letter-spacing: 0.5px; }
+      .label-small { font: 400 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; }
+      .box-text { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; }
+      .box-text-en { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; }
+      .title { font: 600 16px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; }
+      .section-title { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; }
+    </style>
+    <marker id="arch-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#1a1a1a"/>
+    </marker>
+    <marker id="arch-arrow-blue" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#60a5fa"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="560" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="400" y="30" class="title">多智能体交易系统架构</text>
+  <text x="400" y="47" class="label-small">MULTI-AGENT TRADING SYSTEM ARCHITECTURE</text>
+
+  <!-- Main Loop Container -->
+  <rect x="30" y="60" width="740" height="440" fill="none" stroke="#ccc" stroke-width="1" stroke-dasharray="6,3" rx="4"/>
+  <text x="400" y="78" class="section-title">Main Loop (每日运行)</text>
+
+  <!-- Data Manager - Top -->
+  <rect x="320" y="95" width="160" height="50" fill="#67e8f9" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="400" y="118" class="box-text">Data Manager</text>
+  <text x="400" y="133" class="box-text-en">数据管理</text>
+
+  <!-- Arrow from Data Manager to Regime Agent -->
+  <line x1="400" y1="145" x2="400" y2="165" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arch-arrow)"/>
+
+  <!-- Regime Agent -->
+  <rect x="320" y="170" width="160" height="50" fill="#5eead4" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="400" y="193" class="box-text">Regime Agent</text>
+  <text x="400" y="208" class="box-text-en">状态识别</text>
+
+  <!-- Three Strategy boxes - branching from Regime Agent -->
+  <line x1="400" y1="220" x2="400" y2="235" stroke="#1a1a1a" stroke-width="1.5"/>
+  <line x1="200" y1="235" x2="600" y2="235" stroke="#1a1a1a" stroke-width="1.5"/>
+  <line x1="200" y1="235" x2="200" y2="250" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arch-arrow)"/>
+  <line x1="400" y1="235" x2="400" y2="250" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arch-arrow)"/>
+  <line x1="600" y1="235" x2="600" y2="250" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arch-arrow)"/>
+
+  <!-- Strategy 1 - Momentum -->
+  <rect x="120" y="255" width="160" height="45" fill="#fde047" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="200" y="275" class="box-text">Momentum</text>
+  <text x="200" y="290" class="box-text-en">动量策略</text>
+
+  <!-- Strategy 2 - Mean Revert -->
+  <rect x="320" y="255" width="160" height="45" fill="#fde047" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="400" y="275" class="box-text">Mean Revert</text>
+  <text x="400" y="290" class="box-text-en">均值回归</text>
+
+  <!-- Strategy 3 - Defensive -->
+  <rect x="520" y="255" width="160" height="45" fill="#fde047" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="600" y="275" class="box-text">Defensive</text>
+  <text x="600" y="290" class="box-text-en">防守策略</text>
+
+  <!-- Converge arrows to Signal Agent -->
+  <line x1="200" y1="300" x2="200" y2="315" stroke="#1a1a1a" stroke-width="1.5"/>
+  <line x1="400" y1="300" x2="400" y2="315" stroke="#1a1a1a" stroke-width="1.5"/>
+  <line x1="600" y1="300" x2="600" y2="315" stroke="#1a1a1a" stroke-width="1.5"/>
+  <line x1="200" y1="315" x2="600" y2="315" stroke="#1a1a1a" stroke-width="1.5"/>
+  <line x1="400" y1="315" x2="400" y2="330" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arch-arrow)"/>
+
+  <!-- Signal Agent -->
+  <rect x="320" y="335" width="160" height="50" fill="#67e8f9" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="400" y="358" class="box-text">Signal Agent</text>
+  <text x="400" y="373" class="box-text-en">信号汇总</text>
+
+  <!-- Arrow to Risk Agent -->
+  <line x1="400" y1="385" x2="400" y2="405" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arch-arrow)"/>
+
+  <!-- Risk Agent (with veto power indicator) -->
+  <rect x="320" y="410" width="160" height="50" fill="#f9a8d4" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="400" y="433" class="box-text">Risk Agent</text>
+  <text x="400" y="448" class="box-text-en">风险审核</text>
+
+  <!-- Veto power indicator -->
+  <rect x="485" y="420" width="60" height="30" fill="#fce7f3" stroke="#f9a8d4" stroke-width="1" rx="2"/>
+  <text x="515" y="440" class="label-small">否决权</text>
+
+  <!-- Arrow to Execution Agent -->
+  <line x1="400" y1="460" x2="400" y2="480" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arch-arrow)"/>
+
+  <!-- Execution Agent (lower) -->
+  <rect x="320" y="485" width="160" height="45" fill="#5eead4" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="400" y="505" class="box-text">Execution Agent</text>
+  <text x="400" y="520" class="box-text-en">订单执行</text>
+
+  <!-- Portfolio Agent - Left side -->
+  <rect x="50" y="370" width="130" height="90" fill="#a5f3fc" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="115" y="405" class="box-text">Portfolio</text>
+  <text x="115" y="420" class="box-text">Agent</text>
+  <text x="115" y="440" class="box-text-en">组合管理</text>
+
+  <!-- Connection from Portfolio to Signal/Risk -->
+  <line x1="180" y1="415" x2="315" y2="415" stroke="#60a5fa" stroke-width="1" stroke-dasharray="4,2"/>
+  <line x1="180" y1="435" x2="315" y2="435" stroke="#60a5fa" stroke-width="1" stroke-dasharray="4,2"/>
+
+  <!-- Monitor Agent - Right side -->
+  <rect x="620" y="330" width="130" height="130" fill="#fbcfe8" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="685" y="380" class="box-text">Monitor</text>
+  <text x="685" y="395" class="box-text">Agent</text>
+  <text x="685" y="415" class="box-text-en">系统监控</text>
+  <text x="685" y="440" class="label-small">全程监控</text>
+
+  <!-- Connection lines from Monitor to other agents -->
+  <line x1="615" y1="395" x2="485" y2="360" stroke="#60a5fa" stroke-width="1" stroke-dasharray="4,2"/>
+  <line x1="615" y1="395" x2="485" y2="435" stroke="#60a5fa" stroke-width="1" stroke-dasharray="4,2"/>
+  <line x1="615" y1="430" x2="485" y2="508" stroke="#60a5fa" stroke-width="1" stroke-dasharray="4,2"/>
+
+  <!-- Data flow legend -->
+  <g transform="translate(540, 510)">
+    <line x1="0" y1="10" x2="30" y2="10" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arch-arrow)"/>
+    <text x="40" y="14" class="label-small">数据/指令流</text>
+    <line x1="0" y1="30" x2="30" y2="30" stroke="#60a5fa" stroke-width="1" stroke-dasharray="4,2"/>
+    <text x="40" y="34" class="label-small">监控/反馈</text>
+  </g>
+
+</svg>

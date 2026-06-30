@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 520">
+  <defs>
+    <style>
+      .label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; letter-spacing: 0.5px; }
+      .box-text { font: 600 13px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; }
+      .box-text-small { font: 500 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; }
+      .title { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; letter-spacing: 1px; }
+      .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#10b981"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ef4444"/>
+    </marker>
+  </defs>
+
+  <!-- White background -->
+  <rect width="680" height="520" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="340" y="28" class="title">STATE SWITCHING CONFIRMATION FLOW</text>
+  <text x="340" y="44" class="subtitle">状态切换确认机制</text>
+
+  <!-- Current state -->
+  <rect x="260" y="80" width="160" height="50" fill="#67e8f9" stroke="#0891b2" stroke-width="2" rx="6"/>
+  <text x="340" y="110" class="box-text" style="fill: #0891b2;">当前状态: 震荡</text>
+
+  <!-- Arrow down -->
+  <line x1="340" y1="130" x2="340" y2="160" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Detect signal -->
+  <rect x="230" y="160" width="220" height="45" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" rx="6"/>
+  <text x="340" y="188" class="box-text-small" style="fill: #f59e0b;">检测到趋势信号</text>
+
+  <!-- Arrow down to record -->
+  <line x1="340" y1="205" x2="340" y2="230" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="450" y1="182" x2="540" y2="182" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Record signal -->
+  <rect x="540" y="160" width="120" height="45" fill="#e0e7ff" stroke="#6366f1" stroke-width="1.5" rx="4"/>
+  <text x="600" y="188" class="box-text-small" style="fill: #6366f1;">记录信号</text>
+
+  <!-- Counter +1 -->
+  <rect x="260" y="230" width="160" height="45" fill="#e0e7ff" stroke="#6366f1" stroke-width="2" rx="6"/>
+  <text x="340" y="258" class="box-text-small" style="fill: #6366f1;">计数器 +1</text>
+
+  <!-- Decision diamond -->
+  <polygon points="340,295 420,335 340,375 260,335" fill="#f3f4f6" stroke="#1a1a1a" stroke-width="2"/>
+  <text x="340" y="330" class="box-text-small">计数 >= 3</text>
+  <text x="340" y="345" class="box-text-small">?</text>
+
+  <!-- Left branch: No -->
+  <line x1="260" y1="335" x2="150" y2="335" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="205" y="330" class="label">计数 &lt; 3</text>
+
+  <rect x="40" y="310" width="110" height="50" fill="#d1fae5" stroke="#10b981" stroke-width="2" rx="6"/>
+  <text x="95" y="340" class="box-text-small" style="fill: #10b981;">保持震荡</text>
+
+  <!-- Loop back -->
+  <path d="M 95 310 Q 95 220 230 182" fill="none" stroke="#666" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+  <text x="120" y="255" class="label">下一个信号</text>
+
+  <!-- Right branch: Yes -->
+  <line x1="420" y1="335" x2="520" y2="335" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="470" y="330" class="label">计数 >= 3</text>
+
+  <rect x="520" y="310" width="130" height="50" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" rx="6"/>
+  <text x="585" y="340" class="box-text-small" style="fill: #f59e0b;">进入待确认</text>
+
+  <!-- Arrow down from pending -->
+  <line x1="585" y1="360" x2="585" y2="390" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Second decision diamond -->
+  <polygon points="585,410 650,440 585,470 520,440" fill="#f3f4f6" stroke="#1a1a1a" stroke-width="2"/>
+  <text x="585" y="435" class="box-text-small">2天后</text>
+  <text x="585" y="450" class="box-text-small">仍趋势?</text>
+
+  <!-- Left from second diamond: No -->
+  <line x1="520" y1="440" x2="400" y2="440" stroke="#ef4444" stroke-width="2" marker-end="url(#arrow-red)"/>
+  <text x="460" y="435" class="label" style="fill: #ef4444;">回震荡</text>
+
+  <rect x="230" y="415" width="170" height="50" fill="#fecaca" stroke="#ef4444" stroke-width="2" rx="6"/>
+  <text x="315" y="437" class="box-text-small" style="fill: #ef4444;">恢复震荡</text>
+  <text x="315" y="453" class="box-text-small" style="fill: #ef4444;">计数器归零</text>
+
+  <!-- Right from second diamond: Yes -->
+  <line x1="585" y1="470" x2="585" y2="490" stroke="#10b981" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <text x="625" y="480" class="label" style="fill: #10b981;">仍趋势</text>
+
+  <rect x="505" y="490" width="160" height="50" fill="#d1fae5" stroke="#10b981" stroke-width="2" rx="6"/>
+  <text x="585" y="520" class="box-text" style="fill: #10b981;">确认切换趋势</text>
+</svg>

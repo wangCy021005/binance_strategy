@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 280">
+  <defs>
+    <marker id="arrow-cn" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+  </defs>
+  <style>
+    .title { font: 600 13px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; letter-spacing: 0.5px; }
+    .agent-name { font: 600 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .decision { font: 600 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .action { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; }
+  </style>
+
+  <!-- Background -->
+  <rect width="620" height="280" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="310" y="25" text-anchor="middle" class="title">Risk Agent 审核流程</text>
+  <text x="310" y="40" text-anchor="middle" class="subtitle">RISK AGENT REVIEW FLOW</text>
+
+  <!-- Input Agents (left side) -->
+  <rect x="30" y="70" width="100" height="35" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5" rx="2"/>
+  <text x="80" y="92" text-anchor="middle" class="agent-name">Signal Agent</text>
+
+  <rect x="30" y="115" width="100" height="35" fill="#d1fae5" stroke="#10b981" stroke-width="1.5" rx="2"/>
+  <text x="80" y="137" text-anchor="middle" class="agent-name">Regime Agent</text>
+
+  <rect x="30" y="160" width="100" height="35" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" rx="2"/>
+  <text x="80" y="182" text-anchor="middle" class="agent-name">LLM Agent</text>
+
+  <!-- Arrows to Risk Agent -->
+  <line x1="130" y1="87" x2="200" y2="130" stroke="#666" stroke-width="1.5" marker-end="url(#arrow-cn)"/>
+  <line x1="130" y1="132" x2="200" y2="132" stroke="#666" stroke-width="1.5" marker-end="url(#arrow-cn)"/>
+  <line x1="130" y1="177" x2="200" y2="134" stroke="#666" stroke-width="1.5" marker-end="url(#arrow-cn)"/>
+
+  <!-- Risk Agent (center) -->
+  <rect x="210" y="100" width="120" height="65" fill="#fee2e2" stroke="#ef4444" stroke-width="2" rx="3"/>
+  <text x="270" y="125" text-anchor="middle" class="agent-name">Risk Agent</text>
+  <text x="270" y="145" text-anchor="middle" class="action">一票否决权</text>
+
+  <!-- Decision branches -->
+  <line x1="330" y1="115" x2="400" y2="85" stroke="#666" stroke-width="1.5" marker-end="url(#arrow-cn)"/>
+  <line x1="330" y1="150" x2="400" y2="180" stroke="#666" stroke-width="1.5" marker-end="url(#arrow-cn)"/>
+
+  <!-- Approve/Reduce path -->
+  <rect x="410" y="60" width="90" height="50" fill="#d1fae5" stroke="#10b981" stroke-width="1.5" rx="2"/>
+  <text x="455" y="82" text-anchor="middle" class="decision">通过/缩小</text>
+  <text x="455" y="100" text-anchor="middle" class="action">继续执行</text>
+
+  <!-- Reject path -->
+  <rect x="410" y="155" width="90" height="50" fill="#fee2e2" stroke="#ef4444" stroke-width="1.5" rx="2"/>
+  <text x="455" y="177" text-anchor="middle" class="decision">拒绝</text>
+  <text x="455" y="195" text-anchor="middle" class="action">记录并反馈</text>
+
+  <!-- Execution Agent -->
+  <line x1="500" y1="85" x2="530" y2="85" stroke="#666" stroke-width="1.5" marker-end="url(#arrow-cn)"/>
+  <rect x="540" y="60" width="60" height="50" fill="#67e8f9" stroke="#0891b2" stroke-width="1.5" rx="2"/>
+  <text x="570" y="82" text-anchor="middle" class="agent-name">Execution</text>
+  <text x="570" y="97" text-anchor="middle" class="agent-name">Agent</text>
+
+  <!-- Bottom note -->
+  <rect x="30" y="220" width="570" height="45" fill="#f3f4f6" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,2" rx="2"/>
+  <text x="310" y="240" text-anchor="middle" class="action">Risk Agent 是所有交易请求的必经门槛</text>
+  <text x="310" y="255" text-anchor="middle" class="action">任何 Agent 的请求都必须经过 Risk Agent 审核后才能执行</text>
+</svg>

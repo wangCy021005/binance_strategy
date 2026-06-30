@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420">
+  <defs>
+    <style>
+      .label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; letter-spacing: 0.5px; }
+      .box-text { font: 600 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; }
+      .box-text-sm { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; }
+      .title { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; letter-spacing: 1px; }
+      .container-title { font: 600 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; letter-spacing: 0.5px; }
+      .bullet { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: start; }
+      .desc { font: 400 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+    <marker id="arrow-down" markerWidth="7" markerHeight="10" refX="3.5" refY="9" orient="auto">
+      <polygon points="0 0, 3.5 10, 7 0" fill="#666"/>
+    </marker>
+    <!-- Patterns -->
+    <pattern id="dots-signal" width="6" height="6" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="1" fill="#0d9488" opacity="0.4"/>
+    </pattern>
+    <pattern id="diagonal-exec" width="5" height="5" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="5" x2="5" y2="0" stroke="#0891b2" stroke-width="0.6" opacity="0.5"/>
+    </pattern>
+    <pattern id="horizontal-cost" width="5" height="5" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="2.5" x2="5" y2="2.5" stroke="#ca8a04" stroke-width="0.6" opacity="0.5"/>
+    </pattern>
+    <pattern id="crosshatch-valid" width="5" height="5" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="5" y2="5" stroke="#dc2626" stroke-width="0.4" opacity="0.4"/>
+      <line x1="5" y1="0" x2="0" y2="5" stroke="#dc2626" stroke-width="0.4" opacity="0.4"/>
+    </pattern>
+  </defs>
+
+  <!-- White background -->
+  <rect width="680" height="420" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="340" y="28" class="title" text-anchor="middle">BACKTEST AGENT FLOW / 回测智能体流程</text>
+
+  <!-- Main container -->
+  <rect x="30" y="50" width="620" height="330" fill="none" stroke="#d1d5db" stroke-width="1.5" stroke-dasharray="6,3" rx="4"/>
+  <text x="340" y="70" class="container-title" text-anchor="middle">Backtest Orchestrator</text>
+
+  <!-- Row 1: Signal Agent → Execution Simulator → Cost Calculator -->
+  <!-- Signal Agent -->
+  <rect x="55" y="90" width="140" height="70" fill="#d1fae5" stroke="#1a1a1a" stroke-width="1.5"/>
+  <rect x="55" y="90" width="140" height="70" fill="url(#dots-signal)"/>
+  <text x="125" y="118" class="box-text">Signal Agent</text>
+  <text x="125" y="132" class="label">信号生成</text>
+  <text x="125" y="150" class="box-text-sm">Strategy Rules</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="195" y1="125" x2="235" y2="125" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Execution Simulator -->
+  <rect x="245" y="90" width="160" height="70" fill="#a5f3fc" stroke="#1a1a1a" stroke-width="1.5"/>
+  <rect x="245" y="90" width="160" height="70" fill="url(#diagonal-exec)"/>
+  <text x="325" y="118" class="box-text">Execution Simulator</text>
+  <text x="325" y="132" class="label">执行模拟器</text>
+  <text x="325" y="150" class="box-text-sm">Fill / Slippage Model</text>
+
+  <!-- Arrow 2→3 -->
+  <line x1="405" y1="125" x2="445" y2="125" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Cost Calculator -->
+  <rect x="455" y="90" width="140" height="70" fill="#fef3c7" stroke="#1a1a1a" stroke-width="1.5"/>
+  <rect x="455" y="90" width="140" height="70" fill="url(#horizontal-cost)"/>
+  <text x="525" y="118" class="box-text">Cost Calculator</text>
+  <text x="525" y="132" class="label">成本计算器</text>
+  <text x="525" y="150" class="box-text-sm">Fee / Impact Model</text>
+
+  <!-- Flow to Validation Agent -->
+  <line x1="125" y1="160" x2="125" y2="195" stroke="#666" stroke-width="1.5"/>
+  <line x1="125" y1="195" x2="340" y2="195" stroke="#666" stroke-width="1.5"/>
+
+  <line x1="325" y1="160" x2="325" y2="195" stroke="#666" stroke-width="1.5"/>
+
+  <line x1="525" y1="160" x2="525" y2="195" stroke="#666" stroke-width="1.5"/>
+  <line x1="525" y1="195" x2="340" y2="195" stroke="#666" stroke-width="1.5"/>
+
+  <line x1="340" y1="195" x2="340" y2="220" stroke="#666" stroke-width="1.5" marker-end="url(#arrow-down)"/>
+
+  <!-- Validation Agent (central, larger) -->
+  <rect x="200" y="230" width="280" height="100" fill="#fce7f3" stroke="#1a1a1a" stroke-width="2"/>
+  <rect x="200" y="230" width="280" height="100" fill="url(#crosshatch-valid)"/>
+  <text x="340" y="255" class="box-text">Validation Agent</text>
+  <text x="340" y="270" class="label">验证智能体</text>
+
+  <!-- Validation responsibilities list -->
+  <g transform="translate(210, 280)">
+    <text x="0" y="0" class="bullet">- Look-Ahead Bias detection</text>
+    <text x="0" y="14" class="bullet">- Data leakage detection</text>
+    <text x="0" y="28" class="bullet">- Overfitting assessment</text>
+    <text x="0" y="42" class="bullet">- Cost assumption validation</text>
+  </g>
+
+  <!-- Pass/Fail indicators on right -->
+  <g transform="translate(500, 240)">
+    <rect x="0" y="0" width="100" height="40" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+    <text x="50" y="18" class="box-text" fill="#059669">PASS</text>
+    <text x="50" y="32" class="box-text-sm">→ Deploy</text>
+
+    <rect x="0" y="50" width="100" height="40" fill="#fecaca" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="50" y="68" class="box-text" fill="#dc2626">FAIL</text>
+    <text x="50" y="82" class="box-text-sm">→ Fix Issues</text>
+  </g>
+
+  <!-- Why independent validation note -->
+  <rect x="55" y="350" width="570" height="35" fill="#f0f9ff" stroke="#3b82f6" stroke-width="1"/>
+  <text x="340" y="365" class="desc">Independent Validation Agent prevents developer bias - automated, standardized checks</text>
+  <text x="340" y="378" class="desc">独立验证智能体消除开发者偏见 — 自动化、标准化检查</text>
+</svg>

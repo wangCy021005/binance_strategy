@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 400">
+  <defs>
+    <style>
+      .label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; letter-spacing: 0.5px; }
+      .box-text { font: 600 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; }
+      .box-text-sm { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; }
+      .title { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; letter-spacing: 1px; }
+      .container-title { font: 600 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; letter-spacing: 0.5px; }
+      .bullet { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: start; }
+      .duty-title { font: 600 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+      .num { font: 700 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #fff; text-anchor: middle; }
+    </style>
+    <!-- Patterns -->
+    <pattern id="dots-monitor" width="6" height="6" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="1" fill="#0d9488" opacity="0.4"/>
+    </pattern>
+    <pattern id="diagonal-exec" width="5" height="5" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="5" x2="5" y2="0" stroke="#0891b2" stroke-width="0.6" opacity="0.5"/>
+    </pattern>
+    <pattern id="horizontal-cost" width="5" height="5" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="2.5" x2="5" y2="2.5" stroke="#ca8a04" stroke-width="0.6" opacity="0.5"/>
+    </pattern>
+    <pattern id="crosshatch-dynamic" width="5" height="5" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="5" y2="5" stroke="#7c3aed" stroke-width="0.4" opacity="0.4"/>
+      <line x1="5" y1="0" x2="0" y2="5" stroke="#7c3aed" stroke-width="0.4" opacity="0.4"/>
+    </pattern>
+  </defs>
+
+  <!-- White background -->
+  <rect width="700" height="400" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="350" y="28" class="title" text-anchor="middle">HEDGING AGENT / 对冲智能体</text>
+
+  <!-- Main container -->
+  <rect x="25" y="50" width="650" height="330" fill="none" stroke="#d1d5db" stroke-width="1.5" stroke-dasharray="6,3" rx="4"/>
+
+  <!-- Duty 1: Beta Monitoring -->
+  <rect x="45" y="70" width="295" height="100" fill="#d1fae5" stroke="#1a1a1a" stroke-width="1.5"/>
+  <rect x="45" y="70" width="295" height="100" fill="url(#dots-monitor)"/>
+  <circle cx="60" cy="85" r="12" fill="#10b981"/>
+  <text x="60" y="89" class="num">1</text>
+  <text x="192" y="88" class="duty-title">Beta Monitoring / Beta 监控</text>
+  <line x1="60" y1="100" x2="325" y2="100" stroke="#1a1a1a" stroke-width="0.5"/>
+  <g transform="translate(60, 112)">
+    <text x="0" y="0" class="bullet">- Real-time portfolio Beta calculation</text>
+    <text x="0" y="14" class="bullet">- Track factor exposures (sector, style)</text>
+    <text x="0" y="28" class="bullet">- Alert when exposure exceeds threshold</text>
+  </g>
+
+  <!-- Duty 2: Hedge Execution -->
+  <rect x="360" y="70" width="295" height="100" fill="#a5f3fc" stroke="#1a1a1a" stroke-width="1.5"/>
+  <rect x="360" y="70" width="295" height="100" fill="url(#diagonal-exec)"/>
+  <circle cx="375" cy="85" r="12" fill="#0891b2"/>
+  <text x="375" y="89" class="num">2</text>
+  <text x="507" y="88" class="duty-title">Hedge Execution / 对冲执行</text>
+  <line x1="375" y1="100" x2="640" y2="100" stroke="#1a1a1a" stroke-width="0.5"/>
+  <g transform="translate(375, 112)">
+    <text x="0" y="0" class="bullet">- Select optimal instrument (ETF vs Futures)</text>
+    <text x="0" y="14" class="bullet">- Calculate hedge ratio</text>
+    <text x="0" y="28" class="bullet">- Coordinate with Execution Agent</text>
+  </g>
+
+  <!-- Duty 3: Cost Control -->
+  <rect x="45" y="185" width="295" height="100" fill="#fef3c7" stroke="#1a1a1a" stroke-width="1.5"/>
+  <rect x="45" y="185" width="295" height="100" fill="url(#horizontal-cost)"/>
+  <circle cx="60" cy="200" r="12" fill="#ca8a04"/>
+  <text x="60" y="204" class="num">3</text>
+  <text x="192" y="203" class="duty-title">Cost Control / 成本控制</text>
+  <line x1="60" y1="215" x2="325" y2="215" stroke="#1a1a1a" stroke-width="0.5"/>
+  <g transform="translate(60, 227)">
+    <text x="0" y="0" class="bullet">- Monitor borrow rate changes</text>
+    <text x="0" y="14" class="bullet">- Track futures basis</text>
+    <text x="0" y="28" class="bullet">- Optimize hedge timing (avoid high-cost)</text>
+  </g>
+
+  <!-- Duty 4: Dynamic Adjustment -->
+  <rect x="360" y="185" width="295" height="100" fill="#ddd6fe" stroke="#1a1a1a" stroke-width="1.5"/>
+  <rect x="360" y="185" width="295" height="100" fill="url(#crosshatch-dynamic)"/>
+  <circle cx="375" cy="200" r="12" fill="#7c3aed"/>
+  <text x="375" y="204" class="num">4</text>
+  <text x="507" y="203" class="duty-title">Dynamic Adjustment / 动态调整</text>
+  <line x1="375" y1="215" x2="640" y2="215" stroke="#1a1a1a" stroke-width="0.5"/>
+  <g transform="translate(375, 227)">
+    <text x="0" y="0" class="bullet">- Rebalance when long Beta changes</text>
+    <text x="0" y="14" class="bullet">- Futures rollover management</text>
+    <text x="0" y="28" class="bullet">- Emergency hedge on crisis signals</text>
+  </g>
+
+  <!-- Bottom summary -->
+  <rect x="45" y="300" width="610" height="65" fill="#f0f9ff" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="350" y="322" class="container-title" text-anchor="middle">HEDGING AGENT CORE PRINCIPLE</text>
+  <text x="350" y="338" class="label" text-anchor="middle">对冲智能体核心原则</text>
+  <text x="350" y="355" class="bullet" text-anchor="middle">Maintain Beta neutrality while minimizing hedge cost and operational complexity</text>
+</svg>

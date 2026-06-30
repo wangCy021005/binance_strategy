@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 380">
+  <defs>
+    <style>
+      .label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: start; letter-spacing: 0.5px; }
+      .box-text { font: 600 13px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+      .annotation { font: 400 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+      .title-text { font: 700 14px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+      .value-text { font: 700 16px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <rect width="680" height="380" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="340" y="30" class="title-text" text-anchor="middle">风险预算分配</text>
+  <text x="340" y="47" class="label" text-anchor="middle">RISK BUDGET ALLOCATION</text>
+
+  <!-- Root node -->
+  <rect x="260" y="80" width="160" height="60" fill="#f9a8d4" stroke="#1a1a1a" stroke-width="2" rx="2"/>
+  <text x="340" y="105" class="box-text" text-anchor="middle">总风险预算</text>
+  <text x="340" y="122" class="label" text-anchor="middle">TOTAL RISK BUDGET</text>
+  <text x="340" y="135" class="value-text" text-anchor="middle">20%</text>
+
+  <!-- Vertical line down -->
+  <line x1="340" y1="140" x2="340" y2="180" stroke="#1a1a1a" stroke-width="2"/>
+  <circle cx="340" cy="180" r="4" fill="#1a1a1a"/>
+
+  <!-- Horizontal distribution line -->
+  <line x1="120" y1="180" x2="560" y2="180" stroke="#1a1a1a" stroke-width="2"/>
+
+  <!-- Branch lines -->
+  <line x1="120" y1="180" x2="120" y2="210" stroke="#1a1a1a" stroke-width="2"/>
+  <line x1="250" y1="180" x2="250" y2="210" stroke="#1a1a1a" stroke-width="2"/>
+  <line x1="380" y1="180" x2="380" y2="210" stroke="#1a1a1a" stroke-width="2"/>
+  <line x1="520" y1="180" x2="520" y2="210" stroke="#1a1a1a" stroke-width="2"/>
+
+  <!-- Strategy A (High volatility) -->
+  <rect x="40" y="215" width="160" height="70" fill="#fde047" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="120" y="238" class="box-text" text-anchor="middle">策略 A</text>
+  <text x="120" y="253" class="label" text-anchor="middle">STRATEGY A</text>
+  <text x="120" y="267" class="annotation" text-anchor="middle">动量策略，波动大</text>
+  <text x="120" y="280" class="label" text-anchor="middle">MOMENTUM, HIGH VOL</text>
+
+  <!-- Value label -->
+  <rect x="85" y="295" width="70" height="28" fill="#fff" stroke="#f59e0b" stroke-width="2" rx="2"/>
+  <text x="120" y="313" class="value-text" text-anchor="middle" fill="#f59e0b">8%</text>
+
+  <!-- Strategy B (Medium volatility) -->
+  <rect x="170" y="215" width="160" height="70" fill="#67e8f9" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="250" y="238" class="box-text" text-anchor="middle">策略 B</text>
+  <text x="250" y="253" class="label" text-anchor="middle">STRATEGY B</text>
+  <text x="250" y="267" class="annotation" text-anchor="middle">均值回归，中等波动</text>
+  <text x="250" y="280" class="label" text-anchor="middle">MEAN REVERSION, MED VOL</text>
+
+  <rect x="215" y="295" width="70" height="28" fill="#fff" stroke="#06b6d4" stroke-width="2" rx="2"/>
+  <text x="250" y="313" class="value-text" text-anchor="middle" fill="#06b6d4">6%</text>
+
+  <!-- Strategy C (Low volatility) -->
+  <rect x="300" y="215" width="160" height="70" fill="#5eead4" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="380" y="238" class="box-text" text-anchor="middle">策略 C</text>
+  <text x="380" y="253" class="label" text-anchor="middle">STRATEGY C</text>
+  <text x="380" y="267" class="annotation" text-anchor="middle">套利策略，波动小</text>
+  <text x="380" y="280" class="label" text-anchor="middle">ARBITRAGE, LOW VOL</text>
+
+  <rect x="345" y="295" width="70" height="28" fill="#fff" stroke="#14b8a6" stroke-width="2" rx="2"/>
+  <text x="380" y="313" class="value-text" text-anchor="middle" fill="#14b8a6">4%</text>
+
+  <!-- Reserve buffer -->
+  <rect x="450" y="215" width="140" height="70" fill="#d1fae5" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="520" y="238" class="box-text" text-anchor="middle">预留缓冲</text>
+  <text x="520" y="253" class="label" text-anchor="middle">RESERVE BUFFER</text>
+  <text x="520" y="267" class="annotation" text-anchor="middle">应对极端情况</text>
+  <text x="520" y="280" class="label" text-anchor="middle">FOR EXTREME EVENTS</text>
+
+  <rect x="485" y="295" width="70" height="28" fill="#fff" stroke="#10b981" stroke-width="2" rx="2"/>
+  <text x="520" y="313" class="value-text" text-anchor="middle" fill="#10b981">2%</text>
+
+  <!-- Key insight box -->
+  <rect x="60" y="340" width="560" height="30" fill="#fef3c7" stroke="#f59e0b" stroke-width="1" rx="2"/>
+  <text x="340" y="361" class="annotation" text-anchor="middle">核心原则：先决定能亏多少，再决定能赚多少</text>
+</svg>

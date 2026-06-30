@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420">
+  <defs>
+    <style>
+      .label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; letter-spacing: 0.5px; }
+      .box-text { font: 600 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; }
+      .box-text-sm { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; }
+      .title { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; letter-spacing: 1px; }
+      .container-title { font: 600 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; letter-spacing: 0.5px; }
+      .desc { font: 400 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+    <marker id="arrow-down" markerWidth="7" markerHeight="10" refX="3.5" refY="9" orient="auto">
+      <polygon points="0 0, 3.5 10, 7 0" fill="#666"/>
+    </marker>
+    <!-- Patterns for differentiation -->
+    <pattern id="dots-price" width="6" height="6" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="1" fill="#0891b2" opacity="0.4"/>
+    </pattern>
+    <pattern id="diagonal-text" width="5" height="5" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="5" x2="5" y2="0" stroke="#7c3aed" stroke-width="0.6" opacity="0.5"/>
+    </pattern>
+    <pattern id="horizontal-alt" width="5" height="5" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="2.5" x2="5" y2="2.5" stroke="#ca8a04" stroke-width="0.6" opacity="0.5"/>
+    </pattern>
+  </defs>
+
+  <!-- White background -->
+  <rect width="600" height="420" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="300" y="28" class="title" text-anchor="middle">DATA PIPELINE AGENT / 数据管道智能体</text>
+
+  <!-- Main container -->
+  <rect x="30" y="50" width="540" height="330" fill="none" stroke="#d1d5db" stroke-width="1.5" stroke-dasharray="6,3" rx="4"/>
+  <text x="300" y="70" class="container-title" text-anchor="middle">Data Pipeline Agent</text>
+
+  <!-- Row 1: Three data fetchers -->
+  <!-- Price Fetcher -->
+  <rect x="55" y="90" width="140" height="70" fill="#a5f3fc" stroke="#1a1a1a" stroke-width="1.5"/>
+  <rect x="55" y="90" width="140" height="70" fill="url(#dots-price)"/>
+  <text x="125" y="118" class="box-text">Price Fetcher</text>
+  <text x="125" y="132" class="label">价格数据</text>
+  <text x="125" y="150" class="box-text-sm">Yahoo / Polygon</text>
+
+  <!-- Text Processor -->
+  <rect x="230" y="90" width="140" height="70" fill="#ede9fe" stroke="#1a1a1a" stroke-width="1.5"/>
+  <rect x="230" y="90" width="140" height="70" fill="url(#diagonal-text)"/>
+  <text x="300" y="118" class="box-text">Text Processor</text>
+  <text x="300" y="132" class="label">文本数据</text>
+  <text x="300" y="150" class="box-text-sm">News / Social</text>
+
+  <!-- Alt Data Processor -->
+  <rect x="405" y="90" width="140" height="70" fill="#fef3c7" stroke="#1a1a1a" stroke-width="1.5"/>
+  <rect x="405" y="90" width="140" height="70" fill="url(#horizontal-alt)"/>
+  <text x="475" y="118" class="box-text">Alt Data Processor</text>
+  <text x="475" y="132" class="label">另类数据</text>
+  <text x="475" y="150" class="box-text-sm">Satellite / GPS</text>
+
+  <!-- Arrows from fetchers to Data Quality Agent -->
+  <line x1="125" y1="160" x2="125" y2="190" stroke="#666" stroke-width="1.5"/>
+  <line x1="125" y1="190" x2="300" y2="190" stroke="#666" stroke-width="1.5"/>
+
+  <line x1="300" y1="160" x2="300" y2="210" stroke="#666" stroke-width="1.5" marker-end="url(#arrow-down)"/>
+
+  <line x1="475" y1="160" x2="475" y2="190" stroke="#666" stroke-width="1.5"/>
+  <line x1="475" y1="190" x2="300" y2="190" stroke="#666" stroke-width="1.5"/>
+
+  <!-- Data Quality Agent (central) -->
+  <rect x="180" y="220" width="240" height="80" fill="#d1fae5" stroke="#1a1a1a" stroke-width="2"/>
+  <text x="300" y="248" class="box-text">Data Quality Agent</text>
+  <text x="300" y="264" class="label">数据质量智能体</text>
+  <text x="300" y="285" class="box-text-sm">Validation | Cleaning | Normalization</text>
+
+  <!-- Arrow from Quality Agent to Clean Data Store -->
+  <line x1="300" y1="300" x2="300" y2="330" stroke="#666" stroke-width="1.5" marker-end="url(#arrow-down)"/>
+
+  <!-- Clean Data Store -->
+  <rect x="180" y="340" width="240" height="50" fill="#fce7f3" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="300" y="362" class="box-text">Clean Data Store</text>
+  <text x="300" y="378" class="label">就绪数据存储</text>
+
+  <!-- Quality checks list (right side) -->
+  <g transform="translate(440, 230)">
+    <text x="0" y="0" class="label" text-anchor="start">CHECKS:</text>
+    <text x="0" y="16" class="box-text-sm" text-anchor="start">- Missing values</text>
+    <text x="0" y="30" class="box-text-sm" text-anchor="start">- Outlier detection</text>
+    <text x="0" y="44" class="box-text-sm" text-anchor="start">- Timezone alignment</text>
+    <text x="0" y="58" class="box-text-sm" text-anchor="start">- Duplicate removal</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="300" y="408" class="desc">Raw data immutable | Processed data traceable | Multiple source backup</text>
+</svg>

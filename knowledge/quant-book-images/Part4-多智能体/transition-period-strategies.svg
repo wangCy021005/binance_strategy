@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 300">
+  <style>
+    .title { font: 600 13px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; letter-spacing: 0.5px; }
+    .strategy-title { font: 600 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .item { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .highlight { font: 600 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #10b981; }
+    .recommended { font: 600 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #fff; }
+  </style>
+
+  <!-- Background -->
+  <rect width="620" height="300" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="310" y="25" text-anchor="middle" class="title">过渡期策略</text>
+  <text x="310" y="40" text-anchor="middle" class="subtitle">TRANSITION PERIOD STRATEGIES</text>
+
+  <!-- Strategy 1: Conservative Wait -->
+  <rect x="20" y="55" width="185" height="140" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5" rx="2"/>
+  <text x="113" y="75" text-anchor="middle" class="strategy-title">策略 1</text>
+  <text x="113" y="90" text-anchor="middle" class="strategy-title">保守等待</text>
+  <line x1="35" y1="98" x2="190" y2="98" stroke="#60a5fa" stroke-width="1"/>
+  <text x="30" y="118" class="item">• 保持上一个确认状态</text>
+  <text x="30" y="135" class="item">• 仓位降至 50%</text>
+  <text x="30" y="152" class="item">• 等待明确信号</text>
+  <text x="30" y="169" class="item">• 再逐步加仓</text>
+
+  <!-- Strategy 2: Probability Mixing -->
+  <rect x="218" y="55" width="185" height="140" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" rx="2"/>
+  <text x="310" y="75" text-anchor="middle" class="strategy-title">策略 2</text>
+  <text x="310" y="90" text-anchor="middle" class="strategy-title">概率混合</text>
+  <line x1="233" y1="98" x2="388" y2="98" stroke="#f59e0b" stroke-width="1"/>
+  <text x="228" y="118" class="item">• 按状态概率加权</text>
+  <text x="228" y="135" class="item">• 趋势 40% → 权重 40%</text>
+  <text x="228" y="152" class="item">• 自然平滑过渡</text>
+  <text x="228" y="169" class="item">• 无硬切换</text>
+
+  <!-- Strategy 3: Risk Priority (Recommended) -->
+  <rect x="416" y="55" width="185" height="140" fill="#d1fae5" stroke="#10b981" stroke-width="2" rx="2"/>
+  <rect x="416" y="55" width="185" height="35" fill="#10b981" rx="2"/>
+  <text x="508" y="70" text-anchor="middle" class="recommended">推荐</text>
+  <text x="508" y="85" text-anchor="middle" class="recommended">策略 3：风险优先</text>
+  <line x1="431" y1="98" x2="586" y2="98" stroke="#10b981" stroke-width="1"/>
+  <text x="426" y="118" class="item">• 当作危机前兆</text>
+  <text x="426" y="135" class="item">• 主动降低风险</text>
+  <text x="426" y="152" class="item">• 宁可错过机会</text>
+  <text x="426" y="169" class="item">• 不要放大风险</text>
+
+  <!-- Bottom recommendation -->
+  <rect x="20" y="210" width="580" height="75" fill="#f3f4f6" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,2" rx="2"/>
+  <text x="310" y="235" text-anchor="middle" class="strategy-title">对大多数投资者</text>
+  <text x="310" y="255" text-anchor="middle" class="item">策略 3（风险优先）是最安全的选择。</text>
+  <text x="310" y="272" text-anchor="middle" class="item">过渡期往往是风险最高的时期。</text>
+</svg>

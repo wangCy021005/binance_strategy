@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 340">
+  <style>
+    .title { font: 600 13px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; letter-spacing: 0.5px; }
+    .section-title { font: 600 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .item { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .note { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #fff; }
+  </style>
+
+  <!-- Background -->
+  <rect width="620" height="340" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="310" y="25" text-anchor="middle" class="title">Cost Estimator Agent</text>
+  <text x="310" y="40" text-anchor="middle" class="subtitle">COST ESTIMATION AND TRADABILITY ASSESSMENT</text>
+
+  <!-- Main container -->
+  <rect x="30" y="55" width="560" height="275" fill="#f9fafb" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+
+  <!-- Responsibility 1 -->
+  <rect x="45" y="65" width="255" height="75" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5" rx="2"/>
+  <rect x="45" y="65" width="255" height="22" fill="#60a5fa" rx="2"/>
+  <text x="172" y="81" text-anchor="middle" class="note">职责 1: 成本预估</text>
+  <text x="55" y="102" class="item">- 接收订单请求（标的、方向、数量）</text>
+  <text x="55" y="117" class="item">- 查询当前流动性数据</text>
+  <text x="55" y="132" class="item">- 估算预期成本（滑点+冲击+机会）</text>
+
+  <!-- Responsibility 2 -->
+  <rect x="320" y="65" width="255" height="75" fill="#d1fae5" stroke="#10b981" stroke-width="1.5" rx="2"/>
+  <rect x="320" y="65" width="255" height="22" fill="#10b981" rx="2"/>
+  <text x="447" y="81" text-anchor="middle" class="note">职责 2: 可交易性判断</text>
+  <text x="330" y="102" class="item">- 计算 Net Alpha = Gross - Cost</text>
+  <text x="330" y="117" class="item">- 如果 Net Alpha &lt; 阈值，不交易</text>
+  <text x="330" y="132" class="item">- 输出可交易性评分</text>
+
+  <!-- Responsibility 3 -->
+  <rect x="45" y="150" width="255" height="75" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" rx="2"/>
+  <rect x="45" y="150" width="255" height="22" fill="#f59e0b" rx="2"/>
+  <text x="172" y="166" text-anchor="middle" class="note">职责 3: 执行建议</text>
+  <text x="55" y="187" class="item">- 建议最优执行策略（一次 vs 分批）</text>
+  <text x="55" y="202" class="item">- 建议订单类型（市价 vs 限价）</text>
+  <text x="55" y="217" class="item">- 建议时间窗口</text>
+
+  <!-- Responsibility 4 -->
+  <rect x="320" y="150" width="255" height="75" fill="#fce7f3" stroke="#f9a8d4" stroke-width="1.5" rx="2"/>
+  <rect x="320" y="150" width="255" height="22" fill="#f9a8d4" rx="2"/>
+  <text x="447" y="166" text-anchor="middle" class="note">职责 4: 成本归因</text>
+  <text x="330" y="187" class="item">- 事后分析预估 vs 实际成本</text>
+  <text x="330" y="202" class="item">- 更新成本模型参数</text>
+  <text x="330" y="217" class="item">- 反馈给 Signal Agent</text>
+
+  <!-- Collaboration flow -->
+  <rect x="45" y="240" width="530" height="80" fill="#e0e7ff" stroke="#818cf8" stroke-width="1.5" rx="2"/>
+  <text x="310" y="260" text-anchor="middle" class="section-title">与 Signal Agent 协作流程</text>
+  <text x="100" y="285" class="item">Signal Agent</text>
+  <text x="200" y="285" class="item">→ 发送信号 →</text>
+  <text x="310" y="285" class="item">Cost Estimator</text>
+  <text x="420" y="285" class="item">→ 返回成本 →</text>
+  <text x="520" y="285" class="item">决策</text>
+  <text x="310" y="308" text-anchor="middle" class="item">if 信号强度 &lt; 成本: 放弃  |  elif 信号强度 &lt; 2×成本: 减仓  |  else: 正常执行</text>
+</svg>

@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 380">
+  <defs>
+    <style>
+      .label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; letter-spacing: 0.5px; }
+      .box-text { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; }
+      .box-text-sm { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; }
+      .title { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; letter-spacing: 1px; }
+      .step-num { font: 700 14px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #fff; text-anchor: middle; }
+      .desc { font: 400 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+    <marker id="arrow-down" markerWidth="7" markerHeight="10" refX="3.5" refY="9" orient="auto">
+      <polygon points="0 0, 3.5 10, 7 0" fill="#666"/>
+    </marker>
+
+    <!-- Hatching patterns for agent differentiation -->
+    <pattern id="dots-signal" width="6" height="6" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="1" fill="#0d9488" opacity="0.4"/>
+    </pattern>
+    <pattern id="diagonal-risk" width="5" height="5" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="5" x2="5" y2="0" stroke="#ca8a04" stroke-width="0.6" opacity="0.5"/>
+    </pattern>
+    <pattern id="horizontal-exec" width="5" height="5" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="2.5" x2="5" y2="2.5" stroke="#0891b2" stroke-width="0.6" opacity="0.5"/>
+    </pattern>
+    <pattern id="crosshatch-monitor" width="5" height="5" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="5" y2="5" stroke="#7c3aed" stroke-width="0.4" opacity="0.4"/>
+      <line x1="5" y1="0" x2="0" y2="5" stroke="#7c3aed" stroke-width="0.4" opacity="0.4"/>
+    </pattern>
+    <pattern id="vertical-position" width="5" height="5" patternUnits="userSpaceOnUse">
+      <line x1="2.5" y1="0" x2="2.5" y2="5" stroke="#db2777" stroke-width="0.6" opacity="0.5"/>
+    </pattern>
+  </defs>
+
+  <!-- White background -->
+  <rect width="680" height="380" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="340" y="28" class="title" text-anchor="middle">STRATEGY LIFECYCLE / 策略生命周期</text>
+
+  <!-- Row 1: Signal → Risk → Execution -->
+
+  <!-- Step 1: Signal Agent -->
+  <circle cx="75" cy="85" r="14" fill="#10b981"/>
+  <text x="75" y="90" class="step-num">1</text>
+  <rect x="100" y="60" width="130" height="65" fill="#d1fae5" stroke="#1a1a1a" stroke-width="1.5"/>
+  <rect x="100" y="60" width="130" height="65" fill="url(#dots-signal)"/>
+  <text x="165" y="88" class="box-text">Signal Agent</text>
+  <text x="165" y="105" class="label">信号生成</text>
+  <text x="165" y="138" class="desc">"AAPL MACD 底背离"</text>
+  <text x="165" y="150" class="desc">"建议做多"</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="230" y1="92" x2="270" y2="92" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 2: Risk Agent -->
+  <circle cx="285" cy="85" r="14" fill="#f59e0b"/>
+  <text x="285" y="90" class="step-num">2</text>
+  <rect x="310" y="60" width="130" height="65" fill="#fef3c7" stroke="#1a1a1a" stroke-width="1.5"/>
+  <rect x="310" y="60" width="130" height="65" fill="url(#diagonal-risk)"/>
+  <text x="375" y="88" class="box-text">Risk Agent</text>
+  <text x="375" y="105" class="label">风控审核</text>
+  <text x="375" y="138" class="desc">"当前仓位60%"</text>
+  <text x="375" y="150" class="desc">"单笔最大10%"</text>
+
+  <!-- Arrow 2→3 -->
+  <line x1="440" y1="92" x2="480" y2="92" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 3: Execution Agent -->
+  <circle cx="495" cy="85" r="14" fill="#0ea5e9"/>
+  <text x="495" y="90" class="step-num">3</text>
+  <rect x="520" y="60" width="130" height="65" fill="#a5f3fc" stroke="#1a1a1a" stroke-width="1.5"/>
+  <rect x="520" y="60" width="130" height="65" fill="url(#horizontal-exec)"/>
+  <text x="585" y="88" class="box-text">Execution Agent</text>
+  <text x="585" y="105" class="label">下单执行</text>
+  <text x="585" y="138" class="desc">"拆成10小单"</text>
+  <text x="585" y="150" class="desc">"TWAP算法"</text>
+
+  <!-- Arrow 3→4 (down and left) -->
+  <path d="M 585 125 L 585 180 L 375 180 L 375 200" fill="none" stroke="#666" stroke-width="1.5" marker-end="url(#arrow-down)"/>
+
+  <!-- Row 2: Monitor → Position -->
+
+  <!-- Step 4: Monitor Agent -->
+  <circle cx="285" cy="225" r="14" fill="#8b5cf6"/>
+  <text x="285" y="230" class="step-num">4</text>
+  <rect x="310" y="200" width="130" height="65" fill="#ede9fe" stroke="#1a1a1a" stroke-width="1.5"/>
+  <rect x="310" y="200" width="130" height="65" fill="url(#crosshatch-monitor)"/>
+  <text x="375" y="228" class="box-text">Monitor Agent</text>
+  <text x="375" y="245" class="label">成交监控</text>
+  <text x="375" y="278" class="desc">"滑点超阈值"</text>
+  <text x="375" y="290" class="desc">"暂停执行"</text>
+
+  <!-- Arrow 4→5 -->
+  <line x1="310" y1="232" x2="230" y2="232" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 5: Position Agent -->
+  <circle cx="75" cy="225" r="14" fill="#ec4899"/>
+  <text x="75" y="230" class="step-num">5</text>
+  <rect x="100" y="200" width="130" height="65" fill="#fce7f3" stroke="#1a1a1a" stroke-width="1.5"/>
+  <rect x="100" y="200" width="130" height="65" fill="url(#vertical-position)"/>
+  <text x="165" y="228" class="box-text">Position Agent</text>
+  <text x="165" y="245" class="label">持仓管理</text>
+  <text x="165" y="278" class="desc">"盈利5%触发"</text>
+  <text x="165" y="290" class="desc">"移动止盈"</text>
+
+  <!-- Feedback loop back to Signal (dashed) -->
+  <path d="M 100 232 L 50 232 L 50 92 L 75 92" fill="none" stroke="#666" stroke-width="1" stroke-dasharray="6,3"/>
+  <text x="35" y="165" class="label" transform="rotate(-90, 35, 165)">FEEDBACK</text>
+
+  <!-- Legend -->
+  <g transform="translate(480, 200)">
+    <text x="0" y="0" class="label" text-anchor="start">AGENTS:</text>
+
+    <rect x="0" y="10" width="12" height="12" fill="#d1fae5" stroke="#1a1a1a" stroke-width="0.5"/>
+    <rect x="0" y="10" width="12" height="12" fill="url(#dots-signal)"/>
+    <text x="18" y="20" class="desc" text-anchor="start">Signal</text>
+
+    <rect x="0" y="28" width="12" height="12" fill="#fef3c7" stroke="#1a1a1a" stroke-width="0.5"/>
+    <rect x="0" y="28" width="12" height="12" fill="url(#diagonal-risk)"/>
+    <text x="18" y="38" class="desc" text-anchor="start">Risk</text>
+
+    <rect x="0" y="46" width="12" height="12" fill="#a5f3fc" stroke="#1a1a1a" stroke-width="0.5"/>
+    <rect x="0" y="46" width="12" height="12" fill="url(#horizontal-exec)"/>
+    <text x="18" y="56" class="desc" text-anchor="start">Execution</text>
+
+    <rect x="80" y="10" width="12" height="12" fill="#ede9fe" stroke="#1a1a1a" stroke-width="0.5"/>
+    <rect x="80" y="10" width="12" height="12" fill="url(#crosshatch-monitor)"/>
+    <text x="98" y="20" class="desc" text-anchor="start">Monitor</text>
+
+    <rect x="80" y="28" width="12" height="12" fill="#fce7f3" stroke="#1a1a1a" stroke-width="0.5"/>
+    <rect x="80" y="28" width="12" height="12" fill="url(#vertical-position)"/>
+    <text x="98" y="38" class="desc" text-anchor="start">Position</text>
+  </g>
+
+  <!-- Multi-agent note -->
+  <text x="340" y="340" class="desc" text-anchor="middle">Each agent is an independent specialist - clear responsibilities, easy to debug</text>
+  <text x="340" y="355" class="desc" text-anchor="middle">每个环节都是独立专家 Agent — 专业分工、责任清晰、便于调试</text>
+</svg>

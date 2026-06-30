@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 380">
+  <defs>
+    <style>
+      .label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; letter-spacing: 0.5px; }
+      .price { font: 600 13px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: end; }
+      .price-center { font: 700 15px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: end; }
+      .action { font: 600 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: start; }
+      .title { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; letter-spacing: 1px; }
+      .grid-num { font: 700 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #fff; text-anchor: middle; }
+      .desc { font: 400 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; }
+      .arrow-label { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; }
+    </style>
+    <marker id="arrow-up" markerWidth="8" markerHeight="6" refX="4" refY="0" orient="auto">
+      <polygon points="0 6, 4 0, 8 6" fill="#059669"/>
+    </marker>
+    <marker id="arrow-down" markerWidth="8" markerHeight="6" refX="4" refY="6" orient="auto">
+      <polygon points="0 0, 4 6, 8 0" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <!-- White background -->
+  <rect width="520" height="380" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="260" y="28" class="title" text-anchor="middle">GRID TRADING / 网格交易</text>
+
+  <!-- Price axis -->
+  <line x1="80" y1="60" x2="80" y2="320" stroke="#ccc" stroke-width="1"/>
+  <text x="40" y="190" class="label" transform="rotate(-90, 40, 190)">PRICE / 价格</text>
+
+  <!-- Sell grids (above center) - Pink -->
+  <!-- Grid +3: 115 -->
+  <rect x="100" y="68" width="200" height="36" fill="#fce7f3" stroke="#1a1a1a" stroke-width="1.5"/>
+  <circle cx="115" cy="86" r="10" fill="#f9a8d4" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="115" y="90" class="grid-num">3</text>
+  <text x="180" y="91" class="price">$115</text>
+  <text x="220" y="91" class="action">SELL / 卖出</text>
+  <line x1="310" y1="86" x2="360" y2="86" stroke="#dc2626" stroke-width="2" marker-end="url(#arrow-down)"/>
+
+  <!-- Grid +2: 110 -->
+  <rect x="100" y="108" width="200" height="36" fill="#fce7f3" stroke="#1a1a1a" stroke-width="1.5"/>
+  <circle cx="115" cy="126" r="10" fill="#f9a8d4" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="115" y="130" class="grid-num">2</text>
+  <text x="180" y="131" class="price">$110</text>
+  <text x="220" y="131" class="action">SELL / 卖出</text>
+  <line x1="310" y1="126" x2="360" y2="126" stroke="#dc2626" stroke-width="2" marker-end="url(#arrow-down)"/>
+
+  <!-- Grid +1: 105 -->
+  <rect x="100" y="148" width="200" height="36" fill="#fce7f3" stroke="#1a1a1a" stroke-width="1.5"/>
+  <circle cx="115" cy="166" r="10" fill="#f9a8d4" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="115" y="170" class="grid-num">1</text>
+  <text x="180" y="171" class="price">$105</text>
+  <text x="220" y="171" class="action">SELL / 卖出</text>
+  <line x1="310" y1="166" x2="360" y2="166" stroke="#dc2626" stroke-width="2" marker-end="url(#arrow-down)"/>
+
+  <!-- Center price: 100 - Yellow highlight -->
+  <rect x="100" y="188" width="200" height="44" fill="#fef08a" stroke="#1a1a1a" stroke-width="2"/>
+  <text x="180" y="216" class="price-center">$100</text>
+  <text x="220" y="216" class="action" fill="#666">CENTER / 中心</text>
+
+  <!-- Current price indicator -->
+  <line x1="310" y1="210" x2="400" y2="210" stroke="#3b82f6" stroke-width="2" stroke-dasharray="6,3"/>
+  <text x="405" y="205" class="label" text-anchor="start" fill="#3b82f6">CURRENT PRICE</text>
+  <text x="405" y="218" class="label" text-anchor="start" fill="#3b82f6">当前价格</text>
+
+  <!-- Buy grids (below center) - Green -->
+  <!-- Grid -1: 95 -->
+  <rect x="100" y="236" width="200" height="36" fill="#d1fae5" stroke="#1a1a1a" stroke-width="1.5"/>
+  <circle cx="115" cy="254" r="10" fill="#5eead4" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="115" y="258" class="grid-num">1</text>
+  <text x="180" y="259" class="price">$95</text>
+  <text x="220" y="259" class="action">BUY / 买入</text>
+  <line x1="310" y1="254" x2="360" y2="254" stroke="#059669" stroke-width="2" marker-end="url(#arrow-up)"/>
+
+  <!-- Grid -2: 90 -->
+  <rect x="100" y="276" width="200" height="36" fill="#d1fae5" stroke="#1a1a1a" stroke-width="1.5"/>
+  <circle cx="115" cy="294" r="10" fill="#5eead4" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="115" y="298" class="grid-num">2</text>
+  <text x="180" y="299" class="price">$90</text>
+  <text x="220" y="299" class="action">BUY / 买入</text>
+  <line x1="310" y1="294" x2="360" y2="294" stroke="#059669" stroke-width="2" marker-end="url(#arrow-up)"/>
+
+  <!-- Grid -3: 85 -->
+  <rect x="100" y="316" width="200" height="36" fill="#d1fae5" stroke="#1a1a1a" stroke-width="1.5"/>
+  <circle cx="115" cy="334" r="10" fill="#5eead4" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="115" y="338" class="grid-num">3</text>
+  <text x="180" y="339" class="price">$85</text>
+  <text x="220" y="339" class="action">BUY / 买入</text>
+  <line x1="310" y1="334" x2="360" y2="334" stroke="#059669" stroke-width="2" marker-end="url(#arrow-up)"/>
+
+  <!-- Grid spacing annotation -->
+  <line x1="70" y1="188" x2="70" y2="148" stroke="#666" stroke-width="1"/>
+  <line x1="65" y1="188" x2="75" y2="188" stroke="#666" stroke-width="1"/>
+  <line x1="65" y1="148" x2="75" y2="148" stroke="#666" stroke-width="1"/>
+  <text x="55" y="172" class="arrow-label" text-anchor="end">5%</text>
+
+  <!-- Legend -->
+  <g transform="translate(380, 280)">
+    <rect x="0" y="0" width="12" height="12" fill="#fce7f3" stroke="#1a1a1a" stroke-width="0.5"/>
+    <text x="18" y="10" class="desc" text-anchor="start">Sell Grid / 卖出网格</text>
+
+    <rect x="0" y="20" width="12" height="12" fill="#d1fae5" stroke="#1a1a1a" stroke-width="0.5"/>
+    <text x="18" y="30" class="desc" text-anchor="start">Buy Grid / 买入网格</text>
+
+    <rect x="0" y="40" width="12" height="12" fill="#fef08a" stroke="#1a1a1a" stroke-width="0.5"/>
+    <text x="18" y="50" class="desc" text-anchor="start">Center Price / 中心价</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="260" y="370" class="desc">Price drops = buy more | Price rises = sell more</text>
+</svg>

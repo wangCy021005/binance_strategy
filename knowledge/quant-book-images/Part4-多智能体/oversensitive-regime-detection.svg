@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340">
+  <defs>
+    <style>
+      .label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; letter-spacing: 0.5px; }
+      .box-text { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+      .annotation { font: 400 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+      .title-text { font: 700 14px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+      .state-text { font: 700 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <rect width="720" height="340" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="360" y="30" class="title-text" text-anchor="middle">过敏型误判 - 频繁切换</text>
+  <text x="360" y="47" class="label" text-anchor="middle">OVERSENSITIVE REGIME DETECTION</text>
+
+  <!-- True state label -->
+  <text x="40" y="85" class="box-text" text-anchor="start">真实状态:</text>
+  <text x="40" y="100" class="label" text-anchor="start">TRUE STATE:</text>
+
+  <!-- True state line (stable horizontal) -->
+  <rect x="140" y="70" width="540" height="35" fill="#d1fae5" stroke="#10b981" stroke-width="2" rx="2"/>
+  <text x="410" y="92" class="state-text" text-anchor="middle" fill="#10b981">持续震荡</text>
+  <text x="410" y="105" class="label" text-anchor="middle">CONTINUOUS RANGE-BOUND</text>
+
+  <!-- System detection label -->
+  <text x="40" y="145" class="box-text" text-anchor="start">系统判断:</text>
+  <text x="40" y="160" class="label" text-anchor="start">SYSTEM:</text>
+
+  <!-- Timeline -->
+  <line x1="140" y1="175" x2="680" y2="175" stroke="#e5e7eb" stroke-width="2"/>
+
+  <!-- State boxes showing erratic switching -->
+  <rect x="140" y="155" width="30" height="25" fill="#fce7f3" stroke="#1a1a1a" stroke-width="1" rx="1"/>
+  <text x="155" y="171" class="label" text-anchor="middle" font-size="9px">震荡</text>
+
+  <rect x="175" y="155" width="30" height="25" fill="#fde047" stroke="#1a1a1a" stroke-width="1" rx="1"/>
+  <text x="190" y="171" class="label" text-anchor="middle" font-size="9px">趋势</text>
+
+  <rect x="210" y="155" width="30" height="25" fill="#fce7f3" stroke="#1a1a1a" stroke-width="1" rx="1"/>
+  <text x="225" y="171" class="label" text-anchor="middle" font-size="9px">震荡</text>
+
+  <rect x="245" y="155" width="30" height="25" fill="#fde047" stroke="#1a1a1a" stroke-width="1" rx="1"/>
+  <text x="260" y="171" class="label" text-anchor="middle" font-size="9px">趋势</text>
+
+  <rect x="280" y="155" width="30" height="25" fill="#fce7f3" stroke="#1a1a1a" stroke-width="1" rx="1"/>
+  <text x="295" y="171" class="label" text-anchor="middle" font-size="9px">震荡</text>
+
+  <rect x="315" y="155" width="30" height="25" fill="#a5f3fc" stroke="#1a1a1a" stroke-width="1" rx="1"/>
+  <text x="330" y="171" class="label" text-anchor="middle" font-size="9px">过渡</text>
+
+  <rect x="350" y="155" width="30" height="25" fill="#fce7f3" stroke="#1a1a1a" stroke-width="1" rx="1"/>
+  <text x="365" y="171" class="label" text-anchor="middle" font-size="9px">震荡</text>
+
+  <rect x="385" y="155" width="30" height="25" fill="#fde047" stroke="#1a1a1a" stroke-width="1" rx="1"/>
+  <text x="400" y="171" class="label" text-anchor="middle" font-size="9px">趋势</text>
+
+  <rect x="420" y="155" width="30" height="25" fill="#fce7f3" stroke="#1a1a1a" stroke-width="1" rx="1"/>
+  <text x="435" y="171" class="label" text-anchor="middle" font-size="9px">震荡</text>
+
+  <rect x="455" y="155" width="30" height="25" fill="#fca5a5" stroke="#1a1a1a" stroke-width="1" rx="1"/>
+  <text x="470" y="171" class="label" text-anchor="middle" font-size="9px">危机</text>
+
+  <rect x="490" y="155" width="30" height="25" fill="#fce7f3" stroke="#1a1a1a" stroke-width="1" rx="1"/>
+  <text x="505" y="171" class="label" text-anchor="middle" font-size="9px">震荡</text>
+
+  <rect x="525" y="155" width="30" height="25" fill="#fde047" stroke="#1a1a1a" stroke-width="1" rx="1"/>
+  <text x="540" y="171" class="label" text-anchor="middle" font-size="9px">趋势</text>
+
+  <rect x="560" y="155" width="30" height="25" fill="#fce7f3" stroke="#1a1a1a" stroke-width="1" rx="1"/>
+  <text x="575" y="171" class="label" text-anchor="middle" font-size="9px">震荡</text>
+
+  <rect x="595" y="155" width="30" height="25" fill="#a5f3fc" stroke="#1a1a1a" stroke-width="1" rx="1"/>
+  <text x="610" y="171" class="label" text-anchor="middle" font-size="9px">过渡</text>
+
+  <rect x="630" y="155" width="30" height="25" fill="#fce7f3" stroke="#1a1a1a" stroke-width="1" rx="1"/>
+  <text x="645" y="171" class="label" text-anchor="middle" font-size="9px">震荡</text>
+
+  <!-- Vertical tick marks -->
+  <line x1="140" y1="175" x2="140" y2="185" stroke="#666" stroke-width="1"/>
+  <line x1="175" y1="175" x2="175" y2="185" stroke="#666" stroke-width="1"/>
+  <line x1="210" y1="175" x2="210" y2="185" stroke="#666" stroke-width="1"/>
+  <line x1="245" y1="175" x2="245" y2="185" stroke="#666" stroke-width="1"/>
+  <line x1="280" y1="175" x2="280" y2="185" stroke="#666" stroke-width="1"/>
+  <line x1="315" y1="175" x2="315" y2="185" stroke="#666" stroke-width="1"/>
+  <line x1="350" y1="175" x2="350" y2="185" stroke="#666" stroke-width="1"/>
+  <line x1="385" y1="175" x2="385" y2="185" stroke="#666" stroke-width="1"/>
+  <line x1="420" y1="175" x2="420" y2="185" stroke="#666" stroke-width="1"/>
+  <line x1="455" y1="175" x2="455" y2="185" stroke="#666" stroke-width="1"/>
+  <line x1="490" y1="175" x2="490" y2="185" stroke="#666" stroke-width="1"/>
+  <line x1="525" y1="175" x2="525" y2="185" stroke="#666" stroke-width="1"/>
+  <line x1="560" y1="175" x2="560" y2="185" stroke="#666" stroke-width="1"/>
+  <line x1="595" y1="175" x2="595" y2="185" stroke="#666" stroke-width="1"/>
+  <line x1="630" y1="175" x2="630" y2="185" stroke="#666" stroke-width="1"/>
+  <line x1="665" y1="175" x2="665" y2="185" stroke="#666" stroke-width="1"/>
+
+  <!-- Cost calculation boxes -->
+  <rect x="80" y="220" width="560" height="95" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" rx="2"/>
+
+  <text x="360" y="243" class="box-text" text-anchor="middle">切换次数: 15 次/月</text>
+  <text x="360" y="258" class="label" text-anchor="middle">SWITCHES: 15 PER MONTH</text>
+
+  <text x="360" y="278" class="box-text" text-anchor="middle">每次切换成本: 0.5%</text>
+  <text x="360" y="293" class="label" text-anchor="middle">COST PER SWITCH: 0.5%</text>
+
+  <text x="360" y="313" class="box-text" text-anchor="middle" fill="#ef4444">总成本: 7.5%/月</text>
+  <text x="360" y="328" class="label" text-anchor="middle" fill="#ef4444">TOTAL COST: 7.5% PER MONTH</text>
+</svg>

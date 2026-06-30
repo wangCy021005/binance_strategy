@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 320">
+  <style>
+    .title { font: 600 14px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; letter-spacing: 0.5px; }
+    .box-text { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .box-sub { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; }
+    .label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .arrow-label { font: 400 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; }
+  </style>
+
+  <!-- Background -->
+  <rect width="680" height="320" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="340" y="28" text-anchor="middle" class="title">影子模式部署</text>
+  <text x="340" y="44" text-anchor="middle" class="subtitle">SHADOW MODE DEPLOYMENT</text>
+
+  <!-- Main container -->
+  <rect x="30" y="55" width="620" height="245" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+
+  <!-- Input: Real-time Market Data -->
+  <rect x="50" y="135" width="100" height="50" fill="#67e8f9" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="100" y="157" text-anchor="middle" class="box-text">实时行情</text>
+  <text x="100" y="172" text-anchor="middle" class="box-sub">MARKET DATA</text>
+
+  <!-- Split point -->
+  <circle cx="190" cy="160" r="8" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/>
+
+  <!-- Arrow from data to split -->
+  <line x1="150" y1="160" x2="180" y2="160" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- Production path (top) -->
+  <line x1="198" y1="160" x2="230" y2="100" stroke="#1a1a1a" stroke-width="1.5"/>
+  <line x1="230" y1="100" x2="260" y2="100" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- Shadow path (bottom) -->
+  <line x1="198" y1="160" x2="230" y2="220" stroke="#1a1a1a" stroke-width="1.5"/>
+  <line x1="230" y1="220" x2="260" y2="220" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- Production Model -->
+  <rect x="270" y="75" width="120" height="50" fill="#5eead4" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="330" y="97" text-anchor="middle" class="box-text">生产模型</text>
+  <text x="330" y="112" text-anchor="middle" class="box-sub">PROD MODEL</text>
+
+  <!-- Shadow Model (with hatching) -->
+  <defs>
+    <pattern id="hatch" patternUnits="userSpaceOnUse" width="8" height="8">
+      <path d="M-1,1 l2,-2 M0,8 l8,-8 M7,9 l2,-2" stroke="#1a1a1a" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1a1a1a"/>
+    </marker>
+  </defs>
+  <rect x="270" y="195" width="120" height="50" fill="#fde047" stroke="#1a1a1a" stroke-width="1.5"/>
+  <rect x="270" y="195" width="120" height="50" fill="url(#hatch)"/>
+  <text x="330" y="217" text-anchor="middle" class="box-text">新版模型</text>
+  <text x="330" y="232" text-anchor="middle" class="box-sub">NEW MODEL</text>
+
+  <!-- Production output: Real Trading -->
+  <line x1="390" y1="100" x2="430" y2="100" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <rect x="440" y="75" width="90" height="50" fill="#f9a8d4" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="485" y="97" text-anchor="middle" class="box-text">真实交易</text>
+  <text x="485" y="112" text-anchor="middle" class="box-sub">LIVE TRADE</text>
+
+  <!-- Shadow output: Record Only -->
+  <line x1="390" y1="220" x2="430" y2="220" stroke="#1a1a1a" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrowhead)"/>
+  <rect x="440" y="195" width="90" height="50" fill="#e5e7eb" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="485" y="212" text-anchor="middle" class="box-text">仅记录</text>
+  <text x="485" y="227" text-anchor="middle" class="box-sub">RECORD ONLY</text>
+
+  <!-- Comparison arrow -->
+  <line x1="485" y1="145" x2="485" y2="185" stroke="#60a5fa" stroke-width="2" stroke-dasharray="4,2"/>
+  <line x1="475" y1="165" x2="495" y2="165" stroke="#60a5fa" stroke-width="2"/>
+
+  <!-- Comparison box -->
+  <rect x="545" y="140" width="95" height="70" fill="#fff" stroke="#60a5fa" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <text x="593" y="160" text-anchor="middle" class="label">对比信号差异</text>
+  <text x="593" y="175" text-anchor="middle" class="label">监控性能</text>
+  <text x="593" y="190" text-anchor="middle" class="label">确认无异常后切换</text>
+
+  <!-- Connection to comparison -->
+  <line x1="530" y1="175" x2="543" y2="175" stroke="#60a5fa" stroke-width="1.5" stroke-dasharray="4,2"/>
+
+  <!-- Labels -->
+  <text x="195" y="85" class="arrow-label">生产路径</text>
+  <text x="195" y="255" class="arrow-label">影子路径</text>
+</svg>

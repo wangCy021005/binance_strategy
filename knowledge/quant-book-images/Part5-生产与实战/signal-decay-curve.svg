@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 320">
+  <defs>
+    <marker id="arrow-sdc" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+  </defs>
+  <style>
+    .title { font: 600 13px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; letter-spacing: 0.5px; }
+    .axis-label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; }
+    .tick-label { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; }
+    .legend { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .warning { font: 600 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #ef4444; }
+  </style>
+
+  <!-- Background -->
+  <rect width="620" height="320" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="310" y="25" text-anchor="middle" class="title">信号衰减曲线</text>
+  <text x="310" y="40" text-anchor="middle" class="subtitle">SIGNAL DECAY CURVE</text>
+
+  <!-- Chart area -->
+  <rect x="80" y="55" width="420" height="180" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1"/>
+
+  <!-- Y-axis -->
+  <line x1="80" y1="55" x2="80" y2="235" stroke="#666" stroke-width="1.5"/>
+  <text x="45" y="145" text-anchor="middle" transform="rotate(-90, 45, 145)" class="axis-label">信号强度</text>
+
+  <!-- Y-axis ticks -->
+  <line x1="75" y1="70" x2="80" y2="70" stroke="#666" stroke-width="1"/>
+  <text x="68" y="74" text-anchor="end" class="tick-label">100%</text>
+
+  <line x1="75" y1="145" x2="80" y2="145" stroke="#666" stroke-width="1"/>
+  <text x="68" y="149" text-anchor="end" class="tick-label">50%</text>
+
+  <line x1="75" y1="220" x2="80" y2="220" stroke="#666" stroke-width="1"/>
+  <text x="68" y="224" text-anchor="end" class="tick-label">0%</text>
+
+  <!-- X-axis -->
+  <line x1="80" y1="235" x2="510" y2="235" stroke="#666" stroke-width="1.5" marker-end="url(#arrow-sdc)"/>
+
+  <!-- X-axis ticks -->
+  <line x1="140" y1="235" x2="140" y2="240" stroke="#666" stroke-width="1"/>
+  <text x="140" y="252" text-anchor="middle" class="tick-label">10ms</text>
+
+  <line x1="250" y1="235" x2="250" y2="240" stroke="#666" stroke-width="1"/>
+  <text x="250" y="252" text-anchor="middle" class="tick-label">1min</text>
+
+  <line x1="380" y1="235" x2="380" y2="240" stroke="#666" stroke-width="1"/>
+  <text x="380" y="252" text-anchor="middle" class="tick-label">10min</text>
+
+  <text x="510" y="252" text-anchor="middle" class="tick-label">执行延迟</text>
+
+  <!-- High-frequency signal curve (fast decay) -->
+  <path d="M 80 70 Q 100 150 140 200 Q 180 220 500 220"
+        fill="none" stroke="#ef4444" stroke-width="2"/>
+
+  <!-- Medium-frequency signal curve (medium decay) -->
+  <path d="M 80 70 Q 150 100 250 150 Q 350 190 500 210"
+        fill="none" stroke="#f59e0b" stroke-width="2"/>
+
+  <!-- Low-frequency signal curve (slow decay) -->
+  <path d="M 80 70 Q 200 80 380 110 Q 450 130 500 150"
+        fill="none" stroke="#10b981" stroke-width="2"/>
+
+  <!-- Legend -->
+  <rect x="80" y="265" width="440" height="45" fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1" rx="2"/>
+
+  <line x1="95" y1="280" x2="130" y2="280" stroke="#ef4444" stroke-width="2"/>
+  <text x="140" y="284" class="legend">高频信号（毫秒级衰减）</text>
+
+  <line x1="290" y1="280" x2="325" y2="280" stroke="#f59e0b" stroke-width="2"/>
+  <text x="335" y="284" class="legend">中频信号（分钟级衰减）</text>
+
+  <text x="310" y="302" text-anchor="middle" class="warning">问题: 如果执行延迟 > 信号半衰期，Alpha 已经消失</text>
+</svg>

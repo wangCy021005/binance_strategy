@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 280">
+  <defs>
+    <style>
+      .label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; letter-spacing: 0.5px; }
+      .box-text { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+      .title { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; letter-spacing: 1px; }
+      .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; }
+    </style>
+  </defs>
+
+  <!-- White background -->
+  <rect width="700" height="280" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="350" y="28" class="title">FALSE POSITIVE PATTERN</text>
+  <text x="350" y="44" class="subtitle">误判为趋势的震荡区间</text>
+
+  <!-- Price chart baseline -->
+  <line x1="50" y1="180" x2="650" y2="180" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="5,5"/>
+  <text x="30" y="185" class="label">价格</text>
+
+  <!-- Range box (震荡区间) -->
+  <rect x="50" y="120" width="600" height="120" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="8,4" rx="4"/>
+  <text x="60" y="115" class="label" style="fill: #64748b;">实际是震荡区间</text>
+
+  <!-- Price movement line -->
+  <!-- Move up -->
+  <path d="M 50 180 L 150 180 L 200 130 L 250 140"
+        fill="none" stroke="#6366f1" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Peak -->
+  <circle cx="225" cy="135" r="6" fill="#ef4444"/>
+
+  <!-- Move down -->
+  <path d="M 250 140 L 300 150 L 350 180 L 400 170 L 450 180 L 500 175 L 550 180 L 600 185 L 650 180"
+        fill="none" stroke="#6366f1" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- False trend label with arrow -->
+  <text x="230" y="100" class="label" text-anchor="middle" style="fill: #ef4444;">误判为趋势</text>
+  <line x1="225" y1="105" x2="225" y2="125" stroke="#ef4444" stroke-width="1.5"/>
+  <polygon points="225,128 220,121 230,121" fill="#ef4444"/>
+
+  <!-- Annotation zones -->
+  <text x="120" y="260" class="label" style="fill: #10b981;">震荡期</text>
+  <text x="225" y="260" class="label" style="fill: #ef4444;">假突破 ↑</text>
+  <text x="400" y="260" class="label" style="fill: #10b981;">回归区间</text>
+</svg>

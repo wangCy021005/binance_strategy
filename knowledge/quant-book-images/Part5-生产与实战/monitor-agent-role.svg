@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 380">
+  <style>
+    .title { font: 600 14px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; letter-spacing: 0.5px; }
+    .section-title { font: 600 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .section-sub { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; }
+    .item { font: 400 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .agent-title { font: 700 14px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .agent-sub { font: 500 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1a1a1a"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="680" height="380" fill="#fff"/>
+
+  <!-- Main container -->
+  <rect x="30" y="20" width="620" height="340" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+
+  <!-- Center: Monitor Agent box -->
+  <rect x="230" y="100" width="220" height="90" fill="#67e8f9" stroke="#1a1a1a" stroke-width="2"/>
+  <text x="340" y="135" text-anchor="middle" class="agent-title">Monitor Agent</text>
+  <text x="340" y="155" text-anchor="middle" class="agent-sub">(系统健康的守护者)</text>
+  <text x="340" y="175" text-anchor="middle" class="section-sub">SYSTEM HEALTH GUARDIAN</text>
+
+  <!-- Left: Inputs -->
+  <rect x="45" y="70" width="145" height="150" fill="#99f6e4" stroke="#1a1a1a" stroke-width="1.5"/>
+  <rect x="45" y="70" width="145" height="22" fill="#5eead4" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="118" y="85" text-anchor="middle" class="section-title">输入 INPUT</text>
+
+  <text x="55" y="108" class="item">- 各 Agent 心跳信号</text>
+  <text x="55" y="126" class="item">- 系统资源指标</text>
+  <text x="55" y="144" class="item">- 交易执行日志</text>
+  <text x="55" y="162" class="item">- 外部服务状态</text>
+
+  <!-- Arrow: Input to Monitor -->
+  <line x1="190" y1="145" x2="225" y2="145" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- Right: Outputs -->
+  <rect x="490" y="70" width="145" height="150" fill="#fbcfe8" stroke="#1a1a1a" stroke-width="1.5"/>
+  <rect x="490" y="70" width="145" height="22" fill="#f9a8d4" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="563" y="85" text-anchor="middle" class="section-title">输出 OUTPUT</text>
+
+  <text x="500" y="108" class="item">- 健康状态报告</text>
+  <text x="500" y="126" class="item">- 告警通知</text>
+  <text x="500" y="144" class="item">- 自动恢复指令</text>
+
+  <!-- Arrow: Monitor to Output -->
+  <line x1="450" y1="145" x2="485" y2="145" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- Bottom: Capabilities -->
+  <rect x="150" y="240" width="380" height="105" fill="#fef08a" stroke="#1a1a1a" stroke-width="1.5"/>
+  <rect x="150" y="240" width="380" height="22" fill="#fde047" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="340" y="255" text-anchor="middle" class="section-title">能力 CAPABILITIES</text>
+
+  <text x="170" y="280" class="item">- 检测各 Agent 状态</text>
+  <text x="170" y="300" class="item">- 自动重启故障 Agent</text>
+  <text x="350" y="280" class="item">- 触发熔断机制</text>
+  <text x="350" y="300" class="item">- 执行状态一致性检查</text>
+
+  <!-- Arrow: Monitor to Capabilities -->
+  <line x1="340" y1="190" x2="340" y2="235" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- Decorative elements -->
+  <circle cx="340" y="215" r="5" fill="#67e8f9" stroke="#1a1a1a" stroke-width="1"/>
+</svg>

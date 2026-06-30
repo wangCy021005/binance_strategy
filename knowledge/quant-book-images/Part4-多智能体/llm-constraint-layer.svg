@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 450">
+  <defs>
+    <style>
+      .label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; letter-spacing: 0.5px; }
+      .label-left { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: start; letter-spacing: 0.5px; }
+      .box-text { font: 600 13px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; }
+      .box-text-small { font: 500 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; }
+      .title { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; letter-spacing: 1px; }
+      .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; }
+      .code-text { font: 400 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: start; }
+      .constraint-text { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: start; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ef4444"/>
+    </marker>
+
+    <!-- Pattern for LLM Agent -->
+    <pattern id="dots-llm" width="8" height="8" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="4" r="1.2" fill="#7c3aed" opacity="0.4"/>
+    </pattern>
+
+    <!-- Pattern for Constraint Layer -->
+    <pattern id="vertical-constraint" width="5" height="5" patternUnits="userSpaceOnUse">
+      <line x1="2.5" y1="0" x2="2.5" y2="5" stroke="#ef4444" stroke-width="0.8" opacity="0.4"/>
+    </pattern>
+
+    <!-- Pattern for Decision Layer -->
+    <pattern id="diagonal-decision" width="6" height="6" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="6" x2="6" y2="0" stroke="#0d9488" stroke-width="0.8" opacity="0.5"/>
+    </pattern>
+  </defs>
+
+  <!-- White background -->
+  <rect width="680" height="450" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="340" y="28" class="title" text-anchor="middle">LLM CONSTRAINT ARCHITECTURE</text>
+  <text x="340" y="44" class="subtitle">LLM 输出约束层设计</text>
+
+  <!-- Annotation: LLM only outputs suggestions -->
+  <text x="100" y="70" class="label-left" style="fill: #7c3aed;">LLM 只能输出"建议"，不能输出"命令"</text>
+
+  <!-- LLM Agent Box - Purple -->
+  <rect x="100" y="85" width="220" height="120" fill="#ddd6fe" stroke="#1a1a1a" stroke-width="1.5"/>
+  <rect x="100" y="85" width="220" height="120" fill="url(#dots-llm)"/>
+  <text x="210" y="110" class="box-text">LLM Agent</text>
+  <text x="210" y="130" class="label">输出 / OUTPUT</text>
+
+  <!-- JSON output snippet -->
+  <rect x="115" y="140" width="190" height="55" fill="#fff" stroke="#1a1a1a" stroke-width="0.5" rx="2"/>
+  <text x="125" y="155" class="code-text">{"analysis": "..."</text>
+  <text x="125" y="168" class="code-text"> "suggestion": "考虑买入"</text>
+  <text x="125" y="181" class="code-text"> "confidence": 0.7}</text>
+
+  <!-- Arrow from LLM to Constraint Layer -->
+  <line x1="320" y1="145" x2="360" y2="145" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Constraint Layer Box - Red/Orange -->
+  <rect x="380" y="85" width="220" height="170" fill="#fecaca" stroke="#1a1a1a" stroke-width="1.5"/>
+  <rect x="380" y="85" width="220" height="170" fill="url(#vertical-constraint)"/>
+  <text x="490" y="110" class="box-text">约束层（硬编码）</text>
+  <text x="490" y="128" class="label">CONSTRAINT LAYER</text>
+
+  <!-- Constraint rules -->
+  <g transform="translate(395, 140)">
+    <text x="0" y="0" class="constraint-text">1. 检查 suggestion 是否在允许列表</text>
+    <text x="0" y="18" class="constraint-text">2. confidence &lt; 0.8 时降权处理</text>
+    <text x="0" y="36" class="constraint-text">3. 与 ML 模型对比，冲突时信 ML</text>
+    <text x="0" y="54" class="constraint-text">4. 记录完整 audit trail</text>
+  </g>
+
+  <!-- Arrow from Constraint to Decision Layer -->
+  <line x1="490" y1="255" x2="490" y2="295" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Decision Layer Box - Teal -->
+  <rect x="290" y="310" width="400" height="65" fill="#5eead4" stroke="#1a1a1a" stroke-width="1.5"/>
+  <rect x="290" y="310" width="400" height="65" fill="url(#diagonal-decision)"/>
+  <text x="490" y="340" class="box-text">决策层（规则 + ML）</text>
+  <text x="490" y="360" class="label">DECISION LAYER (RULES + ML)</text>
+
+  <!-- Side annotation boxes -->
+  <!-- ML Model comparison -->
+  <rect x="100" y="230" width="160" height="55" fill="#f3f4f6" stroke="#666" stroke-width="1" stroke-dasharray="4,2" rx="2"/>
+  <text x="180" y="252" class="box-text-small">ML 模型</text>
+  <text x="180" y="268" class="label">独立预测</text>
+
+  <!-- Arrow from ML to Constraint -->
+  <line x1="260" y1="257" x2="378" y2="210" stroke="#666" stroke-width="1" stroke-dasharray="4,2"/>
+
+  <!-- Audit Trail box -->
+  <rect x="100" y="310" width="160" height="65" fill="#fff7ed" stroke="#1a1a1a" stroke-width="1" rx="2"/>
+  <text x="180" y="335" class="box-text-small">Audit Trail</text>
+  <text x="180" y="352" class="label">完整日志记录</text>
+  <text x="180" y="365" class="label" style="fill: #999;">FULL LOGGING</text>
+
+  <!-- Arrow from Constraint to Audit -->
+  <line x1="380" y1="230" x2="262" y2="310" stroke="#666" stroke-width="1" stroke-dasharray="4,2"/>
+
+  <!-- Key principle at bottom -->
+  <rect x="100" y="395" width="480" height="35" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="6,3" rx="4"/>
+  <text x="340" y="417" class="label" style="fill: #ef4444;">关键原则：LLM 不直接控制交易，只提供参考信息供下游 Agent 决定</text>
+
+  <!-- Legend -->
+  <g transform="translate(100, 435)">
+    <rect x="0" y="0" width="12" height="12" fill="#ddd6fe" stroke="#1a1a1a" stroke-width="0.5"/>
+    <rect x="0" y="0" width="12" height="12" fill="url(#dots-llm)"/>
+    <text x="18" y="10" class="label" text-anchor="start">LLM</text>
+
+    <rect x="70" y="0" width="12" height="12" fill="#fecaca" stroke="#1a1a1a" stroke-width="0.5"/>
+    <rect x="70" y="0" width="12" height="12" fill="url(#vertical-constraint)"/>
+    <text x="88" y="10" class="label" text-anchor="start">CONSTRAINT</text>
+
+    <rect x="190" y="0" width="12" height="12" fill="#5eead4" stroke="#1a1a1a" stroke-width="0.5"/>
+    <rect x="190" y="0" width="12" height="12" fill="url(#diagonal-decision)"/>
+    <text x="208" y="10" class="label" text-anchor="start">DECISION</text>
+  </g>
+</svg>

@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420">
+  <defs>
+    <style>
+      .label { font: 500 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; letter-spacing: 0.5px; }
+      .label-small { font: 400 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; }
+      .box-text { font: 600 14px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; }
+      .box-text-en { font: 500 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; }
+      .note-text { font: 400 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: start; }
+      .title { font: 600 16px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="680" height="420" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="340" y="35" class="title">交易成本金字塔</text>
+  <text x="340" y="52" class="label-small">TRADING COST PYRAMID</text>
+
+  <!-- Layer 4 (Top) - Explicit Costs - Pink -->
+  <polygon points="340,75 290,135 390,135" fill="#f9a8d4" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="340" y="112" class="box-text">显性成本</text>
+  <text x="340" y="128" class="box-text-en">EXPLICIT COSTS</text>
+
+  <!-- Layer 3 - Slippage - Cyan -->
+  <polygon points="290,135 240,195 440,195 390,135" fill="#67e8f9" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="340" y="162" class="box-text">滑点</text>
+  <text x="340" y="178" class="box-text-en">SLIPPAGE</text>
+
+  <!-- Layer 2 - Market Impact - Teal -->
+  <polygon points="240,195 185,265 495,265 440,195" fill="#5eead4" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="340" y="227" class="box-text">市场冲击</text>
+  <text x="340" y="243" class="box-text-en">MARKET IMPACT</text>
+
+  <!-- Layer 1 (Bottom) - Opportunity Cost - Yellow -->
+  <polygon points="185,265 120,345 560,345 495,265" fill="#fde047" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="340" y="302" class="box-text">机会成本</text>
+  <text x="340" y="318" class="box-text-en">OPPORTUNITY COST</text>
+
+  <!-- Annotations on right side -->
+  <line x1="395" y1="105" x2="480" y2="105" stroke="#ccc" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="490" y="100" class="note-text">你知道的</text>
+  <text x="490" y="114" class="note-text">&lt; 0.1%</text>
+
+  <line x1="445" y1="165" x2="480" y2="165" stroke="#ccc" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="490" y="160" class="note-text">你能估算的</text>
+  <text x="490" y="174" class="note-text">0.05-0.3%</text>
+
+  <line x1="500" y1="230" x2="520" y2="230" stroke="#ccc" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="530" y="225" class="note-text">你造成的</text>
+  <text x="530" y="239" class="note-text">0.1-1%+</text>
+
+  <line x1="565" y1="305" x2="580" y2="305" stroke="#ccc" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="590" y="300" class="note-text">你忽略的</text>
+  <text x="590" y="314" class="note-text">无法量化</text>
+
+  <!-- Bottom note -->
+  <rect x="120" y="365" width="440" height="35" fill="#dbeafe" stroke="#1a1a1a" stroke-width="1" rx="2"/>
+  <text x="340" y="387" class="label">冰山效应：你看到的只是冰山一角</text>
+
+</svg>

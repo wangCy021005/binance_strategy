@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 600" style="background-color: white;">
+  <defs>
+    <style>
+      .checklist-title { font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; font-size: 20px; font-weight: 600; fill: #1a1a1a; }
+      .section-label { font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; font-size: 16px; font-weight: 500; fill: #2c3e50; }
+      .item-text { font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; font-size: 14px; fill: #4a5568; }
+      .border-box { fill: none; stroke: #3b82f6; stroke-width: 2; }
+      .header-bg { fill: #eff6ff; }
+      .checkbox { fill: none; stroke: #94a3b8; stroke-width: 1.5; }
+      .tree-line { stroke: #cbd5e1; stroke-width: 1.5; fill: none; }
+    </style>
+  </defs>
+
+  <!-- Main border -->
+  <rect class="border-box" x="20" y="20" width="660" height="560" rx="8"/>
+
+  <!-- Header section -->
+  <rect class="header-bg" x="20" y="20" width="660" height="60" rx="8 8 0 0"/>
+  <line x1="20" y1="80" x2="680" y2="80" stroke="#3b82f6" stroke-width="2"/>
+  <text class="checklist-title" x="350" y="57" text-anchor="middle">CI/CD 实施检查清单</text>
+
+  <!-- Section 1: 版本控制 -->
+  <rect class="checkbox" x="50" y="110" width="18" height="18" rx="3"/>
+  <text class="section-label" x="80" y="124">版本控制</text>
+
+  <!-- Tree structure for items -->
+  <path class="tree-line" d="M 90 140 L 90 235"/>
+  <path class="tree-line" d="M 90 145 L 105 145"/>
+  <path class="tree-line" d="M 90 170 L 105 170"/>
+  <path class="tree-line" d="M 90 195 L 105 195"/>
+  <path class="tree-line" d="M 90 220 L 105 220"/>
+
+  <text class="item-text" x="110" y="150">所有代码在 Git</text>
+  <text class="item-text" x="110" y="175">模型文件有版本号</text>
+  <text class="item-text" x="110" y="200">配置与代码分离</text>
+  <text class="item-text" x="110" y="225">训练数据有快照</text>
+
+  <!-- Section 2: 自动化测试 -->
+  <rect class="checkbox" x="50" y="260" width="18" height="18" rx="3"/>
+  <text class="section-label" x="80" y="274">自动化测试</text>
+
+  <path class="tree-line" d="M 90 290 L 90 385"/>
+  <path class="tree-line" d="M 90 295 L 105 295"/>
+  <path class="tree-line" d="M 90 320 L 105 320"/>
+  <path class="tree-line" d="M 90 345 L 105 345"/>
+  <path class="tree-line" d="M 90 370 L 105 370"/>
+
+  <text class="item-text" x="110" y="300">单元测试覆盖核心逻辑</text>
+  <text class="item-text" x="110" y="325">回测作为 CI 的一部分</text>
+  <text class="item-text" x="110" y="350">性能基准测试</text>
+  <text class="item-text" x="110" y="375">过拟合检测</text>
+
+  <!-- Section 3: 部署流程 -->
+  <rect class="checkbox" x="380" y="110" width="18" height="18" rx="3"/>
+  <text class="section-label" x="410" y="124">部署流程</text>
+
+  <path class="tree-line" d="M 420 140 L 420 235"/>
+  <path class="tree-line" d="M 420 145 L 435 145"/>
+  <path class="tree-line" d="M 420 170 L 435 170"/>
+  <path class="tree-line" d="M 420 195 L 435 195"/>
+  <path class="tree-line" d="M 420 220 L 435 220"/>
+
+  <text class="item-text" x="440" y="150">一键部署(无手动步骤)</text>
+  <text class="item-text" x="440" y="175">影子模式验证</text>
+  <text class="item-text" x="440" y="200">灰度发布机制</text>
+  <text class="item-text" x="440" y="225">一键回滚</text>
+
+  <!-- Section 4: 可观测性 -->
+  <rect class="checkbox" x="380" y="260" width="18" height="18" rx="3"/>
+  <text class="section-label" x="410" y="274">可观测性</text>
+
+  <path class="tree-line" d="M 420 290 L 420 385"/>
+  <path class="tree-line" d="M 420 295 L 435 295"/>
+  <path class="tree-line" d="M 420 320 L 435 320"/>
+  <path class="tree-line" d="M 420 345 L 435 345"/>
+  <path class="tree-line" d="M 420 370 L 435 370"/>
+
+  <text class="item-text" x="440" y="300">部署事件记录</text>
+  <text class="item-text" x="440" y="325">版本与性能关联</text>
+  <text class="item-text" x="440" y="350">回滚自动触发</text>
+  <text class="item-text" x="440" y="375">变更审计追溯</text>
+</svg>

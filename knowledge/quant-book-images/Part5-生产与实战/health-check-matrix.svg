@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 480">
+  <style>
+    .title { font: 600 14px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; letter-spacing: 0.5px; }
+    .section-title { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .item { font: 400 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .freq { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #fff; }
+  </style>
+
+  <!-- Background -->
+  <rect width="680" height="480" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="340" y="30" text-anchor="middle" class="title">健康检查清单</text>
+  <text x="340" y="46" text-anchor="middle" class="subtitle">HEALTH CHECK MATRIX</text>
+
+  <!-- Main container -->
+  <rect x="40" y="60" width="600" height="400" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+
+  <!-- Section 1: Every Minute (Cyan) -->
+  <rect x="50" y="75" width="580" height="80" fill="#a5f3fc" stroke="#1a1a1a" stroke-width="1"/>
+  <rect x="50" y="75" width="90" height="20" fill="#67e8f9" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="95" y="89" text-anchor="middle" class="freq">每分钟</text>
+  <text x="160" y="89" class="subtitle">EVERY MINUTE</text>
+
+  <circle cx="70" cy="110" r="5" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="85" y="114" class="item">数据源连接状态（实时行情是否在更新）</text>
+
+  <circle cx="70" cy="132" r="5" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="85" y="136" class="item">交易接口连接状态</text>
+
+  <circle cx="350" cy="110" r="5" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="365" y="114" class="item">各 Agent 进程存活</text>
+
+  <!-- Section 2: Every 5 Minutes (Teal) -->
+  <rect x="50" y="165" width="580" height="80" fill="#99f6e4" stroke="#1a1a1a" stroke-width="1"/>
+  <rect x="50" y="165" width="90" height="20" fill="#5eead4" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="95" y="179" text-anchor="middle" class="freq">每5分钟</text>
+  <text x="160" y="179" class="subtitle">EVERY 5 MIN</text>
+
+  <circle cx="70" cy="200" r="5" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="85" y="204" class="item">最新行情时间戳是否在 5 分钟内</text>
+
+  <circle cx="70" cy="222" r="5" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="85" y="226" class="item">消息队列是否积压</text>
+
+  <circle cx="350" cy="200" r="5" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="365" y="204" class="item">日志是否正常输出</text>
+
+  <!-- Section 3: Every Hour (Yellow) -->
+  <rect x="50" y="255" width="580" height="80" fill="#fef08a" stroke="#1a1a1a" stroke-width="1"/>
+  <rect x="50" y="255" width="90" height="20" fill="#fde047" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="95" y="269" text-anchor="middle" class="freq">每小时</text>
+  <text x="160" y="269" class="subtitle">HOURLY</text>
+
+  <circle cx="70" cy="290" r="5" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="85" y="294" class="item">持仓与券商记录是否一致</text>
+
+  <circle cx="70" cy="312" r="5" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="85" y="316" class="item">资金余额是否匹配</text>
+
+  <circle cx="350" cy="290" r="5" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="365" y="294" class="item">今日交易数量是否在合理范围</text>
+
+  <!-- Section 4: Daily (Pink) -->
+  <rect x="50" y="345" width="580" height="80" fill="#fbcfe8" stroke="#1a1a1a" stroke-width="1"/>
+  <rect x="50" y="345" width="90" height="20" fill="#f9a8d4" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="95" y="359" text-anchor="middle" class="freq">每日</text>
+  <text x="160" y="359" class="subtitle">DAILY</text>
+
+  <circle cx="70" cy="380" r="5" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="85" y="384" class="item">日 P&amp;L 计算</text>
+
+  <circle cx="70" cy="402" r="5" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="85" y="406" class="item">风险指标更新</text>
+
+  <circle cx="350" cy="380" r="5" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="365" y="384" class="item">数据完整性验证</text>
+
+  <!-- Frequency gradient indicator on right -->
+  <rect x="605" y="75" width="25" height="350" fill="url(#freqGradient)" stroke="#1a1a1a" stroke-width="1"/>
+  <defs>
+    <linearGradient id="freqGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#67e8f9"/>
+      <stop offset="33%" style="stop-color:#5eead4"/>
+      <stop offset="66%" style="stop-color:#fde047"/>
+      <stop offset="100%" style="stop-color:#f9a8d4"/>
+    </linearGradient>
+  </defs>
+  <text x="618" y="95" text-anchor="middle" class="subtitle" transform="rotate(90, 618, 95)">HIGH FREQ</text>
+  <text x="618" y="395" text-anchor="middle" class="subtitle" transform="rotate(90, 618, 395)">LOW FREQ</text>
+</svg>

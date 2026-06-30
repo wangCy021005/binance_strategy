@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 420">
+  <defs>
+    <style>
+      .label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; letter-spacing: 0.5px; }
+      .box-text { font: 600 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; }
+      .box-text-sm { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; }
+      .title { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; letter-spacing: 1px; }
+      .container-title { font: 600 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; letter-spacing: 0.5px; }
+      .agent-name { font: 600 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+    <marker id="arrow-down" markerWidth="7" markerHeight="10" refX="3.5" refY="9" orient="auto">
+      <polygon points="0 0, 3.5 10, 7 0" fill="#666"/>
+    </marker>
+    <!-- Patterns -->
+    <pattern id="dots-meta" width="6" height="6" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="1" fill="#7c3aed" opacity="0.4"/>
+    </pattern>
+    <pattern id="diagonal-long" width="5" height="5" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="5" x2="5" y2="0" stroke="#10b981" stroke-width="0.6" opacity="0.5"/>
+    </pattern>
+    <pattern id="diagonal-short" width="5" height="5" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="5" x2="5" y2="0" stroke="#dc2626" stroke-width="0.6" opacity="0.5"/>
+    </pattern>
+    <pattern id="horizontal-hedge" width="5" height="5" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="2.5" x2="5" y2="2.5" stroke="#0891b2" stroke-width="0.6" opacity="0.5"/>
+    </pattern>
+    <pattern id="crosshatch-risk" width="5" height="5" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="5" y2="5" stroke="#f59e0b" stroke-width="0.4" opacity="0.4"/>
+      <line x1="5" y1="0" x2="0" y2="5" stroke="#f59e0b" stroke-width="0.4" opacity="0.4"/>
+    </pattern>
+    <pattern id="dots-exec" width="6" height="6" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="1" fill="#3b82f6" opacity="0.4"/>
+    </pattern>
+  </defs>
+
+  <!-- White background -->
+  <rect width="700" height="420" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="350" y="28" class="title" text-anchor="middle">NEUTRAL STRATEGY AGENT ARCHITECTURE / 中性策略 Agent 架构</text>
+
+  <!-- Main container -->
+  <rect x="25" y="50" width="650" height="350" fill="none" stroke="#d1d5db" stroke-width="1.5" stroke-dasharray="6,3" rx="4"/>
+
+  <!-- Meta Agent (top center) -->
+  <rect x="250" y="70" width="200" height="55" fill="#ddd6fe" stroke="#1a1a1a" stroke-width="1.5"/>
+  <rect x="250" y="70" width="200" height="55" fill="url(#dots-meta)"/>
+  <text x="350" y="93" class="agent-name">Meta Agent</text>
+  <text x="350" y="108" class="label">Regime + Routing</text>
+
+  <!-- Vertical line from Meta down -->
+  <line x1="350" y1="125" x2="350" y2="145" stroke="#666" stroke-width="1.5"/>
+
+  <!-- Horizontal distribution line -->
+  <line x1="120" y1="145" x2="580" y2="145" stroke="#666" stroke-width="1.5"/>
+
+  <!-- Three vertical lines to row 2 -->
+  <line x1="120" y1="145" x2="120" y2="165" stroke="#666" stroke-width="1.5" marker-end="url(#arrow-down)"/>
+  <line x1="350" y1="145" x2="350" y2="165" stroke="#666" stroke-width="1.5" marker-end="url(#arrow-down)"/>
+  <line x1="580" y1="145" x2="580" y2="165" stroke="#666" stroke-width="1.5" marker-end="url(#arrow-down)"/>
+
+  <!-- Row 2: Long Signal, Short Signal, Hedging Agent -->
+  <!-- Long Signal Agent -->
+  <rect x="45" y="175" width="150" height="55" fill="#d1fae5" stroke="#1a1a1a" stroke-width="1.5"/>
+  <rect x="45" y="175" width="150" height="55" fill="url(#diagonal-long)"/>
+  <text x="120" y="198" class="agent-name">Long Signal Agent</text>
+  <text x="120" y="213" class="label">多头信号</text>
+
+  <!-- Short Signal Agent -->
+  <rect x="275" y="175" width="150" height="55" fill="#fecaca" stroke="#1a1a1a" stroke-width="1.5"/>
+  <rect x="275" y="175" width="150" height="55" fill="url(#diagonal-short)"/>
+  <text x="350" y="198" class="agent-name">Short Signal Agent</text>
+  <text x="350" y="213" class="label">空头信号</text>
+
+  <!-- Hedging Agent -->
+  <rect x="505" y="175" width="150" height="55" fill="#a5f3fc" stroke="#1a1a1a" stroke-width="1.5"/>
+  <rect x="505" y="175" width="150" height="55" fill="url(#horizontal-hedge)"/>
+  <text x="580" y="198" class="agent-name">Hedging Agent</text>
+  <text x="580" y="213" class="label">对冲智能体</text>
+
+  <!-- Convergence to Risk Agent -->
+  <line x1="120" y1="230" x2="120" y2="255" stroke="#666" stroke-width="1.5"/>
+  <line x1="350" y1="230" x2="350" y2="255" stroke="#666" stroke-width="1.5"/>
+  <line x1="580" y1="230" x2="580" y2="255" stroke="#666" stroke-width="1.5"/>
+
+  <line x1="120" y1="255" x2="350" y2="255" stroke="#666" stroke-width="1.5"/>
+  <line x1="580" y1="255" x2="350" y2="255" stroke="#666" stroke-width="1.5"/>
+  <line x1="350" y1="255" x2="350" y2="270" stroke="#666" stroke-width="1.5" marker-end="url(#arrow-down)"/>
+
+  <!-- Risk Agent (central, larger) -->
+  <rect x="175" y="280" width="350" height="55" fill="#fef3c7" stroke="#1a1a1a" stroke-width="2"/>
+  <rect x="175" y="280" width="350" height="55" fill="url(#crosshatch-risk)"/>
+  <text x="350" y="303" class="agent-name">Risk Agent</text>
+  <text x="350" y="320" class="label">Beta Neutral + Factor Neutral Check / Beta 中性 + 因子中性检查</text>
+
+  <!-- Arrow to Execution Agent -->
+  <line x1="350" y1="335" x2="350" y2="355" stroke="#666" stroke-width="1.5" marker-end="url(#arrow-down)"/>
+
+  <!-- Execution Agent (bottom) -->
+  <rect x="225" y="365" width="250" height="45" fill="#dbeafe" stroke="#1a1a1a" stroke-width="1.5"/>
+  <rect x="225" y="365" width="250" height="45" fill="url(#dots-exec)"/>
+  <text x="350" y="385" class="agent-name">Execution Agent</text>
+  <text x="350" y="400" class="label">Unified Execution / 统一执行</text>
+</svg>

@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420">
+  <defs>
+    <style>
+      .label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; letter-spacing: 0.5px; }
+      .box-text { font: 600 14px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; }
+      .box-text-small { font: 500 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; }
+      .title { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; letter-spacing: 1px; }
+      .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; }
+      .condition { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+    <marker id="arrow-crisis" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ef4444"/>
+    </marker>
+
+    <!-- Diagonal lines for Trending -->
+    <pattern id="diagonal-trend" width="6" height="6" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="6" x2="6" y2="0" stroke="#0d9488" stroke-width="0.8" opacity="0.5"/>
+    </pattern>
+
+    <!-- Dots pattern for Uncertain -->
+    <pattern id="dots-uncertain" width="6" height="6" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="0.8" fill="#6b7280" opacity="0.5"/>
+    </pattern>
+
+    <!-- Horizontal lines for Mean-Reverting -->
+    <pattern id="horizontal-revert" width="6" height="6" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="3" x2="6" y2="3" stroke="#0891b2" stroke-width="0.8" opacity="0.5"/>
+    </pattern>
+
+    <!-- Crosshatch for Crisis -->
+    <pattern id="crosshatch-crisis" width="6" height="6" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="6" y2="6" stroke="#db2777" stroke-width="0.6" opacity="0.4"/>
+      <line x1="6" y1="0" x2="0" y2="6" stroke="#db2777" stroke-width="0.6" opacity="0.4"/>
+    </pattern>
+  </defs>
+
+  <!-- White background -->
+  <rect width="680" height="420" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="340" y="28" class="title" text-anchor="middle">FOUR-STATE REGIME MODEL</text>
+  <text x="340" y="44" class="subtitle">四状态市场模型 (改进版)</text>
+
+  <!-- Comparison labels -->
+  <text x="100" y="75" class="label" text-anchor="start" style="fill: #999;">TRADITIONAL 3-STATE</text>
+  <text x="100" y="88" class="label" text-anchor="start">传统三状态模型</text>
+
+  <!-- Traditional 3-state model (simplified, struck through) -->
+  <g opacity="0.5">
+    <rect x="100" y="100" width="90" height="40" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1" rx="2"/>
+    <text x="145" y="125" class="box-text-small" style="fill: #6b7280;">趋势</text>
+
+    <line x1="190" y1="120" x2="210" y2="120" stroke="#9ca3af" stroke-width="1"/>
+    <line x1="210" y1="120" x2="240" y2="120" stroke="#9ca3af" stroke-width="1" marker-end="url(#arrow)"/>
+    <line x1="240" y1="120" x2="270" y2="120" stroke="#9ca3af" stroke-width="1"/>
+    <line x1="270" y1="120" x2="240" y2="120" stroke="#9ca3af" stroke-width="1" marker-end="url(#arrow)"/>
+
+    <rect x="270" y="100" width="90" height="40" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1" rx="2"/>
+    <text x="315" y="125" class="box-text-small" style="fill: #6b7280;">震荡</text>
+
+    <line x1="360" y1="120" x2="410" y2="120" stroke="#9ca3af" stroke-width="1" marker-end="url(#arrow)"/>
+    <line x1="410" y1="120" x2="360" y2="120" stroke="#9ca3af" stroke-width="1" marker-end="url(#arrow)"/>
+
+    <rect x="440" y="100" width="90" height="40" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1" rx="2"/>
+    <text x="485" y="125" class="box-text-small" style="fill: #6b7280;">危机</text>
+  </g>
+  <line x1="100" y1="120" x2="530" y2="120" stroke="#ef4444" stroke-width="1.5" opacity="0.6"/>
+  <text x="560" y="125" class="label" style="fill: #ef4444;">强制分类</text>
+
+  <!-- Improved 4-state model label -->
+  <text x="100" y="180" class="label" text-anchor="start" style="fill: #10b981;">IMPROVED 4-STATE</text>
+  <text x="100" y="193" class="label" text-anchor="start" style="fill: #10b981;">改进四状态模型</text>
+
+  <!-- Main horizontal flow: Trending <-> Uncertain <-> Mean-Reverting -->
+  <!-- Trending State -->
+  <rect x="70" y="220" width="130" height="75" fill="#5eead4" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <rect x="70" y="220" width="130" height="75" fill="url(#diagonal-trend)"/>
+  <text x="135" y="250" class="box-text">趋势</text>
+  <text x="135" y="268" class="label">TRENDING</text>
+  <text x="135" y="285" class="condition">ADX &gt; 25</text>
+
+  <!-- Bidirectional arrows Trending <-> Uncertain -->
+  <path d="M 200 240 Q 240 220 280 240" fill="none" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M 280 275 Q 240 295 200 275" fill="none" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Uncertain State (center, special styling with dashed border) -->
+  <rect x="275" y="220" width="130" height="75" fill="#e5e7eb" stroke="#1a1a1a" stroke-width="1.5" stroke-dasharray="6,3" rx="2"/>
+  <rect x="275" y="220" width="130" height="75" fill="url(#dots-uncertain)"/>
+  <text x="340" y="250" class="box-text">不确定</text>
+  <text x="340" y="268" class="label">UNCERTAIN</text>
+  <text x="340" y="285" class="condition">P_max &lt; 50%</text>
+
+  <!-- Bidirectional arrows Uncertain <-> Mean-Reverting -->
+  <path d="M 405 240 Q 445 220 485 240" fill="none" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M 485 275 Q 445 295 405 275" fill="none" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Mean-Reverting State -->
+  <rect x="480" y="220" width="130" height="75" fill="#67e8f9" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <rect x="480" y="220" width="130" height="75" fill="url(#horizontal-revert)"/>
+  <text x="545" y="250" class="box-text">震荡</text>
+  <text x="545" y="268" class="label">MEAN-REVERTING</text>
+  <text x="545" y="285" class="condition">ADX &lt; 20</text>
+
+  <!-- Crisis State (below, separate) -->
+  <rect x="275" y="340" width="130" height="70" fill="#f9a8d4" stroke="#ef4444" stroke-width="2" rx="2"/>
+  <rect x="275" y="340" width="130" height="70" fill="url(#crosshatch-crisis)"/>
+  <text x="340" y="368" class="box-text">危机</text>
+  <text x="340" y="386" class="label">CRISIS</text>
+  <text x="340" y="400" class="condition" style="fill: #ef4444;">Vol &gt; 30%</text>
+
+  <!-- Crisis can connect from any state -->
+  <!-- From Trending to Crisis -->
+  <path d="M 135 295 Q 135 350 273 370" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arrow-crisis)"/>
+
+  <!-- From Uncertain to Crisis -->
+  <line x1="340" y1="295" x2="340" y2="338" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arrow-crisis)"/>
+
+  <!-- From Mean-Reverting to Crisis -->
+  <path d="M 545 295 Q 545 350 407 370" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arrow-crisis)"/>
+
+  <!-- Crisis recovery arrow (upward) -->
+  <path d="M 280 355 Q 230 320 270 257" fill="none" stroke="#10b981" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arrow)"/>
+  <text x="225" y="310" class="label" style="fill: #10b981;">恢复</text>
+
+  <!-- Key insight box -->
+  <rect x="490" y="340" width="150" height="70" fill="#f0fdf4" stroke="#10b981" stroke-width="1" rx="2"/>
+  <text x="565" y="360" class="box-text-small" style="fill: #10b981;">关键改进</text>
+  <text x="500" y="378" class="condition" style="fill: #059669;">1. 增加"不确定"缓冲</text>
+  <text x="500" y="392" class="condition" style="fill: #059669;">2. 危机可从任意状态触发</text>
+  <text x="500" y="406" class="condition" style="fill: #059669;">3. 减少误判切换</text>
+
+  <!-- Legend -->
+  <g transform="translate(50, 370)">
+    <line x1="0" y1="5" x2="25" y2="5" stroke="#666" stroke-width="1.5"/>
+    <text x="32" y="9" class="label" text-anchor="start">常规转移</text>
+
+    <line x1="0" y1="25" x2="25" y2="25" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,2"/>
+    <text x="32" y="29" class="label" text-anchor="start">危机触发</text>
+
+    <line x1="0" y1="45" x2="25" y2="45" stroke="#10b981" stroke-width="1.5" stroke-dasharray="4,2"/>
+    <text x="32" y="49" class="label" text-anchor="start">危机恢复</text>
+  </g>
+</svg>

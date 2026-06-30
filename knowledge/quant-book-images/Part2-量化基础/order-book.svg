@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 340">
+  <defs>
+    <style>
+      .label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; letter-spacing: 0.5px; }
+      .price { font: 600 13px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: end; }
+      .qty { font: 500 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: start; }
+      .title { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; letter-spacing: 1px; }
+      .annotation { font: 400 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+      .best-label { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #3b82f6; }
+      .spread-label { font: 600 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    </style>
+    <!-- Grid pattern for depth visualization -->
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e5e7eb" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+
+  <!-- White background -->
+  <rect width="520" height="340" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="260" y="28" class="title" text-anchor="middle">ORDER BOOK / 订单簿</text>
+
+  <!-- Main container with grid -->
+  <rect x="60" y="50" width="400" height="250" fill="url(#grid)"/>
+  <rect x="60" y="50" width="400" height="250" fill="none" stroke="#d1d5db" stroke-width="1"/>
+
+  <!-- Column headers -->
+  <text x="160" y="70" class="label">PRICE / 价格</text>
+  <text x="320" y="70" class="label">QUANTITY / 数量</text>
+
+  <!-- Sell side (Asks) - Pink/Red tones, top section -->
+  <text x="60" y="95" class="label" text-anchor="start" fill="#dc2626">ASKS / 卖盘</text>
+
+  <!-- Ask level 2 (further from spread) -->
+  <rect x="100" y="100" width="120" height="32" fill="#fce7f3" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="210" y="121" class="price">$185.05</text>
+  <rect x="240" y="100" width="150" height="32" fill="#f9a8d4" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="250" y="121" class="qty">500</text>
+
+  <!-- Ask level 1 (best ask) -->
+  <rect x="100" y="138" width="120" height="32" fill="#fce7f3" stroke="#3b82f6" stroke-width="2"/>
+  <text x="210" y="159" class="price">$185.01</text>
+  <rect x="240" y="138" width="60" height="32" fill="#f9a8d4" stroke="#3b82f6" stroke-width="2"/>
+  <text x="250" y="159" class="qty">200</text>
+  <!-- Best Ask annotation -->
+  <line x1="310" y1="154" x2="360" y2="154" stroke="#3b82f6" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="365" y="158" class="best-label" text-anchor="start">BEST ASK</text>
+  <text x="365" y="170" class="best-label" text-anchor="start">最优卖价</text>
+
+  <!-- Spread zone -->
+  <rect x="100" y="175" width="300" height="30" fill="#fef3c7" stroke="none"/>
+  <line x1="100" y1="175" x2="400" y2="175" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="6,3"/>
+  <line x1="100" y1="205" x2="400" y2="205" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="6,3"/>
+  <text x="260" y="195" class="spread-label" text-anchor="middle">SPREAD = $0.02</text>
+
+  <!-- Buy side (Bids) - Green/Teal tones, bottom section -->
+  <text x="60" y="225" class="label" text-anchor="start" fill="#059669">BIDS / 买盘</text>
+
+  <!-- Bid level 1 (best bid) -->
+  <rect x="100" y="210" width="120" height="32" fill="#d1fae5" stroke="#3b82f6" stroke-width="2"/>
+  <text x="210" y="231" class="price">$184.99</text>
+  <rect x="240" y="210" width="90" height="32" fill="#5eead4" stroke="#3b82f6" stroke-width="2"/>
+  <text x="250" y="231" class="qty">300</text>
+  <!-- Best Bid annotation -->
+  <line x1="340" y1="226" x2="360" y2="226" stroke="#3b82f6" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="365" y="222" class="best-label" text-anchor="start">BEST BID</text>
+  <text x="365" y="234" class="best-label" text-anchor="start">最优买价</text>
+
+  <!-- Bid level 2 (further from spread) -->
+  <rect x="100" y="248" width="120" height="32" fill="#d1fae5" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="210" y="269" class="price">$184.95</text>
+  <rect x="240" y="248" width="240" height="32" fill="#5eead4" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="250" y="269" class="qty">800</text>
+
+  <!-- Depth visualization bars on right -->
+  <text x="430" y="95" class="label">DEPTH</text>
+
+  <!-- Footer explanation -->
+  <text x="260" y="320" class="annotation" text-anchor="middle">Bar width = quantity at each price level (market depth)</text>
+</svg>

@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 520">
+  <style>
+    .title { font: 600 14px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; letter-spacing: 0.5px; }
+    .section { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .item { font: 400 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .time-badge { font: 600 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+  </style>
+
+  <!-- Background -->
+  <rect width="680" height="520" fill="#fff"/>
+
+  <!-- Title bar -->
+  <rect x="40" y="20" width="600" height="50" fill="#67e8f9" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="340" y="45" text-anchor="middle" class="title">开盘前检查清单</text>
+  <text x="340" y="60" text-anchor="middle" class="subtitle">PRE-MARKET CHECKLIST</text>
+
+  <!-- Time badge -->
+  <rect x="540" y="30" width="90" height="30" fill="#fff" stroke="#1a1a1a" stroke-width="1" rx="2"/>
+  <text x="585" y="50" text-anchor="middle" class="time-badge">T-30 分钟</text>
+
+  <!-- Main container -->
+  <rect x="40" y="70" width="600" height="430" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+
+  <!-- Section 1: System Health -->
+  <rect x="50" y="85" width="580" height="95" fill="#a5f3fc" stroke="#1a1a1a" stroke-width="1"/>
+  <rect x="50" y="85" width="120" height="22" fill="#67e8f9" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="110" y="100" text-anchor="middle" class="section">系统健康</text>
+  <text x="180" y="100" class="subtitle">SYSTEM HEALTH</text>
+
+  <line x1="70" y1="120" x2="70" y2="165" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="2,2"/>
+  <circle cx="70" cy="120" r="4" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="85" y="124" class="item">所有服务进程运行中</text>
+  <circle cx="70" cy="138" r="4" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="85" y="142" class="item">数据源连接正常</text>
+  <circle cx="70" cy="156" r="4" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="85" y="160" class="item">交易接口连接正常</text>
+
+  <circle cx="350" cy="120" r="4" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="365" y="124" class="item">无未处理的严重告警</text>
+
+  <!-- Section 2: Data Ready -->
+  <rect x="50" y="190" width="580" height="80" fill="#99f6e4" stroke="#1a1a1a" stroke-width="1"/>
+  <rect x="50" y="190" width="120" height="22" fill="#5eead4" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="110" y="205" text-anchor="middle" class="section">数据就绪</text>
+  <text x="180" y="205" class="subtitle">DATA READY</text>
+
+  <line x1="70" y1="225" x2="70" y2="255" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="2,2"/>
+  <circle cx="70" cy="225" r="4" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="85" y="229" class="item">昨日数据已入库</text>
+  <circle cx="70" cy="243" r="4" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="85" y="247" class="item">今日日历事件已加载（财报、分红等）</text>
+
+  <circle cx="350" cy="243" r="4" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="365" y="247" class="item">模型参数已更新（如有）</text>
+
+  <!-- Section 3: Risk Control Ready -->
+  <rect x="50" y="280" width="580" height="95" fill="#fef08a" stroke="#1a1a1a" stroke-width="1"/>
+  <rect x="50" y="280" width="120" height="22" fill="#fde047" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="110" y="295" text-anchor="middle" class="section">风控就绪</text>
+  <text x="180" y="295" class="subtitle">RISK CONTROL</text>
+
+  <line x1="70" y1="315" x2="70" y2="360" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="2,2"/>
+  <circle cx="70" cy="315" r="4" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="85" y="319" class="item">昨日持仓与券商一致</text>
+  <circle cx="70" cy="333" r="4" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="85" y="337" class="item">资金余额确认</text>
+  <circle cx="70" cy="351" r="4" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="85" y="355" class="item">风险限额确认</text>
+
+  <circle cx="350" cy="351" r="4" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="365" y="355" class="item">熔断阈值确认</text>
+
+  <!-- Section 4: Special Events -->
+  <rect x="50" y="385" width="580" height="80" fill="#fbcfe8" stroke="#1a1a1a" stroke-width="1"/>
+  <rect x="50" y="385" width="120" height="22" fill="#f9a8d4" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="110" y="400" text-anchor="middle" class="section">今日特殊事项</text>
+  <text x="180" y="400" class="subtitle">SPECIAL EVENTS</text>
+
+  <line x1="70" y1="420" x2="70" y2="450" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="2,2"/>
+  <circle cx="70" cy="420" r="4" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="85" y="424" class="item">是否有停牌/复牌标的</text>
+  <circle cx="70" cy="438" r="4" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="85" y="442" class="item">是否有期权到期</text>
+
+  <circle cx="350" cy="438" r="4" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="365" y="442" class="item">是否有宏观事件（FOMC、非农等）</text>
+
+  <!-- Clock icon decoration -->
+  <circle cx="50" y="45" r="12" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/>
+  <line x1="50" y1="45" x2="50" y2="38" stroke="#1a1a1a" stroke-width="1.5"/>
+  <line x1="50" y1="45" x2="56" y2="48" stroke="#1a1a1a" stroke-width="1.5"/>
+</svg>

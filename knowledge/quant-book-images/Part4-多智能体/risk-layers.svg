@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 220">
+  <style>
+    .title { font: 600 13px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; letter-spacing: 0.5px; }
+    .layer-title { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .layer-desc { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; }
+  </style>
+
+  <!-- Background -->
+  <rect width="600" height="220" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="300" y="25" text-anchor="middle" class="title">风险管理三层结构</text>
+  <text x="300" y="40" text-anchor="middle" class="subtitle">THREE LAYERS OF RISK MANAGEMENT</text>
+
+  <!-- Layer 1: System Risk (outermost) -->
+  <rect x="40" y="55" width="520" height="150" fill="#fee2e2" stroke="#ef4444" stroke-width="2" rx="3"/>
+  <text x="300" y="80" text-anchor="middle" class="layer-title">系统风险 System Risk</text>
+  <text x="300" y="95" text-anchor="middle" class="layer-desc">整体回撤 | 相关性风险 | 流动性风险</text>
+
+  <!-- Layer 2: Portfolio Risk -->
+  <rect x="80" y="105" width="440" height="85" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" rx="3"/>
+  <text x="300" y="128" text-anchor="middle" class="layer-title">组合风险 Portfolio Risk</text>
+  <text x="300" y="143" text-anchor="middle" class="layer-desc">策略相关性 | 权重分配 | 集中度</text>
+
+  <!-- Layer 3: Position Risk (innermost) -->
+  <rect x="120" y="150" width="360" height="35" fill="#d1fae5" stroke="#10b981" stroke-width="1.5" rx="3"/>
+  <text x="300" y="172" text-anchor="middle" class="layer-title">头寸风险 Position Risk</text>
+</svg>

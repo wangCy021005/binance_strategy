@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 240">
+  <defs>
+    <style>
+      .label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; letter-spacing: 0.5px; }
+      .box-text { font: 600 14px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; }
+      .title { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; letter-spacing: 1px; }
+      .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ef4444"/>
+    </marker>
+  </defs>
+
+  <!-- White background -->
+  <rect width="800" height="240" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="400" y="28" class="title">SIGNAL DETECTION LAG</text>
+  <text x="400" y="44" class="subtitle">信号检测滞后性</text>
+
+  <!-- Timeline axis -->
+  <line x1="50" y1="120" x2="750" y2="120" stroke="#1a1a1a" stroke-width="2"/>
+  <text x="50" y="105" class="label" text-anchor="start">时间轴</text>
+
+  <!-- Old state section -->
+  <rect x="60" y="130" width="240" height="60" fill="#e0e7ff" stroke="#6366f1" stroke-width="1.5" rx="4"/>
+  <text x="180" y="165" class="box-text" style="fill: #6366f1;">旧状态</text>
+
+  <!-- Real state change point -->
+  <line x1="340" y1="80" x2="340" y2="190" stroke="#ef4444" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="340" y="70" class="label" text-anchor="middle" style="fill: #ef4444;">真实状态变化时间点</text>
+  <circle cx="340" cy="120" r="6" fill="#ef4444"/>
+
+  <!-- Detection window -->
+  <rect x="340" y="130" width="150" height="60" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" rx="4"/>
+  <text x="415" y="165" class="box-text" style="fill: #f59e0b;">检测窗口</text>
+
+  <!-- New state section -->
+  <rect x="490" y="130" width="240" height="60" fill="#d1fae5" stroke="#10b981" stroke-width="1.5" rx="4"/>
+  <text x="610" y="165" class="box-text" style="fill: #10b981;">新状态</text>
+
+  <!-- System confirmation point -->
+  <line x1="530" y1="80" x2="530" y2="190" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="530" y="210" class="label" text-anchor="middle" style="fill: #8b5cf6;">系统确认新状态的时间点</text>
+  <circle cx="530" cy="120" r="6" fill="#8b5cf6"/>
+
+  <!-- Lag annotation -->
+  <path d="M 340 210 L 530 210" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+  <text x="435" y="228" class="label" text-anchor="middle">滞后 = 检测窗口 + 确认延迟</text>
+  <text x="435" y="240" class="subtitle">典型值: 3-10 个交易日</text>
+</svg>

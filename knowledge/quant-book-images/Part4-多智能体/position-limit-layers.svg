@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 300">
+  <style>
+    .title { font: 600 13px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; letter-spacing: 0.5px; }
+    .level-title { font: 600 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .limit { font: 700 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .desc { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; }
+  </style>
+
+  <!-- Background -->
+  <rect width="620" height="300" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="310" y="25" text-anchor="middle" class="title">仓位限制层次</text>
+  <text x="310" y="40" text-anchor="middle" class="subtitle">POSITION LIMIT LAYERS</text>
+
+  <!-- Level 1 -->
+  <rect x="30" y="55" width="135" height="115" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5" rx="2"/>
+  <text x="97" y="75" text-anchor="middle" class="level-title">Level 1</text>
+  <text x="97" y="92" text-anchor="middle" class="level-title">单笔上限</text>
+  <line x1="45" y1="100" x2="150" y2="100" stroke="#60a5fa" stroke-width="1"/>
+  <text x="97" y="120" text-anchor="middle" class="limit">≤ 10%</text>
+  <text x="97" y="140" text-anchor="middle" class="desc">单笔仓位</text>
+  <text x="97" y="155" text-anchor="middle" class="desc">不应影响账户存亡</text>
+
+  <!-- Level 2 -->
+  <rect x="175" y="55" width="135" height="115" fill="#d1fae5" stroke="#10b981" stroke-width="1.5" rx="2"/>
+  <text x="242" y="75" text-anchor="middle" class="level-title">Level 2</text>
+  <text x="242" y="92" text-anchor="middle" class="level-title">单标的上限</text>
+  <line x1="190" y1="100" x2="295" y2="100" stroke="#10b981" stroke-width="1"/>
+  <text x="242" y="120" text-anchor="middle" class="limit">≤ 20%</text>
+  <text x="242" y="140" text-anchor="middle" class="desc">单个标的总仓位</text>
+  <text x="242" y="155" text-anchor="middle" class="desc">避免单一股票过度集中</text>
+
+  <!-- Level 3 -->
+  <rect x="320" y="55" width="135" height="115" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" rx="2"/>
+  <text x="387" y="75" text-anchor="middle" class="level-title">Level 3</text>
+  <text x="387" y="92" text-anchor="middle" class="level-title">行业上限</text>
+  <line x1="335" y1="100" x2="440" y2="100" stroke="#f59e0b" stroke-width="1"/>
+  <text x="387" y="120" text-anchor="middle" class="limit">≤ 30%</text>
+  <text x="387" y="140" text-anchor="middle" class="desc">单个行业仓位</text>
+  <text x="387" y="155" text-anchor="middle" class="desc">避免行业风险集中</text>
+
+  <!-- Level 4 -->
+  <rect x="465" y="55" width="135" height="115" fill="#fee2e2" stroke="#ef4444" stroke-width="1.5" rx="2"/>
+  <text x="532" y="75" text-anchor="middle" class="level-title">Level 4</text>
+  <text x="532" y="92" text-anchor="middle" class="level-title">总仓位上限</text>
+  <line x1="480" y1="100" x2="585" y2="100" stroke="#ef4444" stroke-width="1"/>
+  <text x="532" y="120" text-anchor="middle" class="limit">≤ 80%</text>
+  <text x="532" y="140" text-anchor="middle" class="desc">总仓位占比</text>
+  <text x="532" y="155" text-anchor="middle" class="desc">保留现金应对极端情况</text>
+
+  <!-- Bottom summary -->
+  <rect x="30" y="190" width="570" height="95" fill="#f3f4f6" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,2" rx="2"/>
+  <text x="310" y="215" text-anchor="middle" class="level-title">仓位限制金字塔</text>
+  <text x="310" y="238" text-anchor="middle" class="desc">单笔 10% → 单标的 20% → 行业 30% → 总仓位 80%</text>
+  <text x="310" y="258" text-anchor="middle" class="desc">层层递进，确保任何单点失败都不会致命</text>
+  <text x="310" y="278" text-anchor="middle" class="desc">20% 现金保留 = 极端情况的最后防线</text>
+</svg>

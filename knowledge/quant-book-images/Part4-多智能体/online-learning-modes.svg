@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 320">
+  <defs>
+    <marker id="arrow-olm" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+  </defs>
+  <style>
+    .title { font: 600 13px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; letter-spacing: 0.5px; }
+    .mode-title { font: 600 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .item { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .note { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #fff; }
+    .highlight { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #10b981; }
+  </style>
+
+  <!-- Background -->
+  <rect width="620" height="320" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="310" y="25" text-anchor="middle" class="title">在线学习的三种模式</text>
+  <text x="310" y="40" text-anchor="middle" class="subtitle">THREE MODES OF ONLINE LEARNING</text>
+
+  <!-- Mode 1: Sliding Window -->
+  <rect x="30" y="55" width="180" height="120" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5" rx="2"/>
+  <rect x="30" y="55" width="180" height="25" fill="#60a5fa" rx="2"/>
+  <text x="120" y="73" text-anchor="middle" class="note">模式 1: 滑动窗口</text>
+  <text x="40" y="98" class="item">最简单的在线学习</text>
+  <text x="40" y="115" class="item">[ 旧 ][ 旧 ][ 新 ][ 新 ]</text>
+  <text x="40" y="130" class="item">       ↓ 时间流逝</text>
+  <text x="40" y="145" class="item">[ 旧 ][ 新 ][ 新 ][ 最新 ]</text>
+  <text x="40" y="165" class="highlight">周期性完全重训</text>
+
+  <!-- Mode 2: Incremental Update -->
+  <rect x="220" y="55" width="180" height="120" fill="#d1fae5" stroke="#10b981" stroke-width="1.5" rx="2"/>
+  <rect x="220" y="55" width="180" height="25" fill="#10b981" rx="2"/>
+  <text x="310" y="73" text-anchor="middle" class="note">模式 2: 增量更新</text>
+  <text x="230" y="98" class="item">更高效的在线学习</text>
+  <text x="230" y="120" class="item">现有模型 θ + 新数据</text>
+  <text x="230" y="135" class="item">       ↓</text>
+  <text x="230" y="150" class="item">更新模型 θ'</text>
+  <text x="230" y="165" class="highlight">微调，不是重训</text>
+
+  <!-- Mode 3: Exponential Forgetting -->
+  <rect x="410" y="55" width="180" height="120" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" rx="2"/>
+  <rect x="410" y="55" width="180" height="25" fill="#f59e0b" rx="2"/>
+  <text x="500" y="73" text-anchor="middle" class="note">模式 3: 指数遗忘</text>
+  <text x="420" y="98" class="item">最灵活的在线学习</text>
+  <text x="420" y="118" class="item">权重 = λ^(T-t)</text>
+  <text x="420" y="138" class="item">λ=0.99: 100天前 → 0.37</text>
+  <text x="420" y="155" class="item">λ=0.95: 100天前 → 0.006</text>
+  <text x="420" y="168" class="highlight">小 λ → 快遗忘 → 快适应</text>
+
+  <!-- Comparison table -->
+  <rect x="30" y="190" width="560" height="115" fill="#f3f4f6" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,2" rx="2"/>
+  <text x="310" y="215" text-anchor="middle" class="mode-title">模式选择指南</text>
+
+  <text x="50" y="240" class="item">滑动窗口:</text>
+  <text x="150" y="240" class="item">简单，适合数据量大、变化慢的场景</text>
+
+  <text x="50" y="260" class="item">增量更新:</text>
+  <text x="150" y="260" class="item">高效，适合需要快速适应的场景</text>
+
+  <text x="50" y="280" class="item">指数遗忘:</text>
+  <text x="150" y="280" class="item">灵活，可通过 λ 控制遗忘速度</text>
+
+  <text x="310" y="298" text-anchor="middle" class="highlight">关键: 根据市场变化速度选择合适的遗忘因子</text>
+</svg>

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 320">
+  <defs>
+    <marker id="arrow-mi" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+  </defs>
+  <style>
+    .title { font: 600 13px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; letter-spacing: 0.5px; }
+    .label { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .axis-label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; }
+    .note { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; }
+  </style>
+
+  <!-- Background -->
+  <rect width="620" height="320" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="310" y="25" text-anchor="middle" class="title">市场冲击的两个成分</text>
+  <text x="310" y="40" text-anchor="middle" class="subtitle">TWO COMPONENTS OF MARKET IMPACT</text>
+
+  <!-- Chart area -->
+  <rect x="80" y="60" width="420" height="180" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1"/>
+
+  <!-- Y-axis -->
+  <line x1="80" y1="60" x2="80" y2="240" stroke="#666" stroke-width="1.5"/>
+  <text x="60" y="150" text-anchor="middle" transform="rotate(-90, 60, 150)" class="axis-label">价格</text>
+
+  <!-- X-axis -->
+  <line x1="80" y1="240" x2="500" y2="240" stroke="#666" stroke-width="1.5" marker-end="url(#arrow-mi)"/>
+  <text x="510" y="245" class="axis-label">时间</text>
+
+  <!-- Baseline price -->
+  <line x1="80" y1="200" x2="500" y2="200" stroke="#ccc" stroke-width="1" stroke-dasharray="4,2"/>
+
+  <!-- Trade period markers -->
+  <line x1="150" y1="200" x2="150" y2="250" stroke="#10b981" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="150" y="260" text-anchor="middle" class="note">交易开始</text>
+
+  <line x1="350" y1="130" x2="350" y2="250" stroke="#ef4444" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="350" y="260" text-anchor="middle" class="note">交易结束</text>
+
+  <!-- Price curve - rising then partially recovering -->
+  <path d="M 80 200 L 150 200 Q 200 120 250 100 L 350 100 Q 400 130 500 130"
+        fill="none" stroke="#60a5fa" stroke-width="2.5"/>
+
+  <!-- Permanent impact level -->
+  <line x1="350" y1="130" x2="500" y2="130" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6,3"/>
+
+  <!-- Annotations with arrows -->
+  <!-- Temporary impact -->
+  <line x1="250" y1="100" x2="250" y2="130" stroke="#666" stroke-width="1"/>
+  <line x1="245" y1="100" x2="255" y2="100" stroke="#666" stroke-width="1"/>
+  <line x1="245" y1="130" x2="255" y2="130" stroke="#666" stroke-width="1"/>
+  <text x="260" y="115" class="label">临时冲击</text>
+
+  <!-- Permanent impact -->
+  <line x1="450" y1="200" x2="450" y2="130" stroke="#666" stroke-width="1"/>
+  <line x1="445" y1="200" x2="455" y2="200" stroke="#666" stroke-width="1"/>
+  <line x1="445" y1="130" x2="455" y2="130" stroke="#666" stroke-width="1"/>
+  <text x="470" y="165" class="label">永久冲击</text>
+
+  <!-- Legend box -->
+  <rect x="80" y="270" width="440" height="40" fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1" rx="2"/>
+
+  <rect x="95" y="282" width="12" height="12" fill="#67e8f9" stroke="#60a5fa"/>
+  <text x="115" y="292" class="note">临时冲击: 流动性消耗造成，随时间恢复</text>
+
+  <rect x="340" y="282" width="12" height="12" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="360" y="292" class="note">永久冲击: 信息效应造成，不恢复</text>
+</svg>

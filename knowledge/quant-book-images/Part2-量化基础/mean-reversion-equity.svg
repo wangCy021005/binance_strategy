@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320">
+  <defs>
+    <style>
+      .label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; letter-spacing: 0.5px; }
+      .title { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; letter-spacing: 1px; }
+      .annotation { font: 600 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+      .annotation-sm { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; }
+      .desc { font: 400 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; }
+      .axis-label { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #999; }
+      .warning { font: 600 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #dc2626; }
+    </style>
+  </defs>
+
+  <!-- White background -->
+  <rect width="600" height="320" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="300" y="28" class="title" text-anchor="middle">MEAN REVERSION EQUITY CURVE / 均值回归净值曲线</text>
+
+  <!-- Chart area -->
+  <rect x="60" y="50" width="500" height="200" fill="#fafafa" stroke="#e5e7eb" stroke-width="1"/>
+
+  <!-- Grid lines (horizontal) -->
+  <line x1="60" y1="100" x2="560" y2="100" stroke="#e5e7eb" stroke-width="0.5"/>
+  <line x1="60" y1="150" x2="560" y2="150" stroke="#e5e7eb" stroke-width="0.5"/>
+  <line x1="60" y1="200" x2="560" y2="200" stroke="#e5e7eb" stroke-width="0.5"/>
+
+  <!-- Y-axis labels -->
+  <text x="55" y="55" class="axis-label" text-anchor="end">+100%</text>
+  <text x="55" y="105" class="axis-label" text-anchor="end">+50%</text>
+  <text x="55" y="155" class="axis-label" text-anchor="end">0%</text>
+  <text x="55" y="205" class="axis-label" text-anchor="end">-50%</text>
+  <text x="55" y="255" class="axis-label" text-anchor="end">-100%</text>
+
+  <!-- Equity curve - mean reversion characteristic pattern -->
+  <!-- Steady small gains, gradual upward trend, then sudden crash -->
+  <path d="M 60 200
+           L 75 198 L 85 195 L 95 193 L 105 190 L 115 188 L 125 185 L 135 183
+           L 145 180 L 155 178 L 165 175 L 175 173 L 185 170 L 195 167 L 205 165
+           L 215 162 L 225 160 L 235 157 L 245 155 L 255 152 L 265 150 L 275 147
+           L 285 145 L 295 142 L 305 140 L 315 137 L 325 135 L 335 132 L 345 130
+           L 355 128 L 365 125 L 375 122 L 385 120 L 395 117 L 405 115 L 415 112
+           L 425 110 L 430 108
+           L 435 140 L 440 175 L 445 200 L 450 220 L 455 235 L 460 240"
+        fill="none" stroke="#67e8f9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Continue after crash - attempted recovery -->
+  <path d="M 460 240
+           L 475 235 L 490 232 L 505 230 L 520 228 L 535 226 L 550 225 L 560 224"
+        fill="none" stroke="#67e8f9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4,2"/>
+
+  <!-- Steady gains zone annotation -->
+  <rect x="160" y="70" width="140" height="38" fill="#a5f3fc" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="230" y="86" class="annotation" text-anchor="middle">STEADY GAINS</text>
+  <text x="230" y="100" class="annotation-sm" text-anchor="middle">稳定小赚</text>
+
+  <!-- Upward trend line (dashed) -->
+  <line x1="60" y1="200" x2="430" y2="108" stroke="#0891b2" stroke-width="1" stroke-dasharray="6,3"/>
+
+  <!-- Black Swan crash annotation -->
+  <rect x="445" y="145" width="100" height="50" fill="#fce7f3" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="495" y="163" class="warning" text-anchor="middle">BLACK SWAN</text>
+  <text x="495" y="178" class="annotation-sm" text-anchor="middle">黑天鹅</text>
+  <text x="495" y="190" class="annotation-sm" text-anchor="middle">(趋势突破)</text>
+  <line x1="445" y1="175" x2="435" y2="175" stroke="#dc2626" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <!-- Crash arrow -->
+  <path d="M 432 115 L 455 200" fill="none" stroke="#dc2626" stroke-width="2"/>
+  <polygon points="455,200 449,190 459,192" fill="#dc2626"/>
+
+  <!-- X-axis label -->
+  <text x="310" y="275" class="label">TIME / 时间</text>
+
+  <!-- Axes -->
+  <line x1="60" y1="250" x2="560" y2="250" stroke="#1a1a1a" stroke-width="1"/>
+  <line x1="60" y1="50" x2="60" y2="250" stroke="#1a1a1a" stroke-width="1"/>
+
+  <!-- Key insight box -->
+  <rect x="60" y="285" width="500" height="28" fill="#fff1f2" stroke="#dc2626" stroke-width="1"/>
+  <text x="310" y="303" class="desc">High win rate (55-70%) but one trend breakout can wipe out months of profit</text>
+</svg>

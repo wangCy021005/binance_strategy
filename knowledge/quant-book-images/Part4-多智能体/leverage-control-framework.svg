@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 320">
+  <style>
+    .title { font: 600 13px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; letter-spacing: 0.5px; }
+    .level-title { font: 600 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .item { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .note { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #fff; }
+  </style>
+
+  <!-- Background -->
+  <rect width="620" height="320" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="310" y="25" text-anchor="middle" class="title">杠杆控制框架</text>
+  <text x="310" y="40" text-anchor="middle" class="subtitle">LEVERAGE CONTROL FRAMEWORK</text>
+
+  <!-- Level 1 -->
+  <rect x="30" y="55" width="135" height="115" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5" rx="2"/>
+  <rect x="30" y="55" width="135" height="25" fill="#60a5fa" rx="2"/>
+  <text x="97" y="73" text-anchor="middle" class="note">Level 1</text>
+  <text x="97" y="100" text-anchor="middle" class="level-title">名义杠杆上限</text>
+  <text x="40" y="120" class="item">• 总名义敞口/本金</text>
+  <text x="40" y="135" class="item">  ≤ 3 倍</text>
+  <text x="40" y="155" class="item">• 单一资产类别</text>
+  <text x="40" y="170" class="item">  ≤ 2 倍</text>
+
+  <!-- Level 2 -->
+  <rect x="175" y="55" width="135" height="115" fill="#d1fae5" stroke="#10b981" stroke-width="1.5" rx="2"/>
+  <rect x="175" y="55" width="135" height="25" fill="#10b981" rx="2"/>
+  <text x="242" y="73" text-anchor="middle" class="note">Level 2</text>
+  <text x="242" y="100" text-anchor="middle" class="level-title">风险杠杆上限</text>
+  <text x="185" y="120" class="item">• 组合波动率/目标</text>
+  <text x="185" y="135" class="item">  ≤ 1.5 倍</text>
+  <text x="185" y="155" class="item">• 压力测试波动率</text>
+  <text x="185" y="170" class="item">  ≤ 2 倍</text>
+
+  <!-- Level 3 -->
+  <rect x="320" y="55" width="135" height="115" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" rx="2"/>
+  <rect x="320" y="55" width="135" height="25" fill="#f59e0b" rx="2"/>
+  <text x="387" y="73" text-anchor="middle" class="note">Level 3</text>
+  <text x="387" y="100" text-anchor="middle" class="level-title">保证金缓冲</text>
+  <text x="330" y="120" class="item">• 使用保证金</text>
+  <text x="330" y="135" class="item">  ≤ 50% 可用资金</text>
+  <text x="330" y="155" class="item">• 预留 50% 应对</text>
+  <text x="330" y="170" class="item">  追加保证金</text>
+
+  <!-- Level 4 -->
+  <rect x="465" y="55" width="135" height="115" fill="#fee2e2" stroke="#ef4444" stroke-width="1.5" rx="2"/>
+  <rect x="465" y="55" width="135" height="25" fill="#ef4444" rx="2"/>
+  <text x="532" y="73" text-anchor="middle" class="note">Level 4</text>
+  <text x="532" y="100" text-anchor="middle" class="level-title">压力情景</text>
+  <text x="475" y="120" class="item">• 假设波动率翻倍</text>
+  <text x="475" y="135" class="item">  杠杆仍安全</text>
+  <text x="475" y="155" class="item">• 假设相关性 → 1</text>
+  <text x="475" y="170" class="item">  组合仍能承受</text>
+
+  <!-- Bottom warning -->
+  <rect x="30" y="190" width="570" height="115" fill="#f3f4f6" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,2" rx="2"/>
+  <text x="310" y="215" text-anchor="middle" class="level-title">隐性杠杆警示</text>
+  <text x="310" y="240" text-anchor="middle" class="item">期货组合的名义敞口可能远超本金</text>
+  <text x="310" y="260" text-anchor="middle" class="item">100万本金 + 650万名义敞口 = 6.5倍杠杆</text>
+  <text x="310" y="280" text-anchor="middle" class="item">低保证金 ≠ 低风险，真实杠杆才是关键</text>
+  <text x="310" y="300" text-anchor="middle" class="item">危机时波动率翻倍 + 相关性趋1 = 灾难</text>
+</svg>

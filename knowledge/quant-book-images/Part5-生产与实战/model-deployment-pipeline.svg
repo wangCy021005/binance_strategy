@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 400">
+  <defs>
+    <style>
+      .label { font: 500 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; letter-spacing: 0.5px; }
+      .label-small { font: 400 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; }
+      .box-text { font: 600 15px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; }
+      .box-text-en { font: 500 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; }
+      .item-text { font: 400 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: start; }
+      .title { font: 600 16px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; }
+    </style>
+    <marker id="pipeline-arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1a1a1a"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="780" height="400" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="390" y="30" class="title">模型部署流水线</text>
+  <text x="390" y="47" class="label-small">MODEL DEPLOYMENT PIPELINE (CI/CD)</text>
+
+  <!-- Isometric 3D effect using offset rectangles -->
+
+  <!-- Stage 1 - Build - Cyan -->
+  <g transform="translate(40, 70)">
+    <!-- 3D side -->
+    <polygon points="140,10 150,0 150,100 140,110" fill="#4dd4e6" stroke="#1a1a1a" stroke-width="1"/>
+    <!-- 3D top -->
+    <polygon points="0,0 140,0 150,10 10,10" fill="#9af5ff" stroke="#1a1a1a" stroke-width="1"/>
+    <!-- Front face -->
+    <rect x="0" y="10" width="140" height="100" fill="#67e8f9" stroke="#1a1a1a" stroke-width="1.5"/>
+    <text x="70" y="40" class="box-text">Build</text>
+    <text x="70" y="56" class="box-text-en">构建</text>
+    <line x1="15" y1="70" x2="125" y2="70" stroke="#1a1a1a" stroke-width="0.5"/>
+    <text x="20" y="85" class="item-text">- 代码编译</text>
+    <text x="20" y="98" class="item-text">- 依赖检查</text>
+    <text x="20" y="111" class="item-text">- 模型打包</text>
+  </g>
+
+  <!-- Arrow 1-2 -->
+  <line x1="195" y1="130" x2="220" y2="130" stroke="#1a1a1a" stroke-width="2" marker-end="url(#pipeline-arrow)"/>
+
+  <!-- Stage 2 - Test - Teal -->
+  <g transform="translate(225, 70)">
+    <polygon points="140,10 150,0 150,100 140,110" fill="#3dd4c4" stroke="#1a1a1a" stroke-width="1"/>
+    <polygon points="0,0 140,0 150,10 10,10" fill="#8af6e6" stroke="#1a1a1a" stroke-width="1"/>
+    <rect x="0" y="10" width="140" height="100" fill="#5eead4" stroke="#1a1a1a" stroke-width="1.5"/>
+    <text x="70" y="40" class="box-text">Test</text>
+    <text x="70" y="56" class="box-text-en">测试</text>
+    <line x1="15" y1="70" x2="125" y2="70" stroke="#1a1a1a" stroke-width="0.5"/>
+    <text x="20" y="85" class="item-text">- 单元测试</text>
+    <text x="20" y="98" class="item-text">- 集成测试</text>
+    <text x="20" y="111" class="item-text">- 回测验证</text>
+  </g>
+
+  <!-- Arrow 2-3 -->
+  <line x1="380" y1="130" x2="405" y2="130" stroke="#1a1a1a" stroke-width="2" marker-end="url(#pipeline-arrow)"/>
+
+  <!-- Stage 3 - Stage - Yellow -->
+  <g transform="translate(410, 70)">
+    <polygon points="140,10 150,0 150,100 140,110" fill="#ecd037" stroke="#1a1a1a" stroke-width="1"/>
+    <polygon points="0,0 140,0 150,10 10,10" fill="#fef485" stroke="#1a1a1a" stroke-width="1"/>
+    <rect x="0" y="10" width="140" height="100" fill="#fde047" stroke="#1a1a1a" stroke-width="1.5"/>
+    <text x="70" y="40" class="box-text">Stage</text>
+    <text x="70" y="56" class="box-text-en">预发布</text>
+    <line x1="15" y1="70" x2="125" y2="70" stroke="#1a1a1a" stroke-width="0.5"/>
+    <text x="20" y="85" class="item-text">- 影子模式</text>
+    <text x="20" y="98" class="item-text">- 纸上交易</text>
+    <text x="20" y="111" class="item-text">- 性能测试</text>
+  </g>
+
+  <!-- Arrow 3-4 -->
+  <line x1="565" y1="130" x2="590" y2="130" stroke="#1a1a1a" stroke-width="2" marker-end="url(#pipeline-arrow)"/>
+
+  <!-- Stage 4 - Prod - Pink -->
+  <g transform="translate(595, 70)">
+    <polygon points="140,10 150,0 150,100 140,110" fill="#e898c4" stroke="#1a1a1a" stroke-width="1"/>
+    <polygon points="0,0 140,0 150,10 10,10" fill="#fccce8" stroke="#1a1a1a" stroke-width="1"/>
+    <rect x="0" y="10" width="140" height="100" fill="#f9a8d4" stroke="#1a1a1a" stroke-width="1.5"/>
+    <text x="70" y="40" class="box-text">Prod</text>
+    <text x="70" y="56" class="box-text-en">生产</text>
+    <line x1="15" y1="70" x2="125" y2="70" stroke="#1a1a1a" stroke-width="0.5"/>
+    <text x="20" y="85" class="item-text">- 真实交易</text>
+    <text x="20" y="98" class="item-text">- 灰度发布</text>
+    <text x="20" y="111" class="item-text">- 全量上线</text>
+  </g>
+
+  <!-- Quality Gates - dotted line indicators -->
+  <g transform="translate(0, 210)">
+    <text x="390" y="20" class="label">Quality Gates</text>
+
+    <!-- Gate indicators -->
+    <line x1="195" y1="40" x2="195" y2="70" stroke="#60a5fa" stroke-width="2" stroke-dasharray="4,3"/>
+    <rect x="170" y="75" width="50" height="20" fill="#dbeafe" stroke="#60a5fa" stroke-width="1" rx="2"/>
+    <text x="195" y="89" class="label-small">通过率</text>
+
+    <line x1="380" y1="40" x2="380" y2="70" stroke="#60a5fa" stroke-width="2" stroke-dasharray="4,3"/>
+    <rect x="355" y="75" width="50" height="20" fill="#dbeafe" stroke="#60a5fa" stroke-width="1" rx="2"/>
+    <text x="380" y="89" class="label-small">夏普&gt;1</text>
+
+    <line x1="565" y1="40" x2="565" y2="70" stroke="#60a5fa" stroke-width="2" stroke-dasharray="4,3"/>
+    <rect x="540" y="75" width="50" height="20" fill="#dbeafe" stroke="#60a5fa" stroke-width="1" rx="2"/>
+    <text x="565" y="89" class="label-small">5天稳定</text>
+  </g>
+
+  <!-- Rollback arrow at bottom -->
+  <g transform="translate(0, 320)">
+    <path d="M700 20 C700 50, 600 50, 600 20" stroke="#ef4444" stroke-width="1.5" fill="none" stroke-dasharray="5,3"/>
+    <path d="M600 20 L100 20" stroke="#ef4444" stroke-width="1.5" fill="none" stroke-dasharray="5,3" marker-end="url(#rollback-arrow)"/>
+    <defs>
+      <marker id="rollback-arrow" markerWidth="8" markerHeight="6" refX="0" refY="3" orient="auto">
+        <polygon points="8 0, 0 3, 8 6" fill="#ef4444"/>
+      </marker>
+    </defs>
+    <text x="390" y="45" class="label" style="fill: #ef4444;">Rollback (自动/手动回滚)</text>
+  </g>
+
+</svg>

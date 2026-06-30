@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 380">
+  <defs>
+    <style>
+      .label { font: 500 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; letter-spacing: 0.5px; }
+      .label-small { font: 400 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; }
+      .box-text { font: 600 13px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; }
+      .box-text-en { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; }
+      .step-num { font: 700 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #fff; text-anchor: middle; }
+      .desc-text { font: 400 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; }
+      .title { font: 600 16px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; }
+      .legend-text { font: 400 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: start; }
+      .auto-badge { font: 500 8px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #fff; text-anchor: middle; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#1a1a1a"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="780" height="380" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="390" y="30" class="title">故障恢复流程</text>
+  <text x="390" y="47" class="label-small">DISASTER RECOVERY FLOW</text>
+
+  <!-- Step 1 - Detection (Auto) - Cyan -->
+  <rect x="30" y="80" width="90" height="90" fill="#67e8f9" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <circle cx="45" cy="95" r="10" fill="#10b981"/>
+  <text x="45" y="99" class="step-num">1</text>
+  <text x="75" y="115" class="box-text">检测</text>
+  <text x="75" y="132" class="box-text-en">DETECT</text>
+  <text x="75" y="158" class="desc-text">健康检查</text>
+  <text x="75" y="170" class="desc-text">发现异常</text>
+
+  <!-- Arrow 1-2 -->
+  <line x1="120" y1="125" x2="140" y2="125" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 2 - Isolation (Auto) - Cyan -->
+  <rect x="145" y="80" width="90" height="90" fill="#67e8f9" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <circle cx="160" cy="95" r="10" fill="#10b981"/>
+  <text x="160" y="99" class="step-num">2</text>
+  <text x="190" y="115" class="box-text">隔离</text>
+  <text x="190" y="132" class="box-text-en">ISOLATE</text>
+  <text x="190" y="158" class="desc-text">停止受影响</text>
+  <text x="190" y="170" class="desc-text">模块</text>
+
+  <!-- Arrow 2-3 -->
+  <line x1="235" y1="125" x2="255" y2="125" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 3 - Notification (Auto) - Cyan -->
+  <rect x="260" y="80" width="90" height="90" fill="#67e8f9" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <circle cx="275" cy="95" r="10" fill="#10b981"/>
+  <text x="275" y="99" class="step-num">3</text>
+  <text x="305" y="115" class="box-text">通知</text>
+  <text x="305" y="132" class="box-text-en">NOTIFY</text>
+  <text x="305" y="158" class="desc-text">告警通知</text>
+  <text x="305" y="170" class="desc-text">相关人员</text>
+
+  <!-- Arrow 3-4 (down) -->
+  <path d="M350 125 L375 125 L375 235 L400 235" stroke="#1a1a1a" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Step 4 - Diagnosis (Auto/Manual) - Teal -->
+  <rect x="405" y="190" width="90" height="90" fill="#5eead4" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <circle cx="420" cy="205" r="10" fill="#f59e0b"/>
+  <text x="420" y="209" class="step-num">4</text>
+  <text x="450" y="225" class="box-text">诊断</text>
+  <text x="450" y="242" class="box-text-en">DIAGNOSE</text>
+  <text x="450" y="268" class="desc-text">分析日志</text>
+  <text x="450" y="280" class="desc-text">定位原因</text>
+
+  <!-- Arrow 4-5 -->
+  <line x1="495" y1="235" x2="515" y2="235" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 5 - Fix (Auto/Manual) - Teal -->
+  <rect x="520" y="190" width="90" height="90" fill="#5eead4" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <circle cx="535" cy="205" r="10" fill="#f59e0b"/>
+  <text x="535" y="209" class="step-num">5</text>
+  <text x="565" y="225" class="box-text">修复</text>
+  <text x="565" y="242" class="box-text-en">FIX</text>
+  <text x="565" y="268" class="desc-text">解决问题</text>
+  <text x="565" y="280" class="desc-text">或切换备用</text>
+
+  <!-- Arrow 5-6 -->
+  <line x1="610" y1="235" x2="630" y2="235" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 6 - Verify (Manual) - Pink -->
+  <rect x="635" y="190" width="90" height="90" fill="#f9a8d4" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <circle cx="650" cy="205" r="10" fill="#ef4444"/>
+  <text x="650" y="209" class="step-num">6</text>
+  <text x="680" y="225" class="box-text">验证</text>
+  <text x="680" y="242" class="box-text-en">VERIFY</text>
+  <text x="680" y="268" class="desc-text">确认修复</text>
+  <text x="680" y="280" class="desc-text">状态一致</text>
+
+  <!-- Arrow 6-7 (down then left) -->
+  <path d="M680 280 L680 305 L450 305 L450 325" stroke="#1a1a1a" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Step 7 - Recovery (Manual confirm) - Yellow -->
+  <rect x="405" y="330" width="90" height="45" fill="#fde047" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <circle cx="420" cy="345" r="10" fill="#ef4444"/>
+  <text x="420" y="349" class="step-num">7</text>
+  <text x="460" y="350" class="box-text">恢复</text>
+  <text x="460" y="367" class="box-text-en">RECOVER</text>
+
+  <!-- Legend -->
+  <rect x="30" y="310" width="180" height="60" fill="#fafafa" stroke="#ccc" stroke-width="1" rx="2"/>
+  <circle cx="50" cy="330" r="8" fill="#10b981"/>
+  <text x="65" y="334" class="legend-text">自动执行 AUTO</text>
+  <circle cx="50" cy="350" r="8" fill="#f59e0b"/>
+  <text x="65" y="354" class="legend-text">人工/自动 AUTO/MANUAL</text>
+  <circle cx="155" cy="330" r="8" fill="#ef4444"/>
+  <text x="170" y="334" class="legend-text">人工 MANUAL</text>
+
+</svg>

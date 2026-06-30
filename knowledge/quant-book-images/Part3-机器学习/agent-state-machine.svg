@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#1a1a1a"/>
+    </marker>
+    <pattern id="errorHatch" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="6" stroke="#f87171" stroke-width="2"/>
+    </pattern>
+  </defs>
+
+  <rect width="600" height="320" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="300" y="30" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="14" font-weight="600" fill="#1a1a1a" text-anchor="middle">AGENT 状态机 / STATE MACHINE</text>
+
+  <!-- IDLE State -->
+  <circle cx="100" cy="140" r="45" fill="#67e8f9" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="100" y="135" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="13" font-weight="600" fill="#1a1a1a" text-anchor="middle">IDLE</text>
+  <text x="100" y="152" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="9" fill="#666" text-anchor="middle">空闲</text>
+
+  <!-- PLANNING State -->
+  <circle cx="260" cy="140" r="45" fill="#fde047" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="260" y="135" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="13" font-weight="600" fill="#1a1a1a" text-anchor="middle">PLANNING</text>
+  <text x="260" y="152" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="9" fill="#666" text-anchor="middle">计划中</text>
+
+  <!-- EXECUTING State -->
+  <circle cx="420" cy="140" r="45" fill="#5eead4" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="420" y="135" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="12" font-weight="600" fill="#1a1a1a" text-anchor="middle">EXECUTING</text>
+  <text x="420" y="152" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="9" fill="#666" text-anchor="middle">执行中</text>
+
+  <!-- ERROR State -->
+  <circle cx="500" cy="260" r="40" fill="url(#errorHatch)" stroke="#1a1a1a" stroke-width="1.5"/>
+  <circle cx="500" cy="260" r="40" fill="#fecaca" fill-opacity="0.5" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="500" y="255" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="13" font-weight="600" fill="#1a1a1a" text-anchor="middle">ERROR</text>
+  <text x="500" y="272" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="9" fill="#666" text-anchor="middle">异常</text>
+
+  <!-- Arrow: IDLE -> PLANNING -->
+  <path d="M145,140 L205,140" stroke="#1a1a1a" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+  <text x="175" y="130" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="9" fill="#666" text-anchor="middle">数据就绪</text>
+
+  <!-- Arrow: PLANNING -> EXECUTING -->
+  <path d="M305,140 L365,140" stroke="#1a1a1a" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+  <text x="335" y="130" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="9" fill="#666" text-anchor="middle">开盘</text>
+
+  <!-- Arrow: EXECUTING -> IDLE (curved bottom) -->
+  <path d="M380,170 Q260,230 140,170" stroke="#1a1a1a" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+  <text x="260" y="215" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="9" fill="#666" text-anchor="middle">收盘</text>
+
+  <!-- Arrow: IDLE <-> PLANNING (return arrow on top) -->
+  <path d="M215,105 Q175,70 145,105" stroke="#1a1a1a" stroke-width="1.5" fill="none" marker-end="url(#arrow)" stroke-dasharray="4,2"/>
+  <text x="180" y="70" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="8" fill="#999" text-anchor="middle">取消计划</text>
+
+  <!-- Arrow: Any state -> ERROR (from EXECUTING) -->
+  <path d="M450,175 L475,230" stroke="#1a1a1a" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+  <text x="480" y="200" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="8" fill="#f87171" text-anchor="start">异常</text>
+
+  <!-- Arrow: ERROR -> IDLE -->
+  <path d="M460,260 Q300,290 100,185" stroke="#1a1a1a" stroke-width="1.5" fill="none" marker-end="url(#arrow)" stroke-dasharray="6,3"/>
+  <text x="280" y="285" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="8" fill="#666" text-anchor="middle">人工确认</text>
+
+  <!-- Legend -->
+  <rect x="30" y="280" width="150" height="30" fill="none" stroke="#ccc" stroke-width="1" stroke-dasharray="4,2"/>
+  <line x1="45" y1="295" x2="70" y2="295" stroke="#1a1a1a" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <text x="80" y="299" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="9" fill="#666">可选转换</text>
+</svg>

@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 520">
+  <style>
+    .title { font: 600 14px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; letter-spacing: 0.5px; }
+    .section { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .item { font: 400 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .time-badge { font: 600 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+  </style>
+
+  <!-- Background -->
+  <rect width="680" height="520" fill="#fff"/>
+
+  <!-- Title bar -->
+  <rect x="40" y="20" width="600" height="50" fill="#f9a8d4" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="340" y="45" text-anchor="middle" class="title">收盘后检查清单</text>
+  <text x="340" y="60" text-anchor="middle" class="subtitle">POST-MARKET CHECKLIST</text>
+
+  <!-- Time badge -->
+  <rect x="540" y="30" width="90" height="30" fill="#fff" stroke="#1a1a1a" stroke-width="1" rx="2"/>
+  <text x="585" y="50" text-anchor="middle" class="time-badge">T+30 分钟</text>
+
+  <!-- Main container -->
+  <rect x="40" y="70" width="600" height="430" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+
+  <!-- Section 1: Trade Review -->
+  <rect x="50" y="85" width="580" height="95" fill="#fbcfe8" stroke="#1a1a1a" stroke-width="1"/>
+  <rect x="50" y="85" width="120" height="22" fill="#f9a8d4" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="110" y="100" text-anchor="middle" class="section">交易复核</text>
+  <text x="180" y="100" class="subtitle">TRADE REVIEW</text>
+
+  <line x1="70" y1="120" x2="70" y2="165" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="2,2"/>
+  <circle cx="70" cy="120" r="4" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="85" y="124" class="item">今日所有订单已完成（无 pending）</text>
+  <circle cx="70" cy="138" r="4" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="85" y="142" class="item">成交明细与预期一致</text>
+  <circle cx="70" cy="156" r="4" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="85" y="160" class="item">滑点在合理范围内</text>
+
+  <circle cx="350" cy="156" r="4" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="365" y="160" class="item">无异常交易（价格、数量、方向）</text>
+
+  <!-- Section 2: P&L Confirmation -->
+  <rect x="50" y="190" width="580" height="80" fill="#fef08a" stroke="#1a1a1a" stroke-width="1"/>
+  <rect x="50" y="190" width="120" height="22" fill="#fde047" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="110" y="205" text-anchor="middle" class="section">P&amp;L 确认</text>
+  <text x="180" y="205" class="subtitle">P&amp;L CONFIRM</text>
+
+  <line x1="70" y1="225" x2="70" y2="255" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="2,2"/>
+  <circle cx="70" cy="225" r="4" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="85" y="229" class="item">日 P&amp;L 计算完成</text>
+  <circle cx="70" cy="243" r="4" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="85" y="247" class="item">归因分析完成（哪个策略贡献）</text>
+
+  <circle cx="350" cy="243" r="4" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="365" y="247" class="item">回撤监控更新</text>
+
+  <!-- Section 3: Position Reconciliation -->
+  <rect x="50" y="280" width="580" height="80" fill="#99f6e4" stroke="#1a1a1a" stroke-width="1"/>
+  <rect x="50" y="280" width="120" height="22" fill="#5eead4" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="110" y="295" text-anchor="middle" class="section">持仓核对</text>
+  <text x="180" y="295" class="subtitle">POSITION RECON</text>
+
+  <line x1="70" y1="315" x2="70" y2="345" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="2,2"/>
+  <circle cx="70" cy="315" r="4" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="85" y="319" class="item">系统持仓 = 券商持仓</text>
+  <circle cx="70" cy="333" r="4" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="85" y="337" class="item">市值计算正确</text>
+
+  <circle cx="350" cy="333" r="4" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="365" y="337" class="item">保证金充足</text>
+
+  <!-- Section 4: Log Archive -->
+  <rect x="50" y="370" width="580" height="65" fill="#a5f3fc" stroke="#1a1a1a" stroke-width="1"/>
+  <rect x="50" y="370" width="120" height="22" fill="#67e8f9" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="110" y="385" text-anchor="middle" class="section">日志归档</text>
+  <text x="180" y="385" class="subtitle">LOG ARCHIVE</text>
+
+  <line x1="70" y1="405" x2="70" y2="420" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="2,2"/>
+  <circle cx="70" cy="405" r="4" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="85" y="409" class="item">日志已备份</text>
+
+  <circle cx="350" cy="405" r="4" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="365" y="409" class="item">关键事件已记录</text>
+
+  <!-- Completion status indicator -->
+  <rect x="50" y="450" width="580" height="35" fill="#e5e7eb" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="340" y="472" text-anchor="middle" class="subtitle">完成所有检查项后，系统进入夜间待机状态 / ENTER OVERNIGHT STANDBY AFTER ALL CHECKS</text>
+
+  <!-- Moon icon decoration -->
+  <circle cx="50" y="45" r="10" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/>
+  <circle cx="54" y="43" r="8" fill="#f9a8d4"/>
+</svg>

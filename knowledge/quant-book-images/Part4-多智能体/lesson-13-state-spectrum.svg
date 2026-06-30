@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320">
+  <defs>
+    <style>
+      .label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; letter-spacing: 0.5px; }
+      .box-text { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; }
+      .title { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; letter-spacing: 1px; }
+      .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; }
+      .metric { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; }
+    </style>
+    <marker id="arrow-left" markerWidth="10" markerHeight="7" refX="1" refY="3.5" orient="auto">
+      <polygon points="10 0, 0 3.5, 10 7" fill="#666"/>
+    </marker>
+    <marker id="arrow-right" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+  </defs>
+
+  <!-- White background -->
+  <rect width="800" height="320" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="400" y="28" class="title">BIMODAL STATE SPECTRUM</text>
+  <text x="400" y="44" class="subtitle">市场状态连续光谱</text>
+
+  <!-- Main spectrum arrow -->
+  <line x1="80" y1="120" x2="720" y2="120" stroke="#666" stroke-width="2" marker-start="url(#arrow-left)" marker-end="url(#arrow-right)"/>
+
+  <!-- Left side: 震荡市 -->
+  <text x="80" y="105" class="box-text" text-anchor="start" style="fill: #0891b2;">震荡市</text>
+  <text x="80" y="145" class="label" text-anchor="start">ADX=15</text>
+  <text x="80" y="160" class="label" text-anchor="start">Vol=10%</text>
+
+  <!-- Right side: 趋势市 -->
+  <text x="720" y="105" class="box-text" text-anchor="end" style="fill: #0d9488;">趋势市</text>
+  <text x="720" y="145" class="label" text-anchor="end">ADX=35</text>
+  <text x="720" y="160" class="label" text-anchor="end">Vol=25%</text>
+
+  <!-- Gray zone in the middle -->
+  <rect x="280" y="180" width="240" height="100" fill="#f3f4f6" stroke="#6b7280" stroke-width="2" rx="6"/>
+  <text x="400" y="205" class="box-text" style="fill: #6b7280;">灰色地带</text>
+  <text x="400" y="225" class="metric">ADX 18-25</text>
+  <text x="400" y="240" class="metric">Vol 12-20%</text>
+  <text x="400" y="265" class="label" style="fill: #ef4444;">问题：市场 70% 的时间都在灰色地带</text>
+
+  <!-- Connection lines from spectrum to gray zone -->
+  <line x1="280" y1="120" x2="280" y2="180" stroke="#6b7280" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="520" y1="120" x2="520" y2="180" stroke="#6b7280" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- Clear zones labels -->
+  <text x="130" y="295" class="label" style="fill: #0891b2;">明确震荡</text>
+  <line x1="130" y1="280" x2="130" y2="120" stroke="#0891b2" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.5"/>
+
+  <text x="670" y="295" class="label" style="fill: #0d9488;">明确趋势</text>
+  <line x1="670" y1="280" x2="670" y2="120" stroke="#0d9488" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.5"/>
+</svg>
