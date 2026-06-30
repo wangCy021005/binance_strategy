@@ -19,9 +19,14 @@ import numpy as np
 import pandas as pd
 
 # 4h K线参数
-_PERIODS_PER_DAY  = 6      # 24h / 4h = 6
-_PERIODS_PER_YEAR = 2190   # 6 * 365
-_20D_PERIODS      = 120    # 20天 × 6根/天
+_TF_PARAMS = {
+    '1d': (1, 365, 20),      # (bars_per_day, bars_per_year, 20d_bars)
+    '4h': (6, 2190, 120),    # 4h: 6bars/day
+    '1h': (24, 8760, 480),   # 1h: 24bars/day
+}
+_PERIODS_PER_DAY  = 1      # default: 1d
+_PERIODS_PER_YEAR = 365    # default: 1d
+_20D_PERIODS      = 20     # default: 1d
 
 
 @dataclass
@@ -43,6 +48,11 @@ class RegimeAgent:
         self.cfg = cfg
         self._window: deque = deque(maxlen=cfg.regime_confirm_days)
         self._current = "ranging"
+        # 根据 timeframe 设置年化系数（修复：日线不能用4h系数）
+        tf = getattr(cfg, 'timeframe', '4h')
+        params = _TF_PARAMS.get(tf, _TF_PARAMS['4h'])
+        self._bars_per_year = params[1]
+        self._20d_bars      = params[2]
 
     def detect(self, btc_df: pd.DataFrame, timestamp: str) -> RegimeState:
         raw       = self._raw_detect(btc_df, timestamp)
@@ -60,12 +70,12 @@ class RegimeAgent:
             return "ranging"
 
         # 20日收益率（120根4h K线）
-        lookback = min(_20D_PERIODS, len(hist) - 1)
+        lookback = min(self._20d_bars, len(hist) - 1)
         ret_20d  = float((hist.iloc[-1] - hist.iloc[-lookback-1]) / hist.iloc[-lookback-1])
 
         # 20日年化波动率
-        rets    = hist.pct_change().dropna().iloc[-_20D_PERIODS:]
-        vol_20d = float(rets.std() * np.sqrt(_PERIODS_PER_YEAR)) if len(rets) >= 10 else 0.15
+        rets    = hist.pct_change().dropna().iloc[-self._20d_bars:]
+        vol_20d = float(rets.std() * np.sqrt(self._bars_per_year)) if len(rets) >= 10 else 0.15
 
         cfg = self.cfg
 
@@ -105,12 +115,12 @@ class RegimeAgent:
             pos  = btc_df.index.tolist().index(timestamp)
             hist = btc_df["close"].iloc[:pos + 1].astype(float)
 
-            lookback = min(_20D_PERIODS, len(hist) - 1)
+            lookback = min(self._20d_bars, len(hist) - 1)
             ret_20d  = float((hist.iloc[-1] - hist.iloc[-lookback-1]) / hist.iloc[-lookback-1]) \
                        if len(hist) > 1 else 0.0
 
-            rets    = hist.pct_change().dropna().iloc[-_20D_PERIODS:]
-            vol_20d = float(rets.std() * np.sqrt(_PERIODS_PER_YEAR)) if len(rets) >= 10 else 0.0
+            rets    = hist.pct_change().dropna().iloc[-self._20d_bars:]
+            vol_20d = float(rets.std() * np.sqrt(self._bars_per_year)) if len(rets) >= 10 else 0.0
         else:
             ret_20d = 0.0
             vol_20d = 0.0
