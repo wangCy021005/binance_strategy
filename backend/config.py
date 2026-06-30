@@ -77,7 +77,10 @@ class Config:
     })
 
     # ─── 动量策略参数 ────────────────────────────────────────────────────────
-    mom_lookback:    int   = 20     # 动量计算窗口（K线数量）
+    mom_lookback:    int   = 10     # 日线动量基准窗口
+    mom_short_bars:  int   = 42    # 短期（42天=6周）
+    mom_mid_bars:    int   = 126   # 中期（126天=4.5个月）
+    mom_long_bars:   int   = 252   # 长期（252天=1年）
     mom_top_n:       int   = 4      # 持仓品种数
     mom_vol_filter:  float = 0.5    # 量比 < 0.5 过滤死水
     mom_max_dd:      float = -0.25  # 买前最大回撤阈值（加密波动大，允许-25%）
