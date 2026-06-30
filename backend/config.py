@@ -26,17 +26,33 @@ class Config:
     symbols: list = field(default_factory=lambda: [
         # 核心大盘
         "BTC/USDT", "ETH/USDT",
-        # 高Beta L1：牛市弹性最强
-        "SOL/USDT", "AVAX/USDT",
-        # L2代币：生态扩张期高Beta
-        "ARB/USDT", "OP/USDT",
-        # DeFi/基础设施
-        "LINK/USDT", "NEAR/USDT",
-        # 保留BNB（资金费率套利）
-        "BNB/USDT",
+        # 主流 L1
+        "SOL/USDT", "BNB/USDT", "XRP/USDT", "ADA/USDT", "AVAX/USDT",
+        "DOT/USDT", "ATOM/USDT", "TRX/USDT",
+        # L2
+        "ARB/USDT", "OP/USDT", "MATIC/USDT",
+        # DeFi
+        "LINK/USDT", "UNI/USDT", "AAVE/USDT",
+        # 新兴 L1 + AI
+        "NEAR/USDT", "INJ/USDT", "FET/USDT",
+        # 老牌
+        "LTC/USDT", "DOGE/USDT",
     ])
-    timeframe: str = "4h"      # K线周期：1h / 4h / 1d
+    timeframe: str = "1d"      # 切换到日线（统一加密+美股时间轴）
     spot_or_futures: str = "futures"   # spot / futures
+
+    # ─── 美股标的（通过 yfinance 获取）────────────────────────────────────────
+    # 半导体/AI 主题：与加密市场相关性低，真正分散化
+    us_stocks: list = field(default_factory=lambda: [
+        # 半导体核心（AI 算力主题）
+        "NVDA", "AMD", "AVGO", "MRVL", "AMAT", "MU",
+        # AI 云计算
+        "MSFT", "GOOGL", "META",
+        # 科技成长
+        "TSLA", "CRM", "PLTR",
+        # 市场基准（用于 Regime 检测）
+        "SPY", "QQQ",
+    ])
 
     # ─── Regime 识别（币安四态）─────────────────────────────────────────────
     # 不用 ADX（A股教训：ADX滞后），改用BTC市场结构

@@ -118,3 +118,65 @@ class CryptoDataFeed:
                       start: str, end: str) -> pd.DataFrame:
         """BTC/USDT 作为市场基准"""
         return self.get_ohlcv("BTC/USDT", timeframe, start, end)
+
+
+class MixedDataFeed(CryptoDataFeed):
+    """
+    扩展数据层：同时支持加密（Binance）和美股（yfinance）数据。
+    
+    加密：symbol='BTC/USDT'  → DB symbol='BTCUSDT'  timeframe='1d'
+    美股：symbol='NVDA'      → DB symbol='NVDA_STOCK' timeframe='1d'
+    
+    统一到日线时间轴，加密用 UTC 00:00，美股用交易日日期（已对齐到 00:00）。
+    """
+
+    def get_stock_ohlcv(self, ticker: str,
+                        start: str, end: str) -> pd.DataFrame:
+        """
+        读取美股日线数据。
+        start/end 格式：'2022-01-01'
+        返回：DataFrame(index=date_str, columns=[open,high,low,close,volume])
+        """
+        sym_db = f"{ticker}_STOCK"
+        # 日期格式转换：'2022-01-01' → '2022-01-01T00:00:00Z'
+        start_ts = f"{start}T00:00:00Z"
+        end_ts   = f"{end}T00:00:00Z"
+
+        with _conn() as conn:
+            df = pd.read_sql_query(
+                "SELECT open_time, open, high, low, close, volume "
+                "FROM ohlcv WHERE symbol=? AND timeframe='1d' "
+                "  AND open_time >= ? AND open_time <= ? "
+                "ORDER BY open_time",
+                conn, params=(sym_db, start_ts, end_ts)
+            )
+        if df.empty:
+            return pd.DataFrame()
+
+        df = df.set_index("open_time")
+        # 截取日期部分（去掉 T00:00:00Z）作为索引，与加密对齐
+        df.index = df.index.str[:10]   # 'YYYY-MM-DD'
+        return df.astype(float)
+
+    def get_all_stocks(self, tickers: list[str],
+                       start: str, end: str) -> dict[str, pd.DataFrame]:
+        """批量读取美股数据"""
+        return {t: self.get_stock_ohlcv(t, start, end) for t in tickers}
+
+    def get_spy_df(self, start: str, end: str) -> pd.DataFrame:
+        """S&P 500（SPY）作为美股市场基准"""
+        return self.get_stock_ohlcv("SPY", start, end)
+
+    def get_trade_dates_unified(self, start: str, end: str) -> list[str]:
+        """
+        获取统一时间轴（加密日线日期 ∩ 有美股数据的交易日）
+        用 'YYYY-MM-DD' 格式。
+        """
+        with _conn() as conn:
+            rows = conn.execute(
+                "SELECT DISTINCT substr(open_time,1,10) FROM ohlcv "
+                "WHERE timeframe='1d' AND open_time >= ? AND open_time <= ? "
+                "ORDER BY 1",
+                (f"{start}T00:00:00Z", f"{end}T00:00:00Z")
+            ).fetchall()
+        return [r[0] for r in rows]
