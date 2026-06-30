@@ -70,9 +70,24 @@ def run(cfg=None, alpha_scorer=None):
         # Step 3: 止损检查
         port.check_stops(prices, ts, cfg)
 
-        # Step 4: 资金费率结算（每8小时）
-        # 资金费率 = 持仓市值 × 资金费率，从盈亏中扣除
-        # (简化：在 portfolio 中隐式处理，此处记录)
+        # Step 4: 资金费率结算（每8小时：UTC 0/8/16点）
+        # 多头支付正资金费率，空头收取正资金费率
+        if now.hour in (0, 8, 16):
+            for sym, pos in list(port.positions.items()):
+                fr_series = all_funding.get(sym)
+                if fr_series is None or fr_series.empty:
+                    continue
+                recent_fr = fr_series[fr_series.index <= ts]
+                if recent_fr.empty:
+                    continue
+                fr  = float(recent_fr.iloc[-1])
+                margin = pos.qty * pos.cost
+                lev = max(getattr(pos, 'leverage', 1.0), 1.0)
+                cost = margin * abs(fr) * lev
+                if pos.side == 'long':
+                    port.usdt -= cost * (1 if fr > 0 else -1)  # 正率多头付
+                else:
+                    port.usdt += cost * (1 if fr > 0 else -1)  # 正率空头收
 
         # Step 5: 风控等级
         pv    = port.value(prices)

@@ -43,15 +43,18 @@ def score_symbol(symbol: str,
         return None
 
     hist = df[df.index <= as_of_ts].copy()
-    if len(hist) < 260:
+    if len(hist) < max(cfg.mom_long_bars + 10, 260) if hasattr(cfg, "mom_long_bars") else len(hist) < 260:
         return None
 
     close = hist["close"].astype(float)
 
     # ── 计算动量（20根4h K线 ≈ 3.3天）──────────────────────────────────────
-    mom_short = float(close.pct_change(42).iloc[-1])    # 短期（7天 = 42根4h）
-    mom_mid   = float(close.pct_change(126).iloc[-1])   # 中期（21天 = 126根4h）
-    mom_long  = float(close.pct_change(252).iloc[-1])   # 长期（42天 = 252根4h）
+    _short = getattr(cfg, "mom_short_bars", 42)
+    mom_short = float(close.pct_change(_short).iloc[-1])
+    _mid  = getattr(cfg, "mom_mid_bars", 126)
+    mom_mid   = float(close.pct_change(_mid).iloc[-1])
+    _long = getattr(cfg, "mom_long_bars", 252)
+    mom_long  = float(close.pct_change(_long).iloc[-1])
 
     # 趋势一致性（短中长同向得加分）
     direction = 1 if mom_mid > 0 else -1
@@ -71,7 +74,7 @@ def score_symbol(symbol: str,
         avg5 = float(vol.iloc[-6:-1].mean())
         if avg5 > 0:
             vol_ratio = float(vol.iloc[-1]) / avg5
-    if vol_ratio < 0.3:        # 极度缩量，不追
+    if vol_ratio < getattr(cfg, "mom_vol_filter", 0.3):  # fix-003: 读config参数
         return None
 
     # ── RSI 过滤（极端区域不追）──────────────────────────────────────────
