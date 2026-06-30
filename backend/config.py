@@ -42,8 +42,8 @@ class Config:
     # 不用 ADX（A股教训：ADX滞后），改用BTC市场结构
     bull_threshold:     float = 0.05   # BTC 20日收益率 > 5% → 牛市
     bear_threshold:     float = -0.10  # BTC 20日收益率 < -10% → 熊市
-    vol_crisis:         float = 0.80   # BTC 20日年化波动率 > 80% → 危机
-    regime_confirm_days: int  = 2    # 恢复原值（Regime快速响应）
+    vol_crisis:         float = 0.80   # BTC 20日年化波动率 > 80% → 危机（加密市场正常波动高）
+    regime_confirm_days: int  = 2
 
     # ─── Regime → 策略权重路由（含杠杆）────────────────────────────────────
     # (momentum, funding_arb, mean_revert, defensive, max_slots, pos_cap, leverage)
@@ -51,22 +51,19 @@ class Config:
     # leverage: 该状态下允许的最大杠杆倍数（用户要求不超过10x）
     regime_weights: dict = field(default_factory=lambda: {
         # 牛市：满仓+中等杠杆，动量策略主导
-        "bull":     (0.85, 0.10, 0.00, 0.05, 4, 0.85, 1.0),
+        "bull":     (0.85, 0.10, 0.00, 0.05, 4, 0.90, 1.0),
         # 震荡：半仓+低杠杆，资金费率套利为主
         "ranging":  (0.30, 0.50, 0.10, 0.10, 3, 0.50, 1.0),
         # 熊市：轻仓做空+中等杠杆
-        "bear":     (0.10, 0.30, 0.00, 0.60, 2, 0.20, 1.0),
+        "bear":     (0.10, 0.30, 0.00, 0.60, 2, 0.30, 1.0),
         # 危机：全防御，不开新仓
         "crisis":   (0.00, 0.05, 0.00, 0.95, 0, 0.05, 1.0),
     })
 
     # ─── 动量策略参数 ────────────────────────────────────────────────────────
-    mom_lookback:    int   = 20     # 动量计算窗口（K线数量，实际用mom_*_bars）
-    mom_short_bars:  int   = 42    # fix-003: 短期动量（7天×6根/天）
-    mom_mid_bars:    int   = 126   # fix-003: 中期动量（21天）
-    mom_long_bars:   int   = 252   # fix-003: 长期动量（42天）
+    mom_lookback:    int   = 20     # 动量计算窗口（K线数量）
     mom_top_n:       int   = 4      # 持仓品种数
-    mom_vol_filter:  float = 0.3    # fix-003: 量比过滤（修复硬编码，同步到代码）
+    mom_vol_filter:  float = 0.5    # 量比 < 0.5 过滤死水
     mom_max_dd:      float = -0.25  # 买前最大回撤阈值（加密波动大，允许-25%）
 
     # ─── 资金费率套利参数 ────────────────────────────────────────────────────
@@ -81,7 +78,7 @@ class Config:
 
     # ─── 仓位管理（动态杠杆，用户要求：满仓+最高10x）────────────────────────
     max_positions:   int   = 4      # 最大同时持仓
-    max_pos_pct:     float = 0.15   # fix-002修正: 15%（半Kelly×1.5x，平衡收益与风控）
+    max_pos_pct:     float = 0.30   # 单仓最大30%（等AlphaGPT验证后再满仓）
     risk_per_trade:  float = 0.02   # 单笔风险预算2%（知识库：Kelly下限）
     max_leverage:    float = 10.0   # 全局杠杆上限（用户设定）
     # 杠杆止损：杠杆越高止损越紧（防止爆仓）
@@ -96,8 +93,8 @@ class Config:
 
     # ─── 止损参数 ─────────────────────────────────────────────────────────
     hard_stop:           float = -0.08   # 硬止损-8%（加密波动大）
-    trailing_stop_pct:   float = 0.20   # fix-005: 放宽到20%（加密正常回调15-20%）
-    trailing_stop_min:   float = 0.10   # fix-005: 提高到10%（避免过早锁定利润）
+    trailing_stop_pct:   float = 0.12   # 追踪止损12%（从高点）
+    trailing_stop_min:   float = 0.05   # 启动条件：盈利5%
 
     # ─── 交易成本 ──────────────────────────────────────────────────────────
     # 币安现货：maker 0.02%，taker 0.04%（远低于A股）
