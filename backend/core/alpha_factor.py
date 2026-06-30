@@ -94,8 +94,12 @@ def rank_alpha_scores(symbols: list[str],
     if not raw_scores:
         return {}
 
-    max_score = max(raw_scores.values()) or 1.0
-    normalized = {sym: s / max_score for sym, s in raw_scores.items()}
+    # fix-P2: 用95分位数归一化（防止极端值污染截面）
+    scores_list = sorted(raw_scores.values())
+    p95_idx = max(0, int(len(scores_list) * 0.95) - 1)
+    p95_val = scores_list[p95_idx] if scores_list else 1.0
+    max_score = max(p95_val, 1e-6)
+    normalized = {sym: min(s / max_score, 1.0) for sym, s in raw_scores.items()}
 
     if top_n:
         top_syms = sorted(normalized, key=lambda x: -normalized[x])[:top_n]
