@@ -43,7 +43,7 @@ class Config:
     bull_threshold:     float = 0.08   # fix-004: 提高到8%（减少假牛市信号）
     bear_threshold:     float = -0.15  # fix-004: 降低到-15%（减少假熊市信号）
     vol_crisis:         float = 1.00   # fix-004: 提到100%（加密正常波动60-80%年化）
-    regime_confirm_days: int  = 18   # fix-004: 3天×6根=18根4h（原2根=8小时太短）
+    regime_confirm_days: int  = 6    # fix-004修正: 1天×6根（加密24/7市场响应速度）
 
     # ─── Regime → 策略权重路由（含杠杆）────────────────────────────────────
     # (momentum, funding_arb, mean_revert, defensive, max_slots, pos_cap, leverage)
@@ -51,11 +51,11 @@ class Config:
     # leverage: 该状态下允许的最大杠杆倍数（用户要求不超过10x）
     regime_weights: dict = field(default_factory=lambda: {
         # 牛市：满仓+中等杠杆，动量策略主导
-        "bull":     (0.85, 0.10, 0.00, 0.05, 4, 0.40, 1.0),
+        "bull":     (0.85, 0.10, 0.00, 0.05, 4, 0.70, 1.0),
         # 震荡：半仓+低杠杆，资金费率套利为主
-        "ranging":  (0.30, 0.50, 0.10, 0.10, 3, 0.25, 1.0),
+        "ranging":  (0.30, 0.50, 0.10, 0.10, 3, 0.40, 1.0),
         # 熊市：轻仓做空+中等杠杆
-        "bear":     (0.10, 0.30, 0.00, 0.60, 2, 0.15, 1.0),
+        "bear":     (0.10, 0.30, 0.00, 0.60, 2, 0.20, 1.0),
         # 危机：全防御，不开新仓
         "crisis":   (0.00, 0.05, 0.00, 0.95, 0, 0.05, 1.0),
     })
@@ -81,7 +81,7 @@ class Config:
 
     # ─── 仓位管理（动态杠杆，用户要求：满仓+最高10x）────────────────────────
     max_positions:   int   = 4      # 最大同时持仓
-    max_pos_pct:     float = 0.08   # fix-002: 半Kelly上限（胜率39%对应7-8%）
+    max_pos_pct:     float = 0.15   # fix-002修正: 15%（半Kelly×1.5x，平衡收益与风控）
     risk_per_trade:  float = 0.02   # 单笔风险预算2%（知识库：Kelly下限）
     max_leverage:    float = 10.0   # 全局杠杆上限（用户设定）
     # 杠杆止损：杠杆越高止损越紧（防止爆仓）
