@@ -25,7 +25,7 @@ import numpy as np
 class FundingSignal:
     symbol:        str
     score:         float
-    direction:     int     # +1=收取正费率开空，-1=收取负费率开多
+    direction:     int     # +1=做多（空头拥挤，收取负费率），-1=做空（多头拥挤，收取正费率）
     funding_rate:  float   # 当前资金费率
     avg_rate_3d:   float   # 近3天平均资金费率
     atr_pct:       float

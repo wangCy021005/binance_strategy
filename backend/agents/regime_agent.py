@@ -63,7 +63,7 @@ class RegimeAgent:
         if btc_df is None or btc_df.empty or timestamp not in btc_df.index:
             return "ranging"
 
-        pos  = btc_df.index.tolist().index(timestamp)
+        pos  = btc_df.index.get_loc(timestamp)   # O(1) hash lookup，原来 O(N) 列表搜索
         hist = btc_df["close"].iloc[:pos + 1].astype(float)
 
         if len(hist) < 30:
@@ -112,7 +112,7 @@ class RegimeAgent:
     def _build_state(self, btc_df: pd.DataFrame, timestamp: str,
                      regime: str) -> RegimeState:
         if btc_df is not None and not btc_df.empty and timestamp in btc_df.index:
-            pos  = btc_df.index.tolist().index(timestamp)
+            pos  = btc_df.index.get_loc(timestamp)   # O(1) hash lookup
             hist = btc_df["close"].iloc[:pos + 1].astype(float)
 
             lookback = min(self._20d_bars, len(hist) - 1)
