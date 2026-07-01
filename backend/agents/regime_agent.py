@@ -83,11 +83,11 @@ class RegimeAgent:
         if vol_20d > cfg.vol_crisis:
             return "crisis"
 
-        # 牛市（BTC 20日涨幅 > 5%）
+        # 强牛市（BTC 20日涨幅 > bull_threshold）
         if ret_20d > cfg.bull_threshold:
             return "bull"
 
-        # 熊市（BTC 20日跌幅 > 10%）
+        # 熊市（BTC 20日跌幅超过 bear_threshold）
         if ret_20d < cfg.bear_threshold:
             return "bear"
 

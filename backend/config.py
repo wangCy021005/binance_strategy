@@ -63,21 +63,19 @@ class Config:
 
     # ─── Regime 识别（币安四态）─────────────────────────────────────────────
     # 不用 ADX（A股教训：ADX滞后），改用BTC市场结构
-    bull_threshold:     float = 0.08   # BTC 20日收益率 > 8% → 牛市（fix-007: 5%→8%过滤边界噪音，MaxDD -26%→-22.7%）
-    bear_threshold:     float = -0.12  # BTC 20日收益率 < -12% → 熊市（fix-008: -10%→-12%让温和下跌归入ranging）
-    vol_crisis:         float = 0.80   # BTC 20日年化波动率 > 80% → 危机（加密市场正常波动高）
+    bull_threshold:     float = 0.08   # BTC 20日收益率 > 8%  → bull
+    bear_threshold:     float = -0.12  # BTC 20日收益率 < -12% → bear
+    vol_crisis:         float = 0.80   # 年化波动率 > 80%      → crisis
     regime_confirm_days: int  = 2
 
     # ─── Regime → 策略权重路由（含杠杆）────────────────────────────────────
     # (momentum, funding_arb, mean_revert, defensive, max_slots, pos_cap, leverage)
-    # pos_cap: 实际仓位上限（资产%，不含杠杆）
-    # leverage: 该状态下允许的最大杠杆倍数（用户要求不超过10x）
     regime_weights: dict = field(default_factory=lambda: {
-        # 牛市：满仓+中等杠杆，动量策略主导
+        # 牛市：满仓+动量策略主导（BTC 20日>8%）
         "bull":     (0.85, 0.10, 0.00, 0.05, 4, 0.90, 1.0),
-        # 震荡：半仓+低杠杆，资金费率套利为主
+        # 震荡：半仓，资金费率套利为主（BTC 20日-12%~8%）
         "ranging":  (0.30, 0.50, 0.10, 0.10, 3, 0.50, 1.0),
-        # 熊市：轻仓做空+中等杠杆
+        # 熊市：轻仓做空（BTC 20日<-12%）
         "bear":     (0.10, 0.30, 0.00, 0.60, 2, 0.30, 1.0),
         # 危机：全防御，不开新仓
         "crisis":   (0.00, 0.05, 0.00, 0.95, 0, 0.05, 1.0),
