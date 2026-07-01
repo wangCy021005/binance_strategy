@@ -23,6 +23,7 @@ class Position:
     hold_bars:   int   = 0
     atr_pct:     float = 0.03
     leverage:    float = 1.0   # 实际使用的杠杆倍数
+    trail_pct:   float = 0.12  # 该仓位专属追踪止损%（开仓时按 Regime 设定）
 
 
 class Portfolio:
@@ -39,7 +40,8 @@ class Portfolio:
     def open_position(self, symbol: str, side: str, price: float,
                       size_pct: float, total_value: float,
                       timestamp: str, strategy: str,
-                      atr_pct: float = 0.03, leverage: float = 1.0):
+                      atr_pct: float = 0.03, leverage: float = 1.0,
+                      trail_pct: float = 0.12):
         """
         side: "long"（做多）或 "short"（做空）
         size_pct: 占总资产的比例
@@ -59,6 +61,7 @@ class Portfolio:
             cost=price, high=price,
             open_time=timestamp, strategy=strategy,
             atr_pct=atr_pct, leverage=leverage,
+            trail_pct=trail_pct,
         )
         logger.info("【开仓】%s %s  %.4f USDT  价格=%.2f  策略=%s",
                     side, symbol, notional, price, strategy)
