@@ -24,20 +24,26 @@ class Config:
 
     # ─── 交易品种 ────────────────────────────────────────────────────────────
     symbols: list = field(default_factory=lambda: [
-        # 核心大盘（BTC 只用于 Regime 检测，不参与交易 — fix-004）
-        # "BTC/USDT",  # 移除：动量IC低，BTC市场已效率化；作为Regime基准单独加载
+        # ── 核心大盘（BTC 只用于 Regime 检测，不参与交易 — fix-004）──────────
+        # "BTC/USDT",
         "ETH/USDT",
-        # 主流 L1
+        # ── 主流 L1 ──────────────────────────────────────────────────────────
         "SOL/USDT", "BNB/USDT", "XRP/USDT", "ADA/USDT", "AVAX/USDT",
         "DOT/USDT", "ATOM/USDT", "TRX/USDT",
-        # L2
+        # ── Layer 2 ──────────────────────────────────────────────────────────
         "ARB/USDT", "OP/USDT", "MATIC/USDT",
-        # DeFi
+        # ── DeFi ─────────────────────────────────────────────────────────────
         "LINK/USDT", "UNI/USDT", "AAVE/USDT",
-        # 新兴 L1 + AI
+        # ── 新兴 L1 + AI ──────────────────────────────────────────────────────
         "NEAR/USDT", "INJ/USDT", "FET/USDT",
-        # 老牌
+        # ── 老牌 ──────────────────────────────────────────────────────────────
         "LTC/USDT", "DOGE/USDT",
+        # ── 宇宙扩展经验（2026-07-01 实验）───────────────────────────────────
+        # 测试结论：扩展到30/49只均使 Sharpe 下降，原因：
+        #   新增币种（ICP/GRT/LDO等）2022-2025在长期下跌趋势，
+        #   meme币（SHIB/PEPE）HL_RANGE虚高，AlphaGPT打分失真，
+        #   挤占有效信号槽位导致整体胜率下降（40.8%→37.7%→34.4%）。
+        # 未来扩展前提：AlphaGPT截面IC筛选 + 要求新币种3年以上动量数据。
     ])
     timeframe: str = "1d"      # 切换到日线（统一加密+美股时间轴）
     spot_or_futures: str = "futures"   # spot / futures
