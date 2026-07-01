@@ -24,8 +24,9 @@ class Config:
 
     # ─── 交易品种 ────────────────────────────────────────────────────────────
     symbols: list = field(default_factory=lambda: [
-        # 核心大盘
-        "BTC/USDT", "ETH/USDT",
+        # 核心大盘（BTC 只用于 Regime 检测，不参与交易 — fix-004）
+        # "BTC/USDT",  # 移除：动量IC低，BTC市场已效率化；作为Regime基准单独加载
+        "ETH/USDT",
         # 主流 L1
         "SOL/USDT", "BNB/USDT", "XRP/USDT", "ADA/USDT", "AVAX/USDT",
         "DOT/USDT", "ATOM/USDT", "TRX/USDT",

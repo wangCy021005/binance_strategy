@@ -49,16 +49,25 @@ class RiskAgent:
             return RiskLevel.WARN
         return RiskLevel.NORMAL
 
-    def trigger_circuit(self, now: datetime):
+    def trigger_circuit(self, now: datetime) -> bool:
+        """触发熔断冷静期。若已在冷静期内则忽略，返回 True 表示首次触发。"""
+        if self.in_cooldown(now):
+            return False  # 已在冷静期，不重置计时器
         cool_hours = getattr(self.cfg, 'circuit_cool_hours', 24)
         self._circuit_until = now + timedelta(hours=cool_hours)
         logger.warning("熔断触发！冷静期 %d 小时至 %s",
                         cool_hours, self._circuit_until.strftime("%Y-%m-%d %H:%M"))
+        return True
 
     def in_cooldown(self, now: datetime) -> bool:
         if self._circuit_until is None:
             return False
         return now < self._circuit_until
+
+    def reset_peak(self, portfolio_value: float):
+        """熔断平仓后重置峰值，让策略以新本金重启而非永远处于 CIRCUIT。"""
+        self._peak = portfolio_value
+        logger.info("熔断后重置峰值 → %.0f USDT", portfolio_value)
 
     def check_order(self, size_pct: float, portfolio_value: float,
                     level: str, now: datetime) -> RiskDecision:

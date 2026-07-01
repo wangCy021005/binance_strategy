@@ -94,17 +94,21 @@ def run(cfg=None, alpha_scorer=None):
         level = risk.get_level(pv)
 
         if level == RiskLevel.CIRCUIT:
-            risk.trigger_circuit(now)
-            # 熔断：强制平掉所有仓位
-            for sym in list(port.positions.keys()):
-                port._pending_stop[sym] = "熔断强平"
+            just_triggered = risk.trigger_circuit(now)
+            if just_triggered:
+                # 首次触发熔断：强制平掉所有仓位
+                for sym in list(port.positions.keys()):
+                    port._pending_stop[sym] = "熔断强平"
+                # 冷静期结束后以当前净值为新峰值，避免永远处于 CIRCUIT
+                risk.reset_peak(pv)
 
         # Step 6: Regime 识别
         rs = regime.detect(btc_df, ts)
         regime_log.append({"time": ts, "regime": rs.regime})
 
         # Step 7: 开仓决策
-        in_hard_block = (level == RiskLevel.CIRCUIT and risk.in_cooldown(now))
+        # 注意：熔断后 peak 已重置，level 可能变为 NORMAL，但冷静期仍须遵守
+        in_hard_block = risk.in_cooldown(now) or level == RiskLevel.CIRCUIT
         can_open      = not in_hard_block and rs.max_slots > 0
 
         if can_open:
