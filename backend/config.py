@@ -57,8 +57,8 @@ class Config:
 
     # ─── Regime 识别（币安四态）─────────────────────────────────────────────
     # 不用 ADX（A股教训：ADX滞后），改用BTC市场结构
-    bull_threshold:     float = 0.05   # BTC 20日收益率 > 5% → 牛市
-    bear_threshold:     float = -0.10  # BTC 20日收益率 < -10% → 熊市
+    bull_threshold:     float = 0.08   # BTC 20日收益率 > 8% → 牛市（fix-007: 5%→8%过滤边界噪音，MaxDD -26%→-22.7%）
+    bear_threshold:     float = -0.12  # BTC 20日收益率 < -12% → 熊市（fix-008: -10%→-12%让温和下跌归入ranging）
     vol_crisis:         float = 0.80   # BTC 20日年化波动率 > 80% → 危机（加密市场正常波动高）
     regime_confirm_days: int  = 2
 
