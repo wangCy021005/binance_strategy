@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>币安量化策略 Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.3/build/global/luxon.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon@1.3.1/dist/chartjs-adapter-luxon.umd.min.js"></script>
+  <style>
+    body { background: #0f1117; color: #e2e8f0; font-family: 'SF Pro Display', system-ui, sans-serif; }
+    .card { background: #1a1d2e; border: 1px solid #2d3748; border-radius: 12px; }
+    .stat-up   { color: #48bb78; }
+    .stat-down { color: #fc8181; }
+    .stat-neu  { color: #90cdf4; }
+    .badge { display:inline-block; padding:2px 8px; border-radius:9999px; font-size:11px; font-weight:600; }
+    .badge-bull    { background:#276749; color:#9ae6b4; }
+    .badge-ranging { background:#2c5282; color:#bee3f8; }
+    .badge-bear    { background:#742a2a; color:#feb2b2; }
+    .badge-crisis  { background:#4a1942; color:#fbd38d; }
+    .badge-long    { background:#276749; color:#9ae6b4; }
+    .badge-short   { background:#742a2a; color:#feb2b2; }
+    .badge-dry     { background:#744210; color:#fefcbf; }
+    .badge-live    { background:#742a2a; color:#feb2b2; }
+    .pulse { animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.5} }
+    ::-webkit-scrollbar { width:4px; }
+    ::-webkit-scrollbar-track { background:#1a1d2e; }
+    ::-webkit-scrollbar-thumb { background:#4a5568; border-radius:2px; }
+  </style>
+</head>
+<body class="min-h-screen p-4 md:p-6">
+
+<!-- 标题栏 -->
+<div class="flex items-center justify-between mb-6">
+  <div>
+    <h1 class="text-2xl font-bold text-white">🚀 币安量化策略</h1>
+    <p class="text-sm text-gray-400 mt-1" id="last-updated">加载中...</p>
+  </div>
+  <div class="flex gap-2">
+    <div id="live-badge" class="badge badge-dry">DRY RUN</div>
+    <div id="regime-badge" class="badge badge-ranging">RANGING</div>
+  </div>
+</div>
+
+<!-- KPI 卡片 -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+  <div class="card p-4">
+    <p class="text-xs text-gray-400 mb-1">总收益率</p>
+    <p class="text-2xl font-bold stat-up" id="total-return">—</p>
+    <p class="text-xs text-gray-500" id="date-range">—</p>
+  </div>
+  <div class="card p-4">
+    <p class="text-xs text-gray-400 mb-1">Sharpe 比率</p>
+    <p class="text-2xl font-bold stat-neu" id="sharpe">—</p>
+    <p class="text-xs text-gray-500">目标 0.7</p>
+  </div>
+  <div class="card p-4">
+    <p class="text-xs text-gray-400 mb-1">年化收益</p>
+    <p class="text-2xl font-bold stat-up" id="annual-return">—</p>
+    <p class="text-xs text-gray-500" id="trade-info">—</p>
+  </div>
+  <div class="card p-4">
+    <p class="text-xs text-gray-400 mb-1">最大回撤</p>
+    <p class="text-2xl font-bold stat-down" id="max-dd">—</p>
+    <p class="text-xs text-gray-500" id="win-rate">—</p>
+  </div>
+</div>
+
+<!-- 净值曲线 + Regime 分布 -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+  <div class="card p-4 md:col-span-2">
+    <h2 class="text-sm font-semibold text-gray-300 mb-3">📈 净值曲线</h2>
+    <canvas id="equity-chart" height="160"></canvas>
+  </div>
+  <div class="card p-4">
+    <h2 class="text-sm font-semibold text-gray-300 mb-3">🌡️ Regime 分布</h2>
+    <canvas id="regime-chart" height="180"></canvas>
+  </div>
+</div>
+
+<!-- 当前信号 + 实盘状态 + 近期交易 -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+  <!-- 当前信号 -->
+  <div class="card p-4">
+    <div class="flex items-center justify-between mb-3">
+      <h2 class="text-sm font-semibold text-gray-300">⚡ 当前信号</h2>
+      <button onclick="refreshSignals()" class="text-xs text-blue-400 hover:text-blue-300">刷新</button>
+    </div>
+    <div class="text-xs text-gray-400 mb-2" id="signal-meta">加载中...</div>
+    <div id="signals-list" class="space-y-2"></div>
+  </div>
+
+  <!-- 实盘状态 -->
+  <div class="card p-4">
+    <h2 class="text-sm font-semibold text-gray-300 mb-3">🔴 实盘状态</h2>
+    <div class="space-y-2 text-sm" id="live-state">
+      <p class="text-gray-500 text-xs">加载中...</p>
+    </div>
+  </div>
+
+  <!-- 近期交易 -->
+  <div class="card p-4">
+    <h2 class="text-sm font-semibold text-gray-300 mb-3">📋 近期交易</h2>
+    <div class="overflow-y-auto max-h-52">
+      <table class="w-full text-xs">
+        <thead>
+          <tr class="text-gray-500 border-b border-gray-700">
+            <th class="text-left pb-1">时间</th>
+            <th class="text-left pb-1">品种</th>
+            <th class="text-right pb-1">盈亏</th>
+          </tr>
+        </thead>
+        <tbody id="trades-table" class="divide-y divide-gray-800"></tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const API = '';  // 同域，不需要前缀
+
+// ── 颜色方案 ──────────────────────────────────────────────────────────────────
+const REGIME_COLORS = {
+  bull:    '#48bb78', ranging: '#4299e1',
+  bear:    '#fc8181', crisis:  '#b794f4',
+  trending:'#f6ad55',
+};
+
+// ── 工具函数 ──────────────────────────────────────────────────────────────────
+const fmt  = (v, dec=1) => v === null || v === undefined ? '—' : v.toFixed(dec);
+const fmtP = (v)  => v >= 0 ? `+${fmt(v)}%` : `${fmt(v)}%`;
+const el   = id   => document.getElementById(id);
+
+function badgeClass(regime) {
+  const map = {bull:'badge-bull', ranging:'badge-ranging', bear:'badge-bear', crisis:'badge-crisis', trending:'badge-bull'};
+  return map[regime] || 'badge-ranging';
+}
+
+// ── 初始化图表 ────────────────────────────────────────────────────────────────
+Chart.defaults.color = '#718096';
+Chart.defaults.borderColor = '#2d3748';
+
+let equityChart, regimeChart;
+
+function initCharts() {
+  equityChart = new Chart(el('equity-chart'), {
+    type: 'line',
+    data: { datasets: [{ label: '净值', data: [], borderColor: '#48bb78', backgroundColor: 'rgba(72,187,120,0.08)', borderWidth: 2, pointRadius: 0, fill: true, tension: 0.3 }] },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => `NAV: ${ctx.raw.y.toFixed(3)}` } } },
+      scales: {
+        x: { type:'time', time:{ unit:'month', displayFormats:{month:'yy-MM'} }, grid:{color:'#1a202c'}, ticks:{maxTicksLimit:8} },
+        y: { grid:{color:'#1a202c'}, ticks:{ callback: v => v.toFixed(2) } },
+      }
+    }
+  });
+
+  regimeChart = new Chart(el('regime-chart'), {
+    type: 'doughnut',
+    data: { labels: [], datasets: [{ data: [], backgroundColor: [], borderWidth: 2, borderColor: '#1a1d2e' }] },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position:'bottom', labels:{boxWidth:12, padding:8, font:{size:11}} } }
+    }
+  });
+}
+
+// ── 数据加载 ──────────────────────────────────────────────────────────────────
+async function loadStats() {
+  const d = await fetch('/api/stats').then(r => r.json()).catch(()=>null);
+  if (!d) return;
+  el('total-return').textContent  = fmtP(d.total_return);
+  el('annual-return').textContent = fmtP(d.annual_return);
+  el('sharpe').textContent        = fmt(d.sharpe, 3);
+  el('max-dd').textContent        = fmtP(d.max_drawdown);
+  el('date-range').textContent    = `${d.start} ~ ${d.end}`;
+  el('trade-info').textContent    = `共 ${d.total_trades} 笔 | ${d.symbols_count} 只币`;
+  el('win-rate').textContent      = `胜率 ${(d.win_rate*100).toFixed(1)}%`;
+  el('last-updated').textContent  = `最后更新：${d.last_updated}`;
+
+  el('sharpe').className = 'text-2xl font-bold ' + (d.sharpe >= 0.5 ? 'stat-up' : 'stat-neu');
+}
+
+async function loadEquity() {
+  const pts = await fetch('/api/equity').then(r => r.json()).catch(()=>[]);
+  equityChart.data.datasets[0].data = pts.map(p => ({x: p.t, y: p.nav}));
+  equityChart.update('none');
+}
+
+async function loadRegime() {
+  const d = await fetch('/api/regime').then(r => r.json()).catch(()=>null);
+  if (!d || !Object.keys(d).length) return;
+
+  const items = Object.entries(d).sort((a,b)=>b[1]-a[1]);
+  const total  = items.reduce((s,[,v])=>s+v, 0);
+
+  regimeChart.data.labels   = items.map(([k,v])=>`${k} ${(v/total*100).toFixed(0)}%`);
+  regimeChart.data.datasets[0].data            = items.map(([,v])=>v);
+  regimeChart.data.datasets[0].backgroundColor = items.map(([k])=>REGIME_COLORS[k] || '#a0aec0');
+  regimeChart.update('none');
+}
+
+async function loadTrades() {
+  const trades = await fetch('/api/trades').then(r => r.json()).catch(()=>[]);
+  const tbody  = el('trades-table');
+  tbody.innerHTML = trades.slice(-20).reverse().map(t => {
+    const cls = t.pnl >= 0 ? 'stat-up' : 'stat-down';
+    const dir = t.side.includes('long') ? '↑' : '↓';
+    return `<tr>
+      <td class="py-1 text-gray-500">${t.time.slice(5)}</td>
+      <td class="py-1">${dir} ${t.symbol.replace('/USDT','')}</td>
+      <td class="py-1 text-right ${cls} font-mono">${t.pnl >= 0?'+':''}${t.pnl.toFixed(1)}%</td>
+    </tr>`;
+  }).join('');
+}
+
+async function loadLiveState() {
+  const s  = await fetch('/api/live').then(r => r.json()).catch(()=>null);
+  const ct = el('live-state');
+  const badge = el('live-badge');
+
+  if (!s || !s.timestamp) {
+    ct.innerHTML = '<p class="text-gray-500 text-xs">暂无实盘记录（先运行 run_live.py）</p>';
+    return;
+  }
+
+  badge.className = 'badge ' + (s.dry_run ? 'badge-dry' : 'badge-live');
+  badge.textContent = s.dry_run ? 'DRY RUN' : '实盘中';
+
+  const regime = s.regime || '—';
+  el('regime-badge').className = 'badge ' + badgeClass(regime);
+  el('regime-badge').textContent = regime.toUpperCase();
+
+  ct.innerHTML = `
+    <div class="flex justify-between text-xs"><span class="text-gray-400">最后运行</span><span>${s.timestamp?.slice(0,16).replace('T',' ')}</span></div>
+    <div class="flex justify-between text-xs"><span class="text-gray-400">Regime</span><span class="badge ${badgeClass(regime)}">${regime}</span></div>
+    <div class="flex justify-between text-xs"><span class="text-gray-400">风控</span><span>${s.risk_level || '—'}</span></div>
+    <div class="flex justify-between text-xs"><span class="text-gray-400">账户</span><span class="stat-neu">${s.portfolio?.toFixed(2) || '—'} USDT</span></div>
+    <div class="border-t border-gray-700 mt-2 pt-2 text-xs text-gray-400">本次操作</div>
+    <div class="flex justify-between text-xs"><span class="text-gray-400">开仓</span><span class="stat-up">${(s.opened||[]).join(', ') || '无'}</span></div>
+    <div class="flex justify-between text-xs"><span class="text-gray-400">平仓</span><span class="stat-down">${(s.closed||[]).join(', ') || '无'}</span></div>
+    ${(s.targets||[]).length ? `
+    <div class="border-t border-gray-700 mt-2 pt-2 text-xs text-gray-400">目标仓位</div>
+    ${(s.targets||[]).map(t=>`<div class="flex justify-between text-xs"><span class="${t.direction>0?'stat-up':'stat-down'}">${t.direction>0?'↑':'↓'} ${t.symbol.replace('/USDT','')}</span><span class="text-gray-400">${t.size_usdt?.toFixed(0)||'—'} U</span></div>`).join('')}
+    ` : ''}
+  `;
+}
+
+async function refreshSignals() {
+  el('signal-meta').textContent = '计算中...';
+  el('signals-list').innerHTML  = '<div class="text-xs text-gray-500 pulse">正在生成信号...</div>';
+
+  const d = await fetch('/api/signals').then(r=>r.json()).catch(()=>null);
+  if (!d || d.error) {
+    el('signal-meta').textContent = d?.error || '获取失败';
+    el('signals-list').innerHTML = '';
+    return;
+  }
+
+  el('signal-meta').textContent = `${d.as_of} | ${d.slots} 槽 | 仓位上限 ${d.cap_pct}%`;
+
+  const rBadge = el('regime-badge');
+  rBadge.className  = 'badge ' + badgeClass(d.regime);
+  rBadge.textContent = d.regime.toUpperCase();
+
+  if (!d.signals?.length) {
+    el('signals-list').innerHTML = '<p class="text-xs text-gray-500">当前无有效信号</p>';
+    return;
+  }
+
+  el('signals-list').innerHTML = d.signals.map(s => `
+    <div class="flex items-center justify-between bg-gray-900 rounded p-2">
+      <div>
+        <span class="badge ${s.direction==='long'?'badge-long':'badge-short'}">${s.direction==='long'?'↑ 多':'↓ 空'}</span>
+        <span class="ml-2 text-sm font-medium">${s.symbol.replace('/USDT','')}</span>
+      </div>
+      <div class="text-right">
+        <div class="text-xs ${s.momentum>=0?'stat-up':'stat-down'}">${s.momentum>=0?'+':''}${s.momentum}%动量</div>
+        <div class="text-xs text-gray-500">分=${s.score}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ── 主入口 ────────────────────────────────────────────────────────────────────
+(async () => {
+  initCharts();
+  await Promise.all([loadStats(), loadEquity(), loadRegime(), loadTrades(), loadLiveState()]);
+  refreshSignals();
+
+  // 每5分钟自动刷新
+  setInterval(() => {
+    loadStats(); loadLiveState(); loadTrades();
+  }, 5 * 60 * 1000);
+})();
+</script>
+</body>
+</html>
