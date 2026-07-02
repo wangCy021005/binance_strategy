@@ -3,6 +3,9 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -13,7 +16,7 @@
     "react-dom": "^18.2.0",
     "recharts": "^2.10.3",
     "swr": "^2.2.4",
-    "date-fns": "^3.3.1",
+    "date-fns": "^2.30.0",
     "clsx": "^2.1.0"
   },
   "devDependencies": {
