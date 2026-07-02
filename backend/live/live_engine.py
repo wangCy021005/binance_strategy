@@ -158,7 +158,59 @@ class LiveEngine:
         STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
         STATE_FILE.write_text(json.dumps(state, indent=2, ensure_ascii=False))
         logger.info("状态已保存: %s", STATE_FILE)
+
+        # ── Step 9: 写入 live_signals.json（供 React 前端读取）────────────
+        signals_data = {
+            "as_of":   latest_ts[:10],
+            "regime":  rs.regime,
+            "slots":   rs.max_slots,
+            "cap_pct": int(rs.position_cap * 100),
+            "signals": [
+                {
+                    "symbol":    s["symbol"],
+                    "direction": "long" if s["direction"] > 0 else "short",
+                    "score":     round(s["score"], 3),
+                    "momentum":  round(s.get("momentum", 0) * 100, 1),
+                    "strategy":  s.get("strategy", ""),
+                }
+                for s in candidates
+            ] if rs.max_slots > 0 else [],
+            "timestamp": ts,
+        }
+        signals_file = STATE_FILE.parent / "live_signals.json"
+        signals_file.write_text(json.dumps(signals_data, indent=2, ensure_ascii=False))
+
+        # ── Step 10: 推送数据到 GitHub（更新 React 前端看到的数据）─────────
+        self._push_to_github()
         logger.info("=" * 60)
+
+    def _push_to_github(self):
+        """把 data/*.json 推送到 GitHub，让 React 前端读到最新数据"""
+        try:
+            import subprocess
+            repo = str(PROJECT_ROOT)
+            files = ["data/latest.json", "data/live_state.json", "data/live_signals.json"]
+            existing = [f for f in files if (PROJECT_ROOT / f).exists()]
+            if not existing:
+                return
+
+            subprocess.run(["git", "add"] + existing, cwd=repo, check=True,
+                           capture_output=True)
+            result = subprocess.run(
+                ["git", "diff", "--cached", "--quiet"], cwd=repo, capture_output=True
+            )
+            if result.returncode == 0:
+                logger.info("data/*.json 无变化，跳过 push")
+                return
+
+            msg = f"data: 实盘数据更新 {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M')}"
+            subprocess.run(["git", "commit", "-m", msg], cwd=repo, check=True,
+                           capture_output=True)
+            subprocess.run(["git", "push", "origin", "main"], cwd=repo, check=True,
+                           capture_output=True)
+            logger.info("✅ 数据已推送到 GitHub，React 前端将自动更新")
+        except Exception as e:
+            logger.warning("GitHub push 失败（不影响交易）: %s", e)
 
     def _update_data(self):
         """增量更新本地 SQLite 缓存（只拉最新N条）"""
