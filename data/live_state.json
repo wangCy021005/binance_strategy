@@ -1,0 +1,36 @@
+{
+  "timestamp": "2026-07-03T09:01:09Z",
+  "dry_run": true,
+  "regime": "ranging",
+  "risk_level": "NORMAL",
+  "portfolio": 1000.0,
+  "targets": [
+    {
+      "symbol": "UNI/USDT",
+      "direction": -1,
+      "size_usdt": 166.66666666666666,
+      "score": 0.3,
+      "strategy": "momentum"
+    },
+    {
+      "symbol": "LINK/USDT",
+      "direction": -1,
+      "size_usdt": 166.66666666666666,
+      "score": 0.29223,
+      "strategy": "momentum"
+    },
+    {
+      "symbol": "ETH/USDT",
+      "direction": -1,
+      "size_usdt": 166.66666666666666,
+      "score": 0.29165178564039673,
+      "strategy": "momentum"
+    }
+  ],
+  "closed": [],
+  "opened": [
+    "UNI/USDT",
+    "LINK/USDT",
+    "ETH/USDT"
+  ]
+}

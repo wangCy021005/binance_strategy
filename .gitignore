@@ -4,7 +4,8 @@ __pycache__/
 *.pyo
 .DS_Store
 cache_db/*.db
-data/*.json
+# data/*.json  ← 不再忽略，需要推送到 GitHub 供 React 前端读取
+data/alpha_formula.json
 logs/
 *.egg-info/
 dist/

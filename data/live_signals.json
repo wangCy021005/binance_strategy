@@ -1,0 +1,37 @@
+{
+  "as_of": "2026-07-02",
+  "regime": "ranging",
+  "slots": 3,
+  "cap_pct": 50,
+  "signals": [
+    {
+      "symbol": "UNI/USDT",
+      "direction": "short",
+      "score": 0.3,
+      "momentum": -18.0,
+      "strategy": "momentum"
+    },
+    {
+      "symbol": "LINK/USDT",
+      "direction": "short",
+      "score": 0.292,
+      "momentum": -14.8,
+      "strategy": "momentum"
+    },
+    {
+      "symbol": "ETH/USDT",
+      "direction": "short",
+      "score": 0.292,
+      "momentum": -16.1,
+      "strategy": "momentum"
+    },
+    {
+      "symbol": "ADA/USDT",
+      "direction": "short",
+      "score": 0.269,
+      "momentum": -43.7,
+      "strategy": "momentum"
+    }
+  ],
+  "timestamp": "2026-07-03T09:01:09Z"
+}
