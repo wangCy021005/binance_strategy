@@ -1,8 +1,11 @@
 {
   "buildCommand": "npm run build",
-  "installCommand": "npm install --legacy-peer-deps",
+  "installCommand": "npm install --legacy-peer-deps --registry https://registry.npmjs.org",
   "outputDirectory": "dist",
   "framework": "vite",
+  "env": {
+    "npm_config_registry": "https://registry.npmjs.org"
+  },
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
