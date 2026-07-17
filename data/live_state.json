@@ -1,36 +1,38 @@
 {
-  "timestamp": "2026-07-03T09:01:09Z",
+  "timestamp": "2026-07-17T09:22:48Z",
   "dry_run": true,
   "regime": "ranging",
-  "risk_level": "NORMAL",
-  "portfolio": 1000.0,
-  "targets": [
+  "portfolio": 499.8,
+  "nav": 0.4998,
+  "positions": [
     {
-      "symbol": "UNI/USDT",
-      "direction": -1,
-      "size_usdt": 166.66666666666666,
-      "score": 0.3,
-      "strategy": "momentum"
+      "symbol": "ATOM/USDT",
+      "side": "short",
+      "qty": 110.96316,
+      "entry": 1.502,
+      "current": 1.502,
+      "pnl_pct": 0.0
     },
     {
-      "symbol": "LINK/USDT",
-      "direction": -1,
-      "size_usdt": 166.66666666666666,
-      "score": 0.29223,
-      "strategy": "momentum"
+      "symbol": "LTC/USDT",
+      "side": "short",
+      "qty": 3.744477,
+      "entry": 44.51,
+      "current": 44.51,
+      "pnl_pct": 0.0
     },
     {
-      "symbol": "ETH/USDT",
-      "direction": -1,
-      "size_usdt": 166.66666666666666,
-      "score": 0.29165178564039673,
-      "strategy": "momentum"
+      "symbol": "DOT/USDT",
+      "side": "short",
+      "qty": 195.388824,
+      "entry": 0.853,
+      "current": 0.853,
+      "pnl_pct": 0.0
     }
   ],
-  "closed": [],
   "opened": [
-    "UNI/USDT",
-    "LINK/USDT",
-    "ETH/USDT"
+    "ATOM/USDT",
+    "LTC/USDT",
+    "DOT/USDT"
   ]
 }

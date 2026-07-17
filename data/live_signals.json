@@ -1,37 +1,36 @@
 {
-  "as_of": "2026-07-02",
+  "as_of": "2026-07-17",
   "regime": "ranging",
   "slots": 3,
   "cap_pct": 50,
   "signals": [
     {
-      "symbol": "UNI/USDT",
+      "symbol": "ATOM/USDT",
       "direction": "short",
-      "score": 0.3,
-      "momentum": -18.0,
+      "score": 0.288,
+      "momentum": -17.7,
       "strategy": "momentum"
     },
     {
-      "symbol": "LINK/USDT",
+      "symbol": "LTC/USDT",
       "direction": "short",
-      "score": 0.292,
-      "momentum": -14.8,
+      "score": 0.259,
+      "momentum": -17.6,
       "strategy": "momentum"
     },
     {
-      "symbol": "ETH/USDT",
+      "symbol": "DOT/USDT",
       "direction": "short",
-      "score": 0.292,
-      "momentum": -16.1,
+      "score": 0.253,
+      "momentum": -43.4,
       "strategy": "momentum"
     },
     {
-      "symbol": "ADA/USDT",
+      "symbol": "OP/USDT",
       "direction": "short",
-      "score": 0.269,
-      "momentum": -43.7,
+      "score": 0.253,
+      "momentum": -17.7,
       "strategy": "momentum"
     }
-  ],
-  "timestamp": "2026-07-03T09:01:09Z"
+  ]
 }

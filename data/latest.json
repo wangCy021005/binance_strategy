@@ -10091,5 +10091,22 @@
     "bear": 72,
     "bull": 343,
     "crisis": 108
+  },
+  "sim_equity": [
+    {
+      "time": "2026-07-17T09:23:49Z",
+      "nav": 0.4998,
+      "cash": 499.8,
+      "total": 499.8
+    }
+  ],
+  "sim_trades": [],
+  "sim_stats": {
+    "nav": 0.4998,
+    "total_return": -50.019999999999996,
+    "cash": 499.79999999999995,
+    "positions": 3,
+    "total_trades": 0,
+    "win_rate": 0
   }
 }
