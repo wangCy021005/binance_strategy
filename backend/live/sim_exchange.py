@@ -77,19 +77,20 @@ class SimExchange:
     def get_balance(self, prices: dict = None):
         """返回 {cash, positions_pnl, total}
         total = cash（未占用）+ 每个持仓的（保证金 + 浮盈亏）
+        prices 为空时用 entry 作 fallback（P&L≈0，但保证金算对）
         """
         cash = self.state["cash"]
         pos_pnl = 0.0
         pos_margin = 0.0
-        if prices:
-            for sym, pos in self.state["positions"].items():
-                price = prices.get(sym, pos["entry"])
-                margin = pos["qty"] * pos["entry"]
-                pos_margin += margin
-                if pos["side"] == "long":
-                    pos_pnl += pos["qty"] * (price - pos["entry"])
-                else:
-                    pos_pnl += pos["qty"] * (pos["entry"] - price)
+        prices = prices or {}
+        for sym, pos in self.state["positions"].items():
+            price = prices.get(sym) or pos["entry"]
+            margin = pos["qty"] * pos["entry"]
+            pos_margin += margin
+            if pos["side"] == "long":
+                pos_pnl += pos["qty"] * (price - pos["entry"])
+            else:
+                pos_pnl += pos["qty"] * (pos["entry"] - price)
         total = cash + pos_margin + pos_pnl
         return {"cash": cash, "positions_pnl": pos_pnl, "total": total}
 
@@ -244,8 +245,16 @@ class SimExchange:
             logger.info("[SIM] 资金费率成本: %.2f USDT", cost)
 
     # ── 净值记录 ────────────────────────────────────────────────────────────
-    def record_equity(self, prices: dict):
-        """记录当日净值到历史"""
+    def record_equity(self, prices: dict = None):
+        """记录当日净值到历史（prices 为空时补拉实时价格）"""
+        prices = prices or {}
+        # 如果传进来的 prices 不全，补拉持仓的价格
+        for sym in self.state["positions"]:
+            if sym not in prices:
+                p = self.get_price(sym)
+                if p > 0:
+                    prices[sym] = p
+
         bal = self.get_balance(prices)
         nav = bal["total"] / self.state["initial_cash"]
         ts = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
