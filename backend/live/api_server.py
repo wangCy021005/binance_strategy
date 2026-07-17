@@ -77,6 +77,21 @@ def api_stats():
     })
 
 
+@app.route("/api/latest")
+def api_latest():
+    """返回完整 latest.json（含 sim_equity 模拟净值历史）"""
+    return jsonify(_load_latest())
+
+
+@app.route("/api/sim")
+def api_sim():
+    """模拟账户状态（sim_account.json）"""
+    p = DATA_DIR / "sim_account.json"
+    if not p.exists():
+        return jsonify({})
+    return jsonify(json.loads(p.read_text()))
+
+
 @app.route("/api/equity")
 def api_equity():
     data   = _load_latest()

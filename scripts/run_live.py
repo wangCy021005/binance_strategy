@@ -1,24 +1,25 @@
 """
-实盘运行入口
+实盘/模拟运行入口
 建议每天 UTC 00:10 运行（日线收盘5分钟后）
 
 用法：
-  # 模拟模式（不发真实订单，安全测试）
+  # 模拟模式（真实跟踪盈亏，不需要 API Key）
   python scripts/run_live.py --dry-run
 
-  # 实盘模式（需要设置 API KEY）
+  # 实盘模式（需要 Binance API Key）
   export BINANCE_API_KEY=your_key
   export BINANCE_API_SECRET=your_secret
-  python scripts/run_live.py
+  python scripts/run_live.py --live
 
-  # 设置定时任务（每天 UTC 00:10 自动运行）
+  # 定时任务（每天 UTC 00:10，自动 push GitHub 更新 Dashboard）
   crontab -e
-  10 0 * * * cd /Users/wangcy/binance_strategy && /path/to/python scripts/run_live.py >> logs/live.log 2>&1
+  10 0 * * * /path/to/python /path/to/scripts/run_live.py --dry-run >> logs/live.log 2>&1
 
-注意：
-  - 首次运行前务必用 --dry-run 验证逻辑正确
-  - 初期建议只用 100-500 USDT 测试（在 Binance 账户中单独划一个小合约账户）
-  - 默认1x杠杆，最大亏损 = 单笔仓位大小（不会爆仓）
+模拟模式说明：
+  - 首次运行创建 1000 USDT 模拟账户
+  - 每天拉实时价格，跟踪持仓盈亏 + 止损 + 资金费率成本
+  - 净值曲线持久化到 data/sim_account.json
+  - Dashboard 显示真实模拟净值（不是写死的 1000）
 """
 import sys
 import argparse
@@ -53,8 +54,7 @@ def main():
 
     dry_run = not args.live
     if dry_run:
-        logger.info("🟡 DRY_RUN 模式 — 不会发出真实订单")
-        logger.info("   实盘模式请加 --live 参数（并确保已设置 API KEY）")
+        logger.info("🟡 模拟模式 — 真实跟踪盈亏，不发真实订单")
     else:
         logger.info("🔴 实盘模式 — 会发出真实订单！")
         # 确认提示

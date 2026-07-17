@@ -114,3 +114,34 @@ export function useSignals() {
   })
   return { signals: data, isLoading, isError: !!error, refresh: mutate }
 }
+
+/** 模拟账户（真实跟踪盈亏） */
+export function useSimAccount() {
+  const url = isProd
+    ? githubRaw('data/sim_account.json')
+    : 'http://localhost:5555/api/sim'   // 本地需要 Flask 加这个端点
+  const { data, error, isLoading } = useSWR(url, fetcher, {
+    refreshInterval: 60 * 1000,
+  })
+  return { sim: data, isLoading, isError: !!error }
+}
+
+/** 从 latest.json 提取模拟净值历史（合并进 equity 的方式） */
+export function useSimEquity() {
+  const { stats, meta } = useStats()
+  // latest.json 里有 sim_equity 字段（live_engine 写入）
+  // 但 useStats 只返回 stats，我们需要原始 latest.json
+  // 这里直接再请求一次 latest.json 拿 sim_equity
+  const url = isProd
+    ? githubRaw('data/latest.json')
+    : '/api/latest'
+  const { data } = useSWR(url, fetcher, {
+    refreshInterval: 5 * 60 * 1000,
+  })
+
+  const simEquity = data?.sim_equity || []
+  const simStats  = data?.sim_stats || {}
+  const simTrades = data?.sim_trades || []
+
+  return { simEquity, simStats, simTrades }
+}
