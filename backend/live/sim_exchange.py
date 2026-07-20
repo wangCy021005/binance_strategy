@@ -33,8 +33,14 @@ class SimExchange:
     """模拟交易所，持久化持仓和净值"""
 
     def __init__(self, initial_cash: float = 1000.0):
-        self._ex = ccxt.binance({"enableRateLimit": True,
-                                  "options": {"fetchMarkets": ["spot"]}})
+        # 国内服务器访问 api.binance.com 被墙，用 binance.vision 公共数据域名
+        self._ex = ccxt.binance({
+            "enableRateLimit": True,
+            "options": {"fetchMarkets": ["spot"]},
+            "urls": {
+                "api": "https://data-api.binance.vision/api",
+            },
+        })
         self.initial = initial_cash
         self.state = self._load()
 

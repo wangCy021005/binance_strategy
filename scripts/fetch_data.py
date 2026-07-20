@@ -27,10 +27,13 @@ logger = logging.getLogger("fetch")
 
 
 def get_spot_exchange():
-    """现货 K 线（只加载 spot 市场，跳过 coin-M 期货避免 dapi 被拦）"""
+    """现货 K 线（只加载 spot 市场，跳过 coin-M 期货避免 dapi 被拦）
+    国内服务器用 data-api.binance.vision（公共数据域名，免代理可达）
+    """
     return ccxt.binance({
         "enableRateLimit": True,
         "options": {"fetchMarkets": ["spot"]},
+        "urls": {"api": "https://data-api.binance.vision/api"},
     })
 
 
