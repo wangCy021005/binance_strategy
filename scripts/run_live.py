@@ -27,6 +27,13 @@ import logging
 from pathlib import Path
 from datetime import datetime, timezone
 
+# 自动从项目根目录 .env 加载密钥（crontab 也能读到 GITHUB_TOKEN）
+try:
+    from dotenv import load_dotenv
+    load_dotenv(Path(__file__).parent.parent / ".env")
+except ImportError:
+    pass
+
 sys.path.insert(0, str(Path(__file__).parent.parent / "backend"))
 
 # 设置日志
