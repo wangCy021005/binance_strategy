@@ -5,31 +5,31 @@
   "cap_pct": 50,
   "signals": [
     {
-      "symbol": "BNB/USDT",
-      "direction": "short",
-      "score": 0.248,
-      "momentum": -13.8,
-      "strategy": "momentum"
-    },
-    {
       "symbol": "DOT/USDT",
       "direction": "short",
-      "score": 0.24,
-      "momentum": -41.7,
+      "score": 0.277,
+      "momentum": -43.1,
       "strategy": "momentum"
     },
     {
-      "symbol": "OP/USDT",
+      "symbol": "AVAX/USDT",
       "direction": "short",
-      "score": 0.228,
-      "momentum": -21.8,
+      "score": 0.275,
+      "momentum": -35.0,
       "strategy": "momentum"
     },
     {
       "symbol": "ATOM/USDT",
       "direction": "short",
-      "score": 0.218,
-      "momentum": -19.2,
+      "score": 0.262,
+      "momentum": -20.6,
+      "strategy": "momentum"
+    },
+    {
+      "symbol": "OP/USDT",
+      "direction": "short",
+      "score": 0.236,
+      "momentum": -26.0,
       "strategy": "momentum"
     }
   ]
