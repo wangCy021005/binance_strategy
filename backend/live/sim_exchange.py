@@ -14,15 +14,17 @@
 from __future__ import annotations
 import json
 import logging
+import requests
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
 
-import ccxt
-
 logger = logging.getLogger("live.sim")
 
 STATE_FILE = Path(__file__).parent.parent.parent / "data" / "sim_account.json"
+
+# 国内服务器用 binance.vision 公共数据域名（api.binance.com 被墙）
+PRICE_API = "https://data-api.binance.vision/api/v3/ticker/price"
 
 # 模拟交易成本
 COMM_RATE   = 0.0004   # 0.04% taker 手续费
@@ -33,14 +35,6 @@ class SimExchange:
     """模拟交易所，持久化持仓和净值"""
 
     def __init__(self, initial_cash: float = 1000.0):
-        # 国内服务器访问 api.binance.com 被墙，用 binance.vision 公共数据域名
-        self._ex = ccxt.binance({
-            "enableRateLimit": True,
-            "options": {"fetchMarkets": ["spot"]},
-            "urls": {
-                "api": "https://data-api.binance.vision/api",
-            },
-        })
         self.initial = initial_cash
         self.state = self._load()
 
@@ -64,12 +58,15 @@ class SimExchange:
 
     # ── 实时行情 ───────────────────────────────────────────────────────────
     def get_price(self, symbol: str) -> float:
+        """通过 binance.vision REST API 拉实时价格（国内可达）"""
         try:
-            t = self._ex.fetch_ticker(symbol)
-            return float(t["last"])
+            sym_db = symbol.replace("/", "")   # BTC/USDT → BTCUSDT
+            r = requests.get(PRICE_API, params={"symbol": sym_db}, timeout=10)
+            if r.status_code == 200:
+                return float(r.json()["price"])
         except Exception as e:
             logger.warning("get_price(%s) 失败: %s", symbol, e)
-            return 0.0
+        return 0.0
 
     def get_prices(self, symbols: list[str]) -> dict[str, float]:
         prices = {}
