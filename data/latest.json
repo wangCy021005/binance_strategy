@@ -10094,18 +10094,18 @@
   },
   "sim_equity": [
     {
-      "time": "2026-07-20T02:30:00Z",
-      "nav": 1.0,
-      "cash": 1000.0,
-      "total": 1000.0
+      "time": "2026-07-20T02:36:12Z",
+      "nav": 0.9998,
+      "cash": 499.8,
+      "total": 999.8
     }
   ],
   "sim_trades": [],
   "sim_stats": {
-    "nav": 1.0,
-    "total_return": 0.0,
-    "cash": 1000.0,
-    "positions": 0,
+    "nav": 0.9998,
+    "total_return": -0.019999999999997797,
+    "cash": 499.79999999999995,
+    "positions": 3,
     "total_trades": 0,
     "win_rate": 0
   }
