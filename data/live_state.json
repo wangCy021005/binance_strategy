@@ -1,34 +1,9 @@
 {
-  "timestamp": "2026-07-20T02:18:35Z",
+  "timestamp": "2026-07-20T02:26:56Z",
   "dry_run": true,
   "regime": "ranging",
-  "portfolio": 999.65,
-  "nav": 0.9996,
-  "positions": [
-    {
-      "symbol": "ATOM/USDT",
-      "side": "short",
-      "qty": 110.815603,
-      "entry": 1.504,
-      "current": 1.504,
-      "pnl_pct": 0.0
-    },
-    {
-      "symbol": "LTC/USDT",
-      "side": "short",
-      "qty": 3.740275,
-      "entry": 44.56,
-      "current": 44.56,
-      "pnl_pct": 0.0
-    },
-    {
-      "symbol": "DOT/USDT",
-      "side": "short",
-      "qty": 195.388824,
-      "entry": 0.853,
-      "current": 0.853,
-      "pnl_pct": 0.0
-    }
-  ],
+  "portfolio": 1000.0,
+  "nav": 1.0,
+  "positions": [],
   "opened": []
 }
