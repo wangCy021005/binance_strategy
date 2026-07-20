@@ -269,29 +269,16 @@ class LiveEngine:
             logger.warning("更新 latest.json 失败: %s", e)
 
     def _push_to_github(self):
-        """推送数据到 GitHub（Dashboard 自动更新）"""
+        """推送数据到 GitHub（用 API，绕过 git protocol）
+        国内服务器访问 github.com 超时，改用 api.github.com
+        """
         try:
-            import subprocess
-            files = ["data/latest.json", "data/live_state.json",
-                     "data/live_signals.json", "data/sim_account.json"]
-            existing = [f for f in files if (PROJECT_ROOT / f).exists()]
-            if not existing:
-                return
-            subprocess.run(["git", "add"] + existing, cwd=str(PROJECT_ROOT),
-                           check=True, capture_output=True)
-            result = subprocess.run(
-                ["git", "diff", "--cached", "--quiet"], cwd=str(PROJECT_ROOT),
-                capture_output=True
-            )
-            if result.returncode == 0:
-                logger.info("数据无变化，跳过 push")
-                return
-            msg = f"data: 模拟交易更新 {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M')}"
-            subprocess.run(["git", "commit", "-m", msg], cwd=str(PROJECT_ROOT),
-                           check=True, capture_output=True)
-            subprocess.run(["git", "push", "origin", "main"], cwd=str(PROJECT_ROOT),
-                           check=True, capture_output=True)
-            logger.info("✅ 数据已推送到 GitHub")
+            from live.github_push import push_data_files
+            n = push_data_files(PROJECT_ROOT)
+            if n > 0:
+                logger.info("✅ 推送 %d 个文件到 GitHub", n)
+            else:
+                logger.info("无数据文件需要推送")
         except Exception as e:
             logger.warning("GitHub push 失败: %s", e)
 
