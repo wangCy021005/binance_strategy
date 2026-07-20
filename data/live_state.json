@@ -1,38 +1,28 @@
 {
-  "timestamp": "2026-07-20T02:33:05Z",
+  "timestamp": "2026-07-20T03:40:49Z",
   "dry_run": true,
-  "regime": "ranging",
-  "portfolio": 999.8,
-  "nav": 0.9998,
+  "regime": "backfill",
+  "portfolio": 588.6603712419726,
+  "nav": 1.2732,
   "positions": [
+    {
+      "symbol": "DOGE/USDT",
+      "side": "short",
+      "qty": 2557.0974,
+      "entry_price": 0.08247
+    },
+    {
+      "symbol": "ADA/USDT",
+      "side": "short",
+      "qty": 1163.5807,
+      "entry_price": 0.1798
+    },
     {
       "symbol": "DOT/USDT",
       "side": "short",
-      "qty": 205.00205,
-      "entry": 0.813,
-      "current": 0.813,
-      "pnl_pct": 0.0
-    },
-    {
-      "symbol": "AVAX/USDT",
-      "side": "short",
-      "qty": 25.283172,
-      "entry": 6.592,
-      "current": 6.592,
-      "pnl_pct": 0.0
-    },
-    {
-      "symbol": "ATOM/USDT",
-      "side": "short",
-      "qty": 114.077116,
-      "entry": 1.461,
-      "current": 1.461,
-      "pnl_pct": 0.0
+      "qty": 238.7991,
+      "entry_price": 0.877
     }
   ],
-  "opened": [
-    "DOT/USDT",
-    "AVAX/USDT",
-    "ATOM/USDT"
-  ]
+  "opened": []
 }
