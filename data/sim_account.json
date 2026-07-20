@@ -1,46 +1,15 @@
 {
-  "cash": 499.65,
+  "cash": 1000.0,
   "initial_cash": 1000.0,
-  "positions": {
-    "ATOM/USDT": {
-      "side": "short",
-      "qty": 110.81560283687942,
-      "entry": 1.504,
-      "high": 1.504,
-      "open_time": "2026-07-17T09:26:21Z",
-      "strategy": "momentum"
-    },
-    "LTC/USDT": {
-      "side": "short",
-      "qty": 3.740275284260921,
-      "entry": 44.56,
-      "high": 44.56,
-      "open_time": "2026-07-17T09:26:21Z",
-      "strategy": "momentum"
-    },
-    "DOT/USDT": {
-      "side": "short",
-      "qty": 195.38882375928097,
-      "entry": 0.853,
-      "high": 0.853,
-      "open_time": "2026-07-17T09:26:21Z",
-      "strategy": "momentum"
-    }
-  },
+  "positions": {},
   "trades": [],
   "equity_history": [
     {
-      "time": "2026-07-17T09:26:21Z",
-      "nav": 0.9998,
-      "cash": 499.8,
-      "total": 999.8
-    },
-    {
-      "time": "2026-07-20T02:25:26Z",
-      "nav": 0.9996,
-      "cash": 499.65,
-      "total": 999.65
+      "time": "2026-07-20T02:30:00Z",
+      "nav": 1.0,
+      "cash": 1000.0,
+      "total": 1000.0
     }
   ],
-  "last_update": "2026-07-20T02:25:26Z"
+  "last_update": "2026-07-20T02:30:00Z"
 }
