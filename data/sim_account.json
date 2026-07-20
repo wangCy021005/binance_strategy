@@ -1,40 +1,4168 @@
 {
-  "cash": 499.79999999999995,
+  "cash": 588.6603712419726,
   "initial_cash": 1000.0,
   "positions": {
+    "DOGE/USDT": {
+      "side": "short",
+      "qty": 2557.0973697527497,
+      "entry": 0.08247,
+      "high": 0.07197,
+      "open_time": "2026-07-20T03:40:48Z",
+      "strategy": "momentum"
+    },
+    "ADA/USDT": {
+      "side": "short",
+      "qty": 1163.5807268875558,
+      "entry": 0.1798,
+      "high": 0.1576,
+      "open_time": "2026-07-20T03:40:49Z",
+      "strategy": "momentum"
+    },
     "DOT/USDT": {
       "side": "short",
-      "qty": 205.0020500205002,
-      "entry": 0.813,
-      "high": 0.813,
-      "open_time": "2026-07-20T02:36:12Z",
-      "strategy": "momentum"
-    },
-    "AVAX/USDT": {
-      "side": "short",
-      "qty": 25.283171521035598,
-      "entry": 6.592,
-      "high": 6.592,
-      "open_time": "2026-07-20T02:36:12Z",
-      "strategy": "momentum"
-    },
-    "ATOM/USDT": {
-      "side": "short",
-      "qty": 114.07711613050421,
-      "entry": 1.461,
-      "high": 1.461,
-      "open_time": "2026-07-20T02:36:12Z",
+      "qty": 238.79912382471366,
+      "entry": 0.877,
+      "high": 0.82,
+      "open_time": "2026-07-20T03:40:49Z",
       "strategy": "momentum"
     }
   },
-  "trades": [],
-  "equity_history": [
+  "trades": [
     {
-      "time": "2026-07-20T02:36:12Z",
-      "nav": 0.9998,
-      "cash": 499.8,
-      "total": 999.8
+      "time": "2026-07-20T03:40:32Z",
+      "symbol": "DOT/USDT",
+      "side": "close_long",
+      "entry": 7.754,
+      "exit": 7.014,
+      "pnl": -16.7305,
+      "pnl_pct": -9.54,
+      "reason": "硬止损 -9.5%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:32Z",
+      "symbol": "ADA/USDT",
+      "side": "close_long",
+      "entry": 0.9222,
+      "exit": 0.9468,
+      "pnl": 4.4459,
+      "pnl_pct": 2.67,
+      "reason": "追踪止损 -13.4%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:32Z",
+      "symbol": "LINK/USDT",
+      "side": "close_long",
+      "entry": 21.73,
+      "exit": 20.44,
+      "pnl": -9.8942,
+      "pnl_pct": -5.94,
+      "reason": "追踪止损 -14.2%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:32Z",
+      "symbol": "TRX/USDT",
+      "side": "close_long",
+      "entry": 0.2505,
+      "exit": 0.2228,
+      "pnl": -18.045,
+      "pnl_pct": -11.06,
+      "reason": "硬止损 -11.1%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:32Z",
+      "symbol": "AAVE/USDT",
+      "side": "close_long",
+      "entry": 293.31,
+      "exit": 316.56,
+      "pnl": 12.9354,
+      "pnl_pct": 7.93,
+      "reason": "追踪止损 -14.6%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:32Z",
+      "symbol": "SOL/USDT",
+      "side": "close_long",
+      "entry": 261.97,
+      "exit": 240.5,
+      "pnl": -19.4158,
+      "pnl_pct": -8.2,
+      "reason": "硬止损 -8.2%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:33Z",
+      "symbol": "XRP/USDT",
+      "side": "close_long",
+      "entry": 2.3328,
+      "exit": 2.8778,
+      "pnl": 38.9375,
+      "pnl_pct": 23.36,
+      "reason": "追踪止损 -12.6%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:33Z",
+      "symbol": "LTC/USDT",
+      "side": "close_long",
+      "entry": 130.15,
+      "exit": 118.04,
+      "pnl": -22.484,
+      "pnl_pct": -9.3,
+      "reason": "硬止损 -9.3%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:33Z",
+      "symbol": "LINK/USDT",
+      "side": "close_long",
+      "entry": 22.98,
+      "exit": 20.46,
+      "pnl": -26.0286,
+      "pnl_pct": -10.97,
+      "reason": "硬止损 -11.0%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:33Z",
+      "symbol": "TRX/USDT",
+      "side": "close_long",
+      "entry": 0.2228,
+      "exit": 0.2225,
+      "pnl": -0.2174,
+      "pnl_pct": -0.13,
+      "reason": "追踪止损 -12.5%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:33Z",
+      "symbol": "XRP/USDT",
+      "side": "close_long",
+      "entry": 2.58,
+      "exit": 2.325,
+      "pnl": -17.3569,
+      "pnl_pct": -9.88,
+      "reason": "硬止损 -9.9%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:33Z",
+      "symbol": "FET/USDT",
+      "side": "close_short",
+      "entry": 1.334,
+      "exit": 0.822,
+      "pnl": 66.6748,
+      "pnl_pct": 38.38,
+      "reason": "追踪止损 -15.3%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:33Z",
+      "symbol": "OP/USDT",
+      "side": "close_short",
+      "entry": 1.562,
+      "exit": 1.157,
+      "pnl": 44.6813,
+      "pnl_pct": 25.93,
+      "reason": "追踪止损 -13.5%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:33Z",
+      "symbol": "LTC/USDT",
+      "side": "close_long",
+      "entry": 133.86,
+      "exit": 122.31,
+      "pnl": -15.463,
+      "pnl_pct": -8.63,
+      "reason": "硬止损 -8.6%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:33Z",
+      "symbol": "XRP/USDT",
+      "side": "close_long",
+      "entry": 2.325,
+      "exit": 2.2783,
+      "pnl": -3.5361,
+      "pnl_pct": -2.01,
+      "reason": "追踪止损 -17.5%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:33Z",
+      "symbol": "OP/USDT",
+      "side": "close_short",
+      "entry": 1.157,
+      "exit": 1.156,
+      "pnl": 0.1529,
+      "pnl_pct": 0.09,
+      "reason": "追踪止损 -15.1%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:33Z",
+      "symbol": "FET/USDT",
+      "side": "close_short",
+      "entry": 0.822,
+      "exit": 0.748,
+      "pnl": 15.65,
+      "pnl_pct": 9.0,
+      "reason": "追踪止损 -16.7%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:33Z",
+      "symbol": "SOL/USDT",
+      "side": "close_short",
+      "entry": 141.81,
+      "exit": 178.71,
+      "pnl": -46.0849,
+      "pnl_pct": -26.02,
+      "reason": "硬止损 -26.0%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "symbol": "LTC/USDT",
+      "side": "close_long",
+      "entry": 124.68,
+      "exit": 109.89,
+      "pnl": -20.7312,
+      "pnl_pct": -11.86,
+      "reason": "硬止损 -11.9%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "symbol": "ADA/USDT",
+      "side": "close_long",
+      "entry": 1.135,
+      "exit": 0.8578,
+      "pnl": -39.881,
+      "pnl_pct": -24.42,
+      "reason": "硬止损 -24.4%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "symbol": "AVAX/USDT",
+      "side": "close_short",
+      "entry": 20.95,
+      "exit": 18.91,
+      "pnl": 15.2464,
+      "pnl_pct": 9.74,
+      "reason": "追踪止损 -16.3%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "symbol": "NEAR/USDT",
+      "side": "close_short",
+      "entry": 2.972,
+      "exit": 2.572,
+      "pnl": 21.0733,
+      "pnl_pct": 13.46,
+      "reason": "追踪止损 -12.6%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "symbol": "ARB/USDT",
+      "side": "close_short",
+      "entry": 0.463,
+      "exit": 0.3588,
+      "pnl": 36.7499,
+      "pnl_pct": 22.51,
+      "reason": "追踪止损 -12.0%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "symbol": "FET/USDT",
+      "side": "close_short",
+      "entry": 0.529,
+      "exit": 0.526,
+      "pnl": 0.943,
+      "pnl_pct": 0.57,
+      "reason": "追踪止损 -13.9%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "symbol": "SOL/USDT",
+      "side": "close_short",
+      "entry": 125.33,
+      "exit": 141.01,
+      "pnl": -20.5672,
+      "pnl_pct": -12.51,
+      "reason": "硬止损 -12.5%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "symbol": "AVAX/USDT",
+      "side": "close_short",
+      "entry": 21.48,
+      "exit": 18.44,
+      "pnl": 22.4613,
+      "pnl_pct": 14.15,
+      "reason": "追踪止损 -15.0%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "symbol": "NEAR/USDT",
+      "side": "close_short",
+      "entry": 2.509,
+      "exit": 2.212,
+      "pnl": 19.7426,
+      "pnl_pct": 11.84,
+      "reason": "追踪止损 -15.9%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "symbol": "DOT/USDT",
+      "side": "close_short",
+      "entry": 4.45,
+      "exit": 3.88,
+      "pnl": 21.0571,
+      "pnl_pct": 12.81,
+      "reason": "追踪止损 -14.9%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "symbol": "ETH/USDT",
+      "side": "close_short",
+      "entry": 1669.51,
+      "exit": 1756.26,
+      "pnl": -9.0244,
+      "pnl_pct": -5.2,
+      "reason": "追踪止损 -15.4%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "symbol": "AVAX/USDT",
+      "side": "close_short",
+      "entry": 20.49,
+      "exit": 22.11,
+      "pnl": -13.6951,
+      "pnl_pct": -7.91,
+      "reason": "追踪止损 -17.9%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "symbol": "INJ/USDT",
+      "side": "close_short",
+      "entry": 8.53,
+      "exit": 9.39,
+      "pnl": -17.5452,
+      "pnl_pct": -10.08,
+      "reason": "硬止损 -10.1%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "symbol": "ETH/USDT",
+      "side": "close_short",
+      "entry": 1756.26,
+      "exit": 2207.39,
+      "pnl": -42.368,
+      "pnl_pct": -25.69,
+      "reason": "硬止损 -25.7%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "symbol": "UNI/USDT",
+      "side": "close_short",
+      "entry": 5.81,
+      "exit": 6.151,
+      "pnl": -9.6806,
+      "pnl_pct": -5.87,
+      "reason": "追踪止损 -26.2%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "symbol": "LTC/USDT",
+      "side": "close_long",
+      "entry": 103.41,
+      "exit": 94.46,
+      "pnl": -18.6914,
+      "pnl_pct": -8.65,
+      "reason": "硬止损 -8.7%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "symbol": "XRP/USDT",
+      "side": "close_long",
+      "entry": 2.4711,
+      "exit": 2.2442,
+      "pnl": -19.5724,
+      "pnl_pct": -9.18,
+      "reason": "硬止损 -9.2%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "symbol": "AVAX/USDT",
+      "side": "close_short",
+      "entry": 21.14,
+      "exit": 21.04,
+      "pnl": 0.7079,
+      "pnl_pct": 0.47,
+      "reason": "追踪止损 -12.2%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "symbol": "OP/USDT",
+      "side": "close_short",
+      "entry": 0.621,
+      "exit": 0.725,
+      "pnl": -25.3102,
+      "pnl_pct": -16.75,
+      "reason": "硬止损 -16.7%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "symbol": "AAVE/USDT",
+      "side": "close_long",
+      "entry": 308.34,
+      "exit": 275.11,
+      "pnl": -15.9374,
+      "pnl_pct": -10.78,
+      "reason": "硬止损 -10.8%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "symbol": "AAVE/USDT",
+      "side": "close_long",
+      "entry": 275.11,
+      "exit": 247.31,
+      "pnl": -14.8586,
+      "pnl_pct": -10.11,
+      "reason": "硬止损 -10.1%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:37Z",
+      "symbol": "AVAX/USDT",
+      "side": "close_short",
+      "entry": 21.04,
+      "exit": 18.73,
+      "pnl": 16.8191,
+      "pnl_pct": 10.98,
+      "reason": "追踪止损 -13.3%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:37Z",
+      "symbol": "DOT/USDT",
+      "side": "close_short",
+      "entry": 3.437,
+      "exit": 3.541,
+      "pnl": -4.4309,
+      "pnl_pct": -3.03,
+      "reason": "追踪止损 -12.3%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:37Z",
+      "symbol": "ARB/USDT",
+      "side": "close_short",
+      "entry": 0.3671,
+      "exit": 0.3963,
+      "pnl": -11.4831,
+      "pnl_pct": -7.95,
+      "reason": "追踪止损 -22.2%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:37Z",
+      "symbol": "OP/USDT",
+      "side": "close_short",
+      "entry": 0.607,
+      "exit": 0.658,
+      "pnl": -12.1295,
+      "pnl_pct": -8.4,
+      "reason": "硬止损 -8.4%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "symbol": "UNI/USDT",
+      "side": "close_long",
+      "entry": 8.692,
+      "exit": 9.344,
+      "pnl": 14.4899,
+      "pnl_pct": 7.5,
+      "reason": "追踪止损 -14.9%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "symbol": "ETH/USDT",
+      "side": "close_long",
+      "entry": 2951.29,
+      "exit": 3393.94,
+      "pnl": 21.3159,
+      "pnl_pct": 15.0,
+      "reason": "追踪止损 -12.3%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "symbol": "BNB/USDT",
+      "side": "close_long",
+      "entry": 685.8,
+      "exit": 736.42,
+      "pnl": 10.4901,
+      "pnl_pct": 7.38,
+      "reason": "追踪止损 -12.7%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "symbol": "UNI/USDT",
+      "side": "close_long",
+      "entry": 9.344,
+      "exit": 10.484,
+      "pnl": 19.1287,
+      "pnl_pct": 12.2,
+      "reason": "追踪止损 -13.6%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "symbol": "LTC/USDT",
+      "side": "close_long",
+      "entry": 106.09,
+      "exit": 112.67,
+      "pnl": 9.3455,
+      "pnl_pct": 6.2,
+      "reason": "追踪止损 -13.9%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "symbol": "LINK/USDT",
+      "side": "close_long",
+      "entry": 18.48,
+      "exit": 23.38,
+      "pnl": 42.7094,
+      "pnl_pct": 26.52,
+      "reason": "追踪止损 -12.7%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:39Z",
+      "symbol": "TRX/USDT",
+      "side": "close_long",
+      "entry": 0.2371,
+      "exit": 0.3145,
+      "pnl": 53.6653,
+      "pnl_pct": 32.64,
+      "reason": "追踪止损 -14.2%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:39Z",
+      "symbol": "FET/USDT",
+      "side": "close_short",
+      "entry": 0.604,
+      "exit": 0.657,
+      "pnl": -14.1908,
+      "pnl_pct": -8.77,
+      "reason": "硬止损 -8.8%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:39Z",
+      "symbol": "ETH/USDT",
+      "side": "close_long",
+      "entry": 4312.99,
+      "exit": 4199.08,
+      "pnl": -4.5334,
+      "pnl_pct": -2.64,
+      "reason": "追踪止损 -13.1%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:39Z",
+      "symbol": "LTC/USDT",
+      "side": "close_long",
+      "entry": 117.66,
+      "exit": 105.65,
+      "pnl": -16.4168,
+      "pnl_pct": -10.21,
+      "reason": "硬止损 -10.2%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "symbol": "BNB/USDT",
+      "side": "close_long",
+      "entry": 869.05,
+      "exit": 1102.47,
+      "pnl": 46.1927,
+      "pnl_pct": 26.86,
+      "reason": "追踪止损 -15.7%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "symbol": "LINK/USDT",
+      "side": "close_long",
+      "entry": 21.65,
+      "exit": 17.31,
+      "pnl": -32.084,
+      "pnl_pct": -20.05,
+      "reason": "硬止损 -20.0%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "symbol": "TRX/USDT",
+      "side": "close_long",
+      "entry": 0.3461,
+      "exit": 0.3144,
+      "pnl": -15.4505,
+      "pnl_pct": -9.16,
+      "reason": "硬止损 -9.2%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "symbol": "ATOM/USDT",
+      "side": "close_short",
+      "entry": 4.161,
+      "exit": 3.483,
+      "pnl": 26.0789,
+      "pnl_pct": 16.29,
+      "reason": "追踪止损 -18.2%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "symbol": "DOT/USDT",
+      "side": "close_short",
+      "entry": 2.946,
+      "exit": 3.241,
+      "pnl": -16.3734,
+      "pnl_pct": -10.01,
+      "reason": "硬止损 -10.0%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "symbol": "SOL/USDT",
+      "side": "close_long",
+      "entry": 177.62,
+      "exit": 181.96,
+      "pnl": 3.9398,
+      "pnl_pct": 2.44,
+      "reason": "追踪止损 -12.8%",
+      "strategy": "funding_arb"
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "symbol": "ATOM/USDT",
+      "side": "close_long",
+      "entry": 3.483,
+      "exit": 3.152,
+      "pnl": -15.1766,
+      "pnl_pct": -9.5,
+      "reason": "硬止损 -9.5%",
+      "strategy": "funding_arb"
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "symbol": "AAVE/USDT",
+      "side": "close_short",
+      "entry": 206.57,
+      "exit": 228.92,
+      "pnl": -17.1048,
+      "pnl_pct": -10.82,
+      "reason": "硬止损 -10.8%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "symbol": "UNI/USDT",
+      "side": "close_short",
+      "entry": 6.132,
+      "exit": 6.665,
+      "pnl": -13.7414,
+      "pnl_pct": -8.69,
+      "reason": "硬止损 -8.7%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:41Z",
+      "symbol": "INJ/USDT",
+      "side": "close_short",
+      "entry": 9.55,
+      "exit": 7.68,
+      "pnl": 31.2708,
+      "pnl_pct": 19.58,
+      "reason": "追踪止损 -21.5%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:41Z",
+      "symbol": "ATOM/USDT",
+      "side": "close_short",
+      "entry": 3.254,
+      "exit": 3.051,
+      "pnl": 9.3273,
+      "pnl_pct": 6.24,
+      "reason": "追踪止损 -21.7%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:41Z",
+      "symbol": "DOT/USDT",
+      "side": "close_short",
+      "entry": 2.871,
+      "exit": 3.254,
+      "pnl": -21.1319,
+      "pnl_pct": -13.34,
+      "reason": "硬止损 -13.3%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:41Z",
+      "symbol": "AAVE/USDT",
+      "side": "close_short",
+      "entry": 228.92,
+      "exit": 212.32,
+      "pnl": 11.1079,
+      "pnl_pct": 7.25,
+      "reason": "追踪止损 -12.9%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:41Z",
+      "symbol": "FET/USDT",
+      "side": "close_short",
+      "entry": 0.3657,
+      "exit": 0.3303,
+      "pnl": 14.9609,
+      "pnl_pct": 9.68,
+      "reason": "追踪止损 -23.0%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:41Z",
+      "symbol": "INJ/USDT",
+      "side": "close_short",
+      "entry": 7.68,
+      "exit": 6.02,
+      "pnl": 33.4061,
+      "pnl_pct": 21.61,
+      "reason": "追踪止损 -12.3%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:42Z",
+      "symbol": "ARB/USDT",
+      "side": "close_short",
+      "entry": 0.2594,
+      "exit": 0.2226,
+      "pnl": 22.6657,
+      "pnl_pct": 14.19,
+      "reason": "追踪止损 -14.9%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:42Z",
+      "symbol": "INJ/USDT",
+      "side": "close_short",
+      "entry": 6.17,
+      "exit": 6.0,
+      "pnl": 4.6676,
+      "pnl_pct": 2.76,
+      "reason": "追踪止损 -15.2%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:42Z",
+      "symbol": "OP/USDT",
+      "side": "close_short",
+      "entry": 0.3338,
+      "exit": 0.3273,
+      "pnl": 3.2988,
+      "pnl_pct": 1.95,
+      "reason": "追踪止损 -13.9%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:42Z",
+      "symbol": "ATOM/USDT",
+      "side": "close_short",
+      "entry": 2.953,
+      "exit": 2.08,
+      "pnl": 46.6095,
+      "pnl_pct": 29.56,
+      "reason": "追踪止损 -12.3%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:43Z",
+      "symbol": "AVAX/USDT",
+      "side": "close_short",
+      "entry": 14.78,
+      "exit": 13.59,
+      "pnl": 13.8026,
+      "pnl_pct": 8.05,
+      "reason": "追踪止损 -18.8%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:43Z",
+      "symbol": "NEAR/USDT",
+      "side": "close_short",
+      "entry": 1.845,
+      "exit": 1.627,
+      "pnl": 20.2558,
+      "pnl_pct": 11.82,
+      "reason": "追踪止损 -14.0%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:43Z",
+      "symbol": "DOT/USDT",
+      "side": "close_short",
+      "entry": 1.91,
+      "exit": 2.166,
+      "pnl": -24.8524,
+      "pnl_pct": -13.4,
+      "reason": "硬止损 -13.4%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:43Z",
+      "symbol": "LINK/USDT",
+      "side": "close_short",
+      "entry": 14.64,
+      "exit": 13.43,
+      "pnl": 14.1688,
+      "pnl_pct": 8.27,
+      "reason": "追踪止损 -12.6%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:43Z",
+      "symbol": "FET/USDT",
+      "side": "close_short",
+      "entry": 0.2302,
+      "exit": 0.2655,
+      "pnl": -27.1166,
+      "pnl_pct": -15.33,
+      "reason": "硬止损 -15.3%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:43Z",
+      "symbol": "FET/USDT",
+      "side": "close_short",
+      "entry": 0.2655,
+      "exit": 0.2901,
+      "pnl": -15.8418,
+      "pnl_pct": -9.27,
+      "reason": "硬止损 -9.3%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:43Z",
+      "symbol": "ATOM/USDT",
+      "side": "close_short",
+      "entry": 2.34,
+      "exit": 2.532,
+      "pnl": -14.0287,
+      "pnl_pct": -8.21,
+      "reason": "硬止损 -8.2%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:43Z",
+      "symbol": "AVAX/USDT",
+      "side": "close_short",
+      "entry": 13.59,
+      "exit": 14.75,
+      "pnl": -15.4835,
+      "pnl_pct": -8.54,
+      "reason": "硬止损 -8.5%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:43Z",
+      "symbol": "INJ/USDT",
+      "side": "close_short",
+      "entry": 5.599,
+      "exit": 5.643,
+      "pnl": -1.2936,
+      "pnl_pct": -0.79,
+      "reason": "追踪止损 -12.3%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "symbol": "XRP/USDT",
+      "side": "close_short",
+      "entry": 1.986,
+      "exit": 1.4698,
+      "pnl": 45.0785,
+      "pnl_pct": 25.99,
+      "reason": "追踪止损 -21.0%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "symbol": "NEAR/USDT",
+      "side": "close_short",
+      "entry": 1.774,
+      "exit": 1.086,
+      "pnl": 64.9547,
+      "pnl_pct": 38.78,
+      "reason": "追踪止损 -12.9%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "symbol": "INJ/USDT",
+      "side": "close_short",
+      "entry": 5.643,
+      "exit": 3.447,
+      "pnl": 63.4489,
+      "pnl_pct": 38.92,
+      "reason": "追踪止损 -15.6%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:45Z",
+      "symbol": "LTC/USDT",
+      "side": "close_short",
+      "entry": 78.18,
+      "exit": 58.7,
+      "pnl": 40.6252,
+      "pnl_pct": 24.92,
+      "reason": "追踪止损 -15.6%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:45Z",
+      "symbol": "ARB/USDT",
+      "side": "close_short",
+      "entry": 0.1004,
+      "exit": 0.1104,
+      "pnl": -19.9563,
+      "pnl_pct": -9.96,
+      "reason": "硬止损 -10.0%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:45Z",
+      "symbol": "DOT/USDT",
+      "side": "close_short",
+      "entry": 1.599,
+      "exit": 1.64,
+      "pnl": -5.1375,
+      "pnl_pct": -2.56,
+      "reason": "追踪止损 -16.0%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:45Z",
+      "symbol": "DOT/USDT",
+      "side": "close_long",
+      "entry": 1.64,
+      "exit": 1.499,
+      "pnl": -22.7922,
+      "pnl_pct": -8.6,
+      "reason": "硬止损 -8.6%",
+      "strategy": "funding_arb"
+    },
+    {
+      "time": "2026-07-20T03:40:45Z",
+      "symbol": "ATOM/USDT",
+      "side": "close_long",
+      "entry": 1.849,
+      "exit": 1.699,
+      "pnl": -16.2543,
+      "pnl_pct": -8.11,
+      "reason": "硬止损 -8.1%",
+      "strategy": "funding_arb"
+    },
+    {
+      "time": "2026-07-20T03:40:46Z",
+      "symbol": "OP/USDT",
+      "side": "close_short",
+      "entry": 0.1215,
+      "exit": 0.1187,
+      "pnl": 4.38,
+      "pnl_pct": 2.3,
+      "reason": "追踪止损 -16.4%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:46Z",
+      "symbol": "AAVE/USDT",
+      "side": "close_short",
+      "entry": 95.79,
+      "exit": 103.26,
+      "pnl": -14.7567,
+      "pnl_pct": -7.8,
+      "reason": "追踪止损 -14.9%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:46Z",
+      "symbol": "DOT/USDT",
+      "side": "close_short",
+      "entry": 1.229,
+      "exit": 1.329,
+      "pnl": -15.0944,
+      "pnl_pct": -8.14,
+      "reason": "硬止损 -8.1%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:46Z",
+      "symbol": "FET/USDT",
+      "side": "close_long",
+      "entry": 0.2421,
+      "exit": 0.2152,
+      "pnl": -21.1919,
+      "pnl_pct": -11.11,
+      "reason": "硬止损 -11.1%",
+      "strategy": "funding_arb"
+    },
+    {
+      "time": "2026-07-20T03:40:46Z",
+      "symbol": "DOT/USDT",
+      "side": "close_long",
+      "entry": 1.329,
+      "exit": 1.211,
+      "pnl": -22.0298,
+      "pnl_pct": -8.88,
+      "reason": "硬止损 -8.9%",
+      "strategy": "funding_arb"
+    },
+    {
+      "time": "2026-07-20T03:40:47Z",
+      "symbol": "FET/USDT",
+      "side": "close_long",
+      "entry": 0.2094,
+      "exit": 0.2035,
+      "pnl": -6.7663,
+      "pnl_pct": -2.82,
+      "reason": "追踪止损 -15.4%",
+      "strategy": "funding_arb"
+    },
+    {
+      "time": "2026-07-20T03:40:47Z",
+      "symbol": "INJ/USDT",
+      "side": "close_long",
+      "entry": 3.584,
+      "exit": 5.405,
+      "pnl": 120.9591,
+      "pnl_pct": 50.81,
+      "reason": "追踪止损 -22.7%",
+      "strategy": "funding_arb"
+    },
+    {
+      "time": "2026-07-20T03:40:47Z",
+      "symbol": "TRX/USDT",
+      "side": "close_long",
+      "entry": 0.3097,
+      "exit": 0.3203,
+      "pnl": 6.4769,
+      "pnl_pct": 3.42,
+      "reason": "追踪止损 -14.7%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:48Z",
+      "symbol": "OP/USDT",
+      "side": "close_short",
+      "entry": 0.1186,
+      "exit": 0.107,
+      "pnl": 20.6521,
+      "pnl_pct": 9.78,
+      "reason": "追踪止损 -17.6%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:48Z",
+      "symbol": "AAVE/USDT",
+      "side": "close_short",
+      "entry": 92.89,
+      "exit": 68.36,
+      "pnl": 50.6229,
+      "pnl_pct": 26.41,
+      "reason": "追踪止损 -12.1%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:48Z",
+      "symbol": "ADA/USDT",
+      "side": "close_short",
+      "entry": 0.183,
+      "exit": 0.1615,
+      "pnl": 21.643,
+      "pnl_pct": 11.75,
+      "reason": "追踪止损 -12.3%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:48Z",
+      "symbol": "OP/USDT",
+      "side": "close_short",
+      "entry": 0.107,
+      "exit": 0.1071,
+      "pnl": -0.1729,
+      "pnl_pct": -0.09,
+      "reason": "追踪止损 -13.2%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:48Z",
+      "symbol": "ETH/USDT",
+      "side": "close_short",
+      "entry": 1728.19,
+      "exit": 1758.21,
+      "pnl": -3.6632,
+      "pnl_pct": -1.74,
+      "reason": "追踪止损 -12.1%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-07-20T03:40:49Z",
+      "symbol": "UNI/USDT",
+      "side": "close_short",
+      "entry": 3.18,
+      "exit": 3.524,
+      "pnl": -23.2173,
+      "pnl_pct": -10.82,
+      "reason": "硬止损 -10.8%",
+      "strategy": "momentum"
     }
   ],
-  "last_update": "2026-07-20T02:36:12Z"
+  "equity_history": [
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "nav": 0.9453,
+      "cash": 437.2,
+      "total": 945.32
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "nav": 0.9444,
+      "cash": 437.05,
+      "total": 944.41
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "nav": 0.9977,
+      "cash": 270.56,
+      "total": 997.66
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "nav": 1.0557,
+      "cash": 270.36,
+      "total": 1055.73
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "nav": 1.0254,
+      "cash": 270.17,
+      "total": 1025.44
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "nav": 0.9987,
+      "cash": 441.78,
+      "total": 998.72
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "nav": 1.0009,
+      "cash": 619.27,
+      "total": 1000.95
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "nav": 0.9893,
+      "cash": 819.2,
+      "total": 989.26
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "nav": 0.9864,
+      "cash": 986.36,
+      "total": 986.36
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "nav": 0.9864,
+      "cash": 986.36,
+      "total": 986.36
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "nav": 0.9864,
+      "cash": 986.36,
+      "total": 986.36
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "nav": 0.9862,
+      "cash": 492.98,
+      "total": 986.16
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "nav": 0.9653,
+      "cash": 492.83,
+      "total": 965.35
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "nav": 0.9826,
+      "cash": 492.69,
+      "total": 982.56
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "nav": 0.9773,
+      "cash": 492.54,
+      "total": 977.28
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "nav": 0.9815,
+      "cash": 492.39,
+      "total": 981.48
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "nav": 0.9687,
+      "cash": 492.24,
+      "total": 968.73
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "nav": 0.9522,
+      "cash": 477.13,
+      "total": 952.18
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "nav": 0.9402,
+      "cash": 476.99,
+      "total": 940.22
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "nav": 0.9472,
+      "cash": 476.84,
+      "total": 947.23
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "nav": 0.9523,
+      "cash": 476.7,
+      "total": 952.28
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "nav": 0.9753,
+      "cash": 476.55,
+      "total": 975.34
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "nav": 0.9889,
+      "cash": 476.4,
+      "total": 988.89
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "nav": 0.9946,
+      "cash": 476.26,
+      "total": 994.58
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "nav": 1.0006,
+      "cash": 309.26,
+      "total": 1000.62
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "nav": 0.9771,
+      "cash": 309.07,
+      "total": 977.09
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "nav": 1.0088,
+      "cash": 308.87,
+      "total": 1008.76
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "nav": 1.0028,
+      "cash": 308.67,
+      "total": 1002.76
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "nav": 1.0038,
+      "cash": 308.48,
+      "total": 1003.78
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "nav": 1.0121,
+      "cash": 308.28,
+      "total": 1012.14
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "nav": 1.0491,
+      "cash": 308.08,
+      "total": 1049.1
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "nav": 1.0495,
+      "cash": 307.89,
+      "total": 1049.46
+    },
+    {
+      "time": "2026-07-20T03:40:34Z",
+      "nav": 1.0764,
+      "cash": 307.69,
+      "total": 1076.39
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "nav": 1.042,
+      "cash": 314.9,
+      "total": 1041.99
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "nav": 1.0687,
+      "cash": 314.7,
+      "total": 1068.74
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "nav": 1.0594,
+      "cash": 314.5,
+      "total": 1059.42
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "nav": 1.0392,
+      "cash": 327.52,
+      "total": 1039.23
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "nav": 1.0592,
+      "cash": 327.32,
+      "total": 1059.16
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "nav": 1.0497,
+      "cash": 327.12,
+      "total": 1049.72
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "nav": 1.0672,
+      "cash": 326.91,
+      "total": 1067.19
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "nav": 1.0669,
+      "cash": 326.71,
+      "total": 1066.89
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "nav": 1.0609,
+      "cash": 326.51,
+      "total": 1060.86
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "nav": 1.0529,
+      "cash": 326.31,
+      "total": 1052.91
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "nav": 1.0385,
+      "cash": 511.54,
+      "total": 1038.53
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "nav": 1.0441,
+      "cash": 337.29,
+      "total": 1044.08
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "nav": 1.0413,
+      "cash": 337.08,
+      "total": 1041.32
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "nav": 0.9895,
+      "cash": 487.47,
+      "total": 989.51
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "nav": 0.9779,
+      "cash": 487.32,
+      "total": 977.93
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "nav": 0.9859,
+      "cash": 487.17,
+      "total": 985.91
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "nav": 0.9815,
+      "cash": 487.02,
+      "total": 981.45
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "nav": 0.9853,
+      "cash": 486.87,
+      "total": 985.25
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "nav": 0.9923,
+      "cash": 486.73,
+      "total": 992.26
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "nav": 0.9951,
+      "cash": 486.58,
+      "total": 995.14
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "nav": 0.9967,
+      "cash": 486.43,
+      "total": 996.75
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "nav": 0.9989,
+      "cash": 486.28,
+      "total": 998.85
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "nav": 0.992,
+      "cash": 486.13,
+      "total": 991.98
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "nav": 0.9956,
+      "cash": 485.98,
+      "total": 995.56
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "nav": 0.9992,
+      "cash": 485.84,
+      "total": 999.22
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "nav": 1.0054,
+      "cash": 485.69,
+      "total": 1005.38
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "nav": 1.0053,
+      "cash": 485.54,
+      "total": 1005.28
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "nav": 1.004,
+      "cash": 485.39,
+      "total": 1004.02
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "nav": 1.009,
+      "cash": 485.24,
+      "total": 1008.95
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "nav": 0.9412,
+      "cash": 762.89,
+      "total": 941.15
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "nav": 0.9433,
+      "cash": 762.84,
+      "total": 943.25
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "nav": 0.9473,
+      "cash": 549.55,
+      "total": 947.28
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "nav": 0.9374,
+      "cash": 549.44,
+      "total": 937.42
+    },
+    {
+      "time": "2026-07-20T03:40:35Z",
+      "nav": 0.9571,
+      "cash": 549.33,
+      "total": 957.15
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.9598,
+      "cash": 333.16,
+      "total": 959.76
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.9542,
+      "cash": 332.98,
+      "total": 954.19
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.9354,
+      "cash": 332.81,
+      "total": 935.38
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.934,
+      "cash": 332.63,
+      "total": 934.05
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.923,
+      "cash": 332.45,
+      "total": 922.97
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.9383,
+      "cash": 332.27,
+      "total": 938.26
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.9275,
+      "cash": 332.09,
+      "total": 927.52
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.919,
+      "cash": 529.17,
+      "total": 919.02
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.9217,
+      "cash": 529.05,
+      "total": 921.69
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.9299,
+      "cash": 528.94,
+      "total": 929.94
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.9133,
+      "cash": 528.83,
+      "total": 913.3
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.9171,
+      "cash": 528.71,
+      "total": 917.14
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.9194,
+      "cash": 528.6,
+      "total": 919.39
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.9177,
+      "cash": 528.49,
+      "total": 917.68
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.9209,
+      "cash": 528.37,
+      "total": 920.9
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.9143,
+      "cash": 528.26,
+      "total": 914.27
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.9122,
+      "cash": 721.71,
+      "total": 912.17
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.9067,
+      "cash": 570.47,
+      "total": 906.73
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.8987,
+      "cash": 570.37,
+      "total": 898.67
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.9024,
+      "cash": 570.28,
+      "total": 902.36
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.896,
+      "cash": 570.19,
+      "total": 896.01
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.8978,
+      "cash": 420.39,
+      "total": 897.8
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.9173,
+      "cash": 420.25,
+      "total": 917.25
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.9409,
+      "cash": 420.11,
+      "total": 940.87
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.9311,
+      "cash": 419.97,
+      "total": 931.1
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.9215,
+      "cash": 419.83,
+      "total": 921.53
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.9191,
+      "cash": 416.77,
+      "total": 919.09
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.905,
+      "cash": 416.63,
+      "total": 905.05
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.8872,
+      "cash": 394.36,
+      "total": 887.23
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.8831,
+      "cash": 394.22,
+      "total": 883.06
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.8822,
+      "cash": 394.08,
+      "total": 882.22
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.8856,
+      "cash": 393.94,
+      "total": 885.64
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.8822,
+      "cash": 378.63,
+      "total": 882.19
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.8827,
+      "cash": 378.49,
+      "total": 882.68
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.8831,
+      "cash": 378.35,
+      "total": 883.05
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.88,
+      "cash": 378.21,
+      "total": 880.03
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.88,
+      "cash": 378.07,
+      "total": 879.98
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.88,
+      "cash": 377.93,
+      "total": 879.98
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.8785,
+      "cash": 363.47,
+      "total": 878.54
+    },
+    {
+      "time": "2026-07-20T03:40:36Z",
+      "nav": 0.8864,
+      "cash": 363.33,
+      "total": 886.39
+    },
+    {
+      "time": "2026-07-20T03:40:37Z",
+      "nav": 0.8904,
+      "cash": 363.19,
+      "total": 890.45
+    },
+    {
+      "time": "2026-07-20T03:40:37Z",
+      "nav": 0.8743,
+      "cash": 363.05,
+      "total": 874.34
+    },
+    {
+      "time": "2026-07-20T03:40:37Z",
+      "nav": 0.8727,
+      "cash": 362.91,
+      "total": 872.75
+    },
+    {
+      "time": "2026-07-20T03:40:37Z",
+      "nav": 0.8806,
+      "cash": 362.77,
+      "total": 880.64
+    },
+    {
+      "time": "2026-07-20T03:40:37Z",
+      "nav": 0.8838,
+      "cash": 362.63,
+      "total": 883.78
+    },
+    {
+      "time": "2026-07-20T03:40:37Z",
+      "nav": 0.8801,
+      "cash": 362.49,
+      "total": 880.06
+    },
+    {
+      "time": "2026-07-20T03:40:37Z",
+      "nav": 0.8761,
+      "cash": 362.35,
+      "total": 876.07
+    },
+    {
+      "time": "2026-07-20T03:40:37Z",
+      "nav": 0.8661,
+      "cash": 385.35,
+      "total": 866.07
+    },
+    {
+      "time": "2026-07-20T03:40:37Z",
+      "nav": 0.8858,
+      "cash": 385.22,
+      "total": 885.79
+    },
+    {
+      "time": "2026-07-20T03:40:37Z",
+      "nav": 0.9016,
+      "cash": 385.08,
+      "total": 901.56
+    },
+    {
+      "time": "2026-07-20T03:40:37Z",
+      "nav": 0.8886,
+      "cash": 384.95,
+      "total": 888.64
+    },
+    {
+      "time": "2026-07-20T03:40:37Z",
+      "nav": 0.8896,
+      "cash": 384.81,
+      "total": 889.62
+    },
+    {
+      "time": "2026-07-20T03:40:37Z",
+      "nav": 0.9043,
+      "cash": 384.67,
+      "total": 904.28
+    },
+    {
+      "time": "2026-07-20T03:40:37Z",
+      "nav": 0.9026,
+      "cash": 384.54,
+      "total": 902.56
+    },
+    {
+      "time": "2026-07-20T03:40:37Z",
+      "nav": 0.9002,
+      "cash": 384.4,
+      "total": 900.16
+    },
+    {
+      "time": "2026-07-20T03:40:37Z",
+      "nav": 0.9013,
+      "cash": 384.27,
+      "total": 901.35
+    },
+    {
+      "time": "2026-07-20T03:40:37Z",
+      "nav": 0.8973,
+      "cash": 384.13,
+      "total": 897.29
+    },
+    {
+      "time": "2026-07-20T03:40:37Z",
+      "nav": 0.8828,
+      "cash": 383.99,
+      "total": 882.85
+    },
+    {
+      "time": "2026-07-20T03:40:37Z",
+      "nav": 0.8526,
+      "cash": 364.59,
+      "total": 852.61
+    },
+    {
+      "time": "2026-07-20T03:40:37Z",
+      "nav": 0.8585,
+      "cash": 171.21,
+      "total": 858.45
+    },
+    {
+      "time": "2026-07-20T03:40:37Z",
+      "nav": 0.8509,
+      "cash": 171.02,
+      "total": 850.92
+    },
+    {
+      "time": "2026-07-20T03:40:37Z",
+      "nav": 0.8564,
+      "cash": 170.83,
+      "total": 856.44
+    },
+    {
+      "time": "2026-07-20T03:40:37Z",
+      "nav": 0.8712,
+      "cash": 170.63,
+      "total": 871.23
+    },
+    {
+      "time": "2026-07-20T03:40:37Z",
+      "nav": 0.8806,
+      "cash": 170.44,
+      "total": 880.55
+    },
+    {
+      "time": "2026-07-20T03:40:37Z",
+      "nav": 0.8919,
+      "cash": 170.25,
+      "total": 891.92
+    },
+    {
+      "time": "2026-07-20T03:40:37Z",
+      "nav": 0.9042,
+      "cash": 170.06,
+      "total": 904.15
+    },
+    {
+      "time": "2026-07-20T03:40:37Z",
+      "nav": 0.9432,
+      "cash": 169.86,
+      "total": 943.2
+    },
+    {
+      "time": "2026-07-20T03:40:37Z",
+      "nav": 0.9411,
+      "cash": 169.67,
+      "total": 941.06
+    },
+    {
+      "time": "2026-07-20T03:40:37Z",
+      "nav": 0.9618,
+      "cash": 169.48,
+      "total": 961.77
+    },
+    {
+      "time": "2026-07-20T03:40:37Z",
+      "nav": 0.9678,
+      "cash": 169.29,
+      "total": 967.83
+    },
+    {
+      "time": "2026-07-20T03:40:37Z",
+      "nav": 0.9709,
+      "cash": 169.09,
+      "total": 970.92
+    },
+    {
+      "time": "2026-07-20T03:40:37Z",
+      "nav": 0.9454,
+      "cash": 168.9,
+      "total": 945.37
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "nav": 0.9496,
+      "cash": 168.71,
+      "total": 949.58
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "nav": 0.9622,
+      "cash": 168.52,
+      "total": 962.16
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "nav": 0.9694,
+      "cash": 168.32,
+      "total": 969.43
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "nav": 0.9954,
+      "cash": 168.13,
+      "total": 995.43
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "nav": 0.9777,
+      "cash": 167.94,
+      "total": 977.65
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "nav": 0.981,
+      "cash": 167.74,
+      "total": 981.04
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "nav": 0.9649,
+      "cash": 167.55,
+      "total": 964.88
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "nav": 0.9407,
+      "cash": 218.15,
+      "total": 940.66
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "nav": 0.9187,
+      "cash": 217.97,
+      "total": 918.7
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "nav": 0.904,
+      "cash": 383.06,
+      "total": 904.01
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "nav": 0.9203,
+      "cash": 382.92,
+      "total": 920.28
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "nav": 0.9528,
+      "cash": 382.78,
+      "total": 952.84
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "nav": 0.9457,
+      "cash": 382.64,
+      "total": 945.66
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "nav": 0.9484,
+      "cash": 382.5,
+      "total": 948.4
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "nav": 0.9664,
+      "cash": 221.22,
+      "total": 966.39
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "nav": 0.9867,
+      "cash": 221.03,
+      "total": 986.65
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "nav": 0.9994,
+      "cash": 220.84,
+      "total": 999.39
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "nav": 1.007,
+      "cash": 220.65,
+      "total": 1006.95
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "nav": 0.9991,
+      "cash": 220.46,
+      "total": 999.1
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "nav": 1.0503,
+      "cash": 220.27,
+      "total": 1050.26
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "nav": 1.0696,
+      "cash": 220.08,
+      "total": 1069.62
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "nav": 1.0183,
+      "cash": 219.89,
+      "total": 1018.27
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "nav": 1.003,
+      "cash": 219.7,
+      "total": 1002.96
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "nav": 1.0147,
+      "cash": 219.51,
+      "total": 1014.68
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "nav": 1.0441,
+      "cash": 219.32,
+      "total": 1044.13
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "nav": 1.0298,
+      "cash": 223.31,
+      "total": 1029.81
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "nav": 0.9918,
+      "cash": 383.13,
+      "total": 991.76
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "nav": 1.0318,
+      "cash": 210.93,
+      "total": 1031.82
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "nav": 1.0066,
+      "cash": 210.73,
+      "total": 1006.59
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "nav": 1.0687,
+      "cash": 210.53,
+      "total": 1068.74
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "nav": 1.0551,
+      "cash": 210.33,
+      "total": 1055.06
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "nav": 1.0495,
+      "cash": 210.13,
+      "total": 1049.45
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "nav": 0.9909,
+      "cash": 413.69,
+      "total": 990.87
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "nav": 1.0115,
+      "cash": 413.54,
+      "total": 1011.48
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "nav": 1.0013,
+      "cash": 413.39,
+      "total": 1001.26
+    },
+    {
+      "time": "2026-07-20T03:40:38Z",
+      "nav": 1.0049,
+      "cash": 413.24,
+      "total": 1004.9
+    },
+    {
+      "time": "2026-07-20T03:40:39Z",
+      "nav": 0.992,
+      "cash": 413.09,
+      "total": 991.95
+    },
+    {
+      "time": "2026-07-20T03:40:39Z",
+      "nav": 0.9926,
+      "cash": 412.93,
+      "total": 992.63
+    },
+    {
+      "time": "2026-07-20T03:40:39Z",
+      "nav": 0.9937,
+      "cash": 412.78,
+      "total": 993.72
+    },
+    {
+      "time": "2026-07-20T03:40:39Z",
+      "nav": 0.9856,
+      "cash": 412.63,
+      "total": 985.56
+    },
+    {
+      "time": "2026-07-20T03:40:39Z",
+      "nav": 0.9876,
+      "cash": 412.48,
+      "total": 987.65
+    },
+    {
+      "time": "2026-07-20T03:40:39Z",
+      "nav": 0.9947,
+      "cash": 412.32,
+      "total": 994.75
+    },
+    {
+      "time": "2026-07-20T03:40:39Z",
+      "nav": 0.9821,
+      "cash": 412.17,
+      "total": 982.15
+    },
+    {
+      "time": "2026-07-20T03:40:39Z",
+      "nav": 0.9814,
+      "cash": 412.02,
+      "total": 981.39
+    },
+    {
+      "time": "2026-07-20T03:40:39Z",
+      "nav": 0.9703,
+      "cash": 468.12,
+      "total": 970.26
+    },
+    {
+      "time": "2026-07-20T03:40:39Z",
+      "nav": 0.9696,
+      "cash": 467.97,
+      "total": 969.6
+    },
+    {
+      "time": "2026-07-20T03:40:39Z",
+      "nav": 0.9624,
+      "cash": 467.82,
+      "total": 962.37
+    },
+    {
+      "time": "2026-07-20T03:40:39Z",
+      "nav": 0.9641,
+      "cash": 467.67,
+      "total": 964.09
+    },
+    {
+      "time": "2026-07-20T03:40:39Z",
+      "nav": 0.9649,
+      "cash": 454.13,
+      "total": 964.93
+    },
+    {
+      "time": "2026-07-20T03:40:39Z",
+      "nav": 0.9684,
+      "cash": 453.98,
+      "total": 968.42
+    },
+    {
+      "time": "2026-07-20T03:40:39Z",
+      "nav": 0.9857,
+      "cash": 453.83,
+      "total": 985.72
+    },
+    {
+      "time": "2026-07-20T03:40:39Z",
+      "nav": 0.9871,
+      "cash": 453.68,
+      "total": 987.13
+    },
+    {
+      "time": "2026-07-20T03:40:39Z",
+      "nav": 0.9775,
+      "cash": 453.53,
+      "total": 977.46
+    },
+    {
+      "time": "2026-07-20T03:40:39Z",
+      "nav": 0.9709,
+      "cash": 453.38,
+      "total": 970.86
+    },
+    {
+      "time": "2026-07-20T03:40:39Z",
+      "nav": 0.9787,
+      "cash": 453.23,
+      "total": 978.72
+    },
+    {
+      "time": "2026-07-20T03:40:39Z",
+      "nav": 0.9916,
+      "cash": 453.07,
+      "total": 991.61
+    },
+    {
+      "time": "2026-07-20T03:40:39Z",
+      "nav": 0.9912,
+      "cash": 452.92,
+      "total": 991.2
+    },
+    {
+      "time": "2026-07-20T03:40:39Z",
+      "nav": 0.9812,
+      "cash": 452.77,
+      "total": 981.24
+    },
+    {
+      "time": "2026-07-20T03:40:39Z",
+      "nav": 0.9932,
+      "cash": 452.62,
+      "total": 993.21
+    },
+    {
+      "time": "2026-07-20T03:40:39Z",
+      "nav": 0.9926,
+      "cash": 452.47,
+      "total": 992.55
+    },
+    {
+      "time": "2026-07-20T03:40:39Z",
+      "nav": 0.9602,
+      "cash": 443.58,
+      "total": 960.18
+    },
+    {
+      "time": "2026-07-20T03:40:39Z",
+      "nav": 0.9649,
+      "cash": 443.44,
+      "total": 964.94
+    },
+    {
+      "time": "2026-07-20T03:40:39Z",
+      "nav": 0.9649,
+      "cash": 443.29,
+      "total": 964.88
+    },
+    {
+      "time": "2026-07-20T03:40:39Z",
+      "nav": 0.945,
+      "cash": 443.14,
+      "total": 945.0
+    },
+    {
+      "time": "2026-07-20T03:40:39Z",
+      "nav": 0.9508,
+      "cash": 442.99,
+      "total": 950.75
+    },
+    {
+      "time": "2026-07-20T03:40:39Z",
+      "nav": 0.9511,
+      "cash": 442.85,
+      "total": 951.05
+    },
+    {
+      "time": "2026-07-20T03:40:39Z",
+      "nav": 0.9587,
+      "cash": 442.7,
+      "total": 958.69
+    },
+    {
+      "time": "2026-07-20T03:40:39Z",
+      "nav": 0.969,
+      "cash": 442.55,
+      "total": 968.95
+    },
+    {
+      "time": "2026-07-20T03:40:39Z",
+      "nav": 0.9618,
+      "cash": 442.4,
+      "total": 961.84
+    },
+    {
+      "time": "2026-07-20T03:40:39Z",
+      "nav": 0.9733,
+      "cash": 442.26,
+      "total": 973.33
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "nav": 0.9803,
+      "cash": 442.11,
+      "total": 980.31
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "nav": 0.9992,
+      "cash": 441.96,
+      "total": 999.22
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "nav": 0.9933,
+      "cash": 441.81,
+      "total": 993.26
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "nav": 0.9959,
+      "cash": 441.66,
+      "total": 995.87
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "nav": 1.0121,
+      "cash": 272.76,
+      "total": 1012.06
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "nav": 1.0206,
+      "cash": 272.56,
+      "total": 1020.57
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "nav": 1.0247,
+      "cash": 272.37,
+      "total": 1024.67
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "nav": 1.0114,
+      "cash": 272.17,
+      "total": 1011.41
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "nav": 0.981,
+      "cash": 454.5,
+      "total": 981.01
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "nav": 0.9674,
+      "cash": 446.26,
+      "total": 967.4
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "nav": 0.9581,
+      "cash": 459.83,
+      "total": 958.06
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "nav": 0.9696,
+      "cash": 459.69,
+      "total": 969.6
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "nav": 0.9623,
+      "cash": 459.54,
+      "total": 962.33
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "nav": 0.9563,
+      "cash": 459.4,
+      "total": 956.29
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "nav": 0.9514,
+      "cash": 459.25,
+      "total": 951.43
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "nav": 0.9484,
+      "cash": 452.47,
+      "total": 948.42
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "nav": 0.9432,
+      "cash": 452.33,
+      "total": 943.2
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "nav": 0.9294,
+      "cash": 452.19,
+      "total": 929.37
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "nav": 0.919,
+      "cash": 439.77,
+      "total": 919.03
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "nav": 0.9327,
+      "cash": 439.63,
+      "total": 932.68
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "nav": 0.9438,
+      "cash": 439.49,
+      "total": 943.8
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "nav": 0.9277,
+      "cash": 439.35,
+      "total": 927.66
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "nav": 0.9252,
+      "cash": 439.21,
+      "total": 925.2
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "nav": 0.9281,
+      "cash": 439.07,
+      "total": 928.12
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "nav": 0.897,
+      "cash": 433.69,
+      "total": 897.02
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "nav": 0.9108,
+      "cash": 433.55,
+      "total": 910.8
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "nav": 0.9229,
+      "cash": 433.41,
+      "total": 922.91
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "nav": 0.9214,
+      "cash": 433.27,
+      "total": 921.39
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "nav": 0.9504,
+      "cash": 274.66,
+      "total": 950.38
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "nav": 0.9412,
+      "cash": 274.47,
+      "total": 941.17
+    },
+    {
+      "time": "2026-07-20T03:40:40Z",
+      "nav": 0.9306,
+      "cash": 274.29,
+      "total": 930.61
+    },
+    {
+      "time": "2026-07-20T03:40:41Z",
+      "nav": 0.9249,
+      "cash": 274.1,
+      "total": 924.92
+    },
+    {
+      "time": "2026-07-20T03:40:41Z",
+      "nav": 1.0114,
+      "cash": 273.92,
+      "total": 1011.44
+    },
+    {
+      "time": "2026-07-20T03:40:41Z",
+      "nav": 1.0275,
+      "cash": 273.73,
+      "total": 1027.53
+    },
+    {
+      "time": "2026-07-20T03:40:41Z",
+      "nav": 1.0,
+      "cash": 273.54,
+      "total": 999.96
+    },
+    {
+      "time": "2026-07-20T03:40:41Z",
+      "nav": 1.0083,
+      "cash": 273.36,
+      "total": 1008.33
+    },
+    {
+      "time": "2026-07-20T03:40:41Z",
+      "nav": 0.9272,
+      "cash": 450.98,
+      "total": 927.2
+    },
+    {
+      "time": "2026-07-20T03:40:41Z",
+      "nav": 0.9459,
+      "cash": 293.11,
+      "total": 945.9
+    },
+    {
+      "time": "2026-07-20T03:40:41Z",
+      "nav": 0.9316,
+      "cash": 457.2,
+      "total": 931.58
+    },
+    {
+      "time": "2026-07-20T03:40:41Z",
+      "nav": 0.9115,
+      "cash": 457.06,
+      "total": 911.55
+    },
+    {
+      "time": "2026-07-20T03:40:41Z",
+      "nav": 0.9421,
+      "cash": 456.92,
+      "total": 942.07
+    },
+    {
+      "time": "2026-07-20T03:40:41Z",
+      "nav": 0.9585,
+      "cash": 296.95,
+      "total": 958.55
+    },
+    {
+      "time": "2026-07-20T03:40:41Z",
+      "nav": 0.9837,
+      "cash": 296.76,
+      "total": 983.7
+    },
+    {
+      "time": "2026-07-20T03:40:41Z",
+      "nav": 1.0049,
+      "cash": 296.57,
+      "total": 1004.88
+    },
+    {
+      "time": "2026-07-20T03:40:41Z",
+      "nav": 0.9919,
+      "cash": 296.39,
+      "total": 991.88
+    },
+    {
+      "time": "2026-07-20T03:40:41Z",
+      "nav": 1.0103,
+      "cash": 296.2,
+      "total": 1010.27
+    },
+    {
+      "time": "2026-07-20T03:40:41Z",
+      "nav": 1.0256,
+      "cash": 296.01,
+      "total": 1025.6
+    },
+    {
+      "time": "2026-07-20T03:40:41Z",
+      "nav": 0.9953,
+      "cash": 295.82,
+      "total": 995.34
+    },
+    {
+      "time": "2026-07-20T03:40:41Z",
+      "nav": 0.9908,
+      "cash": 465.13,
+      "total": 990.82
+    },
+    {
+      "time": "2026-07-20T03:40:41Z",
+      "nav": 1.0103,
+      "cash": 464.99,
+      "total": 1010.3
+    },
+    {
+      "time": "2026-07-20T03:40:41Z",
+      "nav": 1.0406,
+      "cash": 464.85,
+      "total": 1040.59
+    },
+    {
+      "time": "2026-07-20T03:40:41Z",
+      "nav": 1.0425,
+      "cash": 464.71,
+      "total": 1042.47
+    },
+    {
+      "time": "2026-07-20T03:40:41Z",
+      "nav": 1.0437,
+      "cash": 464.57,
+      "total": 1043.68
+    },
+    {
+      "time": "2026-07-20T03:40:41Z",
+      "nav": 1.0248,
+      "cash": 464.43,
+      "total": 1024.78
+    },
+    {
+      "time": "2026-07-20T03:40:41Z",
+      "nav": 1.0234,
+      "cash": 464.28,
+      "total": 1023.37
+    },
+    {
+      "time": "2026-07-20T03:40:41Z",
+      "nav": 1.0175,
+      "cash": 652.09,
+      "total": 1017.49
+    },
+    {
+      "time": "2026-07-20T03:40:41Z",
+      "nav": 1.0163,
+      "cash": 313.04,
+      "total": 1016.3
+    },
+    {
+      "time": "2026-07-20T03:40:41Z",
+      "nav": 1.0295,
+      "cash": 312.85,
+      "total": 1029.47
+    },
+    {
+      "time": "2026-07-20T03:40:41Z",
+      "nav": 1.0343,
+      "cash": 312.65,
+      "total": 1034.35
+    },
+    {
+      "time": "2026-07-20T03:40:42Z",
+      "nav": 1.0493,
+      "cash": 312.45,
+      "total": 1049.3
+    },
+    {
+      "time": "2026-07-20T03:40:42Z",
+      "nav": 1.0954,
+      "cash": 312.26,
+      "total": 1095.43
+    },
+    {
+      "time": "2026-07-20T03:40:42Z",
+      "nav": 1.0464,
+      "cash": 312.06,
+      "total": 1046.42
+    },
+    {
+      "time": "2026-07-20T03:40:42Z",
+      "nav": 1.0284,
+      "cash": 326.53,
+      "total": 1028.38
+    },
+    {
+      "time": "2026-07-20T03:40:42Z",
+      "nav": 1.0459,
+      "cash": 326.33,
+      "total": 1045.87
+    },
+    {
+      "time": "2026-07-20T03:40:42Z",
+      "nav": 1.0842,
+      "cash": 326.12,
+      "total": 1084.18
+    },
+    {
+      "time": "2026-07-20T03:40:42Z",
+      "nav": 1.0731,
+      "cash": 325.92,
+      "total": 1073.07
+    },
+    {
+      "time": "2026-07-20T03:40:42Z",
+      "nav": 1.0788,
+      "cash": 325.72,
+      "total": 1078.79
+    },
+    {
+      "time": "2026-07-20T03:40:42Z",
+      "nav": 1.0679,
+      "cash": 325.52,
+      "total": 1067.88
+    },
+    {
+      "time": "2026-07-20T03:40:42Z",
+      "nav": 1.0387,
+      "cash": 325.32,
+      "total": 1038.74
+    },
+    {
+      "time": "2026-07-20T03:40:42Z",
+      "nav": 1.0557,
+      "cash": 325.12,
+      "total": 1055.69
+    },
+    {
+      "time": "2026-07-20T03:40:42Z",
+      "nav": 1.0763,
+      "cash": 324.91,
+      "total": 1076.3
+    },
+    {
+      "time": "2026-07-20T03:40:42Z",
+      "nav": 1.0907,
+      "cash": 324.71,
+      "total": 1090.71
+    },
+    {
+      "time": "2026-07-20T03:40:42Z",
+      "nav": 1.0813,
+      "cash": 324.51,
+      "total": 1081.29
+    },
+    {
+      "time": "2026-07-20T03:40:42Z",
+      "nav": 1.1032,
+      "cash": 324.31,
+      "total": 1103.21
+    },
+    {
+      "time": "2026-07-20T03:40:42Z",
+      "nav": 1.1214,
+      "cash": 324.11,
+      "total": 1121.41
+    },
+    {
+      "time": "2026-07-20T03:40:42Z",
+      "nav": 1.1206,
+      "cash": 323.91,
+      "total": 1120.55
+    },
+    {
+      "time": "2026-07-20T03:40:42Z",
+      "nav": 1.1449,
+      "cash": 323.7,
+      "total": 1144.85
+    },
+    {
+      "time": "2026-07-20T03:40:42Z",
+      "nav": 1.1636,
+      "cash": 323.5,
+      "total": 1163.55
+    },
+    {
+      "time": "2026-07-20T03:40:42Z",
+      "nav": 1.1303,
+      "cash": 323.3,
+      "total": 1130.26
+    },
+    {
+      "time": "2026-07-20T03:40:42Z",
+      "nav": 1.1309,
+      "cash": 323.1,
+      "total": 1130.93
+    },
+    {
+      "time": "2026-07-20T03:40:42Z",
+      "nav": 1.1364,
+      "cash": 322.9,
+      "total": 1136.43
+    },
+    {
+      "time": "2026-07-20T03:40:42Z",
+      "nav": 1.1313,
+      "cash": 322.7,
+      "total": 1131.29
+    },
+    {
+      "time": "2026-07-20T03:40:42Z",
+      "nav": 1.1367,
+      "cash": 322.5,
+      "total": 1136.74
+    },
+    {
+      "time": "2026-07-20T03:40:42Z",
+      "nav": 1.141,
+      "cash": 322.29,
+      "total": 1141.05
+    },
+    {
+      "time": "2026-07-20T03:40:42Z",
+      "nav": 1.1462,
+      "cash": 322.09,
+      "total": 1146.24
+    },
+    {
+      "time": "2026-07-20T03:40:42Z",
+      "nav": 1.1294,
+      "cash": 321.89,
+      "total": 1129.44
+    },
+    {
+      "time": "2026-07-20T03:40:42Z",
+      "nav": 1.1125,
+      "cash": 340.45,
+      "total": 1112.46
+    },
+    {
+      "time": "2026-07-20T03:40:43Z",
+      "nav": 1.12,
+      "cash": 340.24,
+      "total": 1120.0
+    },
+    {
+      "time": "2026-07-20T03:40:43Z",
+      "nav": 1.1332,
+      "cash": 340.03,
+      "total": 1133.15
+    },
+    {
+      "time": "2026-07-20T03:40:43Z",
+      "nav": 1.1312,
+      "cash": 339.82,
+      "total": 1131.23
+    },
+    {
+      "time": "2026-07-20T03:40:43Z",
+      "nav": 1.1388,
+      "cash": 339.61,
+      "total": 1138.81
+    },
+    {
+      "time": "2026-07-20T03:40:43Z",
+      "nav": 1.0883,
+      "cash": 534.81,
+      "total": 1088.31
+    },
+    {
+      "time": "2026-07-20T03:40:43Z",
+      "nav": 1.0609,
+      "cash": 518.3,
+      "total": 1060.93
+    },
+    {
+      "time": "2026-07-20T03:40:43Z",
+      "nav": 1.0511,
+      "cash": 518.14,
+      "total": 1051.14
+    },
+    {
+      "time": "2026-07-20T03:40:43Z",
+      "nav": 1.0257,
+      "cash": 511.18,
+      "total": 1025.71
+    },
+    {
+      "time": "2026-07-20T03:40:43Z",
+      "nav": 1.0048,
+      "cash": 498.58,
+      "total": 1004.84
+    },
+    {
+      "time": "2026-07-20T03:40:43Z",
+      "nav": 0.9876,
+      "cash": 490.68,
+      "total": 987.62
+    },
+    {
+      "time": "2026-07-20T03:40:43Z",
+      "nav": 1.0119,
+      "cash": 490.52,
+      "total": 1011.87
+    },
+    {
+      "time": "2026-07-20T03:40:43Z",
+      "nav": 1.0201,
+      "cash": 490.37,
+      "total": 1020.13
+    },
+    {
+      "time": "2026-07-20T03:40:43Z",
+      "nav": 1.0197,
+      "cash": 490.22,
+      "total": 1019.68
+    },
+    {
+      "time": "2026-07-20T03:40:43Z",
+      "nav": 1.0214,
+      "cash": 490.06,
+      "total": 1021.4
+    },
+    {
+      "time": "2026-07-20T03:40:43Z",
+      "nav": 1.0209,
+      "cash": 489.91,
+      "total": 1020.9
+    },
+    {
+      "time": "2026-07-20T03:40:43Z",
+      "nav": 1.0302,
+      "cash": 489.75,
+      "total": 1030.24
+    },
+    {
+      "time": "2026-07-20T03:40:43Z",
+      "nav": 0.9781,
+      "cash": 492.58,
+      "total": 978.13
+    },
+    {
+      "time": "2026-07-20T03:40:43Z",
+      "nav": 0.9901,
+      "cash": 492.43,
+      "total": 990.14
+    },
+    {
+      "time": "2026-07-20T03:40:43Z",
+      "nav": 1.017,
+      "cash": 492.29,
+      "total": 1016.97
+    },
+    {
+      "time": "2026-07-20T03:40:43Z",
+      "nav": 1.0062,
+      "cash": 492.14,
+      "total": 1006.17
+    },
+    {
+      "time": "2026-07-20T03:40:43Z",
+      "nav": 1.0039,
+      "cash": 491.99,
+      "total": 1003.89
+    },
+    {
+      "time": "2026-07-20T03:40:43Z",
+      "nav": 1.0325,
+      "cash": 491.84,
+      "total": 1032.53
+    },
+    {
+      "time": "2026-07-20T03:40:43Z",
+      "nav": 1.0405,
+      "cash": 318.19,
+      "total": 1040.53
+    },
+    {
+      "time": "2026-07-20T03:40:43Z",
+      "nav": 1.0749,
+      "cash": 317.99,
+      "total": 1074.94
+    },
+    {
+      "time": "2026-07-20T03:40:43Z",
+      "nav": 1.0605,
+      "cash": 317.79,
+      "total": 1060.49
+    },
+    {
+      "time": "2026-07-20T03:40:43Z",
+      "nav": 1.0658,
+      "cash": 317.59,
+      "total": 1065.8
+    },
+    {
+      "time": "2026-07-20T03:40:43Z",
+      "nav": 1.067,
+      "cash": 317.39,
+      "total": 1066.95
+    },
+    {
+      "time": "2026-07-20T03:40:43Z",
+      "nav": 1.0685,
+      "cash": 317.19,
+      "total": 1068.49
+    },
+    {
+      "time": "2026-07-20T03:40:43Z",
+      "nav": 1.0909,
+      "cash": 316.99,
+      "total": 1090.91
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.0728,
+      "cash": 316.79,
+      "total": 1072.77
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.0669,
+      "cash": 316.59,
+      "total": 1066.9
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.0682,
+      "cash": 316.39,
+      "total": 1068.19
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.1066,
+      "cash": 316.19,
+      "total": 1106.56
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.1215,
+      "cash": 315.99,
+      "total": 1121.51
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.1634,
+      "cash": 315.79,
+      "total": 1163.41
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.1762,
+      "cash": 315.59,
+      "total": 1176.22
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.1638,
+      "cash": 315.39,
+      "total": 1163.79
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.1727,
+      "cash": 315.19,
+      "total": 1172.7
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.1833,
+      "cash": 314.99,
+      "total": 1183.3
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.2585,
+      "cash": 314.79,
+      "total": 1258.53
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.2078,
+      "cash": 533.08,
+      "total": 1207.83
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.2086,
+      "cash": 532.93,
+      "total": 1208.63
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.216,
+      "cash": 532.79,
+      "total": 1215.98
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.2179,
+      "cash": 532.64,
+      "total": 1217.88
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.2266,
+      "cash": 532.49,
+      "total": 1226.61
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.2327,
+      "cash": 532.34,
+      "total": 1232.67
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.2294,
+      "cash": 532.19,
+      "total": 1229.44
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.218,
+      "cash": 532.05,
+      "total": 1218.03
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.2051,
+      "cash": 764.32,
+      "total": 1205.1
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.2107,
+      "cash": 764.22,
+      "total": 1210.66
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.2098,
+      "cash": 764.13,
+      "total": 1209.82
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.2141,
+      "cash": 764.03,
+      "total": 1214.07
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.2187,
+      "cash": 763.93,
+      "total": 1218.69
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.2112,
+      "cash": 763.83,
+      "total": 1211.19
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.2012,
+      "cash": 990.21,
+      "total": 1201.2
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.2018,
+      "cash": 990.16,
+      "total": 1201.75
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.2047,
+      "cash": 990.11,
+      "total": 1204.67
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.2091,
+      "cash": 990.06,
+      "total": 1209.06
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.2094,
+      "cash": 990.01,
+      "total": 1209.43
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.1977,
+      "cash": 989.97,
+      "total": 1197.68
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.2,
+      "cash": 989.92,
+      "total": 1200.01
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.2019,
+      "cash": 388.54,
+      "total": 1201.93
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.1955,
+      "cash": 388.31,
+      "total": 1195.54
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.2087,
+      "cash": 388.08,
+      "total": 1208.75
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.209,
+      "cash": 387.85,
+      "total": 1208.97
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.2005,
+      "cash": 387.63,
+      "total": 1200.48
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.1979,
+      "cash": 387.4,
+      "total": 1197.91
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.2016,
+      "cash": 387.17,
+      "total": 1201.56
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.2123,
+      "cash": 386.94,
+      "total": 1212.26
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.2213,
+      "cash": 386.71,
+      "total": 1221.31
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.2221,
+      "cash": 386.48,
+      "total": 1222.14
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.2087,
+      "cash": 386.25,
+      "total": 1208.74
+    },
+    {
+      "time": "2026-07-20T03:40:44Z",
+      "nav": 1.2122,
+      "cash": 386.02,
+      "total": 1212.19
+    },
+    {
+      "time": "2026-07-20T03:40:45Z",
+      "nav": 1.2081,
+      "cash": 385.79,
+      "total": 1208.15
+    },
+    {
+      "time": "2026-07-20T03:40:45Z",
+      "nav": 1.2067,
+      "cash": 385.56,
+      "total": 1206.71
+    },
+    {
+      "time": "2026-07-20T03:40:45Z",
+      "nav": 1.2109,
+      "cash": 385.33,
+      "total": 1210.91
+    },
+    {
+      "time": "2026-07-20T03:40:45Z",
+      "nav": 1.2217,
+      "cash": 385.1,
+      "total": 1221.67
+    },
+    {
+      "time": "2026-07-20T03:40:45Z",
+      "nav": 1.2086,
+      "cash": 384.87,
+      "total": 1208.61
+    },
+    {
+      "time": "2026-07-20T03:40:45Z",
+      "nav": 1.1781,
+      "cash": 698.68,
+      "total": 1178.12
+    },
+    {
+      "time": "2026-07-20T03:40:45Z",
+      "nav": 1.1729,
+      "cash": 698.54,
+      "total": 1172.91
+    },
+    {
+      "time": "2026-07-20T03:40:45Z",
+      "nav": 1.1602,
+      "cash": 698.4,
+      "total": 1160.18
+    },
+    {
+      "time": "2026-07-20T03:40:45Z",
+      "nav": 1.1403,
+      "cash": 508.12,
+      "total": 1140.29
+    },
+    {
+      "time": "2026-07-20T03:40:45Z",
+      "nav": 1.1353,
+      "cash": 560.9,
+      "total": 1135.33
+    },
+    {
+      "time": "2026-07-20T03:40:45Z",
+      "nav": 1.1416,
+      "cash": 560.72,
+      "total": 1141.57
+    },
+    {
+      "time": "2026-07-20T03:40:45Z",
+      "nav": 1.1428,
+      "cash": 560.55,
+      "total": 1142.76
+    },
+    {
+      "time": "2026-07-20T03:40:45Z",
+      "nav": 1.1449,
+      "cash": 560.38,
+      "total": 1144.9
+    },
+    {
+      "time": "2026-07-20T03:40:45Z",
+      "nav": 1.1431,
+      "cash": 560.2,
+      "total": 1143.14
+    },
+    {
+      "time": "2026-07-20T03:40:45Z",
+      "nav": 1.1462,
+      "cash": 560.03,
+      "total": 1146.25
+    },
+    {
+      "time": "2026-07-20T03:40:45Z",
+      "nav": 1.1443,
+      "cash": 553.14,
+      "total": 1144.28
+    },
+    {
+      "time": "2026-07-20T03:40:45Z",
+      "nav": 1.1424,
+      "cash": 552.97,
+      "total": 1142.36
+    },
+    {
+      "time": "2026-07-20T03:40:45Z",
+      "nav": 1.1526,
+      "cash": 552.8,
+      "total": 1152.56
+    },
+    {
+      "time": "2026-07-20T03:40:45Z",
+      "nav": 1.1507,
+      "cash": 552.63,
+      "total": 1150.74
+    },
+    {
+      "time": "2026-07-20T03:40:45Z",
+      "nav": 1.1436,
+      "cash": 552.45,
+      "total": 1143.56
+    },
+    {
+      "time": "2026-07-20T03:40:45Z",
+      "nav": 1.1334,
+      "cash": 552.28,
+      "total": 1133.37
+    },
+    {
+      "time": "2026-07-20T03:40:45Z",
+      "nav": 1.1421,
+      "cash": 552.11,
+      "total": 1142.08
+    },
+    {
+      "time": "2026-07-20T03:40:45Z",
+      "nav": 1.1378,
+      "cash": 551.94,
+      "total": 1137.76
+    },
+    {
+      "time": "2026-07-20T03:40:45Z",
+      "nav": 1.1397,
+      "cash": 551.77,
+      "total": 1139.7
+    },
+    {
+      "time": "2026-07-20T03:40:45Z",
+      "nav": 1.1389,
+      "cash": 551.6,
+      "total": 1138.93
+    },
+    {
+      "time": "2026-07-20T03:40:45Z",
+      "nav": 1.1394,
+      "cash": 551.43,
+      "total": 1139.39
+    },
+    {
+      "time": "2026-07-20T03:40:46Z",
+      "nav": 1.1316,
+      "cash": 551.26,
+      "total": 1131.61
+    },
+    {
+      "time": "2026-07-20T03:40:46Z",
+      "nav": 1.1353,
+      "cash": 556.2,
+      "total": 1135.3
+    },
+    {
+      "time": "2026-07-20T03:40:46Z",
+      "nav": 1.1374,
+      "cash": 556.03,
+      "total": 1137.39
+    },
+    {
+      "time": "2026-07-20T03:40:46Z",
+      "nav": 1.1437,
+      "cash": 555.86,
+      "total": 1143.71
+    },
+    {
+      "time": "2026-07-20T03:40:46Z",
+      "nav": 1.1322,
+      "cash": 555.69,
+      "total": 1132.22
+    },
+    {
+      "time": "2026-07-20T03:40:46Z",
+      "nav": 1.1347,
+      "cash": 555.52,
+      "total": 1134.73
+    },
+    {
+      "time": "2026-07-20T03:40:46Z",
+      "nav": 1.1335,
+      "cash": 555.35,
+      "total": 1133.46
+    },
+    {
+      "time": "2026-07-20T03:40:46Z",
+      "nav": 1.113,
+      "cash": 544.05,
+      "total": 1112.99
+    },
+    {
+      "time": "2026-07-20T03:40:46Z",
+      "nav": 1.1152,
+      "cash": 543.88,
+      "total": 1115.21
+    },
+    {
+      "time": "2026-07-20T03:40:46Z",
+      "nav": 1.117,
+      "cash": 543.71,
+      "total": 1116.96
+    },
+    {
+      "time": "2026-07-20T03:40:46Z",
+      "nav": 1.1026,
+      "cash": 465.72,
+      "total": 1102.64
+    },
+    {
+      "time": "2026-07-20T03:40:46Z",
+      "nav": 1.0965,
+      "cash": 465.53,
+      "total": 1096.47
+    },
+    {
+      "time": "2026-07-20T03:40:46Z",
+      "nav": 1.0737,
+      "cash": 634.86,
+      "total": 1073.67
+    },
+    {
+      "time": "2026-07-20T03:40:46Z",
+      "nav": 1.0672,
+      "cash": 394.49,
+      "total": 1067.22
+    },
+    {
+      "time": "2026-07-20T03:40:46Z",
+      "nav": 1.0764,
+      "cash": 394.28,
+      "total": 1076.38
+    },
+    {
+      "time": "2026-07-20T03:40:46Z",
+      "nav": 1.0769,
+      "cash": 394.08,
+      "total": 1076.89
+    },
+    {
+      "time": "2026-07-20T03:40:46Z",
+      "nav": 1.0697,
+      "cash": 393.88,
+      "total": 1069.74
+    },
+    {
+      "time": "2026-07-20T03:40:46Z",
+      "nav": 1.0666,
+      "cash": 393.67,
+      "total": 1066.64
+    },
+    {
+      "time": "2026-07-20T03:40:46Z",
+      "nav": 1.0642,
+      "cash": 393.47,
+      "total": 1064.19
+    },
+    {
+      "time": "2026-07-20T03:40:46Z",
+      "nav": 1.0633,
+      "cash": 393.27,
+      "total": 1063.26
+    },
+    {
+      "time": "2026-07-20T03:40:46Z",
+      "nav": 1.069,
+      "cash": 393.06,
+      "total": 1069.03
+    },
+    {
+      "time": "2026-07-20T03:40:46Z",
+      "nav": 1.058,
+      "cash": 154.7,
+      "total": 1057.97
+    },
+    {
+      "time": "2026-07-20T03:40:46Z",
+      "nav": 1.0435,
+      "cash": 154.43,
+      "total": 1043.49
+    },
+    {
+      "time": "2026-07-20T03:40:46Z",
+      "nav": 1.0365,
+      "cash": 380.21,
+      "total": 1036.51
+    },
+    {
+      "time": "2026-07-20T03:40:46Z",
+      "nav": 1.0312,
+      "cash": 380.01,
+      "total": 1031.2
+    },
+    {
+      "time": "2026-07-20T03:40:46Z",
+      "nav": 1.0492,
+      "cash": 379.81,
+      "total": 1049.17
+    },
+    {
+      "time": "2026-07-20T03:40:46Z",
+      "nav": 1.0715,
+      "cash": 379.61,
+      "total": 1071.52
+    },
+    {
+      "time": "2026-07-20T03:40:46Z",
+      "nav": 1.0707,
+      "cash": 379.41,
+      "total": 1070.69
+    },
+    {
+      "time": "2026-07-20T03:40:46Z",
+      "nav": 1.0659,
+      "cash": 379.21,
+      "total": 1065.87
+    },
+    {
+      "time": "2026-07-20T03:40:46Z",
+      "nav": 1.0863,
+      "cash": 379.01,
+      "total": 1086.28
+    },
+    {
+      "time": "2026-07-20T03:40:47Z",
+      "nav": 1.1088,
+      "cash": 378.81,
+      "total": 1108.78
+    },
+    {
+      "time": "2026-07-20T03:40:47Z",
+      "nav": 1.1003,
+      "cash": 378.61,
+      "total": 1100.28
+    },
+    {
+      "time": "2026-07-20T03:40:47Z",
+      "nav": 1.1415,
+      "cash": 378.41,
+      "total": 1141.55
+    },
+    {
+      "time": "2026-07-20T03:40:47Z",
+      "nav": 1.1382,
+      "cash": 378.21,
+      "total": 1138.18
+    },
+    {
+      "time": "2026-07-20T03:40:47Z",
+      "nav": 1.1525,
+      "cash": 378.01,
+      "total": 1152.53
+    },
+    {
+      "time": "2026-07-20T03:40:47Z",
+      "nav": 1.1684,
+      "cash": 377.81,
+      "total": 1168.44
+    },
+    {
+      "time": "2026-07-20T03:40:47Z",
+      "nav": 1.1656,
+      "cash": 377.61,
+      "total": 1165.64
+    },
+    {
+      "time": "2026-07-20T03:40:47Z",
+      "nav": 1.1782,
+      "cash": 377.41,
+      "total": 1178.21
+    },
+    {
+      "time": "2026-07-20T03:40:47Z",
+      "nav": 1.1814,
+      "cash": 377.21,
+      "total": 1181.4
+    },
+    {
+      "time": "2026-07-20T03:40:47Z",
+      "nav": 1.1501,
+      "cash": 418.59,
+      "total": 1150.11
+    },
+    {
+      "time": "2026-07-20T03:40:47Z",
+      "nav": 1.1473,
+      "cash": 418.4,
+      "total": 1147.34
+    },
+    {
+      "time": "2026-07-20T03:40:47Z",
+      "nav": 1.1374,
+      "cash": 418.22,
+      "total": 1137.41
+    },
+    {
+      "time": "2026-07-20T03:40:47Z",
+      "nav": 1.176,
+      "cash": 418.03,
+      "total": 1175.97
+    },
+    {
+      "time": "2026-07-20T03:40:47Z",
+      "nav": 1.1657,
+      "cash": 417.85,
+      "total": 1165.66
+    },
+    {
+      "time": "2026-07-20T03:40:47Z",
+      "nav": 1.1584,
+      "cash": 417.66,
+      "total": 1158.38
+    },
+    {
+      "time": "2026-07-20T03:40:47Z",
+      "nav": 1.1911,
+      "cash": 417.48,
+      "total": 1191.07
+    },
+    {
+      "time": "2026-07-20T03:40:47Z",
+      "nav": 1.188,
+      "cash": 417.29,
+      "total": 1187.98
+    },
+    {
+      "time": "2026-07-20T03:40:47Z",
+      "nav": 1.1982,
+      "cash": 417.1,
+      "total": 1198.25
+    },
+    {
+      "time": "2026-07-20T03:40:47Z",
+      "nav": 1.1882,
+      "cash": 416.92,
+      "total": 1188.22
+    },
+    {
+      "time": "2026-07-20T03:40:47Z",
+      "nav": 1.2258,
+      "cash": 416.73,
+      "total": 1225.81
+    },
+    {
+      "time": "2026-07-20T03:40:47Z",
+      "nav": 1.2295,
+      "cash": 416.55,
+      "total": 1229.54
+    },
+    {
+      "time": "2026-07-20T03:40:47Z",
+      "nav": 1.2167,
+      "cash": 416.36,
+      "total": 1216.66
+    },
+    {
+      "time": "2026-07-20T03:40:47Z",
+      "nav": 1.2119,
+      "cash": 416.18,
+      "total": 1211.88
+    },
+    {
+      "time": "2026-07-20T03:40:47Z",
+      "nav": 1.2668,
+      "cash": 204.76,
+      "total": 1266.81
+    },
+    {
+      "time": "2026-07-20T03:40:47Z",
+      "nav": 1.2756,
+      "cash": 204.51,
+      "total": 1275.56
+    },
+    {
+      "time": "2026-07-20T03:40:47Z",
+      "nav": 1.2786,
+      "cash": 204.26,
+      "total": 1278.58
+    },
+    {
+      "time": "2026-07-20T03:40:47Z",
+      "nav": 1.2968,
+      "cash": 204.01,
+      "total": 1296.77
+    },
+    {
+      "time": "2026-07-20T03:40:47Z",
+      "nav": 1.2924,
+      "cash": 203.76,
+      "total": 1292.44
+    },
+    {
+      "time": "2026-07-20T03:40:47Z",
+      "nav": 1.2737,
+      "cash": 203.51,
+      "total": 1273.71
+    },
+    {
+      "time": "2026-07-20T03:40:47Z",
+      "nav": 1.2243,
+      "cash": 562.26,
+      "total": 1224.3
+    },
+    {
+      "time": "2026-07-20T03:40:47Z",
+      "nav": 1.2607,
+      "cash": 757.78,
+      "total": 1260.67
+    },
+    {
+      "time": "2026-07-20T03:40:47Z",
+      "nav": 1.2706,
+      "cash": 757.66,
+      "total": 1270.55
+    },
+    {
+      "time": "2026-07-20T03:40:47Z",
+      "nav": 1.2581,
+      "cash": 757.54,
+      "total": 1258.15
+    },
+    {
+      "time": "2026-07-20T03:40:48Z",
+      "nav": 1.2612,
+      "cash": 757.42,
+      "total": 1261.21
+    },
+    {
+      "time": "2026-07-20T03:40:48Z",
+      "nav": 1.2627,
+      "cash": 757.29,
+      "total": 1262.67
+    },
+    {
+      "time": "2026-07-20T03:40:48Z",
+      "nav": 1.2744,
+      "cash": 757.17,
+      "total": 1274.37
+    },
+    {
+      "time": "2026-07-20T03:40:48Z",
+      "nav": 1.2599,
+      "cash": 757.05,
+      "total": 1259.95
+    },
+    {
+      "time": "2026-07-20T03:40:48Z",
+      "nav": 1.2524,
+      "cash": 756.93,
+      "total": 1252.4
+    },
+    {
+      "time": "2026-07-20T03:40:48Z",
+      "nav": 1.2333,
+      "cash": 803.51,
+      "total": 1233.34
+    },
+    {
+      "time": "2026-07-20T03:40:48Z",
+      "nav": 1.228,
+      "cash": 861.4,
+      "total": 1228.04
+    },
+    {
+      "time": "2026-07-20T03:40:48Z",
+      "nav": 1.2322,
+      "cash": 861.29,
+      "total": 1232.18
+    },
+    {
+      "time": "2026-07-20T03:40:48Z",
+      "nav": 1.2376,
+      "cash": 861.18,
+      "total": 1237.62
+    },
+    {
+      "time": "2026-07-20T03:40:48Z",
+      "nav": 1.2434,
+      "cash": 861.07,
+      "total": 1243.4
+    },
+    {
+      "time": "2026-07-20T03:40:48Z",
+      "nav": 1.2456,
+      "cash": 860.96,
+      "total": 1245.64
+    },
+    {
+      "time": "2026-07-20T03:40:48Z",
+      "nav": 1.2563,
+      "cash": 860.85,
+      "total": 1256.31
+    },
+    {
+      "time": "2026-07-20T03:40:48Z",
+      "nav": 1.2555,
+      "cash": 860.74,
+      "total": 1255.51
+    },
+    {
+      "time": "2026-07-20T03:40:48Z",
+      "nav": 1.2689,
+      "cash": 860.63,
+      "total": 1268.88
+    },
+    {
+      "time": "2026-07-20T03:40:48Z",
+      "nav": 1.2651,
+      "cash": 438.58,
+      "total": 1265.13
+    },
+    {
+      "time": "2026-07-20T03:40:48Z",
+      "nav": 1.2873,
+      "cash": 438.34,
+      "total": 1287.34
+    },
+    {
+      "time": "2026-07-20T03:40:48Z",
+      "nav": 1.2981,
+      "cash": 438.11,
+      "total": 1298.14
+    },
+    {
+      "time": "2026-07-20T03:40:48Z",
+      "nav": 1.3096,
+      "cash": 437.87,
+      "total": 1309.65
+    },
+    {
+      "time": "2026-07-20T03:40:48Z",
+      "nav": 1.301,
+      "cash": 437.63,
+      "total": 1301.01
+    },
+    {
+      "time": "2026-07-20T03:40:48Z",
+      "nav": 1.3163,
+      "cash": 437.4,
+      "total": 1316.26
+    },
+    {
+      "time": "2026-07-20T03:40:48Z",
+      "nav": 1.3225,
+      "cash": 437.16,
+      "total": 1322.49
+    },
+    {
+      "time": "2026-07-20T03:40:48Z",
+      "nav": 1.3139,
+      "cash": 436.92,
+      "total": 1313.91
+    },
+    {
+      "time": "2026-07-20T03:40:48Z",
+      "nav": 1.3303,
+      "cash": 436.68,
+      "total": 1330.32
+    },
+    {
+      "time": "2026-07-20T03:40:48Z",
+      "nav": 1.3189,
+      "cash": 436.45,
+      "total": 1318.86
+    },
+    {
+      "time": "2026-07-20T03:40:48Z",
+      "nav": 1.2877,
+      "cash": 427.34,
+      "total": 1287.66
+    },
+    {
+      "time": "2026-07-20T03:40:49Z",
+      "nav": 1.2552,
+      "cash": 609.82,
+      "total": 1255.19
+    },
+    {
+      "time": "2026-07-20T03:40:49Z",
+      "nav": 1.2397,
+      "cash": 609.63,
+      "total": 1239.65
+    },
+    {
+      "time": "2026-07-20T03:40:49Z",
+      "nav": 1.2449,
+      "cash": 609.44,
+      "total": 1244.9
+    },
+    {
+      "time": "2026-07-20T03:40:49Z",
+      "nav": 1.2536,
+      "cash": 609.25,
+      "total": 1253.64
+    },
+    {
+      "time": "2026-07-20T03:40:49Z",
+      "nav": 1.2702,
+      "cash": 609.06,
+      "total": 1270.22
+    },
+    {
+      "time": "2026-07-20T03:40:49Z",
+      "nav": 1.2773,
+      "cash": 608.87,
+      "total": 1277.29
+    },
+    {
+      "time": "2026-07-20T03:40:49Z",
+      "nav": 1.2688,
+      "cash": 608.67,
+      "total": 1268.81
+    },
+    {
+      "time": "2026-07-20T03:40:49Z",
+      "nav": 1.2565,
+      "cash": 590.36,
+      "total": 1256.48
+    },
+    {
+      "time": "2026-07-20T03:40:49Z",
+      "nav": 1.2652,
+      "cash": 590.17,
+      "total": 1265.15
+    },
+    {
+      "time": "2026-07-20T03:40:49Z",
+      "nav": 1.2729,
+      "cash": 589.98,
+      "total": 1272.91
+    },
+    {
+      "time": "2026-07-20T03:40:49Z",
+      "nav": 1.2818,
+      "cash": 589.79,
+      "total": 1281.79
+    },
+    {
+      "time": "2026-07-20T03:40:49Z",
+      "nav": 1.2621,
+      "cash": 589.6,
+      "total": 1262.13
+    },
+    {
+      "time": "2026-07-20T03:40:49Z",
+      "nav": 1.2646,
+      "cash": 589.42,
+      "total": 1264.64
+    },
+    {
+      "time": "2026-07-20T03:40:49Z",
+      "nav": 1.2709,
+      "cash": 589.23,
+      "total": 1270.89
+    },
+    {
+      "time": "2026-07-20T03:40:49Z",
+      "nav": 1.2658,
+      "cash": 589.04,
+      "total": 1265.83
+    },
+    {
+      "time": "2026-07-20T03:40:49Z",
+      "nav": 1.2681,
+      "cash": 588.85,
+      "total": 1268.11
+    },
+    {
+      "time": "2026-07-20T03:40:49Z",
+      "nav": 1.2732,
+      "cash": 588.66,
+      "total": 1273.18
+    }
+  ],
+  "last_update": "2026-07-20T03:40:49Z"
 }
