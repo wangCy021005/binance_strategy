@@ -1,9 +1,9 @@
 {
-  "timestamp": "2026-07-17T09:25:24Z",
+  "timestamp": "2026-07-20T02:18:35Z",
   "dry_run": true,
   "regime": "ranging",
-  "portfolio": 999.8,
-  "nav": 0.9998,
+  "portfolio": 999.65,
+  "nav": 0.9996,
   "positions": [
     {
       "symbol": "ATOM/USDT",
@@ -30,9 +30,5 @@
       "pnl_pct": 0.0
     }
   ],
-  "opened": [
-    "ATOM/USDT",
-    "LTC/USDT",
-    "DOT/USDT"
-  ]
+  "opened": []
 }
