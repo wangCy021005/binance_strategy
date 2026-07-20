@@ -1,15 +1,40 @@
 {
-  "cash": 1000.0,
+  "cash": 499.79999999999995,
   "initial_cash": 1000.0,
-  "positions": {},
+  "positions": {
+    "DOT/USDT": {
+      "side": "short",
+      "qty": 205.0020500205002,
+      "entry": 0.813,
+      "high": 0.813,
+      "open_time": "2026-07-20T02:36:12Z",
+      "strategy": "momentum"
+    },
+    "AVAX/USDT": {
+      "side": "short",
+      "qty": 25.283171521035598,
+      "entry": 6.592,
+      "high": 6.592,
+      "open_time": "2026-07-20T02:36:12Z",
+      "strategy": "momentum"
+    },
+    "ATOM/USDT": {
+      "side": "short",
+      "qty": 114.07711613050421,
+      "entry": 1.461,
+      "high": 1.461,
+      "open_time": "2026-07-20T02:36:12Z",
+      "strategy": "momentum"
+    }
+  },
   "trades": [],
   "equity_history": [
     {
-      "time": "2026-07-20T02:30:00Z",
-      "nav": 1.0,
-      "cash": 1000.0,
-      "total": 1000.0
+      "time": "2026-07-20T02:36:12Z",
+      "nav": 0.9998,
+      "cash": 499.8,
+      "total": 999.8
     }
   ],
-  "last_update": "2026-07-20T02:30:00Z"
+  "last_update": "2026-07-20T02:36:12Z"
 }
