@@ -1,5 +1,5 @@
 {
-  "cash": 499.65,
+  "cash": 170.3922171729371,
   "initial_cash": 1000.0,
   "positions": {
     "DOT/USDT": {
@@ -25,6 +25,22 @@
       "high": 1.461,
       "open_time": "2026-07-20T02:36:12Z",
       "strategy": "momentum"
+    },
+    "ADA/USDT": {
+      "side": "short",
+      "qty": 941.0074151891384,
+      "entry": 0.1748,
+      "high": 0.1748,
+      "open_time": "2026-07-21T16:13:09Z",
+      "strategy": "momentum"
+    },
+    "XRP/USDT": {
+      "side": "short",
+      "qty": 142.27843281295858,
+      "entry": 1.1561,
+      "high": 1.1561,
+      "open_time": "2026-07-21T16:13:09Z",
+      "strategy": "momentum"
     }
   },
   "trades": [],
@@ -40,7 +56,13 @@
       "nav": 0.9931,
       "cash": 499.65,
       "total": 993.12
+    },
+    {
+      "time": "2026-07-21T16:13:09Z",
+      "nav": 0.9868,
+      "cash": 170.39,
+      "total": 986.8
     }
   ],
-  "last_update": "2026-07-20T16:13:08Z"
+  "last_update": "2026-07-21T16:13:09Z"
 }
