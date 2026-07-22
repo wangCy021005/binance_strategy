@@ -1,5 +1,5 @@
 {
-  "cash": 170.3922171729371,
+  "cash": 5.347615589241144,
   "initial_cash": 1000.0,
   "positions": {
     "DOT/USDT": {
@@ -38,8 +38,16 @@
       "side": "short",
       "qty": 142.27843281295858,
       "entry": 1.1561,
-      "high": 1.1561,
+      "high": 1.1517,
       "open_time": "2026-07-21T16:13:09Z",
+      "strategy": "momentum"
+    },
+    "BNB/USDT": {
+      "side": "short",
+      "qty": 0.2878335460140539,
+      "entry": 572.31,
+      "high": 572.31,
+      "open_time": "2026-07-22T16:13:09Z",
       "strategy": "momentum"
     }
   },
@@ -62,7 +70,13 @@
       "nav": 0.9868,
       "cash": 170.39,
       "total": 986.8
+    },
+    {
+      "time": "2026-07-22T16:13:09Z",
+      "nav": 0.9883,
+      "cash": 5.35,
+      "total": 988.31
     }
   ],
-  "last_update": "2026-07-21T16:13:09Z"
+  "last_update": "2026-07-22T16:13:09Z"
 }
