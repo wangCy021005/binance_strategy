@@ -1,35 +1,35 @@
 {
-  "as_of": "2026-07-22",
+  "as_of": "2026-07-23",
   "regime": "ranging",
   "slots": 3,
   "cap_pct": 50,
   "signals": [
     {
-      "symbol": "DOT/USDT",
+      "symbol": "ATOM/USDT",
       "direction": "short",
-      "score": 0.254,
-      "momentum": -47.7,
+      "score": 0.25,
+      "momentum": -23.0,
       "strategy": "momentum"
     },
     {
       "symbol": "BNB/USDT",
       "direction": "short",
-      "score": 0.226,
-      "momentum": -14.2,
+      "score": 0.238,
+      "momentum": -12.4,
       "strategy": "momentum"
     },
     {
-      "symbol": "ATOM/USDT",
+      "symbol": "DOT/USDT",
       "direction": "short",
-      "score": 0.22,
-      "momentum": -24.2,
+      "score": 0.237,
+      "momentum": -47.0,
       "strategy": "momentum"
     },
     {
-      "symbol": "AVAX/USDT",
-      "direction": "short",
-      "score": 0.217,
-      "momentum": -35.6,
+      "symbol": "TRX/USDT",
+      "direction": "long",
+      "score": 0.212,
+      "momentum": 8.0,
       "strategy": "momentum"
     }
   ]
