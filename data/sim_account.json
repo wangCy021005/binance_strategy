@@ -1,12 +1,12 @@
 {
-  "cash": 3.8570562756370057,
+  "cash": 3.558944412916178,
   "initial_cash": 1000.0,
   "positions": {
     "DOT/USDT": {
       "side": "short",
       "qty": 205.0020500205002,
       "entry": 0.813,
-      "high": 0.794,
+      "high": 0.76,
       "open_time": "2026-07-20T02:36:12Z",
       "strategy": "momentum"
     },
@@ -22,7 +22,7 @@
       "side": "short",
       "qty": 114.07711613050421,
       "entry": 1.461,
-      "high": 1.347,
+      "high": 1.298,
       "open_time": "2026-07-20T02:36:12Z",
       "strategy": "momentum"
     },
@@ -38,7 +38,7 @@
       "side": "short",
       "qty": 142.27843281295858,
       "entry": 1.1561,
-      "high": 1.0894,
+      "high": 1.064,
       "open_time": "2026-07-21T16:13:09Z",
       "strategy": "momentum"
     },
@@ -106,7 +106,13 @@
       "nav": 1.0414,
       "cash": 3.86,
       "total": 1041.43
+    },
+    {
+      "time": "2026-07-28T16:13:12Z",
+      "nav": 1.0562,
+      "cash": 3.56,
+      "total": 1056.16
     }
   ],
-  "last_update": "2026-07-27T16:13:13Z"
+  "last_update": "2026-07-28T16:13:12Z"
 }
