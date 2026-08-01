@@ -10170,13 +10170,19 @@
       "nav": 1.0514,
       "cash": 2.66,
       "total": 1051.39
+    },
+    {
+      "time": "2026-08-01T16:12:42Z",
+      "nav": 1.0472,
+      "cash": 2.37,
+      "total": 1047.19
     }
   ],
   "sim_trades": [],
   "sim_stats": {
-    "nav": 1.0514,
-    "total_return": 5.139999999999989,
-    "cash": 2.664608824753695,
+    "nav": 1.0472,
+    "total_return": 4.719999999999991,
+    "cash": 2.3664969620328673,
     "positions": 6,
     "total_trades": 0,
     "win_rate": 0
