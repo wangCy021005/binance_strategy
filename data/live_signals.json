@@ -1,35 +1,35 @@
 {
-  "as_of": "2026-08-01",
+  "as_of": "2026-08-02",
   "regime": "ranging",
   "slots": 3,
   "cap_pct": 50,
   "signals": [
     {
-      "symbol": "OP/USDT",
+      "symbol": "AVAX/USDT",
       "direction": "short",
-      "score": 0.25,
-      "momentum": -18.2,
+      "score": 0.279,
+      "momentum": -29.2,
       "strategy": "momentum"
     },
     {
-      "symbol": "DOT/USDT",
+      "symbol": "BNB/USDT",
       "direction": "short",
-      "score": 0.232,
-      "momentum": -41.3,
+      "score": 0.227,
+      "momentum": -5.9,
       "strategy": "momentum"
     },
     {
-      "symbol": "XRP/USDT",
+      "symbol": "ARB/USDT",
       "direction": "short",
-      "score": 0.231,
-      "momentum": -19.9,
+      "score": 0.227,
+      "momentum": -12.2,
       "strategy": "momentum"
     },
     {
-      "symbol": "DOGE/USDT",
+      "symbol": "SOL/USDT",
       "direction": "short",
-      "score": 0.228,
-      "momentum": -22.7,
+      "score": 0.226,
+      "momentum": -12.4,
       "strategy": "momentum"
     }
   ]
