@@ -10176,15 +10176,33 @@
       "nav": 1.0472,
       "cash": 2.37,
       "total": 1047.19
+    },
+    {
+      "time": "2026-08-02T16:13:12Z",
+      "nav": 1.0158,
+      "cash": 151.58,
+      "total": 1015.76
     }
   ],
-  "sim_trades": [],
+  "sim_trades": [
+    {
+      "time": "2026-08-02T16:13:11Z",
+      "symbol": "ADA/USDT",
+      "side": "close_short",
+      "entry": 0.1748,
+      "exit": 0.1907,
+      "pnl": -14.962,
+      "pnl_pct": -9.1,
+      "reason": "硬止损 -9.1%",
+      "strategy": "momentum"
+    }
+  ],
   "sim_stats": {
-    "nav": 1.0472,
-    "total_return": 4.719999999999991,
-    "cash": 2.3664969620328673,
-    "positions": 6,
-    "total_trades": 0,
-    "win_rate": 0
+    "nav": 1.0158,
+    "total_return": 1.5800000000000036,
+    "cash": 151.57801456324864,
+    "positions": 5,
+    "total_trades": 1,
+    "win_rate": 0.0
   }
 }
