@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-08-03",
+  "as_of": "2026-08-04",
   "regime": "ranging",
   "slots": 3,
   "cap_pct": 50,
@@ -7,29 +7,29 @@
     {
       "symbol": "ATOM/USDT",
       "direction": "short",
-      "score": 0.227,
-      "momentum": -23.1,
-      "strategy": "momentum"
-    },
-    {
-      "symbol": "ARB/USDT",
-      "direction": "short",
-      "score": 0.216,
-      "momentum": -7.7,
-      "strategy": "momentum"
-    },
-    {
-      "symbol": "OP/USDT",
-      "direction": "short",
-      "score": 0.212,
-      "momentum": -15.1,
+      "score": 0.3,
+      "momentum": -18.0,
       "strategy": "momentum"
     },
     {
       "symbol": "DOT/USDT",
       "direction": "short",
-      "score": 0.208,
-      "momentum": -36.6,
+      "score": 0.262,
+      "momentum": -33.6,
+      "strategy": "momentum"
+    },
+    {
+      "symbol": "OP/USDT",
+      "direction": "short",
+      "score": 0.228,
+      "momentum": -16.6,
+      "strategy": "momentum"
+    },
+    {
+      "symbol": "XRP/USDT",
+      "direction": "short",
+      "score": 0.226,
+      "momentum": -18.8,
       "strategy": "momentum"
     }
   ]
