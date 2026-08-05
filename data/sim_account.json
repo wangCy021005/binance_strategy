@@ -1,15 +1,7 @@
 {
-  "cash": 151.08048369551204,
+  "cash": 144.5035244078475,
   "initial_cash": 1000.0,
   "positions": {
-    "DOT/USDT": {
-      "side": "short",
-      "qty": 205.0020500205002,
-      "entry": 0.813,
-      "high": 0.759,
-      "open_time": "2026-07-20T02:36:12Z",
-      "strategy": "momentum"
-    },
     "AVAX/USDT": {
       "side": "short",
       "qty": 25.283171521035598,
@@ -41,6 +33,14 @@
       "high": 561.56,
       "open_time": "2026-07-22T16:13:09Z",
       "strategy": "momentum"
+    },
+    "DOT/USDT": {
+      "side": "short",
+      "qty": 193.09756970948578,
+      "entry": 0.853,
+      "high": 0.853,
+      "open_time": "2026-08-05T16:11:52Z",
+      "strategy": "momentum"
     }
   },
   "trades": [
@@ -53,6 +53,17 @@
       "pnl": -14.962,
       "pnl_pct": -9.1,
       "reason": "硬止损 -9.1%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-08-05T16:11:52Z",
+      "symbol": "DOT/USDT",
+      "side": "close_short",
+      "entry": 0.813,
+      "exit": 0.853,
+      "pnl": -8.2001,
+      "pnl_pct": -4.92,
+      "reason": "追踪止损 -12.4%",
       "strategy": "momentum"
     }
   ],
@@ -158,7 +169,13 @@
       "nav": 0.9882,
       "cash": 151.08,
       "total": 988.19
+    },
+    {
+      "time": "2026-08-05T16:11:52Z",
+      "nav": 0.9882,
+      "cash": 144.5,
+      "total": 988.21
     }
   ],
-  "last_update": "2026-08-04T16:13:12Z"
+  "last_update": "2026-08-05T16:11:52Z"
 }
