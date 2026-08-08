@@ -1,5 +1,5 @@
 {
-  "cash": 144.00716620393356,
+  "cash": 153.36289787986783,
   "initial_cash": 1000.0,
   "positions": {
     "AVAX/USDT": {
@@ -7,14 +7,6 @@
       "qty": 25.283171521035598,
       "entry": 6.592,
       "high": 6.197,
-      "open_time": "2026-07-20T02:36:12Z",
-      "strategy": "momentum"
-    },
-    "ATOM/USDT": {
-      "side": "short",
-      "qty": 114.07711613050421,
-      "entry": 1.461,
-      "high": 1.238,
       "open_time": "2026-07-20T02:36:12Z",
       "strategy": "momentum"
     },
@@ -41,6 +33,14 @@
       "high": 0.809,
       "open_time": "2026-08-05T16:11:52Z",
       "strategy": "momentum"
+    },
+    "OP/USDT": {
+      "side": "short",
+      "qty": 1852.4258361131035,
+      "entry": 0.0893,
+      "high": 0.0893,
+      "open_time": "2026-08-08T16:13:11Z",
+      "strategy": "momentum"
     }
   },
   "trades": [
@@ -64,6 +64,17 @@
       "pnl": -8.2001,
       "pnl_pct": -4.92,
       "reason": "追踪止损 -12.4%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-08-08T16:13:11Z",
+      "symbol": "ATOM/USDT",
+      "side": "close_short",
+      "entry": 1.461,
+      "exit": 1.387,
+      "pnl": 8.4417,
+      "pnl_pct": 5.07,
+      "reason": "追踪止损 -12.0%",
       "strategy": "momentum"
     }
   ],
@@ -187,7 +198,13 @@
       "nav": 1.0071,
       "cash": 144.01,
       "total": 1007.14
+    },
+    {
+      "time": "2026-08-08T16:13:11Z",
+      "nav": 0.9925,
+      "cash": 153.36,
+      "total": 992.46
     }
   ],
-  "last_update": "2026-08-07T16:13:12Z"
+  "last_update": "2026-08-08T16:13:11Z"
 }
