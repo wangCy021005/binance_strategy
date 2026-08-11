@@ -1,5 +1,5 @@
 {
-  "cash": 152.86728669965498,
+  "cash": 152.61948110954856,
   "initial_cash": 1000.0,
   "positions": {
     "AVAX/USDT": {
@@ -14,7 +14,7 @@
       "side": "short",
       "qty": 142.27843281295858,
       "entry": 1.1561,
-      "high": 1.0214,
+      "high": 1.0038,
       "open_time": "2026-07-21T16:13:09Z",
       "strategy": "momentum"
     },
@@ -30,7 +30,7 @@
       "side": "short",
       "qty": 193.09756970948578,
       "entry": 0.853,
-      "high": 0.805,
+      "high": 0.781,
       "open_time": "2026-08-05T16:11:52Z",
       "strategy": "momentum"
     },
@@ -38,7 +38,7 @@
       "side": "short",
       "qty": 1852.4258361131035,
       "entry": 0.0893,
-      "high": 0.0892,
+      "high": 0.0885,
       "open_time": "2026-08-08T16:13:11Z",
       "strategy": "momentum"
     }
@@ -216,7 +216,13 @@
       "nav": 0.9993,
       "cash": 152.87,
       "total": 999.3
+    },
+    {
+      "time": "2026-08-11T16:13:12Z",
+      "nav": 1.0148,
+      "cash": 152.62,
+      "total": 1014.82
     }
   ],
-  "last_update": "2026-08-10T16:13:11Z"
+  "last_update": "2026-08-11T16:13:12Z"
 }
