@@ -1,35 +1,35 @@
 {
-  "as_of": "2026-08-17",
+  "as_of": "2026-08-18",
   "regime": "ranging",
   "slots": 3,
   "cap_pct": 50,
   "signals": [
     {
-      "symbol": "FET/USDT",
+      "symbol": "AAVE/USDT",
       "direction": "short",
-      "score": 0.299,
-      "momentum": -47.1,
+      "score": 0.286,
+      "momentum": -13.5,
       "strategy": "momentum"
     },
     {
       "symbol": "ATOM/USDT",
       "direction": "short",
-      "score": 0.251,
-      "momentum": -15.6,
+      "score": 0.268,
+      "momentum": -20.5,
       "strategy": "momentum"
     },
     {
-      "symbol": "ARB/USDT",
+      "symbol": "SOL/USDT",
+      "direction": "short",
+      "score": 0.26,
+      "momentum": -12.1,
+      "strategy": "momentum"
+    },
+    {
+      "symbol": "FET/USDT",
       "direction": "short",
       "score": 0.25,
-      "momentum": -33.7,
-      "strategy": "momentum"
-    },
-    {
-      "symbol": "AVAX/USDT",
-      "direction": "short",
-      "score": 0.249,
-      "momentum": -29.9,
+      "momentum": -48.3,
       "strategy": "momentum"
     }
   ]
