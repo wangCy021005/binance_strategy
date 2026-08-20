@@ -1,50 +1,37 @@
 {
-  "timestamp": "2026-08-19T16:10:01Z",
+  "timestamp": "2026-08-20T16:10:01Z",
   "dry_run": true,
   "regime": "ranging",
-  "portfolio": 998.05,
-  "nav": 0.998,
+  "portfolio": 919.8,
+  "nav": 0.9198,
   "positions": [
-    {
-      "symbol": "AVAX/USDT",
-      "side": "short",
-      "qty": 25.283172,
-      "entry": 6.592,
-      "current": 6.6,
-      "pnl_pct": -0.12
-    },
-    {
-      "symbol": "XRP/USDT",
-      "side": "short",
-      "qty": 142.278433,
-      "entry": 1.1561,
-      "current": 1.0677,
-      "pnl_pct": 7.65
-    },
-    {
-      "symbol": "BNB/USDT",
-      "side": "short",
-      "qty": 0.287834,
-      "entry": 572.31,
-      "current": 616.37,
-      "pnl_pct": -7.7
-    },
     {
       "symbol": "DOT/USDT",
       "side": "short",
       "qty": 193.09757,
       "entry": 0.853,
-      "current": 0.779,
-      "pnl_pct": 8.68
+      "current": 0.837,
+      "pnl_pct": 1.88
     },
     {
       "symbol": "OP/USDT",
       "side": "short",
-      "qty": 1852.425836,
-      "entry": 0.0893,
-      "current": 0.0853,
-      "pnl_pct": 4.48
+      "qty": 1615.603119,
+      "entry": 0.0949,
+      "current": 0.0949,
+      "pnl_pct": 0.0
+    },
+    {
+      "symbol": "ATOM/USDT",
+      "side": "short",
+      "qty": 102.009804,
+      "entry": 1.503,
+      "current": 1.503,
+      "pnl_pct": 0.0
     }
   ],
-  "opened": []
+  "opened": [
+    "OP/USDT",
+    "ATOM/USDT"
+  ]
 }
