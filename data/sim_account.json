@@ -1,29 +1,29 @@
 {
-  "cash": 445.3584992926103,
+  "cash": 443.92936082654205,
   "initial_cash": 1000.0,
   "positions": {
-    "DOT/USDT": {
-      "side": "short",
-      "qty": 193.09756970948578,
-      "entry": 0.853,
-      "high": 0.748,
-      "open_time": "2026-08-05T16:11:52Z",
-      "strategy": "momentum"
-    },
-    "OP/USDT": {
-      "side": "short",
-      "qty": 1615.6031189645555,
-      "entry": 0.0949,
-      "high": 0.0949,
-      "open_time": "2026-08-20T16:13:11Z",
-      "strategy": "momentum"
-    },
     "ATOM/USDT": {
       "side": "short",
       "qty": 102.00980438438877,
       "entry": 1.503,
       "high": 1.503,
       "open_time": "2026-08-20T16:13:11Z",
+      "strategy": "momentum"
+    },
+    "OP/USDT": {
+      "side": "short",
+      "qty": 1412.2714981124345,
+      "entry": 0.1045,
+      "high": 0.1045,
+      "open_time": "2026-08-21T16:12:19Z",
+      "strategy": "momentum"
+    },
+    "FET/USDT": {
+      "side": "short",
+      "qty": 919.5163336619901,
+      "entry": 0.1605,
+      "high": 0.1605,
+      "open_time": "2026-08-21T16:12:19Z",
       "strategy": "momentum"
     }
   },
@@ -103,6 +103,28 @@
       "pnl": -10.3736,
       "pnl_pct": -6.27,
       "reason": "追踪止损 -14.5%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-08-21T16:12:19Z",
+      "symbol": "DOT/USDT",
+      "side": "close_short",
+      "entry": 0.853,
+      "exit": 0.897,
+      "pnl": -8.4963,
+      "pnl_pct": -5.16,
+      "reason": "追踪止损 -19.9%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-08-21T16:12:19Z",
+      "symbol": "OP/USDT",
+      "side": "close_short",
+      "entry": 0.0949,
+      "exit": 0.1045,
+      "pnl": -15.5098,
+      "pnl_pct": -10.12,
+      "reason": "硬止损 -10.1%",
       "strategy": "momentum"
     }
   ],
@@ -304,7 +326,13 @@
       "nav": 0.9198,
       "cash": 445.36,
       "total": 919.8
+    },
+    {
+      "time": "2026-08-21T16:12:19Z",
+      "nav": 0.8854,
+      "cash": 443.93,
+      "total": 885.38
     }
   ],
-  "last_update": "2026-08-20T16:13:11Z"
+  "last_update": "2026-08-21T16:12:19Z"
 }
