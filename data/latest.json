@@ -10308,6 +10308,12 @@
       "nav": 0.8653,
       "cash": 296.76,
       "total": 865.34
+    },
+    {
+      "time": "2026-08-24T16:12:19Z",
+      "nav": 0.8646,
+      "cash": 141.07,
+      "total": 864.64
     }
   ],
   "sim_trades": [
@@ -10409,14 +10415,25 @@
       "pnl_pct": -10.12,
       "reason": "硬止损 -10.1%",
       "strategy": "momentum"
+    },
+    {
+      "time": "2026-08-24T16:12:19Z",
+      "symbol": "FET/USDT",
+      "side": "close_short",
+      "entry": 0.1605,
+      "exit": 0.1765,
+      "pnl": -14.7123,
+      "pnl_pct": -9.97,
+      "reason": "硬止损 -10.0%",
+      "strategy": "momentum"
     }
   ],
   "sim_stats": {
-    "nav": 0.8653,
-    "total_return": -13.470000000000004,
-    "cash": 296.7582571028458,
-    "positions": 4,
-    "total_trades": 9,
-    "win_rate": 0.1111111111111111
+    "nav": 0.8646,
+    "total_return": -13.539999999999996,
+    "cash": 141.06635074600987,
+    "positions": 5,
+    "total_trades": 10,
+    "win_rate": 0.1
   }
 }
