@@ -1,50 +1,52 @@
 {
-  "timestamp": "2026-08-25T16:10:01Z",
+  "timestamp": "2026-08-26T16:10:02Z",
   "dry_run": true,
   "regime": "ranging",
-  "portfolio": 867.27,
-  "nav": 0.8673,
+  "portfolio": 855.03,
+  "nav": 0.855,
   "positions": [
     {
       "symbol": "ATOM/USDT",
       "side": "short",
       "qty": 102.009804,
       "entry": 1.503,
-      "current": 1.537,
-      "pnl_pct": -2.26
+      "current": 1.509,
+      "pnl_pct": -0.4
     },
     {
       "symbol": "OP/USDT",
       "side": "short",
       "qty": 1412.271498,
       "entry": 0.1045,
-      "current": 0.1032,
-      "pnl_pct": 1.24
+      "current": 0.0999,
+      "pnl_pct": 4.4
     },
     {
       "symbol": "TRX/USDT",
       "side": "long",
       "qty": 426.866103,
       "entry": 0.3439,
-      "current": 0.3416,
-      "pnl_pct": -0.67
-    },
-    {
-      "symbol": "NEAR/USDT",
-      "side": "long",
-      "qty": 71.847799,
-      "entry": 2.006,
-      "current": 1.902,
-      "pnl_pct": -5.18
+      "current": 0.3348,
+      "pnl_pct": -2.65
     },
     {
       "symbol": "INJ/USDT",
       "side": "long",
       "qty": 25.08296,
       "entry": 5.746,
-      "current": 5.768,
-      "pnl_pct": 0.38
+      "current": 5.317,
+      "pnl_pct": -7.47
+    },
+    {
+      "symbol": "NEAR/USDT",
+      "side": "long",
+      "qty": 77.919478,
+      "entry": 1.829,
+      "current": 1.829,
+      "pnl_pct": 0.0
     }
   ],
-  "opened": []
+  "opened": [
+    "NEAR/USDT"
+  ]
 }
