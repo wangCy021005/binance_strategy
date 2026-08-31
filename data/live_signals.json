@@ -1,35 +1,35 @@
 {
-  "as_of": "2026-08-30",
+  "as_of": "2026-08-31",
   "regime": "ranging",
   "slots": 3,
   "cap_pct": 50,
   "signals": [
     {
-      "symbol": "INJ/USDT",
-      "direction": "long",
-      "score": 0.242,
-      "momentum": 64.1,
+      "symbol": "ARB/USDT",
+      "direction": "short",
+      "score": 0.287,
+      "momentum": -34.9,
+      "strategy": "momentum"
+    },
+    {
+      "symbol": "FET/USDT",
+      "direction": "short",
+      "score": 0.254,
+      "momentum": -30.0,
+      "strategy": "momentum"
+    },
+    {
+      "symbol": "DOT/USDT",
+      "direction": "short",
+      "score": 0.25,
+      "momentum": -35.0,
       "strategy": "momentum"
     },
     {
       "symbol": "OP/USDT",
       "direction": "short",
-      "score": 0.227,
-      "momentum": -29.0,
-      "strategy": "momentum"
-    },
-    {
-      "symbol": "ARB/USDT",
-      "direction": "short",
-      "score": 0.201,
-      "momentum": -32.1,
-      "strategy": "momentum"
-    },
-    {
-      "symbol": "TRX/USDT",
-      "direction": "long",
-      "score": 0.198,
-      "momentum": 5.2,
+      "score": 0.234,
+      "momentum": -31.2,
       "strategy": "momentum"
     }
   ]
