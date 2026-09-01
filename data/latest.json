@@ -10356,6 +10356,12 @@
       "nav": 0.8695,
       "cash": 113.44,
       "total": 869.5
+    },
+    {
+      "time": "2026-09-01T16:13:12Z",
+      "nav": 0.8535,
+      "cash": 124.82,
+      "total": 853.54
     }
   ],
   "sim_trades": [
@@ -10490,14 +10496,25 @@
       "pnl_pct": -9.57,
       "reason": "硬止损 -9.6%",
       "strategy": "momentum"
+    },
+    {
+      "time": "2026-09-01T16:13:12Z",
+      "symbol": "OP/USDT",
+      "side": "close_short",
+      "entry": 0.1045,
+      "exit": 0.1,
+      "pnl": 6.3552,
+      "pnl_pct": 4.31,
+      "reason": "追踪止损 -15.6%",
+      "strategy": "momentum"
     }
   ],
   "sim_stats": {
-    "nav": 0.8695,
-    "total_return": -13.049999999999995,
-    "cash": 113.44189989895317,
+    "nav": 0.8535,
+    "total_return": -14.649999999999997,
+    "cash": 124.82128714424039,
     "positions": 5,
-    "total_trades": 12,
-    "win_rate": 0.08333333333333333
+    "total_trades": 13,
+    "win_rate": 0.15384615384615385
   }
 }
