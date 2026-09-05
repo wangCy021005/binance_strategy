@@ -1,5 +1,5 @@
 {
-  "cash": 116.83066249146978,
+  "cash": 103.64952593133754,
   "initial_cash": 1000.0,
   "positions": {
     "ATOM/USDT": {
@@ -22,7 +22,7 @@
       "side": "long",
       "qty": 77.91947831754602,
       "entry": 1.829,
-      "high": 2.004,
+      "high": 2.186,
       "open_time": "2026-08-26T16:13:12Z",
       "strategy": "momentum"
     },
@@ -34,12 +34,12 @@
       "open_time": "2026-09-01T16:13:12Z",
       "strategy": "momentum"
     },
-    "FET/USDT": {
-      "side": "short",
-      "qty": 922.4022786255257,
-      "entry": 0.1525,
-      "high": 0.1525,
-      "open_time": "2026-09-02T16:13:12Z",
+    "UNI/USDT": {
+      "side": "long",
+      "qty": 22.223119120940744,
+      "entry": 6.362,
+      "high": 6.362,
+      "open_time": "2026-09-05T16:13:12Z",
       "strategy": "momentum"
     }
   },
@@ -196,6 +196,17 @@
       "pnl": -11.7616,
       "pnl_pct": -8.1,
       "reason": "硬止损 -8.1%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-09-05T16:13:12Z",
+      "symbol": "FET/USDT",
+      "side": "close_short",
+      "entry": 0.1525,
+      "exit": 0.1657,
+      "pnl": -12.1757,
+      "pnl_pct": -8.66,
+      "reason": "硬止损 -8.7%",
       "strategy": "momentum"
     }
   ],
@@ -487,7 +498,13 @@
       "nav": 0.8501,
       "cash": 116.83,
       "total": 850.12
+    },
+    {
+      "time": "2026-09-05T16:13:12Z",
+      "nav": 0.8482,
+      "cash": 103.65,
+      "total": 848.24
     }
   ],
-  "last_update": "2026-09-04T16:11:31Z"
+  "last_update": "2026-09-05T16:13:12Z"
 }
