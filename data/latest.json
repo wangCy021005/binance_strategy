@@ -10392,6 +10392,12 @@
       "nav": 0.8642,
       "cash": 232.45,
       "total": 864.18
+    },
+    {
+      "time": "2026-09-07T16:13:01Z",
+      "nav": 0.8429,
+      "cash": 89.77,
+      "total": 842.92
     }
   ],
   "sim_trades": [
@@ -10570,14 +10576,25 @@
       "pnl_pct": -9.3,
       "reason": "硬止损 -9.3%",
       "strategy": "momentum"
+    },
+    {
+      "time": "2026-09-07T16:13:01Z",
+      "symbol": "ATOM/USDT",
+      "side": "close_short",
+      "entry": 1.503,
+      "exit": 1.647,
+      "pnl": -14.6894,
+      "pnl_pct": -9.58,
+      "reason": "硬止损 -9.6%",
+      "strategy": "momentum"
     }
   ],
   "sim_stats": {
-    "nav": 0.8642,
-    "total_return": -13.580000000000004,
-    "cash": 232.45261040458644,
-    "positions": 4,
-    "total_trades": 16,
-    "win_rate": 0.125
+    "nav": 0.8429,
+    "total_return": -15.71,
+    "cash": 89.77114786719096,
+    "positions": 5,
+    "total_trades": 17,
+    "win_rate": 0.11764705882352941
   }
 }
