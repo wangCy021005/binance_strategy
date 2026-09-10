@@ -1,5 +1,5 @@
 {
-  "cash": 89.34412348246664,
+  "cash": 209.95552146951513,
   "initial_cash": 1000.0,
   "positions": {
     "TRX/USDT": {
@@ -18,28 +18,20 @@
       "open_time": "2026-08-26T16:13:12Z",
       "strategy": "momentum"
     },
-    "UNI/USDT": {
-      "side": "long",
-      "qty": 22.223119120940744,
-      "entry": 6.362,
-      "high": 7.016,
-      "open_time": "2026-09-05T16:13:12Z",
-      "strategy": "momentum"
-    },
-    "LINK/USDT": {
-      "side": "long",
-      "qty": 10.912156151929917,
-      "entry": 12.876,
-      "high": 12.876,
-      "open_time": "2026-09-07T16:13:01Z",
-      "strategy": "momentum"
-    },
     "INJ/USDT": {
       "side": "long",
       "qty": 24.859328133802123,
       "entry": 5.652,
       "high": 6.419,
       "open_time": "2026-09-07T16:13:01Z",
+      "strategy": "momentum"
+    },
+    "LINK/USDT": {
+      "side": "long",
+      "qty": 11.911543796896458,
+      "entry": 11.593,
+      "high": 11.593,
+      "open_time": "2026-09-10T16:14:03Z",
       "strategy": "momentum"
     }
   },
@@ -229,6 +221,28 @@
       "pnl": -14.6894,
       "pnl_pct": -9.58,
       "reason": "硬止损 -9.6%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-09-10T16:14:03Z",
+      "symbol": "UNI/USDT",
+      "side": "close_long",
+      "entry": 6.362,
+      "exit": 5.962,
+      "pnl": -8.8892,
+      "pnl_pct": -6.29,
+      "reason": "追踪止损 -15.0%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-09-10T16:14:03Z",
+      "symbol": "LINK/USDT",
+      "side": "close_long",
+      "entry": 12.876,
+      "exit": 11.593,
+      "pnl": -14.0003,
+      "pnl_pct": -9.96,
+      "reason": "硬止损 -10.0%",
       "strategy": "momentum"
     }
   ],
@@ -550,7 +564,13 @@
       "nav": 0.8636,
       "cash": 89.34,
       "total": 863.65
+    },
+    {
+      "time": "2026-09-10T16:14:03Z",
+      "nav": 0.8285,
+      "cash": 209.96,
+      "total": 828.49
     }
   ],
-  "last_update": "2026-09-09T16:14:22Z"
+  "last_update": "2026-09-10T16:14:03Z"
 }
