@@ -1,5 +1,5 @@
 {
-  "cash": 209.61477581232418,
+  "cash": 114.56777981328611,
   "initial_cash": 1000.0,
   "positions": {
     "TRX/USDT": {
@@ -8,14 +8,6 @@
       "entry": 0.3439,
       "high": 0.3439,
       "open_time": "2026-08-22T16:13:12Z",
-      "strategy": "momentum"
-    },
-    "NEAR/USDT": {
-      "side": "long",
-      "qty": 77.91947831754602,
-      "entry": 1.829,
-      "high": 2.621,
-      "open_time": "2026-08-26T16:13:12Z",
       "strategy": "momentum"
     },
     "INJ/USDT": {
@@ -32,6 +24,22 @@
       "entry": 11.593,
       "high": 11.768,
       "open_time": "2026-09-10T16:14:03Z",
+      "strategy": "momentum"
+    },
+    "UNI/USDT": {
+      "side": "long",
+      "qty": 21.769105433957687,
+      "entry": 6.289,
+      "high": 6.289,
+      "open_time": "2026-09-13T16:13:12Z",
+      "strategy": "momentum"
+    },
+    "NEAR/USDT": {
+      "side": "long",
+      "qty": 59.576111433489935,
+      "entry": 2.298,
+      "high": 2.298,
+      "open_time": "2026-09-13T16:13:12Z",
       "strategy": "momentum"
     }
   },
@@ -243,6 +251,17 @@
       "pnl": -14.0003,
       "pnl_pct": -9.96,
       "reason": "硬止损 -10.0%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-09-13T16:13:12Z",
+      "symbol": "NEAR/USDT",
+      "side": "close_long",
+      "entry": 1.829,
+      "exit": 2.298,
+      "pnl": 36.5442,
+      "pnl_pct": 25.64,
+      "reason": "追踪止损 -12.3%",
       "strategy": "momentum"
     }
   ],
@@ -582,7 +601,13 @@
       "nav": 0.8269,
       "cash": 209.61,
       "total": 826.94
+    },
+    {
+      "time": "2026-09-13T16:13:12Z",
+      "nav": 0.8213,
+      "cash": 114.57,
+      "total": 821.33
     }
   ],
-  "last_update": "2026-09-12T16:13:13Z"
+  "last_update": "2026-09-13T16:13:12Z"
 }
