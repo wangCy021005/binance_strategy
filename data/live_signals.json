@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-09-13",
+  "as_of": "2026-09-14",
   "regime": "ranging",
   "slots": 3,
   "cap_pct": 50,
@@ -12,17 +12,17 @@
       "strategy": "momentum"
     },
     {
-      "symbol": "UNI/USDT",
-      "direction": "long",
-      "score": 0.222,
-      "momentum": 67.3,
-      "strategy": "momentum"
-    },
-    {
       "symbol": "NEAR/USDT",
       "direction": "long",
       "score": 0.215,
       "momentum": 82.3,
+      "strategy": "momentum"
+    },
+    {
+      "symbol": "UNI/USDT",
+      "direction": "long",
+      "score": 0.201,
+      "momentum": 53.3,
       "strategy": "momentum"
     }
   ]
