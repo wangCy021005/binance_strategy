@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-09-19",
+  "as_of": "2026-09-20",
   "regime": "ranging",
   "slots": 3,
   "cap_pct": 50,
@@ -21,15 +21,8 @@
     {
       "symbol": "UNI/USDT",
       "direction": "long",
-      "score": 0.273,
-      "momentum": 146.1,
-      "strategy": "momentum"
-    },
-    {
-      "symbol": "ARB/USDT",
-      "direction": "long",
-      "score": 0.25,
-      "momentum": 77.2,
+      "score": 0.207,
+      "momentum": 148.8,
       "strategy": "momentum"
     }
   ]
