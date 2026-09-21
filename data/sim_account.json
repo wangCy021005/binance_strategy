@@ -1,12 +1,12 @@
 {
-  "cash": 117.90581746001139,
+  "cash": 117.6977539164302,
   "initial_cash": 1000.0,
   "positions": {
     "TRX/USDT": {
       "side": "long",
       "qty": 426.8661033997317,
       "entry": 0.3439,
-      "high": 0.3446,
+      "high": 0.3454,
       "open_time": "2026-08-22T16:13:12Z",
       "strategy": "momentum"
     },
@@ -14,7 +14,7 @@
       "side": "long",
       "qty": 11.911543796896458,
       "entry": 11.593,
-      "high": 12.647,
+      "high": 12.984,
       "open_time": "2026-09-10T16:14:03Z",
       "strategy": "momentum"
     },
@@ -30,7 +30,7 @@
       "side": "long",
       "qty": 59.576111433489935,
       "entry": 2.298,
-      "high": 3.93,
+      "high": 4.065,
       "open_time": "2026-09-13T16:13:12Z",
       "strategy": "momentum"
     },
@@ -660,7 +660,13 @@
       "nav": 1.0311,
       "cash": 117.91,
       "total": 1031.14
+    },
+    {
+      "time": "2026-09-21T16:13:12Z",
+      "nav": 1.0429,
+      "cash": 117.7,
+      "total": 1042.88
     }
   ],
-  "last_update": "2026-09-20T16:13:13Z"
+  "last_update": "2026-09-21T16:13:12Z"
 }
