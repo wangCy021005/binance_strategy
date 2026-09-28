@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-09-27",
+  "as_of": "2026-09-28",
   "regime": "ranging",
   "slots": 3,
   "cap_pct": 50,
@@ -19,17 +19,17 @@
       "strategy": "momentum"
     },
     {
-      "symbol": "LINK/USDT",
+      "symbol": "ARB/USDT",
       "direction": "long",
-      "score": 0.206,
-      "momentum": 47.9,
+      "score": 0.229,
+      "momentum": 114.0,
       "strategy": "momentum"
     },
     {
-      "symbol": "ARB/USDT",
+      "symbol": "UNI/USDT",
       "direction": "long",
-      "score": 0.196,
-      "momentum": 103.0,
+      "score": 0.199,
+      "momentum": 185.9,
       "strategy": "momentum"
     }
   ]
