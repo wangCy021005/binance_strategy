@@ -1,61 +1,58 @@
 {
-  "timestamp": "2026-10-03T16:10:02Z",
+  "timestamp": "2026-10-04T16:10:02Z",
   "dry_run": true,
   "regime": "ranging",
-  "portfolio": 1080.61,
-  "nav": 1.0806,
+  "portfolio": 1087.72,
+  "nav": 1.0877,
   "positions": [
     {
       "symbol": "TRX/USDT",
       "side": "long",
       "qty": 426.866103,
       "entry": 0.3439,
-      "current": 0.3369,
-      "pnl_pct": -2.04
+      "current": 0.3357,
+      "pnl_pct": -2.38
     },
     {
       "symbol": "LINK/USDT",
       "side": "long",
       "qty": 11.911544,
       "entry": 11.593,
-      "current": 13.801,
-      "pnl_pct": 19.05
+      "current": 14.162,
+      "pnl_pct": 22.16
     },
     {
       "symbol": "UNI/USDT",
       "side": "long",
       "qty": 21.769105,
       "entry": 6.289,
-      "current": 9.006,
-      "pnl_pct": 43.2
+      "current": 9.035,
+      "pnl_pct": 43.66
     },
     {
       "symbol": "INJ/USDT",
       "side": "long",
       "qty": 24.905151,
       "entry": 7.329,
-      "current": 7.729,
-      "pnl_pct": 5.46
+      "current": 7.498,
+      "pnl_pct": 2.31
     },
     {
       "symbol": "NEAR/USDT",
       "side": "long",
       "qty": 38.929236,
       "entry": 4.627,
-      "current": 4.627,
-      "pnl_pct": 0.0
+      "current": 4.845,
+      "pnl_pct": 4.71
     },
     {
       "symbol": "AAVE/USDT",
       "side": "long",
       "qty": 1.008598,
       "entry": 178.59,
-      "current": 178.59,
-      "pnl_pct": 0.0
+      "current": 178.84,
+      "pnl_pct": 0.14
     }
   ],
-  "opened": [
-    "NEAR/USDT",
-    "AAVE/USDT"
-  ]
+  "opened": []
 }
