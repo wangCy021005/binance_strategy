@@ -1,5 +1,5 @@
 {
-  "cash": 18.026860977315636,
+  "cash": 2.4773244238123198,
   "initial_cash": 1000.0,
   "positions": {
     "TRX/USDT": {
@@ -8,22 +8,6 @@
       "entry": 0.3439,
       "high": 0.3454,
       "open_time": "2026-08-22T16:13:12Z",
-      "strategy": "momentum"
-    },
-    "LINK/USDT": {
-      "side": "long",
-      "qty": 11.911543796896458,
-      "entry": 11.593,
-      "high": 14.81,
-      "open_time": "2026-09-10T16:14:03Z",
-      "strategy": "momentum"
-    },
-    "INJ/USDT": {
-      "side": "long",
-      "qty": 24.905151423409716,
-      "entry": 7.329,
-      "high": 7.891,
-      "open_time": "2026-09-28T16:13:11Z",
       "strategy": "momentum"
     },
     "NEAR/USDT": {
@@ -48,6 +32,22 @@
       "entry": 7.854,
       "high": 7.854,
       "open_time": "2026-10-07T16:13:13Z",
+      "strategy": "momentum"
+    },
+    "INJ/USDT": {
+      "side": "long",
+      "qty": 24.757332338763543,
+      "entry": 6.611,
+      "high": 6.611,
+      "open_time": "2026-10-08T16:13:12Z",
+      "strategy": "momentum"
+    },
+    "ARB/USDT": {
+      "side": "long",
+      "qty": 981.827978953604,
+      "entry": 0.1667,
+      "high": 0.1667,
+      "open_time": "2026-10-08T16:13:12Z",
       "strategy": "momentum"
     }
   },
@@ -314,6 +314,28 @@
       "pnl": 34.0687,
       "pnl_pct": 24.88,
       "reason": "追踪止损 -18.7%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-10-08T16:13:12Z",
+      "symbol": "LINK/USDT",
+      "side": "close_long",
+      "entry": 11.593,
+      "exit": 12.392,
+      "pnl": 9.5173,
+      "pnl_pct": 6.89,
+      "reason": "追踪止损 -16.3%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-10-08T16:13:12Z",
+      "symbol": "INJ/USDT",
+      "side": "close_long",
+      "entry": 7.329,
+      "exit": 6.611,
+      "pnl": -17.8819,
+      "pnl_pct": -9.8,
+      "reason": "硬止损 -9.8%",
       "strategy": "momentum"
     }
   ],
@@ -803,7 +825,13 @@
       "nav": 1.0518,
       "cash": 18.03,
       "total": 1051.84
+    },
+    {
+      "time": "2026-10-08T16:13:12Z",
+      "nav": 0.9819,
+      "cash": 2.48,
+      "total": 981.89
     }
   ],
-  "last_update": "2026-10-07T16:13:13Z"
+  "last_update": "2026-10-08T16:13:12Z"
 }
