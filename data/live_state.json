@@ -1,61 +1,58 @@
 {
-  "timestamp": "2026-10-08T16:10:02Z",
+  "timestamp": "2026-10-09T16:10:02Z",
   "dry_run": true,
   "regime": "ranging",
-  "portfolio": 981.89,
-  "nav": 0.9819,
+  "portfolio": 1022.05,
+  "nav": 1.022,
   "positions": [
     {
       "symbol": "TRX/USDT",
       "side": "long",
       "qty": 426.866103,
       "entry": 0.3439,
-      "current": 0.3332,
-      "pnl_pct": -3.11
+      "current": 0.3328,
+      "pnl_pct": -3.23
     },
     {
       "symbol": "NEAR/USDT",
       "side": "long",
       "qty": 38.929236,
       "entry": 4.627,
-      "current": 4.66,
-      "pnl_pct": 0.71
+      "current": 4.786,
+      "pnl_pct": 3.44
     },
     {
       "symbol": "AAVE/USDT",
       "side": "long",
       "qty": 1.008598,
       "entry": 178.59,
-      "current": 165.31,
-      "pnl_pct": -7.44
+      "current": 171.85,
+      "pnl_pct": -3.77
     },
     {
       "symbol": "UNI/USDT",
       "side": "long",
       "qty": 22.32209,
       "entry": 7.854,
-      "current": 7.244,
-      "pnl_pct": -7.77
+      "current": 7.415,
+      "pnl_pct": -5.59
     },
     {
       "symbol": "INJ/USDT",
       "side": "long",
       "qty": 24.757332,
       "entry": 6.611,
-      "current": 6.611,
-      "pnl_pct": 0.0
+      "current": 6.971,
+      "pnl_pct": 5.45
     },
     {
       "symbol": "ARB/USDT",
       "side": "long",
       "qty": 981.827979,
       "entry": 0.1667,
-      "current": 0.1667,
-      "pnl_pct": 0.0
+      "current": 0.1834,
+      "pnl_pct": 10.02
     }
   ],
-  "opened": [
-    "INJ/USDT",
-    "ARB/USDT"
-  ]
+  "opened": []
 }
