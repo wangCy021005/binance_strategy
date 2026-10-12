@@ -1,5 +1,5 @@
 {
-  "cash": 1.568585831667963,
+  "cash": 166.2039162554184,
   "initial_cash": 1000.0,
   "positions": {
     "TRX/USDT": {
@@ -18,14 +18,6 @@
       "open_time": "2026-10-03T16:13:52Z",
       "strategy": "momentum"
     },
-    "AAVE/USDT": {
-      "side": "long",
-      "qty": 1.0085983237252334,
-      "entry": 178.59,
-      "high": 182.53,
-      "open_time": "2026-10-03T16:13:52Z",
-      "strategy": "momentum"
-    },
     "UNI/USDT": {
       "side": "long",
       "qty": 22.3220901981901,
@@ -38,7 +30,7 @@
       "side": "long",
       "qty": 24.757332338763543,
       "entry": 6.611,
-      "high": 7.741,
+      "high": 7.765,
       "open_time": "2026-10-08T16:13:12Z",
       "strategy": "momentum"
     },
@@ -336,6 +328,17 @@
       "pnl": -17.8819,
       "pnl_pct": -9.8,
       "reason": "硬止损 -9.8%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-10-12T16:13:12Z",
+      "symbol": "AAVE/USDT",
+      "side": "close_long",
+      "entry": 178.59,
+      "exit": 163.55,
+      "pnl": -15.1693,
+      "pnl_pct": -8.42,
+      "reason": "硬止损 -8.4%",
       "strategy": "momentum"
     }
   ],
@@ -849,7 +852,13 @@
       "nav": 1.0999,
       "cash": 1.57,
       "total": 1099.93
+    },
+    {
+      "time": "2026-10-12T16:13:12Z",
+      "nav": 1.0673,
+      "cash": 166.2,
+      "total": 1067.27
     }
   ],
-  "last_update": "2026-10-11T16:13:12Z"
+  "last_update": "2026-10-12T16:13:12Z"
 }
