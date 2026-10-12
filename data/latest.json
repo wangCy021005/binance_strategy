@@ -10602,6 +10602,12 @@
       "nav": 1.0999,
       "cash": 1.57,
       "total": 1099.93
+    },
+    {
+      "time": "2026-10-12T16:13:12Z",
+      "nav": 1.0673,
+      "cash": 166.2,
+      "total": 1067.27
     }
   ],
   "sim_trades": [
@@ -10890,14 +10896,25 @@
       "pnl_pct": -9.8,
       "reason": "硬止损 -9.8%",
       "strategy": "momentum"
+    },
+    {
+      "time": "2026-10-12T16:13:12Z",
+      "symbol": "AAVE/USDT",
+      "side": "close_long",
+      "entry": 178.59,
+      "exit": 163.55,
+      "pnl": -15.1693,
+      "pnl_pct": -8.42,
+      "reason": "硬止损 -8.4%",
+      "strategy": "momentum"
     }
   ],
   "sim_stats": {
-    "nav": 1.0999,
-    "total_return": 9.990000000000009,
-    "cash": 1.568585831667963,
-    "positions": 6,
-    "total_trades": 26,
-    "win_rate": 0.2692307692307692
+    "nav": 1.0673,
+    "total_return": 6.7299999999999915,
+    "cash": 166.2039162554184,
+    "positions": 5,
+    "total_trades": 27,
+    "win_rate": 0.25925925925925924
   }
 }
