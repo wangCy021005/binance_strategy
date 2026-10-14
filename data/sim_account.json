@@ -1,5 +1,5 @@
 {
-  "cash": 10.146164305089371,
+  "cash": 0.27561676646161004,
   "initial_cash": 1000.0,
   "positions": {
     "TRX/USDT": {
@@ -8,14 +8,6 @@
       "entry": 0.3439,
       "high": 0.3454,
       "open_time": "2026-08-22T16:13:12Z",
-      "strategy": "momentum"
-    },
-    "UNI/USDT": {
-      "side": "long",
-      "qty": 22.3220901981901,
-      "entry": 7.854,
-      "high": 7.854,
-      "open_time": "2026-10-07T16:13:13Z",
       "strategy": "momentum"
     },
     "INJ/USDT": {
@@ -48,6 +40,14 @@
       "entry": 107.73,
       "high": 107.73,
       "open_time": "2026-10-13T16:13:11Z",
+      "strategy": "momentum"
+    },
+    "UNI/USDT": {
+      "side": "long",
+      "qty": 23.64062015919535,
+      "entry": 7.194,
+      "high": 7.194,
+      "open_time": "2026-10-14T16:13:12Z",
       "strategy": "momentum"
     }
   },
@@ -358,6 +358,17 @@
       "pnl": 13.0413,
       "pnl_pct": 7.24,
       "reason": "追踪止损 -13.6%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-10-14T16:13:12Z",
+      "symbol": "UNI/USDT",
+      "side": "close_long",
+      "entry": 7.854,
+      "exit": 7.194,
+      "pnl": -14.7326,
+      "pnl_pct": -8.4,
+      "reason": "硬止损 -8.4%",
       "strategy": "momentum"
     }
   ],
@@ -883,7 +894,13 @@
       "nav": 1.0463,
       "cash": 10.15,
       "total": 1046.32
+    },
+    {
+      "time": "2026-10-14T16:13:12Z",
+      "nav": 1.0204,
+      "cash": 0.28,
+      "total": 1020.36
     }
   ],
-  "last_update": "2026-10-13T16:13:11Z"
+  "last_update": "2026-10-14T16:13:12Z"
 }
