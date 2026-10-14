@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-10-13",
+  "as_of": "2026-10-14",
   "regime": "ranging",
   "slots": 3,
   "cap_pct": 50,
@@ -14,22 +14,22 @@
     {
       "symbol": "SOL/USDT",
       "direction": "long",
-      "score": 0.27,
-      "momentum": 58.3,
+      "score": 0.264,
+      "momentum": 64.5,
       "strategy": "momentum"
     },
     {
-      "symbol": "INJ/USDT",
+      "symbol": "UNI/USDT",
       "direction": "long",
-      "score": 0.263,
-      "momentum": 22.5,
+      "score": 0.258,
+      "momentum": 204.3,
       "strategy": "momentum"
     },
     {
-      "symbol": "LINK/USDT",
+      "symbol": "ETH/USDT",
       "direction": "long",
-      "score": 0.259,
-      "momentum": 57.9,
+      "score": 0.256,
+      "momentum": 52.4,
       "strategy": "momentum"
     }
   ]
