@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-10-16",
+  "as_of": "2026-10-17",
   "regime": "ranging",
   "slots": 3,
   "cap_pct": 50,
@@ -8,28 +8,28 @@
       "symbol": "INJ/USDT",
       "direction": "long",
       "score": 0.294,
-      "momentum": 58.1,
+      "momentum": 77.2,
       "strategy": "momentum"
     },
     {
-      "symbol": "BNB/USDT",
+      "symbol": "AAVE/USDT",
       "direction": "long",
-      "score": 0.27,
-      "momentum": 20.5,
+      "score": 0.279,
+      "momentum": 141.7,
       "strategy": "momentum"
     },
     {
       "symbol": "ARB/USDT",
       "direction": "long",
-      "score": 0.268,
-      "momentum": 134.4,
+      "score": 0.261,
+      "momentum": 128.0,
       "strategy": "momentum"
     },
     {
-      "symbol": "UNI/USDT",
+      "symbol": "AVAX/USDT",
       "direction": "long",
-      "score": 0.264,
-      "momentum": 197.5,
+      "score": 0.257,
+      "momentum": 51.6,
       "strategy": "momentum"
     }
   ]
