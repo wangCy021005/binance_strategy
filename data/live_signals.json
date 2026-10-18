@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-10-17",
+  "as_of": "2026-10-18",
   "regime": "ranging",
   "slots": 3,
   "cap_pct": 50,
@@ -12,24 +12,24 @@
       "strategy": "momentum"
     },
     {
-      "symbol": "AAVE/USDT",
+      "symbol": "LTC/USDT",
       "direction": "long",
-      "score": 0.279,
-      "momentum": 141.7,
-      "strategy": "momentum"
-    },
-    {
-      "symbol": "ARB/USDT",
-      "direction": "long",
-      "score": 0.261,
-      "momentum": 128.0,
+      "score": 0.252,
+      "momentum": 39.4,
       "strategy": "momentum"
     },
     {
       "symbol": "AVAX/USDT",
       "direction": "long",
-      "score": 0.257,
-      "momentum": 51.6,
+      "score": 0.235,
+      "momentum": 45.4,
+      "strategy": "momentum"
+    },
+    {
+      "symbol": "NEAR/USDT",
+      "direction": "long",
+      "score": 0.224,
+      "momentum": 151.2,
       "strategy": "momentum"
     }
   ]
