@@ -59,6 +59,7 @@ def run_backfill(start_date: str = "2025-01-01"):
     logger.info("初始化干净账户: 1000 USDT")
 
     active = [s for s, df in all_ohlcv.items() if not df.empty]
+    ts_idx = {t: k for k, t in enumerate(ts_to_run, 1)}
 
     for i, ts in enumerate(ts_to_run, 1):
         # 当日收盘价 + 当日极值（用历史数据，不用实时拉取）
@@ -72,15 +73,23 @@ def run_backfill(start_date: str = "2025-01-01"):
                     "low":  float(df.loc[ts, "low"]),
                 }
 
-        # 1. 止损检查（收盘价 + 盘中极值，盘中击穿按止损价成交）
+        # 1. 止损检查（收盘确认模式——与 live 每日 00:10 检查的真实执行一致）
         sim.check_stops(
             prices,
             hard_stop=CFG.hard_stop,
             trailing_pct=CFG.trailing_stop_pct,
             trailing_min=CFG.trailing_stop_min,
-            bar_extremes=bar_extremes,
             ts=ts,
         )
+
+        # 1.5 持仓超时平仓（动量衰减）
+        if CFG.max_hold_days:
+            for sym in list(sim.state["positions"].keys()):
+                pos = sim.state["positions"][sym]
+                ot = pos.get("open_time")
+                if ot and ot in ts_idx and i - ts_idx[ot] >= CFG.max_hold_days \
+                        and prices.get(sym, 0) > 0:
+                    sim.close_position(sym, prices[sym], "超时平仓", ts=ts)
 
         # 2. 资金费率结算
         now = datetime.strptime(ts, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
@@ -90,11 +99,14 @@ def run_backfill(start_date: str = "2025-01-01"):
         # 3. Regime 识别
         rs = regime.detect(btc_df, ts)
 
-        # 4. 信号生成 + 开仓
+        # 4. 信号生成 + 开仓（集中持仓：top-K + 冷静期 + 单仓比例）
         if rs.max_slots > 0:
             candidates = signals.generate(active, all_ohlcv, all_funding, ts, rs)
             n_slots  = max(rs.max_slots, 1)
             size_pct = min(rs.position_cap / n_slots, CFG.max_pos_pct)
+            if CFG.top_k_signals:
+                n_slots = min(n_slots, CFG.top_k_signals)
+                size_pct = CFG.solo_pos_pct
             total_val = sim.get_balance(prices)["total"]
 
             opened = 0
@@ -104,6 +116,17 @@ def run_backfill(start_date: str = "2025-01-01"):
                 sym = sig["symbol"]
                 if sym in sim.state["positions"]:
                     continue
+                # 冷静期：该币最近一笔止损在 cooldown_days 天内
+                if CFG.cooldown_days:
+                    last_trade = None
+                    for t in reversed(sim.state["trades"]):
+                        if t["symbol"] == sym:
+                            last_trade = t
+                            break
+                    if last_trade and "止损" in last_trade.get("reason", "") \
+                            and last_trade["time"] in ts_idx \
+                            and i - ts_idx[last_trade["time"]] <= CFG.cooldown_days:
+                        continue
                 price = prices.get(sym, 0)
                 if price <= 0:
                     continue

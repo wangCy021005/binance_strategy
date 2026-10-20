@@ -124,6 +124,22 @@ class LiveEngine:
             )
             if closed:
                 logger.info("止损平仓: %s", closed)
+            # 持仓超时平仓（动量衰减）
+            if getattr(self.cfg, "max_hold_days", 0):
+                from datetime import date as _d
+                today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+                for sym in list(self.sim.state["positions"].keys()):
+                    pos = self.sim.state["positions"][sym]
+                    ot = str(pos.get("open_time", ""))[:10]
+                    try:
+                        if ot and (_d.fromisoformat(today) - _d.fromisoformat(ot)).days >= self.cfg.max_hold_days:
+                            p = prices.get(sym, 0)
+                            if p > 0:
+                                self.sim.close_position(sym, p, "超时平仓")
+                                logger.info("[SIM] 超时平仓: %s（持有 %d 天）",
+                                            sym, (_d.fromisoformat(today) - _d.fromisoformat(ot)).days)
+                    except ValueError:
+                        pass
             # 资金费率结算（持仓过夜成本）
             self.sim.settle_funding(prices)
 
@@ -173,17 +189,37 @@ class LiveEngine:
         return prices
 
     def _open_sim_positions(self, candidates, prices, rs) -> list[str]:
-        """模拟开仓"""
+        """模拟开仓（集中持仓策略：top-K 信号 + 冷静期 + 单仓比例）"""
         if not candidates:
             return []
         n_slots  = max(rs.max_slots, 1)
         size_pct = min(rs.position_cap / n_slots, self.cfg.max_pos_pct)
+        if getattr(self.cfg, "top_k_signals", 0):
+            n_slots = min(n_slots, self.cfg.top_k_signals)
+            size_pct = self.cfg.solo_pos_pct
         total_val = self.sim.get_balance(prices)["total"]
         opened = []
         for sig in candidates[:n_slots]:
             sym = sig["symbol"]
             if sym in self.sim.state["positions"]:
                 continue
+            # 冷静期：该币最近一笔止损在 cooldown_days 天内则跳过
+            if getattr(self.cfg, "cooldown_days", 0):
+                last_trade = None
+                for t in reversed(self.sim.state["trades"]):
+                    if t["symbol"] == sym:
+                        last_trade = t
+                        break
+                if last_trade and "止损" in last_trade.get("reason", ""):
+                    lt = last_trade["time"][:10]
+                    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+                    try:
+                        from datetime import date as _d
+                        if (_d.fromisoformat(today) - _d.fromisoformat(lt)).days <= self.cfg.cooldown_days:
+                            logger.info("[SIM] %s 冷静期内，跳过", sym)
+                            continue
+                    except ValueError:
+                        pass
             size = total_val * size_pct
             price = prices.get(sym, 0)
             if price <= 0:
