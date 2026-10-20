@@ -6,10 +6,13 @@ import {
 const CustomTooltip = ({ active, payload, label }) => {
   if (!active || !payload?.length) return null
   return (
-    <div className="bg-card border border-border rounded-lg px-3 py-2 text-xs">
+    <div
+      style={{ background: '#1a1d2e', border: '1px solid #2d3748' }}
+      className="rounded-lg px-3 py-2 text-xs shadow-lg"
+    >
       <p className="text-slate-400">{label}</p>
       {payload.map((p, i) => (
-        <p key={i} className="font-mono font-bold" style={{ color: p.color }}>
+        <p key={i} className="font-mono font-bold" style={{ color: p.color || '#e2e8f0' }}>
           {p.name}: {p.value?.toFixed(4)}
         </p>
       ))}

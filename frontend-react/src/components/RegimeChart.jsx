@@ -47,7 +47,9 @@ export default function RegimeChart({ regime }) {
           </Pie>
           <Tooltip
             formatter={(v) => [`${((v / total) * 100).toFixed(1)}%`, '占比']}
-            contentStyle={{ background: '#1a1d2e', border: '1px solid #2d3748', borderRadius: 8, fontSize: 12 }}
+            contentStyle={{ background: '#1a1d2e', border: '1px solid #2d3748', borderRadius: 8, fontSize: 12, color: '#e2e8f0' }}
+            labelStyle={{ color: '#94a3b8' }}
+            itemStyle={{ color: '#e2e8f0' }}
           />
           <Legend
             iconSize={10}

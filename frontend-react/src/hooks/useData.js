@@ -123,7 +123,20 @@ export function useSimAccount() {
   const { data, error, isLoading } = useSWR(url, fetcher, {
     refreshInterval: 60 * 1000,
   })
-  return { sim: data, isLoading, isError: !!error }
+  // sim_account.json 结构: {cash, positions, trades, equity_history: [{time, nav, ...}]}
+  const simEquity = (data?.equity_history || []).map((e) => ({
+    time: e.time,
+    nav: e.nav,
+  }))
+  const simStats = data
+    ? {
+        nav: data.equity_history?.[data.equity_history.length - 1]?.nav,
+        total_trades: data.trades?.length || 0,
+        positions: Object.keys(data.positions || {}).length,
+        last_update: data.last_update,
+      }
+    : {}
+  return { sim: data, simStats, simEquity, isLoading, isError: !!error }
 }
 
 /** 从 latest.json 提取模拟净值历史（合并进 equity 的方式） */
