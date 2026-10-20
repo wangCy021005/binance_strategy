@@ -86,6 +86,30 @@ class LiveEngine:
             return
         latest_ts = timestamps[-1]
 
+        # ── Step 2.5: 数据新鲜度自检（防静默停跑）────────────────────────────
+        try:
+            data_date = latest_ts[:10]
+            today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+            from datetime import date as _date
+            lag_days = (_date.fromisoformat(today) - _date.fromisoformat(data_date)).days
+            if lag_days >= 3:
+                logger.warning(
+                    "⚠️ 数据滞后 %d 天（最新K线 %s，今天 %s）— 数据链路可能中断，"
+                    "请检查 fetch_data / crontab / 网络连通性", lag_days, data_date, today)
+                # 写入 live_state 供 Dashboard 展示告警
+                (SIGNALS_FILE.parent / "data_staleness_alert.json").write_text(json.dumps({
+                    "alert": "数据滞后",
+                    "lag_days": lag_days,
+                    "latest_data": data_date,
+                    "checked_at": ts,
+                }, ensure_ascii=False))
+            else:
+                stale_file = SIGNALS_FILE.parent / "data_staleness_alert.json"
+                if stale_file.exists():
+                    stale_file.unlink()
+        except Exception as e:
+            logger.warning("数据新鲜度检查失败: %s", e)
+
         # ── Step 3: 拉实时价格（用于持仓盈亏和新仓滑点）────────────────────
         active = [s for s, df in all_ohlcv.items() if not df.empty]
         prices = self._get_realtime_prices(active)

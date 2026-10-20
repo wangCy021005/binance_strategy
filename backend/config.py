@@ -31,7 +31,8 @@ class Config:
         "SOL/USDT", "BNB/USDT", "XRP/USDT", "ADA/USDT", "AVAX/USDT",
         "DOT/USDT", "ATOM/USDT", "TRX/USDT",
         # ── Layer 2 ──────────────────────────────────────────────────────────
-        "ARB/USDT", "OP/USDT", "MATIC/USDT",
+        "ARB/USDT", "OP/USDT",
+        # MATIC/USDT 已于 2024-09 从币安合约下架（Polar 迁移），数据缺失勿加回
         # ── DeFi ─────────────────────────────────────────────────────────────
         "LINK/USDT", "UNI/USDT", "AAVE/USDT",
         # ── 新兴 L1 + AI ──────────────────────────────────────────────────────

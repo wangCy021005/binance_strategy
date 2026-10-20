@@ -114,8 +114,9 @@ class SimExchange:
 
     # ── 开仓 ───────────────────────────────────────────────────────────────
     def open_position(self, symbol: str, side: str, usdt_size: float,
-                       price: float, strategy: str = "") -> bool:
-        """开仓（扣手续费）"""
+                       price: float, strategy: str = "",
+                       ts: str = None) -> bool:
+        """开仓（扣手续费）。ts 传交易日时间戳（backfill 用），默认 now()"""
         if price <= 0:
             return False
         if symbol in self.state["positions"]:
@@ -136,7 +137,7 @@ class SimExchange:
             "qty":       qty,
             "entry":     price,
             "high":      price,
-            "open_time": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "open_time": ts or datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
             "strategy":  strategy,
         }
         logger.info("[SIM] 开%s %s | qty=%.4f @ %.4f | 手续费 %.2f",
@@ -154,8 +155,8 @@ class SimExchange:
 
     # ── 平仓 ───────────────────────────────────────────────────────────────
     def close_position(self, symbol: str, price: float = None,
-                        reason: str = "") -> bool:
-        """平仓，记录交易"""
+                        reason: str = "", ts: str = None) -> bool:
+        """平仓，记录交易。ts 传交易日时间戳（backfill 用），默认 now()"""
         if symbol not in self.state["positions"]:
             return False
         p = price or self.get_price(symbol)
@@ -177,7 +178,7 @@ class SimExchange:
         # 记录交易
         pnl_pct = pnl / margin * 100 if margin else 0
         trade = {
-            "time":      datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "time":      ts or datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
             "symbol":    symbol,
             "side":      f"close_{pos['side']}",
             "entry":     pos["entry"],
@@ -196,19 +197,25 @@ class SimExchange:
     # ── 止损检查 ───────────────────────────────────────────────────────────
     def check_stops(self, prices: dict, hard_stop: float = -0.08,
                     trailing_pct: float = 0.12,
-                    trailing_min: float = 0.05) -> list[str]:
+                    trailing_min: float = 0.05,
+                    bar_extremes: dict = None, ts: str = None) -> list[str]:
         """
         检查硬止损和追踪止损
+        prices: 现价（实时模式为实时价，重放模式为当日收盘价）
+        bar_extremes: 当日K线极值 {symbol: {"high": x, "low": y}}（重放模式传入）
+                      盘中击穿阈值时按止损价成交，消除收盘价检查的滑出失真
         返回触发的 symbol 列表（已平仓）
         """
+        bar_extremes = bar_extremes or {}
         closed = []
         for sym in list(self.state["positions"].keys()):
             pos = self.state["positions"][sym]
             price = prices.get(sym)
             if not price:
                 continue
+            ext = bar_extremes.get(sym) or {}
 
-            # 更新最高价
+            # 更新最高价（只含当日收盘价；极值的先后顺序不可知，不用于追踪基准）
             if pos["side"] == "long" and price > pos.get("high", pos["entry"]):
                 pos["high"] = price
             elif pos["side"] == "short" and price < pos.get("high", pos["entry"]):
@@ -218,21 +225,39 @@ class SimExchange:
             if pos["side"] == "long":
                 price_pct = (price - pos["entry"]) / pos["entry"]
                 high_pct  = (price - pos["high"]) / pos["high"]
+                # 盘中击穿检查：当日 low 跌破硬止损价 → 按止损价成交（触及即触发）
+                stop_price = pos["entry"] * (1 + hard_stop)
+                if ext.get("low") is not None and ext["low"] <= stop_price:
+                    self.close_position(sym, stop_price,
+                                        f"硬止损(盘中) -{abs(hard_stop)*100:.1f}%",
+                                        ts=ts)
+                    closed.append(sym)
+                    continue
             else:
                 price_pct = (pos["entry"] - price) / pos["entry"]
                 high_pct  = (pos["high"] - price) / pos["high"]
+                # 盘中击穿检查：当日 high 涨破硬止损价 → 按止损价成交（触及即触发）
+                stop_price = pos["entry"] * (1 - hard_stop)
+                if ext.get("high") is not None and ext["high"] >= stop_price:
+                    self.close_position(sym, stop_price,
+                                        f"硬止损(盘中) -{abs(hard_stop)*100:.1f}%",
+                                        ts=ts)
+                    closed.append(sym)
+                    continue
 
-            # 硬止损
+            # 硬止损（收盘价触发，兜底）
             if price_pct <= hard_stop:
-                self.close_position(sym, price, f"硬止损 {price_pct*100:.1f}%")
+                self.close_position(sym, price, f"硬止损 {price_pct*100:.1f}%", ts=ts)
                 closed.append(sym)
                 continue
 
             # 追踪止损（从高点回撤 trailing_pct）
+            # 盘中极值的先后顺序不可知（先摸 high 还是先摸 low 无法判断），
+            # 故追踪基准只用已锁定的 high + 当日收盘价判断，避免"先新高再杀跌"的顺序假设
             high_gain = abs(pos["high"] - pos["entry"]) / pos["entry"]
             if high_gain >= trailing_min and high_pct <= -trailing_pct:
                 self.close_position(sym, price,
-                                    f"追踪止损 {high_pct*100:.1f}%")
+                                    f"追踪止损 {high_pct*100:.1f}%", ts=ts)
                 closed.append(sym)
         return closed
 

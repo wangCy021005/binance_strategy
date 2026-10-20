@@ -61,18 +61,25 @@ def run_backfill(start_date: str = "2025-01-01"):
     active = [s for s, df in all_ohlcv.items() if not df.empty]
 
     for i, ts in enumerate(ts_to_run, 1):
-        # 当日收盘价（用历史数据，不用实时拉取）
+        # 当日收盘价 + 当日极值（用历史数据，不用实时拉取）
         prices = {}
+        bar_extremes = {}
         for sym, df in all_ohlcv.items():
             if not df.empty and ts in df.index:
                 prices[sym] = float(df.loc[ts, "close"])
+                bar_extremes[sym] = {
+                    "high": float(df.loc[ts, "high"]),
+                    "low":  float(df.loc[ts, "low"]),
+                }
 
-        # 1. 止损检查（用当日价格）
+        # 1. 止损检查（收盘价 + 盘中极值，盘中击穿按止损价成交）
         sim.check_stops(
             prices,
             hard_stop=CFG.hard_stop,
             trailing_pct=CFG.trailing_stop_pct,
             trailing_min=CFG.trailing_stop_min,
+            bar_extremes=bar_extremes,
+            ts=ts,
         )
 
         # 2. 资金费率结算
@@ -106,7 +113,7 @@ def run_backfill(start_date: str = "2025-01-01"):
                     break
                 size = total_val * size_pct
                 if sim.open_position(sym, "long" if sig["direction"] > 0 else "short",
-                                      size, price, sig.get("strategy", "")):
+                                      size, price, sig.get("strategy", ""), ts=ts):
                     opened += 1
 
         # 5. 记录净值（用当日价格 + 当日时间戳，不能用 now()）
