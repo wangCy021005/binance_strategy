@@ -293,7 +293,7 @@ class LiveEngine:
             start = (datetime.now(timezone.utc) - timedelta(days=35)).strftime("%Y-%m-%d")
             result = subprocess.run(
                 [python, script, "--all", "--start", start],
-                capture_output=True, text=True, timeout=180
+                capture_output=True, text=True, timeout=600
             )
             if result.returncode != 0:
                 logger.warning("数据更新失败: %s", result.stderr[:200])
