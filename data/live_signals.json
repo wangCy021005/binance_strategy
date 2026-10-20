@@ -5,31 +5,31 @@
   "cap_pct": 50,
   "signals": [
     {
-      "symbol": "ARB/USDT",
-      "direction": "long",
-      "score": 0.294,
-      "momentum": 128.5,
-      "strategy": "momentum"
-    },
-    {
-      "symbol": "AAVE/USDT",
-      "direction": "long",
-      "score": 0.277,
-      "momentum": 102.7,
-      "strategy": "momentum"
-    },
-    {
       "symbol": "UNI/USDT",
       "direction": "long",
       "score": 0.243,
-      "momentum": 157.1,
+      "momentum": 111.9,
       "strategy": "momentum"
     },
     {
-      "symbol": "SOL/USDT",
+      "symbol": "NEAR/USDT",
       "direction": "long",
-      "score": 0.242,
-      "momentum": 42.0,
+      "score": 0.225,
+      "momentum": 248.5,
+      "strategy": "momentum"
+    },
+    {
+      "symbol": "INJ/USDT",
+      "direction": "long",
+      "score": 0.223,
+      "momentum": 155.4,
+      "strategy": "momentum"
+    },
+    {
+      "symbol": "TRX/USDT",
+      "direction": "long",
+      "score": 0.121,
+      "momentum": 1.3,
       "strategy": "momentum"
     }
   ]
