@@ -248,8 +248,8 @@ class SimExchange:
             logger.info("[SIM] 资金费率成本: %.2f USDT", cost)
 
     # ── 净值记录 ────────────────────────────────────────────────────────────
-    def record_equity(self, prices: dict = None):
-        """记录当日净值到历史（prices 为空时补拉实时价格）"""
+    def record_equity(self, prices: dict = None, ts: str = None):
+        """记录当日净值到历史（prices 为空时补拉实时价格；ts 可传交易日时间戳）"""
         prices = prices or {}
         # 如果传进来的 prices 不全，补拉持仓的价格
         for sym in self.state["positions"]:
@@ -260,7 +260,7 @@ class SimExchange:
 
         bal = self.get_balance(prices)
         nav = bal["total"] / self.state["initial_cash"]
-        ts = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        ts = ts or datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
         self.state["equity_history"].append({
             "time":  ts,
@@ -268,8 +268,8 @@ class SimExchange:
             "cash":  round(bal["cash"], 2),
             "total": round(bal["total"], 2),
         })
-        # 保留最近 500 天
-        self.state["equity_history"] = self.state["equity_history"][-500:]
+        # 保留最近 1000 天
+        self.state["equity_history"] = self.state["equity_history"][-1000:]
         self.state["last_update"] = ts
         self._save()
         return nav

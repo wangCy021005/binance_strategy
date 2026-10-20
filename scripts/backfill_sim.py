@@ -109,8 +109,8 @@ def run_backfill(start_date: str = "2025-01-01"):
                                       size, price, sig.get("strategy", "")):
                     opened += 1
 
-        # 5. 记录净值（用当日价格）
-        nav = sim.record_equity(prices)
+        # 5. 记录净值（用当日价格 + 当日时间戳，不能用 now()）
+        nav = sim.record_equity(prices, ts=ts)
 
         if i % 50 == 0 or i == len(ts_to_run):
             n_pos = len(sim.state["positions"])
@@ -120,7 +120,7 @@ def run_backfill(start_date: str = "2025-01-01"):
 
     # 保存
     sim_path = PROJECT_ROOT / "data" / "sim_account.json"
-    sim.state["equity_history"] = sim.state["equity_history"][-500:]  # 保留500天
+    sim.state["equity_history"] = sim.state["equity_history"][-1000:]  # 保留1000天（覆盖2025起完整区间）
     sim_path.write_text(json.dumps(sim.state, indent=2, ensure_ascii=False))
     logger.info("✅ 保存到 %s", sim_path)
 
