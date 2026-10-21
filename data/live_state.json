@@ -1,17 +1,17 @@
 {
-  "timestamp": "2026-10-21T02:09:21Z",
+  "timestamp": "2026-10-21T02:31:33Z",
   "dry_run": true,
   "regime": "ranging",
-  "portfolio": 2695.76,
-  "nav": 2.6958,
+  "portfolio": 2688.41,
+  "nav": 2.6884,
   "positions": [
     {
       "symbol": "LTC/USDT",
       "side": "long",
       "qty": 26.396012,
       "entry": 61.06,
-      "current": 61.61,
-      "pnl_pct": 0.9
+      "current": 61.35,
+      "pnl_pct": 0.47
     }
   ],
   "opened": []
