@@ -75,11 +75,13 @@ export function useEquity() {
 }
 
 export function useTrades() {
-  const url = apiUrl('/api/trades', 'data/latest.json')
+  const url = apiUrl('/api/trades', 'data/sim_account.json')
   const { data, error, isLoading } = useSWR(url, fetcher, {
     refreshInterval: 10 * 60 * 1000,
   })
 
+  // 生产：读模拟盘真实交易记录（sim_account.json 的 trades）
+  // sim 的 pnl_pct 本身就是百分数值（如 -8.47 表示 -8.47%）
   const trades = isProd && data
     ? (data.trades || [])
         .filter((t) => 'pnl_pct' in t)
@@ -88,8 +90,8 @@ export function useTrades() {
           time: t.time?.slice(0, 10),
           symbol: t.symbol,
           side: t.side,
-          pnl: +(t.pnl_pct * 100).toFixed(2),
-          reason: t.reason?.slice(0, 30),
+          pnl: +t.pnl_pct.toFixed(2),
+          reason: (t.reason || '').slice(0, 30),
         }))
     : data
 

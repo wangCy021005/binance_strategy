@@ -41,7 +41,7 @@ function Header({ live, stats }) {
               ? 'bg-emerald-900/40 text-emerald-300 border-emerald-700/50'
               : 'bg-slate-800 text-slate-400 border-slate-700'
           }`}>
-            回测 Sharpe {stats.sharpe?.toFixed(3)}
+            Sharpe {stats.sharpe?.toFixed(3)}
           </span>
         )}
       </div>
