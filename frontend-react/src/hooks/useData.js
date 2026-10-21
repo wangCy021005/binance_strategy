@@ -40,12 +40,21 @@ export function useStats() {
     refreshInterval: 5 * 60 * 1000,
   })
 
-  // 生产环境从 latest.json 里提取 stats
-  const stats = isProd && data ? data.stats : data
+  // 生产环境：优先用模拟盘实时统计（sim_stats，每天 cron 更新）
+  // 回测 stats（2022-2025 静态报告）仅作 fallback
+  const stats = isProd && data
+    ? (data.sim_stats && data.sim_stats.total_trades > 0 ? data.sim_stats : data.stats)
+    : data
+  const meta = isProd && data
+    ? (stats === data.sim_stats && stats.start
+        ? { start: stats.start, end: stats.end }
+        : data.meta)
+    : null
 
   return {
     stats,
-    meta: isProd && data ? data.meta : null,
+    meta,
+    backtestStats: isProd && data ? data.stats : null,
     isLoading,
     isError: !!error,
   }

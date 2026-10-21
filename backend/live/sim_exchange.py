@@ -308,9 +308,25 @@ class SimExchange:
 
         nav = hist[-1]["nav"]
         wins = [t for t in trades if t.get("pnl", 0) > 0]
+        # 年化 / Sharpe / MDD（和 experiment.py 同口径）
+        navs = [e["nav"] for e in hist]
+        days = len(hist)
+        annual = ((navs[-1]) ** (365 / max(days, 1)) - 1) * 100 if days > 30 else 0.0
+        import statistics as _st
+        rets = [(navs[i] / navs[i - 1] - 1) for i in range(1, len(navs)) if navs[i - 1] > 0]
+        sharpe = (_st.mean(rets) / _st.stdev(rets) * (365 ** 0.5)) if len(rets) > 30 and _st.stdev(rets) > 0 else 0.0
+        peak, mdd = 0.0, 0.0
+        for n in navs:
+            peak = max(peak, n)
+            mdd = min(mdd, n / peak - 1)
         return {
             "nav":          nav,
             "total_return": (nav - 1) * 100,
+            "annual_return": round(annual, 2),
+            "sharpe":       round(sharpe, 3),
+            "max_drawdown": round(mdd * 100, 2),
+            "start":        hist[0]["time"][:10],
+            "end":          hist[-1]["time"][:10],
             "cash":         self.state["cash"],
             "positions":    len(self.state["positions"]),
             "total_trades": len(trades),
