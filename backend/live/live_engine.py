@@ -331,7 +331,12 @@ class LiveEngine:
     def _push_to_github(self):
         """推送数据到 GitHub（用 API，绕过 git protocol）
         国内服务器访问 github.com 超时，改用 api.github.com
+        双轨模式：实盘机器设 SKIP_GITHUB_PUSH=1 跳过推送（数据推送只留给模拟盘服务器，避免互相覆盖）
         """
+        import os
+        if os.environ.get("SKIP_GITHUB_PUSH", "") == "1":
+            logger.info("SKIP_GITHUB_PUSH=1，跳过数据推送（实盘节点不推数据）")
+            return
         try:
             from live.github_push import push_data_files
             n = push_data_files(PROJECT_ROOT)

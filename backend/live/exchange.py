@@ -63,12 +63,22 @@ class BinanceExchange:
                 "  export BINANCE_API_SECRET=your_secret"
             )
 
-        self._ex = ccxt.binanceusdm({
+        # 代理支持（国内网络走本地代理访问币安 API，.env 配 PROXY_URL 可选）
+        proxy_url = os.environ.get("PROXY_URL", "")
+        ex_config = {
             "apiKey":    api_key,
             "secret":    api_secret,
             "enableRateLimit": True,
             "options": {"defaultType": "future"},
-        })
+        }
+        if proxy_url:
+            ex_config["proxies"] = {
+                "http":  proxy_url,
+                "https": proxy_url,
+            }
+            logger.info("使用代理: %s", proxy_url)
+
+        self._ex = ccxt.binanceusdm(ex_config)
 
         mode = "🟡 DRY_RUN（模拟）" if dry_run else "🔴 实盘"
         logger.info("Exchange 初始化 | 模式=%s | 杠杆=%dx", mode, leverage)
