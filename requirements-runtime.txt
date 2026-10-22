@@ -1,0 +1,11 @@
+# Daily live/SIM execution, data fetching and dashboard services.
+# PyTorch is only needed for the research/training environment.
+ccxt>=4.0.0
+pandas>=2.0.0
+numpy>=1.24.0
+ta>=0.11.0
+python-dateutil>=2.8.0
+tqdm>=4.65.0
+Flask>=3.0.0
+requests>=2.31.0
+python-dotenv>=1.0.0

@@ -75,6 +75,8 @@ $env:PYTHONUTF8 = "1"
 
 ## 已实现组件
 
+每日模拟/实盘节点只需安装 `requirements-runtime.txt`；`requirements.txt` 在此基础上增加 PyTorch，供 AlphaGPT / Regime 模型训练使用。小内存服务器运行每日模拟任务无需安装 PyTorch。
+
 - [x] 数据层（ccxt + SQLite缓存）
 - [x] Regime识别（BTC四态：bull/ranging/bear/crisis）
 - [x] 动量策略（加密动量IC+，与A股反向不同）
