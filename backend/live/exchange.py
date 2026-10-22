@@ -1,6 +1,6 @@
 """
 Binance USDT-M 永续合约交易接口
-封装 ccxt.binanceusdm，统一异常处理 + 重试逻辑
+封装 ccxt.binanceusdm；只读请求可重试，订单提交不盲目重试
 
 安全设计：
   - API KEY 只从环境变量读取，不写死在代码里
@@ -9,8 +9,10 @@ Binance USDT-M 永续合约交易接口
 """
 from __future__ import annotations
 import os
+import hashlib
 import time
 import logging
+import math
 from dataclasses import dataclass
 from typing import Optional
 
@@ -34,6 +36,8 @@ class LivePosition:
     entry_price: float
     current_price: float
     pnl_pct:   float
+    contracts: float = 0.0
+    hedged: bool = False
 
 
 class BinanceExchange:
@@ -55,6 +59,7 @@ class BinanceExchange:
 
         api_key    = os.environ.get("BINANCE_API_KEY", "")
         api_secret = os.environ.get("BINANCE_API_SECRET", "")
+        self.account_fingerprint = hashlib.sha256(api_key.encode()).hexdigest()[:16]
 
         if not dry_run and (not api_key or not api_secret):
             raise ValueError(
@@ -85,9 +90,9 @@ class BinanceExchange:
 
     # ── 行情数据 ─────────────────────────────────────────────────────────
     def get_price(self, symbol: str) -> float:
-        """获取当前价格（用 mark price 避免操纵）"""
+        """获取最新成交价；日线止损另用已收盘价格确认。"""
         try:
-            ticker = self._retry(self._ex.fetch_ticker, symbol)
+            ticker = self._retry(self._ex.fetch_ticker, self._contract_symbol(symbol))
             return float(ticker["last"])
         except Exception as e:
             logger.error("get_price(%s) 失败: %s", symbol, e)
@@ -117,7 +122,7 @@ class BinanceExchange:
             )
         except Exception as e:
             logger.error("get_balance 失败: %s", e)
-            return Balance(0, 0, 0)
+            raise
 
     def get_positions(self) -> list[LivePosition]:
         """获取当前所有持仓"""
@@ -129,8 +134,8 @@ class BinanceExchange:
             for p in raw:
                 if float(p.get("contracts", 0)) == 0:
                     continue
-                sym   = p["symbol"]
-                side  = "long" if p["side"] == "long" else "short"
+                sym   = p["symbol"].removesuffix(":USDT")
+                side  = p["side"]
                 size  = abs(float(p.get("notional", 0)))
                 entry = float(p.get("entryPrice", 0))
                 mark  = float(p.get("markPrice", entry))
@@ -138,11 +143,21 @@ class BinanceExchange:
                 positions.append(LivePosition(
                     symbol=sym, side=side, size=size,
                     entry_price=entry, current_price=mark, pnl_pct=pnl_pct,
+                    contracts=abs(float(p["contracts"])), hedged=bool(p.get("hedged", False)),
                 ))
             return positions
         except Exception as e:
             logger.error("get_positions 失败: %s", e)
-            return []
+            raise
+
+    def is_hedged_mode(self) -> bool:
+        """只读查询账户持仓模式，不自动修改账户设置。"""
+        if self.dry_run:
+            return False
+        mode = self._retry(self._ex.fetch_position_mode)
+        if not isinstance(mode.get("hedged"), bool):
+            raise ValueError("无法确认币安账户的持仓模式")
+        return mode["hedged"]
 
     # ── 下单 ─────────────────────────────────────────────────────────────
     def set_leverage(self, symbol: str, leverage: int):
@@ -151,37 +166,57 @@ class BinanceExchange:
             logger.info("[DRY] set_leverage %s → %dx", symbol, leverage)
             return
         try:
-            self._ex.set_leverage(leverage, symbol)
+            self._ex.set_leverage(leverage, self._contract_symbol(symbol))
             logger.info("设置杠杆 %s = %dx", symbol, leverage)
         except Exception as e:
             logger.warning("set_leverage(%s) 失败: %s", symbol, e)
+            raise
 
-    def open_long(self, symbol: str, usdt_size: float) -> bool:
+    def entry_contracts(self, symbol: str, usdt_size: float) -> float:
+        """Resolve the exact SDK quantity before persisting an order intent."""
+        price = self.get_price(symbol)
+        if not math.isfinite(price) or price <= 0:
+            raise ValueError(f"{symbol} 开仓价格无效")
+        contracts = float(self._ex.amount_to_precision(self._contract_symbol(symbol), usdt_size / price))
+        if not math.isfinite(contracts) or contracts <= 0:
+            raise ValueError(f"{symbol} 开仓数量低于精度限制或无效")
+        return contracts
+
+    def get_order(self, symbol: str, client_order_id: str) -> dict:
+        """Read a persisted intent's order without creating or retrying a trade."""
+        return self._retry(self._ex.fetch_order, None, self._contract_symbol(symbol),
+                           {"origClientOrderId": client_order_id})
+
+    def open_long(self, symbol: str, usdt_size: float, *,
+                  client_order_id: Optional[str] = None, contracts: Optional[float] = None) -> bool:
         """做多开仓（市价单）"""
         price = self.get_price(symbol)
         if price <= 0:
             return False
-        contracts = usdt_size / price
+        contracts = usdt_size / price if contracts is None else contracts
         logger.info("[%s] 开多 %s | %.2f USDT | 价格=%.4f | %.6f 张",
                     "DRY" if self.dry_run else "LIVE", symbol, usdt_size, price, contracts)
         if self.dry_run:
             return True
-        return self._execute_order(symbol, "buy", contracts)
+        return self._execute_order(symbol, "buy", contracts, client_order_id=client_order_id)
 
-    def open_short(self, symbol: str, usdt_size: float) -> bool:
+    def open_short(self, symbol: str, usdt_size: float, *,
+                   client_order_id: Optional[str] = None, contracts: Optional[float] = None) -> bool:
         """做空开仓（市价单）"""
         price = self.get_price(symbol)
         if price <= 0:
             return False
-        contracts = usdt_size / price
+        contracts = usdt_size / price if contracts is None else contracts
         logger.info("[%s] 开空 %s | %.2f USDT | 价格=%.4f | %.6f 张",
                     "DRY" if self.dry_run else "LIVE", symbol, usdt_size, price, contracts)
         if self.dry_run:
             return True
-        return self._execute_order(symbol, "sell", contracts)
+        return self._execute_order(symbol, "sell", contracts, client_order_id=client_order_id)
 
-    def close_position(self, symbol: str, side: str) -> bool:
+    def close_position(self, symbol: str, side: str, *, client_order_id: Optional[str] = None,
+                       contracts: Optional[float] = None) -> bool:
         """平仓（市价单，需要知道当前持仓方向）"""
+        symbol = symbol.removesuffix(":USDT")
         logger.info("[%s] 平仓 %s | 方向=%s",
                     "DRY" if self.dry_run else "LIVE", symbol, side)
         if self.dry_run:
@@ -189,29 +224,39 @@ class BinanceExchange:
         try:
             # reduceOnly=True 确保只平仓不开反向仓
             positions = self.get_positions()
-            pos = next((p for p in positions if p.symbol == symbol), None)
+            pos = next((p for p in positions if p.symbol == symbol and p.side == side), None)
             if pos is None:
                 logger.warning("close_position: %s 无持仓", symbol)
                 return False
+            if contracts is not None and not math.isclose(pos.contracts, contracts, rel_tol=1e-7):
+                raise RuntimeError("平仓前持仓数量发生变化，停止提交")
 
             side_order = "sell" if pos.side == "long" else "buy"
             return self._execute_order(symbol, side_order,
-                                       pos.size / pos.current_price,
-                                       reduce_only=True)
+                                       pos.contracts,
+                                       reduce_only=True, client_order_id=client_order_id)
         except Exception as e:
             logger.error("close_position(%s) 失败: %s", symbol, e)
             return False
 
     # ── 内部工具 ──────────────────────────────────────────────────────────
+    @staticmethod
+    def _contract_symbol(symbol: str) -> str:
+        """策略/缓存使用 ETH/USDT，CCXT USDT 永续接口使用 ETH/USDT:USDT。"""
+        return f"{symbol}:USDT" if symbol.endswith("/USDT") else symbol
+
     def _execute_order(self, symbol: str, side: str,
-                       contracts: float, reduce_only: bool = False) -> bool:
+                       contracts: float, reduce_only: bool = False,
+                       client_order_id: Optional[str] = None) -> bool:
         try:
             params = {"reduceOnly": reduce_only} if reduce_only else {}
-            order  = self._retry(
-                self._ex.create_order,
-                symbol, "market", side, contracts, None, params
+            if client_order_id:
+                params["newClientOrderId"] = client_order_id
+            # A timeout may follow an accepted order. Reads can retry; writes cannot.
+            order = self._ex.create_order(
+                self._contract_symbol(symbol), "market", side, contracts, None, params
             )
-            logger.info("订单成交: %s", order.get("id", "?"))
+            logger.info("订单已提交，待查询确认: %s", order.get("id", "?"))
             return True
         except Exception as e:
             logger.error("下单失败 %s %s %.4f: %s", symbol, side, contracts, e)

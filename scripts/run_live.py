@@ -1,6 +1,6 @@
 """
 实盘/模拟运行入口
-建议每天 UTC 00:10 运行（日线收盘5分钟后）
+建议每天 UTC 00:10 运行（日线收盘10分钟后）
 
 用法：
   # 模拟模式（真实跟踪盈亏，不需要 API Key）
@@ -26,6 +26,7 @@ import argparse
 import logging
 from pathlib import Path
 from datetime import datetime, timezone
+from contextlib import nullcontext
 
 # 自动从项目根目录 .env 加载密钥（crontab 也能读到 GITHUB_TOKEN）
 try:
@@ -49,6 +50,7 @@ logging.basicConfig(
     ]
 )
 logger = logging.getLogger("run_live")
+LIVE_LOCK_FILE = Path(__file__).parent.parent / ".runtime" / "binance-live.lock"
 
 
 def main():
@@ -72,8 +74,10 @@ def main():
 
     try:
         from live.live_engine import LiveEngine
-        engine = LiveEngine(dry_run=dry_run)
-        engine.run_once()
+        from live.position_manager import exclusive_live_run
+        with (nullcontext() if dry_run else exclusive_live_run(LIVE_LOCK_FILE)):
+            engine = LiveEngine(dry_run=dry_run)
+            engine.run_once()
         logger.info("✅ 本次运行完成")
     except Exception as e:
         logger.exception("❌ 运行出错: %s", e)

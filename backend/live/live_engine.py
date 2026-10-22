@@ -1,6 +1,6 @@
 """
 实盘/模拟主引擎
-每日运行一次（UTC 00:10，日线收盘后5分钟）
+每日运行一次（UTC 00:10，日线收盘后10分钟）
 
 工作流程：
   1. 更新本地 SQLite 缓存（最新K线 + 资金费率）
@@ -14,8 +14,9 @@
 from __future__ import annotations
 import json
 import logging
+import math
 import os
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 logger = logging.getLogger("live.engine")
@@ -23,6 +24,7 @@ logger = logging.getLogger("live.engine")
 STATE_FILE     = Path(__file__).parent.parent.parent / "data" / "live_state.json"
 SIGNALS_FILE   = Path(__file__).parent.parent.parent / "data" / "live_signals.json"
 PROJECT_ROOT   = Path(__file__).parent.parent.parent
+LIVE_ACCOUNT_STATE_FILE = PROJECT_ROOT / ".runtime" / "live-account.json"
 
 
 class LiveEngine:
@@ -42,6 +44,8 @@ class LiveEngine:
         self.feed     = CryptoDataFeed()
         self.regime   = RegimeAgent(self.cfg)
         self.signals  = SignalAgent(self.cfg)
+        self.live_manager = None
+        self.closed = []
 
         if dry_run:
             # ── 模拟模式：用 SimExchange 跟踪真实盈亏 ──────────────────────
@@ -57,7 +61,9 @@ class LiveEngine:
             self.sim = None
             import dataclasses
             bal = self.exchange.get_balance()
-            live_cash = bal.total_usdt if bal.total_usdt > 10 else self.cfg.cash
+            if not math.isfinite(bal.total_usdt) or bal.total_usdt <= 0:
+                raise ValueError("币安合约账户总资产无效或为零，停止实盘初始化")
+            live_cash = bal.total_usdt
             self.risk_ag = RiskAgent(dataclasses.replace(self.cfg, cash=live_cash))
             self.portfolio_value = live_cash
 
@@ -82,6 +88,8 @@ class LiveEngine:
         btc_df      = self.feed.get_btc_ohlcv("1d", start_date, end_date)
         timestamps  = self.feed.get_trade_timestamps("1d", start_date, end_date)
         if not timestamps:
+            if not self.dry_run:
+                raise RuntimeError("本地没有可用行情，停止实盘")
             logger.error("无数据！")
             return
         latest_ts = timestamps[-1]
@@ -110,9 +118,22 @@ class LiveEngine:
         except Exception as e:
             logger.warning("数据新鲜度检查失败: %s", e)
 
+        if self.exchange:
+            self._validate_live_data(all_ohlcv, all_funding, btc_df, latest_ts, now)
+            from live.position_manager import LivePositionManager
+            self.live_manager = LivePositionManager(self.exchange, self.cfg, LIVE_ACCOUNT_STATE_FILE)
+            self.live_manager.reconcile(now)
+            for symbol in self.live_manager.positions:
+                if symbol not in all_ohlcv:
+                    all_ohlcv[symbol] = self.feed.get_ohlcv(symbol, "1d", start_date, end_date)
+
         # ── Step 3: 拉实时价格（用于持仓盈亏和新仓滑点）────────────────────
-        active = [s for s, df in all_ohlcv.items() if not df.empty]
-        prices = self._get_realtime_prices(active)
+        active = [s for s in self.cfg.symbols if not all_ohlcv[s].empty]
+        quote_symbols = list(dict.fromkeys(active + (list(self.live_manager.positions) if self.live_manager else [])))
+        prices = self._get_realtime_prices(quote_symbols)
+        if self.exchange and any(not math.isfinite(prices.get(symbol, 0)) or prices.get(symbol, 0) <= 0
+                                 for symbol in quote_symbols):
+            raise RuntimeError("部分实时价格缺失，停止本次实盘决策")
 
         # ── Step 4: 止损检查（模拟模式）────────────────────────────────────
         if self.sim:
@@ -142,6 +163,8 @@ class LiveEngine:
                         pass
             # 资金费率结算（持仓过夜成本）
             self.sim.settle_funding(prices)
+        elif self.live_manager:
+            self.closed = self.live_manager.check_exits(all_ohlcv, latest_ts, now)
 
         # ── Step 5: Regime 识别 ─────────────────────────────────────────────
         rs = self.regime.detect(btc_df, latest_ts)
@@ -158,7 +181,9 @@ class LiveEngine:
         if self.sim:
             opened = self._open_sim_positions(candidates, prices, rs)
         elif self.exchange:
-            opened = self._open_live_positions(candidates, prices, rs)
+            opened = self._open_live_positions(candidates, prices, rs, now)
+            self.live_manager.complete()
+            self.portfolio_value = self.live_manager._balance().total_usdt
 
         # ── Step 8: 记录净值 + 保存状态 ────────────────────────────────────
         if self.sim:
@@ -232,23 +257,38 @@ class LiveEngine:
                 opened.append(sym)
         return opened
 
-    def _open_live_positions(self, candidates, prices, rs) -> list[str]:
-        """实盘开仓"""
-        opened = []
-        n_slots  = max(rs.max_slots, 1)
-        size_pct = min(rs.position_cap / n_slots, self.cfg.max_pos_pct)
-        total_val = self.portfolio_value
-        for sig in candidates[:n_slots]:
-            sym = sig["symbol"]
-            size = total_val * size_pct
-            self.exchange.set_leverage(sym, 1)
-            if sig["direction"] > 0:
-                if self.exchange.open_long(sym, size):
-                    opened.append(sym)
-            else:
-                if self.exchange.open_short(sym, size):
-                    opened.append(sym)
-        return opened
+    def _open_live_positions(self, candidates, prices, rs, now=None) -> list[str]:
+        """实盘与模拟沿用同一配置，实际成交及冷静期由本地状态管理器确认。"""
+        if self.live_manager is None:
+            raise RuntimeError("尚未完成实盘持仓检查")
+        return self.live_manager.open_entries(candidates, prices, rs, now or datetime.now(timezone.utc))
+
+    def _validate_live_data(self, ohlcv, funding, btc_df, latest_ts, now):
+        from live.position_manager import utc_time
+        required_bars = max(252, self.cfg.mom_long_bars + 10)
+        expected = [(now - timedelta(days=day)).strftime("%Y-%m-%dT00:00:00Z")
+                    for day in range(1, required_bars + 1)]
+        if self.cfg.timeframe != "1d" or latest_ts != expected[0]:
+            raise RuntimeError("实盘需要最新已收盘的 UTC 日线")
+        for symbol, frame in [("BTC/USDT", btc_df), *ohlcv.items()]:
+            if frame is None or frame.empty or not frame.index.is_unique or not set(expected).issubset(frame.index):
+                raise RuntimeError(f"{symbol} 缺少连续 {required_bars} 根已收盘日线，停止实盘")
+            if any(not math.isfinite(float(value)) or float(value) <= 0
+                   for value in frame.loc[expected, "close"]):
+                raise RuntimeError(f"{symbol} 收盘价格无效")
+        for symbol in self.cfg.symbols:
+            series = funding.get(symbol)
+            if (series is None or series.empty or not series.index.is_unique
+                    or not series.index.is_monotonic_increasing):
+                raise RuntimeError(f"{symbol} 资金费率缺失")
+            # Match momentum/funding_arb's as-of cutoff and nine-period average.
+            recent = series[series.index <= latest_ts].iloc[-9:]
+            times = [utc_time(timestamp) for timestamp in recent.index]
+            if (len(recent) < 9 or utc_time(series.index[-1]) > now
+                    or utc_time(latest_ts) - times[-1] > timedelta(hours=8)
+                    or any(later - earlier > timedelta(hours=8) for earlier, later in zip(times, times[1:]))
+                    or any(not math.isfinite(float(value)) for value in recent)):
+                raise RuntimeError(f"{symbol} 策略截止时间的资金费率过期、不完整或无效")
 
     def _save_state(self, ts, rs, candidates, opened, prices):
         """保存状态 + 信号文件 + 更新 latest.json 给 Dashboard"""
@@ -269,7 +309,11 @@ class LiveEngine:
             ]
         else:
             portfolio_value = self.portfolio_value
-            positions = []
+            positions = [{"symbol": p.symbol, "side": p.side, "qty": p.contracts,
+                          "entry": p.entry_price, "current": prices.get(p.symbol, p.current_price),
+                          "pnl_pct": self._pos_pnl_pct({"side": p.side, "entry_price": p.entry_price},
+                                                       prices.get(p.symbol, p.current_price))}
+                         for p in self.live_manager.positions.values()]
 
         state = {
             "timestamp":    ts,
@@ -279,6 +323,7 @@ class LiveEngine:
             "nav":          round(portfolio_value / (self.sim.initial if self.sim else self.portfolio_value), 4) if self.sim else 1.0,
             "positions":    positions,
             "opened":       opened,
+            "closed":       self.closed,
         }
         STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
         STATE_FILE.write_text(json.dumps(state, indent=2, ensure_ascii=False))
@@ -334,7 +379,7 @@ class LiveEngine:
         双轨模式：实盘机器设 SKIP_GITHUB_PUSH=1 跳过推送（数据推送只留给模拟盘服务器，避免互相覆盖）
         """
         import os
-        if os.environ.get("SKIP_GITHUB_PUSH", "") == "1":
+        if not self.dry_run or os.environ.get("SKIP_GITHUB_PUSH", "") == "1":
             logger.info("SKIP_GITHUB_PUSH=1，跳过数据推送（实盘节点不推数据）")
             return
         try:
@@ -361,8 +406,12 @@ class LiveEngine:
                 capture_output=True, text=True, timeout=600
             )
             if result.returncode != 0:
+                if not self.dry_run:
+                    raise RuntimeError(f"行情更新失败：{result.stderr[:200]}")
                 logger.warning("数据更新失败: %s", result.stderr[:200])
             else:
                 logger.info("数据更新成功")
         except Exception as e:
+            if not self.dry_run:
+                raise
             logger.warning("数据更新异常: %s", e)

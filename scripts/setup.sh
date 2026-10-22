@@ -11,7 +11,7 @@ python3 -m venv .venv
 source .venv/bin/activate
 
 # 安装依赖
-pip install -q ccxt pandas numpy torch ta tqdm python-dateutil
+python -m pip install -q -r requirements.txt
 
 echo ""
 echo "✅ 环境初始化完成"

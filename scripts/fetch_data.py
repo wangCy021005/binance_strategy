@@ -9,6 +9,7 @@
   - ccxt.binanceusdm   → USDT本位永续合约资金费率（fapi API，不用dapi）
 """
 import sys
+import os
 import sqlite3
 import time
 import argparse
@@ -30,9 +31,11 @@ def get_spot_exchange():
     """现货 K 线（只加载 spot 市场，跳过 coin-M 期货避免 dapi 被拦）
     国内服务器覆盖 public 域名为 binance.vision（公共数据，免代理可达）
     """
+    proxy_url = os.environ.get("PROXY_URL")
     ex = ccxt.binance({
         "enableRateLimit": True,
         "options": {"fetchMarkets": ["spot"]},
+        "proxies": {"http": proxy_url, "https": proxy_url} if proxy_url else None,
     })
     # 用 dict 方式覆盖 public endpoint（避免 sandbox 检测错误）
     ex.urls['api']['public'] = 'https://data-api.binance.vision/api/v3'
@@ -41,7 +44,11 @@ def get_spot_exchange():
 
 def get_futures_exchange():
     """USDT 本位永续合约（fapi.binance.com，不是 dapi）"""
-    return ccxt.binanceusdm({"enableRateLimit": True})
+    proxy_url = os.environ.get("PROXY_URL")
+    return ccxt.binanceusdm({
+        "enableRateLimit": True,
+        "proxies": {"http": proxy_url, "https": proxy_url} if proxy_url else None,
+    })
 
 
 def fetch_ohlcv(symbol: str, timeframe: str, start: str, end: str = None):
@@ -174,7 +181,8 @@ def main():
     end = args.end or datetime.now(tz=timezone.utc).strftime("%Y-%m-%d")
 
     if args.all:
-        symbols = CFG.symbols
+        # BTC 不在交易列表时，Regime 识别仍需要更新它的基准行情。
+        symbols = list(dict.fromkeys([*CFG.symbols, "BTC/USDT"]))
     elif args.symbol:
         s = args.symbol
         if "USDT" in s and "/" not in s:
