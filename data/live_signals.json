@@ -1,35 +1,35 @@
 {
-  "as_of": "2026-10-22",
+  "as_of": "2026-10-23",
   "regime": "ranging",
   "slots": 3,
   "cap_pct": 50,
   "signals": [
     {
-      "symbol": "UNI/USDT",
-      "direction": "long",
-      "score": 0.295,
-      "momentum": 131.0,
-      "strategy": "momentum"
-    },
-    {
-      "symbol": "ETH/USDT",
+      "symbol": "AAVE/USDT",
       "direction": "long",
       "score": 0.293,
-      "momentum": 41.3,
+      "momentum": 96.0,
       "strategy": "momentum"
     },
     {
-      "symbol": "NEAR/USDT",
+      "symbol": "UNI/USDT",
       "direction": "long",
-      "score": 0.276,
-      "momentum": 141.2,
+      "score": 0.287,
+      "momentum": 118.4,
+      "strategy": "momentum"
+    },
+    {
+      "symbol": "AVAX/USDT",
+      "direction": "long",
+      "score": 0.263,
+      "momentum": 44.5,
       "strategy": "momentum"
     },
     {
       "symbol": "LINK/USDT",
       "direction": "long",
-      "score": 0.274,
-      "momentum": 54.5,
+      "score": 0.26,
+      "momentum": 49.2,
       "strategy": "momentum"
     }
   ]
