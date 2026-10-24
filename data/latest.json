@@ -14070,6 +14070,12 @@
       "nav": 2.6075,
       "cash": 1067.56,
       "total": 2607.51
+    },
+    {
+      "time": "2026-10-24T16:14:18Z",
+      "nav": 2.5403,
+      "cash": 1015.74,
+      "total": 2540.26
     }
   ],
   "sim_trades": [
@@ -14567,19 +14573,30 @@
       "pnl_pct": -8.47,
       "reason": "硬止损 -8.5%",
       "strategy": "momentum"
+    },
+    {
+      "time": "2026-10-24T16:14:18Z",
+      "symbol": "LTC/USDT",
+      "side": "close_long",
+      "entry": 61.06,
+      "exit": 55.84,
+      "pnl": -137.7872,
+      "pnl_pct": -8.55,
+      "reason": "硬止损 -8.5%",
+      "strategy": "momentum"
     }
   ],
   "sim_stats": {
-    "nav": 2.6075,
-    "total_return": 160.75,
-    "annual_return": 69.49,
-    "sharpe": 1.37,
+    "nav": 2.5403,
+    "total_return": 154.02999999999997,
+    "annual_return": 66.94,
+    "sharpe": 1.337,
     "max_drawdown": -36.88,
     "start": "2025-01-01",
-    "end": "2026-10-23",
-    "cash": 1067.5631675515976,
+    "end": "2026-10-24",
+    "cash": 1015.7388977503895,
     "positions": 1,
-    "total_trades": 45,
-    "win_rate": 0.4444444444444444
+    "total_trades": 46,
+    "win_rate": 0.43478260869565216
   }
 }
