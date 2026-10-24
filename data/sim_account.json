@@ -1,13 +1,13 @@
 {
-  "cash": 1067.5631675515976,
+  "cash": 1015.7388977503895,
   "initial_cash": 1000.0,
   "positions": {
-    "LTC/USDT": {
+    "BNB/USDT": {
       "side": "long",
-      "qty": 26.396011749208462,
-      "entry": 61.06,
-      "high": 62.0,
-      "open_time": "2026-10-12T00:00:00Z",
+      "qty": 2.1095117691705454,
+      "entry": 722.69,
+      "high": 722.69,
+      "open_time": "2026-10-24T16:14:18Z",
       "strategy": "momentum"
     }
   },
@@ -504,6 +504,17 @@
       "exit": 12.625,
       "pnl": -144.2267,
       "pnl_pct": -8.47,
+      "reason": "硬止损 -8.5%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-10-24T16:14:18Z",
+      "symbol": "LTC/USDT",
+      "side": "close_long",
+      "entry": 61.06,
+      "exit": 55.84,
+      "pnl": -137.7872,
+      "pnl_pct": -8.55,
       "reason": "硬止损 -8.5%",
       "strategy": "momentum"
     }
@@ -4486,7 +4497,13 @@
       "nav": 2.6075,
       "cash": 1067.56,
       "total": 2607.51
+    },
+    {
+      "time": "2026-10-24T16:14:18Z",
+      "nav": 2.5403,
+      "cash": 1015.74,
+      "total": 2540.26
     }
   ],
-  "last_update": "2026-10-23T16:14:20Z"
+  "last_update": "2026-10-24T16:14:18Z"
 }
