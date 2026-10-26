@@ -14082,6 +14082,12 @@
       "nav": 2.5821,
       "cash": 1015.28,
       "total": 2582.14
+    },
+    {
+      "time": "2026-10-26T16:14:20Z",
+      "nav": 2.5826,
+      "cash": 1014.82,
+      "total": 2582.55
     }
   ],
   "sim_trades": [
@@ -14593,14 +14599,14 @@
     }
   ],
   "sim_stats": {
-    "nav": 2.5821,
-    "total_return": 158.21,
-    "annual_return": 68.31,
-    "sharpe": 1.355,
+    "nav": 2.5826,
+    "total_return": 158.26,
+    "annual_return": 68.2,
+    "sharpe": 1.354,
     "max_drawdown": -36.88,
     "start": "2025-01-01",
-    "end": "2026-10-25",
-    "cash": 1015.2815408322509,
+    "end": "2026-10-26",
+    "cash": 1014.8241839141124,
     "positions": 1,
     "total_trades": 46,
     "win_rate": 0.43478260869565216
