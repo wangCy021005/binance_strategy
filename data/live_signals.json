@@ -1,35 +1,35 @@
 {
-  "as_of": "2026-10-27",
+  "as_of": "2026-10-28",
   "regime": "ranging",
   "slots": 3,
   "cap_pct": 50,
   "signals": [
     {
-      "symbol": "BNB/USDT",
-      "direction": "long",
-      "score": 0.278,
-      "momentum": 25.9,
-      "strategy": "momentum"
-    },
-    {
-      "symbol": "UNI/USDT",
-      "direction": "long",
-      "score": 0.273,
-      "momentum": 139.7,
-      "strategy": "momentum"
-    },
-    {
       "symbol": "AAVE/USDT",
       "direction": "long",
-      "score": 0.268,
-      "momentum": 81.0,
+      "score": 0.264,
+      "momentum": 84.7,
       "strategy": "momentum"
     },
     {
-      "symbol": "INJ/USDT",
+      "symbol": "BNB/USDT",
       "direction": "long",
       "score": 0.252,
-      "momentum": 67.2,
+      "momentum": 28.9,
+      "strategy": "momentum"
+    },
+    {
+      "symbol": "NEAR/USDT",
+      "direction": "long",
+      "score": 0.237,
+      "momentum": 136.2,
+      "strategy": "momentum"
+    },
+    {
+      "symbol": "FET/USDT",
+      "direction": "long",
+      "score": 0.227,
+      "momentum": 4.7,
       "strategy": "momentum"
     }
   ]
