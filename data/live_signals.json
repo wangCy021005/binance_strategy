@@ -1,15 +1,7 @@
 {
-  "as_of": "2026-11-03",
+  "as_of": "2026-11-04",
   "regime": "ranging",
   "slots": 3,
   "cap_pct": 50,
-  "signals": [
-    {
-      "symbol": "ATOM/USDT",
-      "direction": "short",
-      "score": 0.225,
-      "momentum": -6.7,
-      "strategy": "momentum"
-    }
-  ]
+  "signals": []
 }
