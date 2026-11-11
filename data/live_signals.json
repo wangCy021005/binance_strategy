@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-11-10",
+  "as_of": "2026-11-11",
   "regime": "ranging",
   "slots": 3,
   "cap_pct": 50,
@@ -7,29 +7,29 @@
     {
       "symbol": "INJ/USDT",
       "direction": "long",
-      "score": 0.216,
-      "momentum": 68.4,
+      "score": 0.227,
+      "momentum": 69.7,
       "strategy": "momentum"
     },
     {
       "symbol": "ATOM/USDT",
       "direction": "short",
-      "score": 0.213,
-      "momentum": -14.7,
+      "score": 0.223,
+      "momentum": -11.2,
       "strategy": "momentum"
     },
     {
-      "symbol": "FET/USDT",
+      "symbol": "XRP/USDT",
       "direction": "short",
-      "score": 0.211,
-      "momentum": -16.2,
+      "score": 0.22,
+      "momentum": -5.0,
       "strategy": "momentum"
     },
     {
       "symbol": "DOGE/USDT",
       "direction": "short",
-      "score": 0.197,
-      "momentum": -8.6,
+      "score": 0.216,
+      "momentum": -8.3,
       "strategy": "momentum"
     }
   ]
