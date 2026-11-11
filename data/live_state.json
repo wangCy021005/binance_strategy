@@ -1,17 +1,17 @@
 {
-  "timestamp": "2026-11-10T16:10:02Z",
+  "timestamp": "2026-11-11T16:10:02Z",
   "dry_run": true,
   "regime": "ranging",
-  "portfolio": 2439.12,
-  "nav": 2.4391,
+  "portfolio": 2454.57,
+  "nav": 2.4546,
   "positions": [
     {
       "symbol": "BNB/USDT",
       "side": "long",
       "qty": 2.109512,
       "entry": 722.69,
-      "current": 678.43,
-      "pnl_pct": -6.12
+      "current": 685.97,
+      "pnl_pct": -5.08
     }
   ],
   "opened": [],
