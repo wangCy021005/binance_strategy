@@ -1,13 +1,13 @@
 {
-  "cash": 1007.5064732238957,
+  "cash": 958.2169404354745,
   "initial_cash": 1000.0,
   "positions": {
-    "BNB/USDT": {
+    "INJ/USDT": {
       "side": "long",
-      "qty": 2.1095117691705454,
-      "entry": 722.69,
-      "high": 751.69,
-      "open_time": "2026-10-24T16:14:18Z",
+      "qty": 191.91197273117163,
+      "entry": 7.494,
+      "high": 7.494,
+      "open_time": "2026-11-12T16:14:17Z",
       "strategy": "momentum"
     }
   },
@@ -516,6 +516,17 @@
       "pnl": -137.7872,
       "pnl_pct": -8.55,
       "reason": "硬止损 -8.5%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-11-12T16:14:17Z",
+      "symbol": "BNB/USDT",
+      "side": "close_long",
+      "entry": 722.69,
+      "exit": 658.96,
+      "pnl": -134.4392,
+      "pnl_pct": -8.82,
+      "reason": "硬止损 -8.8%",
       "strategy": "momentum"
     }
   ],
@@ -4611,7 +4622,13 @@
       "nav": 2.4546,
       "cash": 1007.51,
       "total": 2454.57
+    },
+    {
+      "time": "2026-11-12T16:14:17Z",
+      "nav": 2.3964,
+      "cash": 958.22,
+      "total": 2396.41
     }
   ],
-  "last_update": "2026-11-11T16:12:20Z"
+  "last_update": "2026-11-12T16:14:17Z"
 }
