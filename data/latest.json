@@ -14184,6 +14184,12 @@
       "nav": 2.4546,
       "cash": 1007.51,
       "total": 2454.57
+    },
+    {
+      "time": "2026-11-12T16:14:17Z",
+      "nav": 2.3964,
+      "cash": 958.22,
+      "total": 2396.41
     }
   ],
   "sim_trades": [
@@ -14692,19 +14698,30 @@
       "pnl_pct": -8.55,
       "reason": "硬止损 -8.5%",
       "strategy": "momentum"
+    },
+    {
+      "time": "2026-11-12T16:14:17Z",
+      "symbol": "BNB/USDT",
+      "side": "close_long",
+      "entry": 722.69,
+      "exit": 658.96,
+      "pnl": -134.4392,
+      "pnl_pct": -8.82,
+      "reason": "硬止损 -8.8%",
+      "strategy": "momentum"
     }
   ],
   "sim_stats": {
-    "nav": 2.4546,
-    "total_return": 145.46,
-    "annual_return": 61.7,
-    "sharpe": 1.276,
+    "nav": 2.3964,
+    "total_return": 139.64,
+    "annual_return": 59.53,
+    "sharpe": 1.246,
     "max_drawdown": -36.88,
     "start": "2025-01-01",
-    "end": "2026-11-11",
-    "cash": 1007.5064732238957,
+    "end": "2026-11-12",
+    "cash": 958.2169404354745,
     "positions": 1,
-    "total_trades": 46,
-    "win_rate": 0.43478260869565216
+    "total_trades": 47,
+    "win_rate": 0.425531914893617
   }
 }
