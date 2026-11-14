@@ -1,17 +1,17 @@
 {
-  "timestamp": "2026-11-13T16:10:02Z",
+  "timestamp": "2026-11-14T16:10:01Z",
   "dry_run": true,
   "regime": "ranging",
-  "portfolio": 2523.02,
-  "nav": 2.523,
+  "portfolio": 2358.89,
+  "nav": 2.3589,
   "positions": [
     {
       "symbol": "INJ/USDT",
       "side": "long",
       "qty": 191.911973,
       "entry": 7.494,
-      "current": 8.156,
-      "pnl_pct": 8.83
+      "current": 7.303,
+      "pnl_pct": -2.55
     }
   ],
   "opened": [],
