@@ -14208,6 +14208,12 @@
       "nav": 2.2863,
       "cash": 956.92,
       "total": 2286.3
+    },
+    {
+      "time": "2026-11-16T16:13:18Z",
+      "nav": 2.2412,
+      "cash": 896.17,
+      "total": 2241.24
     }
   ],
   "sim_trades": [
@@ -14727,19 +14733,30 @@
       "pnl_pct": -8.82,
       "reason": "硬止损 -8.8%",
       "strategy": "momentum"
+    },
+    {
+      "time": "2026-11-16T16:13:18Z",
+      "symbol": "INJ/USDT",
+      "side": "close_long",
+      "entry": 7.494,
+      "exit": 6.698,
+      "pnl": -152.7619,
+      "pnl_pct": -10.62,
+      "reason": "硬止损 -10.6%",
+      "strategy": "momentum"
     }
   ],
   "sim_stats": {
-    "nav": 2.2863,
-    "total_return": 128.63000000000002,
-    "annual_return": 55.27,
-    "sharpe": 1.181,
+    "nav": 2.2412,
+    "total_return": 124.12,
+    "annual_return": 53.54,
+    "sharpe": 1.157,
     "max_drawdown": -36.88,
     "start": "2025-01-01",
-    "end": "2026-11-15",
-    "cash": 956.9225709441918,
+    "end": "2026-11-16",
+    "cash": 896.171449901896,
     "positions": 1,
-    "total_trades": 47,
-    "win_rate": 0.425531914893617
+    "total_trades": 48,
+    "win_rate": 0.4166666666666667
   }
 }
