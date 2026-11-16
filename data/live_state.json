@@ -1,19 +1,21 @@
 {
-  "timestamp": "2026-11-15T16:10:02Z",
+  "timestamp": "2026-11-16T16:10:01Z",
   "dry_run": true,
   "regime": "ranging",
-  "portfolio": 2286.3,
-  "nav": 2.2863,
+  "portfolio": 2241.24,
+  "nav": 2.2412,
   "positions": [
     {
-      "symbol": "INJ/USDT",
-      "side": "long",
-      "qty": 191.911973,
-      "entry": 7.494,
-      "current": 6.927,
-      "pnl_pct": -7.57
+      "symbol": "DOT/USDT",
+      "side": "short",
+      "qty": 1862.969825,
+      "entry": 0.722,
+      "current": 0.722,
+      "pnl_pct": 0.0
     }
   ],
-  "opened": [],
+  "opened": [
+    "DOT/USDT"
+  ],
   "closed": []
 }
