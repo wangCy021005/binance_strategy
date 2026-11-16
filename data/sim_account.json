@@ -1,13 +1,13 @@
 {
-  "cash": 956.9225709441918,
+  "cash": 896.171449901896,
   "initial_cash": 1000.0,
   "positions": {
-    "INJ/USDT": {
-      "side": "long",
-      "qty": 191.91197273117163,
-      "entry": 7.494,
-      "high": 8.156,
-      "open_time": "2026-11-12T16:14:17Z",
+    "DOT/USDT": {
+      "side": "short",
+      "qty": 1862.969824627247,
+      "entry": 0.722,
+      "high": 0.722,
+      "open_time": "2026-11-16T16:13:18Z",
       "strategy": "momentum"
     }
   },
@@ -527,6 +527,17 @@
       "pnl": -134.4392,
       "pnl_pct": -8.82,
       "reason": "硬止损 -8.8%",
+      "strategy": "momentum"
+    },
+    {
+      "time": "2026-11-16T16:13:18Z",
+      "symbol": "INJ/USDT",
+      "side": "close_long",
+      "entry": 7.494,
+      "exit": 6.698,
+      "pnl": -152.7619,
+      "pnl_pct": -10.62,
+      "reason": "硬止损 -10.6%",
       "strategy": "momentum"
     }
   ],
@@ -4646,7 +4657,13 @@
       "nav": 2.2863,
       "cash": 956.92,
       "total": 2286.3
+    },
+    {
+      "time": "2026-11-16T16:13:18Z",
+      "nav": 2.2412,
+      "cash": 896.17,
+      "total": 2241.24
     }
   ],
-  "last_update": "2026-11-15T16:14:19Z"
+  "last_update": "2026-11-16T16:13:18Z"
 }
