@@ -1,17 +1,17 @@
 {
-  "timestamp": "2026-11-17T16:10:02Z",
+  "timestamp": "2026-11-18T16:10:02Z",
   "dry_run": true,
   "regime": "ranging",
-  "portfolio": 2227.79,
-  "nav": 2.2278,
+  "portfolio": 2251.61,
+  "nav": 2.2516,
   "positions": [
     {
       "symbol": "DOT/USDT",
       "side": "short",
       "qty": 1862.969825,
       "entry": 0.722,
-      "current": 0.729,
-      "pnl_pct": -0.97
+      "current": 0.716,
+      "pnl_pct": 0.83
     }
   ],
   "opened": [],
