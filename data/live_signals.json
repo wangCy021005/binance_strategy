@@ -1,35 +1,35 @@
 {
-  "as_of": "2026-11-22",
+  "as_of": "2026-11-23",
   "regime": "ranging",
   "slots": 3,
   "cap_pct": 50,
   "signals": [
     {
-      "symbol": "FET/USDT",
-      "direction": "short",
-      "score": 0.284,
-      "momentum": -31.3,
-      "strategy": "momentum"
-    },
-    {
-      "symbol": "ADA/USDT",
-      "direction": "short",
-      "score": 0.279,
-      "momentum": -13.4,
-      "strategy": "momentum"
-    },
-    {
       "symbol": "ATOM/USDT",
       "direction": "short",
-      "score": 0.275,
-      "momentum": -21.8,
+      "score": 0.279,
+      "momentum": -20.4,
       "strategy": "momentum"
     },
     {
-      "symbol": "ETH/USDT",
+      "symbol": "FET/USDT",
       "direction": "short",
-      "score": 0.27,
-      "momentum": -9.5,
+      "score": 0.273,
+      "momentum": -31.1,
+      "strategy": "momentum"
+    },
+    {
+      "symbol": "DOT/USDT",
+      "direction": "short",
+      "score": 0.254,
+      "momentum": -19.3,
+      "strategy": "momentum"
+    },
+    {
+      "symbol": "DOGE/USDT",
+      "direction": "short",
+      "score": 0.252,
+      "momentum": -23.6,
       "strategy": "momentum"
     }
   ]
